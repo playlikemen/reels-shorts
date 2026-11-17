@@ -17,6 +17,12 @@ SPREADSHEET_ID = "1wnwYwhGw4kdhC5lHf6MCU208yRslGoppBzHkezUfYEk"
 SHEET_TAB = "@StackShade"
 ACCOUNT_ID = "googlesheets_louse-token"
 
+HEADERS = [
+    "Video ID", "Date", "Title / Hook", "Category / Topic", "Format",
+    "Duration", "Local Path", "Drive Folder Link", "Direct MP4 Download Link",
+    "Instagram Status", "Instagram Permalink", "YouTube Status", "YouTube Shorts URL", "Caption / Summary"
+]
+
 def get_composio_key():
     config_path = os.path.expanduser("~/.claude.json")
     if not os.path.exists(config_path):
@@ -58,7 +64,7 @@ def call_composio_tool(slug, args, account=ACCOUNT_ID):
 def get_all_rows():
     res = call_composio_tool("GOOGLESHEETS_VALUES_GET", {
         "spreadsheet_id": SPREADSHEET_ID,
-        "range": f"'{SHEET_TAB}'!A1:M100"
+        "range": f"'{SHEET_TAB}'!A1:N100"
     })
     results = res.get("data", {}).get("results", [{}])[0]
     return results.get("response", {}).get("data", {}).get("values", [])
@@ -66,25 +72,18 @@ def get_all_rows():
 def append_or_update_video_row(video_data):
     """
     video_data: dict with keys:
-    video_id, date, title, category, format, duration, local_path, drive_link,
+    video_id, date, title, category, format, duration, local_path, drive_link, direct_download_link,
     instagram_status, instagram_permalink, youtube_status, youtube_url, caption
     """
     rows = get_all_rows()
-    headers = [
-        "Video ID", "Date", "Title / Hook", "Category / Topic", "Format",
-        "Duration", "Local Path", "Drive Link", "Instagram Status",
-        "Instagram Permalink", "YouTube Status", "YouTube Shorts URL", "Caption / Summary"
-    ]
     
-    if not rows or len(rows) == 0:
-        # Write headers first
-        call_composio_tool("GOOGLESHEETS_VALUES_UPDATE", {
-            "spreadsheet_id": SPREADSHEET_ID,
-            "range": f"'{SHEET_TAB}'!A1:M1",
-            "value_input_option": "USER_ENTERED",
-            "values": [headers]
-        })
-        rows = [headers]
+    # Always ensure headers are in row 1
+    call_composio_tool("GOOGLESHEETS_VALUES_UPDATE", {
+        "spreadsheet_id": SPREADSHEET_ID,
+        "range": f"'{SHEET_TAB}'!A1:N1",
+        "value_input_option": "USER_ENTERED",
+        "values": [HEADERS]
+    })
 
     row_index = None
     target_id = video_data.get("video_id")
@@ -102,6 +101,7 @@ def append_or_update_video_row(video_data):
         video_data.get("duration", ""),
         video_data.get("local_path", ""),
         video_data.get("drive_link", ""),
+        video_data.get("direct_download_link", ""),
         video_data.get("instagram_status", "Pending"),
         video_data.get("instagram_permalink", ""),
         video_data.get("youtube_status", "Pending"),
@@ -110,7 +110,7 @@ def append_or_update_video_row(video_data):
     ]
 
     if row_index is not None:
-        target_range = f"'{SHEET_TAB}'!A{row_index}:M{row_index}"
+        target_range = f"'{SHEET_TAB}'!A{row_index}:N{row_index}"
         res = call_composio_tool("GOOGLESHEETS_VALUES_UPDATE", {
             "spreadsheet_id": SPREADSHEET_ID,
             "range": target_range,
@@ -119,8 +119,8 @@ def append_or_update_video_row(video_data):
         })
         print(f"Updated row {row_index} for {target_id}")
     else:
-        next_row = len(rows) + 1
-        target_range = f"'{SHEET_TAB}'!A{next_row}:M{next_row}"
+        next_row = len(rows) + 1 if len(rows) > 0 else 2
+        target_range = f"'{SHEET_TAB}'!A{next_row}:N{next_row}"
         res = call_composio_tool("GOOGLESHEETS_VALUES_UPDATE", {
             "spreadsheet_id": SPREADSHEET_ID,
             "range": target_range,
