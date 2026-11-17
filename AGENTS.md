@@ -29,27 +29,42 @@ reels-shorts/
 ├── brands/
 │   ├── stackshade/
 │   │   ├── brand.md           # Brand positioning, voice, typography, safe areas
-│   │   ├── calendar.csv       # Content programming schedule
-│   │   ├── assets/            # Logos, icons, badges
+│   │   ├── series/
+│   │   │   └── linux-40/      # 40-part Linux Masterclass curriculum & README
 │   │   └── reels/
-│   │       ├── 2026-11-17-redis-vs-mysql/ (SS-001)
-│   │       ├── 2026-11-17-how-ai-agents-code/ (SS-002)
-│   │       └── 2026-11-17-ai-security-alerts/ (SS-003, News/Trend)
+│   │       ├── 2026-11-17-lnx-001-cd---&-directory-jumping/ (LNX-001, Published)
+│   │       ├── 2026-11-17-lnx-002-ls--lah-&-hidden-inodes/ (LNX-002, Ready)
+│   │       ├── 2026-11-17-lnx-003-ctrl+r-&-reverse-search/ (LNX-003, Ready)
+│   │       ├── 2026-11-17-redis-vs-mysql/ (SS-001, Published)
+│   │       ├── 2026-11-17-how-ai-agents-code/ (SS-002, Ready)
+│   │       └── 2026-11-17-ai-security-alerts/ (SS-003, Ready)
 │   └── indexfast/
 │       ├── brand.md           # SEO positioning, crawl budget automation
 │       └── reels/
-│           └── 2026-11-17-google-indexing-in-24h/ (IF-001)
+│           └── 2026-11-17-google-indexing-in-24h/ (IF-001, Published)
 ├── shared/
 │   ├── fonts/                 # WOFF2 fonts (Inter 700/900, JetBrains Mono 700)
+│   ├── assets/audio/          # Studio sound effects (keyboard clacks, enter beeps, sub whooshes)
 │   └── scripts/
-│       ├── reelkit.js         # Canvas/HyperFrames animation framework
-│       ├── render.mjs         # Headless browser frame capture & MP4 muxing
+│       ├── reelkit.js         # Canvas/HyperFrames animation framework & camera punches
+│       ├── render.mjs         # Headless browser frame capture & multi-track audio muxing
+│       ├── tts_engine.py      # Edge Neural TTS & word-boundary caption timing generator
+│       ├── sfx_library.py     # Studio SFX synthesizer
+│       ├── openverse_client.py# Openverse CC0 asset client
 │       ├── sync_sheet.py      # Composio Google Sheets sync & beautification
 │       ├── sync_drive.py      # Google Drive resumable upload & direct links
 │       ├── publish_instagram.py # Instagram Reels multi-brand publisher
 │       └── publish_youtube.py # YouTube Shorts publisher
+├── skills/                    # 27 Motion Graphics Skills from iart-ai/motion-skills
+│   ├── short-form-video/      # Hook grammar, pattern interrupts, retention curve
+│   ├── caption-animation/     # Kinetic karaoke captions with active-word pop
+│   ├── kinetic-typography/    # Expressive text reveals & typography in motion
+│   ├── soundtrack/            # Procedural Web Audio score & SFX synthesis
+│   └── ...                    # 23 additional motion graphics skills
+├── tools/verify/              # Video verification scripts (probe-mp4, contact-sheet, seek-shot)
 └── pipeline/
-    ├── RUNBOOK.md             # Standard Operating Procedure
+    ├── batch_linux_engine.py  # 40-part automated batch generator & renderer
+    ├── build_linux_curriculum.py # Master syllabus generator
     ├── daily_scheduler.py     # Automated daily 3-reel scheduling engine
     └── publish-log.jsonl      # Audit trail & status tracking
 ```
@@ -59,26 +74,31 @@ reels-shorts/
 ## 3. Core Commands
 
 ```bash
-# 1. Render a contact sheet (check layout & text before full render)
+# 1. Produce Linux Series Episodes (Neural Voiceover + Kinetic HTML + MP4 + Drive + Sheets)
+npm run series:produce -- --episodes 1          # Produce Episode 1
+npm run series:produce -- --episodes 1-5        # Produce Batch 1-5
+npm run series:produce -- --episodes all        # Produce all 40 episodes
+
+# 2. Render a contact sheet (check layout & text before full render)
 npm run render -- brands/stackshade/reels/<reel_dir>/src/reel.html brands/stackshade/reels/<reel_dir>/out/sheet.jpg --sheet 2
 
-# 2. Render the full MP4 video (with code-synthesized audio)
+# 3. Render the full MP4 video (with code-synthesized audio)
 npm run render -- brands/stackshade/reels/<reel_dir>/src/reel.html brands/stackshade/reels/<reel_dir>/out/final.mp4
 
-# 3. Upload artifacts to Google Drive (guarantees size > 100KB, generates direct download link)
+# 4. Upload artifacts to Google Drive (guarantees size > 100KB, generates direct download link)
 npm run drive:sync -- brands/stackshade/reels/<reel_dir>
 
-# 4. Sync metadata to Google Sheet & auto-beautify tab
+# 5. Sync metadata to Google Sheet & auto-beautify tab
 npm run sheet:sync -- --add-json brands/stackshade/reels/<reel_dir>/out/metadata.json --tab "@StackShade"
 
-# 5. Beautify Google Sheet tabs (frozen header, Obsidian header #0F172A, column widths, text wrapping)
+# 6. Beautify Google Sheet tabs (frozen header, Obsidian header #0F172A, column widths, text wrapping)
 npm run sheet:beautify -- --tab "@StackShade"
 npm run sheet:beautify -- --tab "@indexfast"
 
-# 6. Daily scheduler dry-run (inspect queue and planned slots)
-npm run schedule:dry-run
+# 7. Publish to Instagram
+python3.11 shared/scripts/publish_instagram.py brands/stackshade/reels/<reel_dir>
 
-# 7. Daily scheduler live execution (posts to Instagram, updates Google Sheets)
+# 8. Daily scheduler live execution
 npm run schedule:publish
 ```
 
@@ -87,11 +107,11 @@ npm run schedule:publish
 ## 4. Google Sheet Structure (17 Columns)
 
 Both `@StackShade` and `@indexfast` tabs maintain 17 columns:
-1. `Video ID`: Unique identifier (`SS-001`, `IF-001`)
+1. `Video ID`: Unique identifier (`SS-001`, `IF-001`, `LNX-001`)
 2. `Date`: Creation / scheduled post date
 3. `Category / Topic`: Primary content pillar
 4. `Format`: Production engine (`HyperFrames Motion Graphics`, etc.)
-5. `Duration`: Video duration (`15s`, `30s`)
+5. `Duration`: Video duration (`15s`, `17s`, `30s`)
 6. `Local Path`: Relative path to MP4 deliverable
 7. `Google Drive Folder`: Shareable Drive folder link
 8. `Direct MP4 Download Link`: Direct one-click stream link (`https://drive.google.com/uc?id={file_id}&export=download`)
@@ -117,4 +137,4 @@ Both `@StackShade` and `@indexfast` tabs maintain 17 columns:
 - **Color Palette**:
   - StackShade: Dark obsidian `#070a12`, Cyan `#38bdf8`, Emerald `#10b981`, Amber `#f59e0b`.
   - IndexFast: Emerald Obsidian `#060d0a`, Neon Emerald `#10b981`, Cyan `#06b6d4`.
-- **Audio**: Deterministic Web Audio synthesizer in `window.SCORE`.
+- **Sound Design**: Multi-track mix of Edge Neural TTS voiceover (`[1:a]volume=1.15`), Web Audio procedural techno bed (`[2:a]volume=0.12`), and studio sound effects (keyboard typing clacks, enter bleeps, and sub-bass whooshes).
