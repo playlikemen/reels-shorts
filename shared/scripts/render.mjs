@@ -65,7 +65,8 @@ if (opt('--stills')) {
   const every = opt('--sheet') === true ? 1 : Number(opt('--sheet'));
   const near = t => (info.CUES || []).find(c => Math.abs(t - c) < .35);
   const frames = []; for (let t = every / 2; t * info.FPS < info.FRAMES; t += every) { const c = near(t); frames.push(Math.min(info.FRAMES - 1, Math.round((c !== undefined ? c + .45 : t) * info.FPS))); }
-  const dir = mkdtempSync(join(tmpdir(), 'sheet-'));
+  const tempBase = existsSync('/home/kunalkashyap8024/.cache') ? '/home/kunalkashyap8024/.cache' : dirname(out);
+  const dir = mkdtempSync(join(tempBase, 'sheet-'));
   for (let i = 0; i < frames.length; i++) writeFileSync(join(dir, `f${String(i).padStart(4, '0')}.jpg`), await stamped(frames[i], info.FPS));
   const cols = Math.ceil(Math.sqrt(frames.length)), rows = Math.ceil(frames.length / cols), tw = 360;
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', join(dir, 'f%04d.jpg'),

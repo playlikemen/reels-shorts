@@ -150,7 +150,7 @@ def validate_video_deliverable(video_data):
     if file_size < 100 * 1024:  # Under 100 KB is invalid/empty
         raise ValueError(f"Validation Error: Video file '{local_path}' is {file_size} bytes (0 KB or corrupted). Refusing to add to sheet.")
 
-    direct_link = video_data.get("direct_download_link", "")
+    direct_link = video_data.get("direct_download_link") or video_data.get("direct_mp4_download_link", "")
     if not direct_link:
         raise ValueError("Validation Error: Missing direct_download_link in metadata. Run sync_drive.py first.")
 
@@ -279,21 +279,21 @@ def append_or_update_video_row(video_data, sheet_tab="@StackShade"):
     new_row = [
         video_data.get("video_id", ""),
         video_data.get("date", ""),
-        video_data.get("category", ""),
+        video_data.get("category_topic") or video_data.get("category", ""),
         video_data.get("format", ""),
         video_data.get("duration", ""),
         video_data.get("local_path", ""),
-        video_data.get("drive_link", ""),
-        video_data.get("direct_download_link", ""),
-        video_data.get("yt_title", video_data.get("title", "") + " #shorts"),
-        video_data.get("yt_seo_tags", ""),
-        video_data.get("yt_description", ""),
-        video_data.get("insta_caption", video_data.get("caption", "")),
-        video_data.get("insta_hashtags", ""),
+        video_data.get("google_drive_folder") or video_data.get("drive_link", ""),
+        video_data.get("direct_mp4_download_link") or video_data.get("direct_download_link", ""),
+        video_data.get("youtube_title") or video_data.get("yt_title", video_data.get("title", "") + " #shorts"),
+        video_data.get("youtube_seo_tags") or video_data.get("yt_seo_tags", ""),
+        video_data.get("youtube_best_seo_description") or video_data.get("yt_description", ""),
+        video_data.get("instagram_viral_caption") or video_data.get("insta_caption", video_data.get("caption", "")),
+        video_data.get("instagram_hashtags") or video_data.get("insta_hashtags", ""),
         video_data.get("instagram_status", "Ready"),
-        video_data.get("instagram_permalink", video_data.get("instagram_url", "")),
+        video_data.get("instagram_post_url") or video_data.get("instagram_permalink", video_data.get("instagram_url", "")),
         video_data.get("youtube_status", "Ready"),
-        video_data.get("youtube_url", "")
+        video_data.get("youtube_shorts_url") or video_data.get("youtube_url", "")
     ]
 
     if row_index is not None:

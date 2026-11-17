@@ -297,6 +297,10 @@ function techGrid(t, o = {}) {
   ctx.restore();
 }
 
+function grid(t, size = 80, color = 'rgba(255, 255, 255, 0.03)', accent = 'rgba(56, 189, 248, 0.06)') {
+  techGrid(t, { size, color, accent });
+}
+
 function bar(label, valText, pct, x, y, w, h, o = {}) {
   const { p = 1, fill = '#38bdf8', bg = 'rgba(255,255,255,0.06)', alpha = 1 } = o;
   txt(label, x, y - 14, { px: 30, fam: 'JetBrains Mono', wt: 600, fill: '#94a3b8', align: 'left', alpha });
@@ -340,6 +344,77 @@ function buildScore(ac, { bpm = 126, dur, root = 45, chords = [0, 3, 5, 2], mino
       osc('triangle', f(ch + 12 + tri[(i * 2 + e) % 4]), te, .28, .12);
     }
   }
+
+  // Synthesize Sound Effects inside Web Audio
+  if (hits && Array.isArray(hits)) {
+    for (const hit of hits) {
+      const ht = hit.t || 0;
+      if (hit.type === 'clack') {
+        const o = ac.createOscillator(); o.type = 'sine'; o.frequency.setValueAtTime(2400, ht);
+        const g = ac.createGain(); g.gain.setValueAtTime(0.2, ht); g.gain.exponentialRampToValueAtTime(0.001, ht + 0.03);
+        o.connect(g); g.connect(master); o.start(ht); o.stop(ht + 0.035);
+      } else if (hit.type === 'enter') {
+        const o = ac.createOscillator(); o.type = 'triangle'; o.frequency.setValueAtTime(1100, ht);
+        const g = ac.createGain(); g.gain.setValueAtTime(0.35, ht); g.gain.exponentialRampToValueAtTime(0.001, ht + 0.12);
+        o.connect(g); g.connect(master); o.start(ht); o.stop(ht + 0.13);
+      } else if (hit.type === 'whoosh') {
+        const o = ac.createOscillator(); o.type = 'sine';
+        o.frequency.setValueAtTime(140, ht); o.frequency.exponentialRampToValueAtTime(45, ht + 0.28);
+        const g = ac.createGain(); g.gain.setValueAtTime(0.45, ht); g.gain.exponentialRampToValueAtTime(0.001, ht + 0.32);
+        o.connect(g); g.connect(master); o.start(ht); o.stop(ht + 0.33);
+      }
+    }
+  }
+}
+
+// ==========================================
+// 4. ADVANCED TERMINAL & MOTION PRIMITIVES
+// ==========================================
+
+function punchCamera(t, punchTimestamps = [0.8, 3.5, 7.0], duration = 0.45, maxZoom = 1.07) {
+  let zoom = 1.0;
+  for (const pt of punchTimestamps) {
+    if (t >= pt && t < pt + duration) {
+      const p = (t - pt) / duration;
+      // Spring pop profile
+      const scaleBoost = (maxZoom - 1.0) * Math.sin(p * Math.PI) * Math.exp(-p * 2.5);
+      zoom += Math.max(0, scaleBoost);
+    }
+  }
+  if (zoom !== 1.0) {
+    ctx.translate(W / 2, H * 0.46);
+    ctx.scale(zoom, zoom);
+    ctx.translate(-W / 2, -H * 0.46);
+  }
+  return zoom;
+}
+
+function drawTerminalCard(x, y, w, h, { title = 'bash — 1080×1920', bg = '#0b1120', border = '#1e293b', glowColor = 'rgba(56, 189, 248, 0.15)', alpha = 1 } = {}) {
+  ctx.save();
+  setA(alpha);
+  glow(glowColor, 36);
+  rr(x, y, w, h, 24, bg, border, 3, alpha);
+  noGlow();
+
+  // Window Top Titlebar
+  rr(x, y, w, 68, [24, 24, 0, 0], 'rgba(255,255,255,0.03)', null, 0, alpha);
+  ctx.beginPath();
+  ctx.moveTo(x, y + 68);
+  ctx.lineTo(x + w, y + 68);
+  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Traffic light window buttons
+  const dotR = 8;
+  const dotY = y + 34;
+  rr(x + 36, dotY - dotR, dotR * 2, dotR * 2, dotR, '#ef4444', null, 0, alpha); // Red
+  rr(x + 64, dotY - dotR, dotR * 2, dotR * 2, dotR, '#f59e0b', null, 0, alpha); // Yellow
+  rr(x + 92, dotY - dotR, dotR * 2, dotR * 2, dotR, '#10b981', null, 0, alpha); // Green
+
+  // Title Text
+  txt(title, x + w / 2, y + 42, { px: 22, fam: 'JetBrains Mono', wt: 600, fill: '#64748b', align: 'center', alpha });
+  ctx.restore();
 }
 
 function startReel(frames, draw) {
