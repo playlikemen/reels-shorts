@@ -12,8 +12,8 @@
   "drive_file_id": "16LAOb0mHWVAJzPZ-W-deCqd_ExmJuZiQ",
   "drive_file_size": 4722965,
   "direct_download_link": "https://drive.google.com/uc?id=16LAOb0mHWVAJzPZ-W-deCqd_ExmJuZiQ&export=download",
-  "instagram_status": "Ready",
-  "instagram_permalink": "",
+  "instagram_status": "Published",
+  "instagram_permalink": "https://www.instagram.com/reel/Df2LsnVFRXt/",
   "youtube_status": "Ready",
   "youtube_url": "",
   "caption": "Why is Redis 100x faster than MySQL? \ud83d\ude80\u26a1 RAM vs Disk I/O & Single-Threaded Event Loop explained.",
@@ -24,5 +24,6 @@
   "yt_seo_tags": "redis vs mysql, system design, backend engineering, redis cache, ram vs disk, database optimization, in memory database, latency comparison, software engineering, redis tutorial, coding shorts, tech shorts",
   "yt_description": "Welcome to StackShade \u2014 where complex engineering becomes simple.\n\nWhy is Redis 100x faster than MySQL?\nIn this 15-second deep dive, we compare:\n\u2022 RAM vs NVMe Disk access latency (100ns vs 100,000ns)\n\u2022 Single-threaded event loop (epoll / kqueue) vs Multi-threaded lock contention\n\u2022 Cache-aside architectural pattern for 10x throughput\n\n\ud83d\udccc Recommended Architecture:\nKeep MySQL as your persistent source of truth (ACID compliance) and layer Redis as an in-memory cache-aside buffer to absorb 95% of read queries.\n\nSubscribe to @StackShade for daily system design breakdowns!\n\n#redis #mysql #systemdesign #backend #coding #shorts",
   "insta_caption": "Why is Redis 100x faster than MySQL? \ud83d\ude80\u26a1\n\nIt comes down to 2 engineering fundamentals:\n1\ufe0f\u20e3 RAM vs Disk latency: Memory access takes ~100ns, while NVMe SSD random reads take ~100,000ns.\n2\ufe0f\u20e3 Single-Threaded Event Loop: Redis eliminates lock contention and thread context switching using Linux epoll.\n\nPro Tip: Never replace MySQL with Redis. Use Redis as a cache-aside buffer and MySQL as your persistent store of truth!\n\nFollow @stackshade for daily engineering breakdowns \ud83d\udca1",
-  "insta_hashtags": "#redis #mysql #systemdesign #backenddeveloper #softwareengineering #coding #webdevelopment #database #techtrends #devlife #shorts #reels"
+  "insta_hashtags": "#redis #mysql #systemdesign #backenddeveloper #softwareengineering #coding #webdevelopment #database #techtrends #devlife #shorts #reels",
+  "instagram_media_id": "18027841589947980"
 }
