@@ -21,25 +21,26 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #000; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
-  canvas { width: auto; height: 95vh; aspect-ratio: 9/16; background: #060d0a; box-shadow: 0 0 50px rgba(16,185,129,0.15); }
+  canvas { width: auto; height: 95vh; aspect-ratio: 9/16; background: #060d0a; box-shadow: 0 0 60px rgba(16,185,129,0.25); }
 </style>
 </head>
 <body>
 <canvas width="1080" height="1920"></canvas>
+<script src="../out/captions.js"></script>
 <script src="../../../../../shared/scripts/reelkit.js"></script>
 <script>
-window.CUES = [0, 4.5, 9.0, 12.8];
+window.CUES = [0, 4.0, 14.8, 20.8, 27.8];
 
 window.SCORE = ac => {
   buildScore(ac, {
     bpm: 128,
-    dur: 15,
+    dur: 35,
     root: 48, // C
     chords: [0, 3, 5, 7],
     minor: false,
     kickFrom: 0.1,
-    level: 0.9,
-    hits: [0, 4.5, 9.0, 12.8]
+    level: 0.8,
+    hits: [0, 4.0, 14.8, 20.8, 27.8]
   });
 };
 
@@ -47,181 +48,180 @@ function drawReel(t) {
   // Emerald deep obsidian background
   ctx.fillStyle = '#060d0a';
   ctx.fillRect(0, 0, W, H);
-  techGrid(t, { size: 90, color: 'rgba(16, 185, 129, 0.04)', accent: 'rgba(16, 185, 129, 0.08)' });
+  techGrid(t, { size: 90, color: 'rgba(16, 185, 129, 0.035)', accent: 'rgba(16, 185, 129, 0.08)' });
 
-  // Persistent branding watermark (Safe Top Zone: Y=210)
-  txt('INDEXFAST  //  SEO AUTOMATION', W / 2, 210, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#10b981', ls: 3, alpha: 0.8 });
+  // Camera punch on each key reveal
+  applyZoomPunch(t, [0, 4.0, 8.0, 14.8, 20.8, 27.8], 1.05);
 
-  // SCENE 1: The 3-Week Crawl Delay (0 to 4.5s)
-  scene(t, 0, 4.5, (st, dur) => {
-    const p = prog(st, 0, 0.8);
-    badge('GOOGLE INDEXING DELAY', W / 2, 340, { px: 30, alpha: E.out(p), border: '#10b981', fill: '#10b981' });
-    
-    // Hook
-    rise('Why Google Takes', W / 2, 450, prog(st, 0.2, 0.6), { px: 66, fam: 'Inter', wt: 900, fill: '#fff' });
-    rise('3 Weeks to Index', W / 2, 530, prog(st, 0.4, 0.6), { px: 68, fam: 'Inter', wt: 900, fill: '#ef4444' });
-
-    // Comparison Card
-    card(90, 630, 900, 680, {
-      bg: 'rgba(12, 24, 18, 0.9)',
-      border: 'rgba(16, 185, 129, 0.25)',
-      glowColor: 'rgba(16, 185, 129, 0.12)',
-      alpha: E.out(prog(st, 0.5, 0.7))
-    });
-
-    txt('TIME TO APPEAR IN GOOGLE SEARCH', 140, 710, { px: 30, fam: 'JetBrains Mono', wt: 700, fill: '#94a3b8', align: 'left' });
-
-    // Old Way: Standard Sitemap (Red/Orange)
-    const pSlow = prog(st, 1.0, 1.0);
-    bar('Standard Sitemap (Passive Waiting)', '21 - 30 Days', 0.92, 140, 800, 800, 46, {
-      p: pSlow,
-      fill: '#ef4444',
-      alpha: 1
-    });
-    txt('Googlebot waits for crawl queue slot', 140, 890, { px: 26, fam: 'JetBrains Mono', wt: 600, fill: '#64748b', align: 'left' });
-
-    // Fast Way: Direct API Push (Emerald)
-    const pFast = prog(st, 2.0, 1.0);
-    bar('Direct Indexing API (Active Push)', '< 24 Hours', 0.12, 140, 1000, 800, 46, {
-      p: pFast,
-      fill: '#10b981',
-      alpha: 1
-    });
-    txt('Direct Googlebot webhook ping bypasses queue', 140, 1090, { px: 26, fam: 'JetBrains Mono', wt: 600, fill: '#64748b', align: 'left' });
-
-    // Insight callout
-    const pCall = prog(st, 3.0, 0.6);
-    if (pCall > 0) {
-      card(140, 1160, 800, 110, {
-        bg: 'rgba(16, 185, 129, 0.12)',
-        border: '#10b981',
-        r: 18,
-        alpha: E.out(pCall)
-      });
-      txt('🚨 85% of startups lose ranking momentum waiting on crawl budgets', W / 2, 1225, {
-        px: 24, fam: 'Inter', wt: 700, fill: '#34d399', alpha: E.out(pCall)
-      });
-    }
+  // Top Safe Area Watermark (Y: 210)
+  txt('INDEXFAST  //  SEO AUTOMATION', W / 2, 210, {
+    px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#10b981', ls: 3, alpha: 0.85
   });
 
-  // SCENE 2: The Bottleneck - Crawl Budget Queue (4.5 to 9.0s)
-  scene(t, 4.5, 9.0, (st, dur) => {
-    badge('THE ARCHITECTURAL BOTTLENECK', W / 2, 340, { px: 30, border: '#f59e0b', fill: '#f59e0b' });
-    rise('Crawl Budget vs', W / 2, 450, prog(st, 0.1, 0.5), { px: 66, fam: 'Inter', wt: 900, fill: '#fff' });
-    rise('Instant Indexing Push', W / 2, 530, prog(st, 0.3, 0.5), { px: 66, fam: 'Inter', wt: 900, fill: '#10b981' });
+  // Animated Lower Third (0.5s - 4.0s)
+  lowerThird(t, {
+    brand: 'INDEXFAST',
+    topic: 'CRAWL BUDGET SECRETS',
+    handle: '@indexfast',
+    enterAt: 0.5,
+    exitAt: 3.8,
+    accentColor: '#10b981'
+  });
 
-    // Step 1: Passive XML sitemap
-    card(90, 620, 900, 230, {
-      bg: 'rgba(24, 18, 12, 0.85)',
-      border: 'rgba(245, 158, 11, 0.35)',
+  // ==========================================
+  // SCENE 1: The 3-Week Delay Hook (0.0s - 4.0s)
+  // ==========================================
+  scene(t, 0, 4.0, (st, dur) => {
+    badge('GOOGLE INDEXING TRUTH', W / 2, 420, { px: 32, fill: '#10b981', border: '#10b981' });
+
+    rise('Why Google Takes', W / 2, 530, prog(st, 0.1, 0.5), { px: 74, fam: 'Inter', wt: 900, fill: '#ffffff' });
+    rise('3 Weeks to Index', W / 2, 620, prog(st, 0.3, 0.5), { px: 76, fam: 'Inter', wt: 900, fill: '#ef4444' });
+
+    // Warning Card
+    card(100, 720, 880, 520, {
+      bg: 'rgba(12, 24, 18, 0.94)',
+      border: 'rgba(16, 185, 129, 0.4)',
+      glowColor: 'rgba(16, 185, 129, 0.2)',
       alpha: E.out(prog(st, 0.4, 0.5))
     });
-    txt('1. PASSIVE SITEMAP POLLING', 140, 670, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#f59e0b', align: 'left' });
-    txt('• You submit sitemap.xml to Google Search Console', 140, 720, { px: 26, fam: 'Inter', wt: 600, fill: '#e2e8f0', align: 'left' });
-    txt('• Google queues URL behind billions of high-authority pages', 140, 765, { px: 26, fam: 'Inter', wt: 600, fill: '#94a3b8', align: 'left' });
-    txt('• Delay: 14 to 30 days before first Googlebot visit', 140, 810, { px: 26, fam: 'JetBrains Mono', wt: 700, fill: '#ef4444', align: 'left' });
 
-    // Step 2: Instant API Push
-    card(90, 880, 900, 230, {
-      bg: 'rgba(12, 26, 20, 0.85)',
-      border: 'rgba(16, 185, 129, 0.4)',
-      alpha: E.out(prog(st, 1.2, 0.5))
+    txt('ORGANIC TRAFFIC DELAY', W / 2, 800, { px: 32, fam: 'JetBrains Mono', wt: 800, fill: '#34d399' });
+
+    // Comparison Bars in Scene 1
+    bar('Standard Sitemap Waiting', '21 - 30 Days', 0.92, 140, 880, 800, 48, {
+      p: prog(st, 0.6, 0.6), fill: '#ef4444'
     });
-    txt('2. INSTANT WEBHOOK PUSH (IndexFast)', 140, 930, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#10b981', align: 'left' });
-    txt('• Pushes URL directly to Google Indexing API & IndexNow', 140, 980, { px: 26, fam: 'Inter', wt: 600, fill: '#e2e8f0', align: 'left' });
-    txt('• Googlebot receives immediate crawler priority webhook', 140, 1025, { px: 26, fam: 'Inter', wt: 600, fill: '#94a3b8', align: 'left' });
-    txt('• Result: Crawled and indexed in 6 - 24 hours', 140, 1070, { px: 26, fam: 'JetBrains Mono', wt: 700, fill: '#34d399', align: 'left' });
+    txt('Your fresh content sits in the Google Sandbox with ZERO clicks', 140, 970, { px: 24, fam: 'Inter', wt: 600, fill: '#94a3b8', align: 'left' });
 
-    // Stat comparison box
-    const pStat = prog(st, 2.2, 0.6);
-    if (pStat > 0) {
-      card(90, 1140, 900, 170, {
-        bg: 'rgba(16, 185, 129, 0.1)',
-        border: '#10b981',
+    bar('Direct API Indexing', '< 24 Hours', 0.12, 140, 1070, 800, 48, {
+      p: prog(st, 1.2, 0.6), fill: '#10b981'
+    });
+    txt('Googlebot visits and indexes pages within hours', 140, 1160, { px: 24, fam: 'Inter', wt: 600, fill: '#94a3b8', align: 'left' });
+  });
+
+  // ==========================================
+  // SCENE 2: The Crawl Budget Bottleneck (4.0s - 14.8s)
+  // ==========================================
+  scene(t, 4.0, 14.8, (st, dur) => {
+    badge('THE TECHNICAL BOTTLENECK', W / 2, 340, { px: 30, fill: '#f59e0b', border: '#f59e0b' });
+    rise('Googlebot Crawl Budgets', W / 2, 440, prog(st, 0.1, 0.5), { px: 66, fam: 'Inter', wt: 900, fill: '#ffffff' });
+
+    card(90, 520, 900, 680, {
+      bg: 'rgba(18, 26, 20, 0.94)',
+      border: 'rgba(245, 158, 11, 0.35)',
+      alpha: E.out(prog(st, 0.2, 0.5))
+    });
+
+    // Step 1: XML sitemap queue
+    rr(130, 580, 820, 240, 18, '#121812', 'rgba(245, 158, 11, 0.4)', 2);
+    txt('1. PASSIVE XML SITEMAP POLLING', 170, 640, { px: 28, fam: 'JetBrains Mono', wt: 800, fill: '#f59e0b', align: 'left' });
+    txt('• You submit sitemap.xml to Google Search Console', 170, 700, { px: 26, fam: 'Inter', wt: 600, fill: '#ffffff', align: 'left' });
+    txt('• Google queues new URLs behind billions of authority domains', 170, 750, { px: 26, fam: 'Inter', wt: 600, fill: '#ffffff', align: 'left' });
+
+    // Step 2: Crawl budget limits
+    const pQueue = prog(st, 3.8, 0.5);
+    if (pQueue > 0) {
+      card(130, 860, 820, 300, {
+        bg: 'rgba(239, 68, 68, 0.12)',
+        border: '#ef4444',
         r: 20,
-        alpha: E.out(pStat)
+        alpha: E.out(pQueue)
       });
-      txt('24x Faster Googlebot Crawl Rate', W / 2, 1205, { px: 36, fam: 'Inter', wt: 900, fill: '#10b981' });
-      txt('Never let fresh content sit invisible in the Google sandbox', W / 2, 1265, { px: 24, fam: 'Inter', wt: 600, fill: '#94a3b8' });
+      txt('🚨 WHY YOU GET STUCK IN QUEUE:', 170, 930, { px: 28, fam: 'JetBrains Mono', wt: 800, fill: '#ef4444', align: 'left' });
+      txt('• Google assigns new domains minimal crawl budget', 170, 990, { px: 26, fam: 'Inter', wt: 600, fill: '#ffffff', align: 'left' });
+      txt('• Googlebot only checks XML sitemaps every 2 to 4 weeks', 170, 1050, { px: 26, fam: 'Inter', wt: 600, fill: '#ffffff', align: 'left' });
+      txt('• Result: 21 days of lost organic impressions and sales', 170, 1110, { px: 26, fam: 'Inter', wt: 600, fill: '#f87171', align: 'left' });
     }
   });
 
-  // SCENE 3: The 3-Step Playbook (9.0 to 12.8s)
-  scene(t, 9.0, 12.8, (st, dur) => {
-    badge('THE 24-HOUR PLAYBOOK', W / 2, 340, { px: 30, border: '#10b981', fill: '#10b981' });
-    rise('How to Get Indexed', W / 2, 450, prog(st, 0.1, 0.5), { px: 66, fam: 'Inter', wt: 900, fill: '#fff' });
-    rise('In Under 24 Hours', W / 2, 530, prog(st, 0.3, 0.5), { px: 66, fam: 'Inter', wt: 900, fill: '#34d399' });
+  // ==========================================
+  // SCENE 3: The Growth Hack (14.8s - 27.8s)
+  // ==========================================
+  scene(t, 14.8, 27.8, (st, dur) => {
+    badge('THE INSTANT API PUSH', W / 2, 340, { px: 30, fill: '#10b981', border: '#10b981' });
+    rise('Google Indexing API + IndexNow', W / 2, 440, prog(st, 0.1, 0.5), { px: 64, fam: 'Inter', wt: 900, fill: '#ffffff' });
 
-    // 3 Action Cards
+    card(90, 520, 900, 680, {
+      bg: 'rgba(12, 28, 20, 0.94)',
+      border: 'rgba(16, 185, 129, 0.4)',
+      alpha: E.out(prog(st, 0.2, 0.5))
+    });
+
+    // 3 Step Process
     const steps = [
-      { num: '01', title: 'Connect Google Cloud Service Account', desc: 'Authorize automated Indexing API webhook credentials' },
-      { num: '02', title: 'Submit Fresh URLs in Real-Time', desc: 'Auto-sync new blog posts, products & programmatic pages' },
-      { num: '03', title: 'Verify Live Index Status in GSC', desc: 'Watch URLs enter Google SERPs within 24 hours' }
+      { title: '1. Instant Webhook Notification', desc: 'Server pings Google Cloud API the instant you publish a URL' },
+      { title: '2. Priority Crawler Queue Bypass', desc: 'Googlebot bypasses standard backlog and crawls within 6-12 hours' },
+      { title: '3. Live in Google SERPs in < 24h', desc: 'Pages appear in Google search results 24x faster than competitors' }
     ];
 
     steps.forEach((s, idx) => {
-      const sp = prog(st, 0.4 + idx * 0.7, 0.6);
+      const sp = prog(st, 0.5 + idx * 2.2, 0.5);
       if (sp > 0) {
-        card(90, 620 + idx * 210, 900, 180, {
-          bg: 'rgba(12, 22, 18, 0.9)',
-          border: 'rgba(16, 185, 129, 0.3)',
-          alpha: E.out(sp)
-        });
-        badge(s.num, 160, 690 + idx * 210, { px: 28, fill: '#10b981', border: '#10b981' });
-        txt(s.title, 240, 680 + idx * 210, { px: 28, fam: 'Inter', wt: 800, fill: '#ffffff', align: 'left' });
-        txt(s.desc, 240, 730 + idx * 210, { px: 24, fam: 'Inter', wt: 500, fill: '#94a3b8', align: 'left' });
+        rr(130, 580 + idx * 170, 820, 145, 18, 'rgba(16, 185, 129, 0.12)', '#10b981', 2);
+        txt(s.title, 170, 635 + idx * 170, { px: 28, fam: 'Inter', wt: 800, fill: '#34d399', align: 'left' });
+        txt(s.desc, 170, 685 + idx * 170, { px: 24, fam: 'Inter', wt: 600, fill: '#ffffff', align: 'left' });
       }
     });
 
-    const pCall = prog(st, 2.6, 0.5);
-    if (pCall > 0) {
-      card(90, 1270, 900, 80, {
-        bg: 'rgba(16, 185, 129, 0.15)',
+    // Metric badge
+    const pMetric = prog(st, 7.5, 0.5);
+    if (pMetric > 0) {
+      card(130, 1100, 820, 80, {
+        bg: 'rgba(16, 185, 129, 0.2)',
         border: '#10b981',
         r: 16,
-        alpha: E.out(pCall)
+        alpha: E.out(pMetric)
       });
-      txt('⚡ Zero manual XML sitemap submissions required', W / 2, 1320, {
-        px: 26, fam: 'JetBrains Mono', wt: 700, fill: '#34d399'
+      txt('⚡ Slashes Indexing Time From 21 Days to < 24 Hours', W / 2, 1152, {
+        px: 26, fam: 'JetBrains Mono', wt: 800, fill: '#ffffff'
       });
     }
   });
 
-  // SCENE 4: CTA (12.8 to 15.0s)
-  scene(t, 12.8, 15.0, (st, dur) => {
-    badge('AUTOMATE YOUR SEO', W / 2, 370, { px: 32, fill: '#10b981', border: '#10b981' });
+  // ==========================================
+  // SCENE 4: CTA & Free Trial (27.8s - 34.3s)
+  // ==========================================
+  scene(t, 27.8, 34.3, (st, dur) => {
+    badge('AUTOMATE YOUR SEO TODAY', W / 2, 420, { px: 32, fill: '#10b981', border: '#10b981' });
 
-    rise('Get Indexed on Google', W / 2, 500, prog(st, 0.1, 0.5), { px: 66, fam: 'Inter', wt: 900, fill: '#fff' });
-    rise('In Hours, Not Weeks 🚀', W / 2, 590, prog(st, 0.3, 0.5), { px: 66, fam: 'Inter', wt: 900, fill: '#10b981' });
+    rise('Get Indexed on Google', W / 2, 550, prog(st, 0.1, 0.5), { px: 76, fam: 'Inter', wt: 900, fill: '#ffffff' });
+    rise('In Hours, Not Weeks 🚀', W / 2, 640, prog(st, 0.3, 0.5), { px: 52, fam: 'Inter', wt: 900, fill: '#10b981' });
 
-    card(120, 720, 840, 360, {
-      bg: 'rgba(12, 26, 20, 0.95)',
+    card(140, 750, 800, 420, {
+      bg: 'rgba(12, 28, 20, 0.95)',
       border: 'rgba(16, 185, 129, 0.5)',
       glowColor: 'rgba(16, 185, 129, 0.25)',
       alpha: E.out(prog(st, 0.4, 0.5))
     });
 
-    txt('TRY FREE AT:', W / 2, 800, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#94a3b8' });
-    txt('indexfast.co', W / 2, 880, { px: 64, fam: 'Inter', wt: 900, fill: '#34d399' });
-    txt('⚡ 200 Free Indexing Requests Included', W / 2, 970, { px: 28, fam: 'Inter', wt: 700, fill: '#f59e0b' });
-
-    // Persistent CTA Safe Area
-    card(140, 1150, 800, 140, {
-      bg: 'rgba(16, 185, 129, 0.12)',
-      border: '#10b981',
-      r: 20,
-      alpha: E.out(prog(st, 0.7, 0.5))
-    });
-    txt('Follow @indexfast for Daily SEO Automation', W / 2, 1230, {
-      px: 30, fam: 'Inter', wt: 800, fill: '#ffffff'
-    });
+    txt('TRY FREE AT:', W / 2, 840, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#94a3b8' });
+    txt('indexfast.co', W / 2, 930, { px: 72, fam: 'Inter', wt: 900, fill: '#34d399' });
+    txt('⚡ 200 Free Indexing Requests Included', W / 2, 1020, { px: 30, fam: 'Inter', wt: 800, fill: '#f59e0b' });
+    txt('Follow @indexfast for Daily SEO Automation', W / 2, 1100, { px: 26, fam: 'Inter', wt: 700, fill: '#cbd5e1' });
   });
 
-  // Bottom Safe Area Protection (Y: 1500 - 1920)
-  txt('indexfast.co  •  @indexfast', W / 2, 1480, { px: 26, fam: 'JetBrains Mono', wt: 700, fill: '#64748b', alpha: 0.7 });
+  // ==========================================
+  // HORMOZI KINETIC CAPTIONS
+  // (Y: 1400, Electric Gold/Cyan Active Word)
+  // ==========================================
+  if (window.CAPTIONS) {
+    drawKineticCaptions(t, window.CAPTIONS, {
+      cy: 1400,
+      fontSize: 58,
+      activeColor: '#FFE45E', // Viral electric gold
+      textColor: '#FFFFFF',
+      strokeColor: '#000000',
+      strokeWidth: 16,
+      showCard: true
+    });
+  }
+
+  // Safe bottom handle
+  txt('indexfast.co  •  @indexfast', W / 2, 1780, { px: 30, fam: 'JetBrains Mono', wt: 700, fill: '#64748b', alpha: 0.8 });
 }
 
-startReel(450, drawReel);
+// 1030 frames @ 30 FPS = 34.3 seconds
+startReel(1030, drawReel);
 </script>
 </body>
 </html>

@@ -1,0 +1,1170 @@
+window.CAPTIONS = {
+  "text": "How do AI agents like Devin and Cursor actually write code? It is NOT magic autocomplete. It is the autonomous ReAct loop! Step one: Reason. The LLM parses your prompt and plans architecture. Step two: Action. The agent executes bash commands, creates files, and runs unit tests. Step three: Observe. It reads compiler errors and terminal logs. Step four: Iterate! It self-heals syntax bugs automatically before you even see them. Follow StackShade for daily AI engineering breakdowns!",
+  "voice": "en-US-ChristopherNeural",
+  "rate": "+10%",
+  "audio_path": "brands/stackshade/reels/2026-11-17-how-ai-agents-code/out/voiceover.mp3",
+  "wav_path": "brands/stackshade/reels/2026-11-17-how-ai-agents-code/out/voiceover.wav",
+  "duration": 38.4,
+  "total_words": 77,
+  "total_pages": 29,
+  "words": [
+    {
+      "word": "How",
+      "start": 0.095,
+      "end": 0.277,
+      "duration": 0.182
+    },
+    {
+      "word": "do",
+      "start": 0.289,
+      "end": 0.471,
+      "duration": 0.182
+    },
+    {
+      "word": "AI",
+      "start": 0.482,
+      "end": 0.902,
+      "duration": 0.42
+    },
+    {
+      "word": "agents",
+      "start": 0.914,
+      "end": 1.289,
+      "duration": 0.375
+    },
+    {
+      "word": "like",
+      "start": 1.3,
+      "end": 1.493,
+      "duration": 0.193
+    },
+    {
+      "word": "Devin",
+      "start": 1.505,
+      "end": 1.789,
+      "duration": 0.284
+    },
+    {
+      "word": "and",
+      "start": 1.8,
+      "end": 1.902,
+      "duration": 0.102
+    },
+    {
+      "word": "Cursor",
+      "start": 1.914,
+      "end": 2.334,
+      "duration": 0.42
+    },
+    {
+      "word": "actually",
+      "start": 2.345,
+      "end": 2.72,
+      "duration": 0.375
+    },
+    {
+      "word": "write",
+      "start": 2.732,
+      "end": 2.948,
+      "duration": 0.216
+    },
+    {
+      "word": "code",
+      "start": 2.959,
+      "end": 3.323,
+      "duration": 0.364
+    },
+    {
+      "word": "It",
+      "start": 4.102,
+      "end": 4.227,
+      "duration": 0.125
+    },
+    {
+      "word": "is",
+      "start": 4.239,
+      "end": 4.341,
+      "duration": 0.102
+    },
+    {
+      "word": "NOT",
+      "start": 4.352,
+      "end": 4.579,
+      "duration": 0.227
+    },
+    {
+      "word": "magic",
+      "start": 4.591,
+      "end": 4.989,
+      "duration": 0.398
+    },
+    {
+      "word": "autocomplete",
+      "start": 5.0,
+      "end": 5.761,
+      "duration": 0.761
+    },
+    {
+      "word": "It",
+      "start": 6.545,
+      "end": 6.67,
+      "duration": 0.125
+    },
+    {
+      "word": "is",
+      "start": 6.682,
+      "end": 6.807,
+      "duration": 0.125
+    },
+    {
+      "word": "the",
+      "start": 6.818,
+      "end": 6.92,
+      "duration": 0.102
+    },
+    {
+      "word": "autonomous",
+      "start": 6.932,
+      "end": 7.512,
+      "duration": 0.58
+    },
+    {
+      "word": "ReAct",
+      "start": 7.523,
+      "end": 7.921,
+      "duration": 0.398
+    },
+    {
+      "word": "loop",
+      "start": 7.932,
+      "end": 8.25,
+      "duration": 0.318
+    },
+    {
+      "word": "Step",
+      "start": 9.034,
+      "end": 9.409,
+      "duration": 0.375
+    },
+    {
+      "word": "one",
+      "start": 9.42,
+      "end": 9.693,
+      "duration": 0.273
+    },
+    {
+      "word": "Reason",
+      "start": 9.898,
+      "end": 10.353,
+      "duration": 0.455
+    },
+    {
+      "word": "The",
+      "start": 11.136,
+      "end": 11.272,
+      "duration": 0.136
+    },
+    {
+      "word": "LLM",
+      "start": 11.284,
+      "end": 11.841,
+      "duration": 0.557
+    },
+    {
+      "word": "parses",
+      "start": 11.852,
+      "end": 12.25,
+      "duration": 0.398
+    },
+    {
+      "word": "your",
+      "start": 12.261,
+      "end": 12.386,
+      "duration": 0.125
+    },
+    {
+      "word": "prompt",
+      "start": 12.398,
+      "end": 12.762,
+      "duration": 0.364
+    },
+    {
+      "word": "and",
+      "start": 12.773,
+      "end": 12.864,
+      "duration": 0.091
+    },
+    {
+      "word": "plans",
+      "start": 12.875,
+      "end": 13.205,
+      "duration": 0.33
+    },
+    {
+      "word": "architecture",
+      "start": 13.216,
+      "end": 13.932,
+      "duration": 0.716
+    },
+    {
+      "word": "Step",
+      "start": 14.716,
+      "end": 15.102,
+      "duration": 0.386
+    },
+    {
+      "word": "two",
+      "start": 15.114,
+      "end": 15.398,
+      "duration": 0.284
+    },
+    {
+      "word": "Action",
+      "start": 15.591,
+      "end": 16.102,
+      "duration": 0.511
+    },
+    {
+      "word": "The",
+      "start": 16.886,
+      "end": 17.045,
+      "duration": 0.159
+    },
+    {
+      "word": "agent",
+      "start": 17.057,
+      "end": 17.421,
+      "duration": 0.364
+    },
+    {
+      "word": "executes",
+      "start": 17.432,
+      "end": 17.955,
+      "duration": 0.523
+    },
+    {
+      "word": "bash",
+      "start": 17.966,
+      "end": 18.25,
+      "duration": 0.284
+    },
+    {
+      "word": "commands",
+      "start": 18.261,
+      "end": 18.806,
+      "duration": 0.545
+    },
+    {
+      "word": "creates",
+      "start": 19.011,
+      "end": 19.397,
+      "duration": 0.386
+    },
+    {
+      "word": "files",
+      "start": 19.409,
+      "end": 19.875,
+      "duration": 0.466
+    },
+    {
+      "word": "and",
+      "start": 20.114,
+      "end": 20.296,
+      "duration": 0.182
+    },
+    {
+      "word": "runs",
+      "start": 20.307,
+      "end": 20.591,
+      "duration": 0.284
+    },
+    {
+      "word": "unit",
+      "start": 20.602,
+      "end": 20.863,
+      "duration": 0.261
+    },
+    {
+      "word": "tests",
+      "start": 20.875,
+      "end": 21.42,
+      "duration": 0.545
+    },
+    {
+      "word": "Step",
+      "start": 22.205,
+      "end": 22.591,
+      "duration": 0.386
+    },
+    {
+      "word": "three",
+      "start": 22.602,
+      "end": 22.966,
+      "duration": 0.364
+    },
+    {
+      "word": "Observe",
+      "start": 23.273,
+      "end": 23.887,
+      "duration": 0.614
+    },
+    {
+      "word": "It",
+      "start": 24.67,
+      "end": 24.863,
+      "duration": 0.193
+    },
+    {
+      "word": "reads",
+      "start": 24.875,
+      "end": 25.159,
+      "duration": 0.284
+    },
+    {
+      "word": "compiler",
+      "start": 25.17,
+      "end": 25.738,
+      "duration": 0.568
+    },
+    {
+      "word": "errors",
+      "start": 25.75,
+      "end": 26.114,
+      "duration": 0.364
+    },
+    {
+      "word": "and",
+      "start": 26.125,
+      "end": 26.261,
+      "duration": 0.136
+    },
+    {
+      "word": "terminal",
+      "start": 26.273,
+      "end": 26.671,
+      "duration": 0.398
+    },
+    {
+      "word": "logs",
+      "start": 26.682,
+      "end": 27.193,
+      "duration": 0.511
+    },
+    {
+      "word": "Step",
+      "start": 27.977,
+      "end": 28.363,
+      "duration": 0.386
+    },
+    {
+      "word": "four",
+      "start": 28.375,
+      "end": 28.716,
+      "duration": 0.341
+    },
+    {
+      "word": "Iterate",
+      "start": 28.955,
+      "end": 29.466,
+      "duration": 0.511
+    },
+    {
+      "word": "It",
+      "start": 30.25,
+      "end": 30.409,
+      "duration": 0.159
+    },
+    {
+      "word": "self-heals",
+      "start": 30.42,
+      "end": 31.0,
+      "duration": 0.58
+    },
+    {
+      "word": "syntax",
+      "start": 31.011,
+      "end": 31.488,
+      "duration": 0.477
+    },
+    {
+      "word": "bugs",
+      "start": 31.5,
+      "end": 31.841,
+      "duration": 0.341
+    },
+    {
+      "word": "automatically",
+      "start": 31.852,
+      "end": 32.443,
+      "duration": 0.591
+    },
+    {
+      "word": "before",
+      "start": 32.455,
+      "end": 32.785,
+      "duration": 0.33
+    },
+    {
+      "word": "you",
+      "start": 32.795,
+      "end": 32.897,
+      "duration": 0.102
+    },
+    {
+      "word": "even",
+      "start": 32.909,
+      "end": 33.17,
+      "duration": 0.261
+    },
+    {
+      "word": "see",
+      "start": 33.182,
+      "end": 33.375,
+      "duration": 0.193
+    },
+    {
+      "word": "them",
+      "start": 33.386,
+      "end": 33.647,
+      "duration": 0.261
+    },
+    {
+      "word": "Follow",
+      "start": 34.432,
+      "end": 34.807,
+      "duration": 0.375
+    },
+    {
+      "word": "StackShade",
+      "start": 34.818,
+      "end": 35.409,
+      "duration": 0.591
+    },
+    {
+      "word": "for",
+      "start": 35.42,
+      "end": 35.534,
+      "duration": 0.114
+    },
+    {
+      "word": "daily",
+      "start": 35.545,
+      "end": 35.909,
+      "duration": 0.364
+    },
+    {
+      "word": "AI",
+      "start": 35.92,
+      "end": 36.284,
+      "duration": 0.364
+    },
+    {
+      "word": "engineering",
+      "start": 36.295,
+      "end": 36.84,
+      "duration": 0.545
+    },
+    {
+      "word": "breakdowns",
+      "start": 36.852,
+      "end": 37.602,
+      "duration": 0.75
+    }
+  ],
+  "pages": [
+    {
+      "page_index": 0,
+      "start": 0.095,
+      "end": 0.902,
+      "text": "How do AI",
+      "words": [
+        {
+          "word": "How",
+          "start": 0.095,
+          "end": 0.277,
+          "duration": 0.182
+        },
+        {
+          "word": "do",
+          "start": 0.289,
+          "end": 0.471,
+          "duration": 0.182
+        },
+        {
+          "word": "AI",
+          "start": 0.482,
+          "end": 0.902,
+          "duration": 0.42
+        }
+      ]
+    },
+    {
+      "page_index": 1,
+      "start": 0.914,
+      "end": 1.789,
+      "text": "agents like Devin",
+      "words": [
+        {
+          "word": "agents",
+          "start": 0.914,
+          "end": 1.289,
+          "duration": 0.375
+        },
+        {
+          "word": "like",
+          "start": 1.3,
+          "end": 1.493,
+          "duration": 0.193
+        },
+        {
+          "word": "Devin",
+          "start": 1.505,
+          "end": 1.789,
+          "duration": 0.284
+        }
+      ]
+    },
+    {
+      "page_index": 2,
+      "start": 1.8,
+      "end": 2.72,
+      "text": "and Cursor actually",
+      "words": [
+        {
+          "word": "and",
+          "start": 1.8,
+          "end": 1.902,
+          "duration": 0.102
+        },
+        {
+          "word": "Cursor",
+          "start": 1.914,
+          "end": 2.334,
+          "duration": 0.42
+        },
+        {
+          "word": "actually",
+          "start": 2.345,
+          "end": 2.72,
+          "duration": 0.375
+        }
+      ]
+    },
+    {
+      "page_index": 3,
+      "start": 2.732,
+      "end": 3.323,
+      "text": "write code",
+      "words": [
+        {
+          "word": "write",
+          "start": 2.732,
+          "end": 2.948,
+          "duration": 0.216
+        },
+        {
+          "word": "code",
+          "start": 2.959,
+          "end": 3.323,
+          "duration": 0.364
+        }
+      ]
+    },
+    {
+      "page_index": 4,
+      "start": 4.102,
+      "end": 4.579,
+      "text": "It is NOT",
+      "words": [
+        {
+          "word": "It",
+          "start": 4.102,
+          "end": 4.227,
+          "duration": 0.125
+        },
+        {
+          "word": "is",
+          "start": 4.239,
+          "end": 4.341,
+          "duration": 0.102
+        },
+        {
+          "word": "NOT",
+          "start": 4.352,
+          "end": 4.579,
+          "duration": 0.227
+        }
+      ]
+    },
+    {
+      "page_index": 5,
+      "start": 4.591,
+      "end": 5.761,
+      "text": "magic autocomplete",
+      "words": [
+        {
+          "word": "magic",
+          "start": 4.591,
+          "end": 4.989,
+          "duration": 0.398
+        },
+        {
+          "word": "autocomplete",
+          "start": 5.0,
+          "end": 5.761,
+          "duration": 0.761
+        }
+      ]
+    },
+    {
+      "page_index": 6,
+      "start": 6.545,
+      "end": 6.92,
+      "text": "It is the",
+      "words": [
+        {
+          "word": "It",
+          "start": 6.545,
+          "end": 6.67,
+          "duration": 0.125
+        },
+        {
+          "word": "is",
+          "start": 6.682,
+          "end": 6.807,
+          "duration": 0.125
+        },
+        {
+          "word": "the",
+          "start": 6.818,
+          "end": 6.92,
+          "duration": 0.102
+        }
+      ]
+    },
+    {
+      "page_index": 7,
+      "start": 6.932,
+      "end": 8.25,
+      "text": "autonomous ReAct loop",
+      "words": [
+        {
+          "word": "autonomous",
+          "start": 6.932,
+          "end": 7.512,
+          "duration": 0.58
+        },
+        {
+          "word": "ReAct",
+          "start": 7.523,
+          "end": 7.921,
+          "duration": 0.398
+        },
+        {
+          "word": "loop",
+          "start": 7.932,
+          "end": 8.25,
+          "duration": 0.318
+        }
+      ]
+    },
+    {
+      "page_index": 8,
+      "start": 9.034,
+      "end": 10.353,
+      "text": "Step one Reason",
+      "words": [
+        {
+          "word": "Step",
+          "start": 9.034,
+          "end": 9.409,
+          "duration": 0.375
+        },
+        {
+          "word": "one",
+          "start": 9.42,
+          "end": 9.693,
+          "duration": 0.273
+        },
+        {
+          "word": "Reason",
+          "start": 9.898,
+          "end": 10.353,
+          "duration": 0.455
+        }
+      ]
+    },
+    {
+      "page_index": 9,
+      "start": 11.136,
+      "end": 12.25,
+      "text": "The LLM parses",
+      "words": [
+        {
+          "word": "The",
+          "start": 11.136,
+          "end": 11.272,
+          "duration": 0.136
+        },
+        {
+          "word": "LLM",
+          "start": 11.284,
+          "end": 11.841,
+          "duration": 0.557
+        },
+        {
+          "word": "parses",
+          "start": 11.852,
+          "end": 12.25,
+          "duration": 0.398
+        }
+      ]
+    },
+    {
+      "page_index": 10,
+      "start": 12.261,
+      "end": 12.864,
+      "text": "your prompt and",
+      "words": [
+        {
+          "word": "your",
+          "start": 12.261,
+          "end": 12.386,
+          "duration": 0.125
+        },
+        {
+          "word": "prompt",
+          "start": 12.398,
+          "end": 12.762,
+          "duration": 0.364
+        },
+        {
+          "word": "and",
+          "start": 12.773,
+          "end": 12.864,
+          "duration": 0.091
+        }
+      ]
+    },
+    {
+      "page_index": 11,
+      "start": 12.875,
+      "end": 13.932,
+      "text": "plans architecture",
+      "words": [
+        {
+          "word": "plans",
+          "start": 12.875,
+          "end": 13.205,
+          "duration": 0.33
+        },
+        {
+          "word": "architecture",
+          "start": 13.216,
+          "end": 13.932,
+          "duration": 0.716
+        }
+      ]
+    },
+    {
+      "page_index": 12,
+      "start": 14.716,
+      "end": 16.102,
+      "text": "Step two Action",
+      "words": [
+        {
+          "word": "Step",
+          "start": 14.716,
+          "end": 15.102,
+          "duration": 0.386
+        },
+        {
+          "word": "two",
+          "start": 15.114,
+          "end": 15.398,
+          "duration": 0.284
+        },
+        {
+          "word": "Action",
+          "start": 15.591,
+          "end": 16.102,
+          "duration": 0.511
+        }
+      ]
+    },
+    {
+      "page_index": 13,
+      "start": 16.886,
+      "end": 17.955,
+      "text": "The agent executes",
+      "words": [
+        {
+          "word": "The",
+          "start": 16.886,
+          "end": 17.045,
+          "duration": 0.159
+        },
+        {
+          "word": "agent",
+          "start": 17.057,
+          "end": 17.421,
+          "duration": 0.364
+        },
+        {
+          "word": "executes",
+          "start": 17.432,
+          "end": 17.955,
+          "duration": 0.523
+        }
+      ]
+    },
+    {
+      "page_index": 14,
+      "start": 17.966,
+      "end": 19.397,
+      "text": "bash commands creates",
+      "words": [
+        {
+          "word": "bash",
+          "start": 17.966,
+          "end": 18.25,
+          "duration": 0.284
+        },
+        {
+          "word": "commands",
+          "start": 18.261,
+          "end": 18.806,
+          "duration": 0.545
+        },
+        {
+          "word": "creates",
+          "start": 19.011,
+          "end": 19.397,
+          "duration": 0.386
+        }
+      ]
+    },
+    {
+      "page_index": 15,
+      "start": 19.409,
+      "end": 20.591,
+      "text": "files and runs",
+      "words": [
+        {
+          "word": "files",
+          "start": 19.409,
+          "end": 19.875,
+          "duration": 0.466
+        },
+        {
+          "word": "and",
+          "start": 20.114,
+          "end": 20.296,
+          "duration": 0.182
+        },
+        {
+          "word": "runs",
+          "start": 20.307,
+          "end": 20.591,
+          "duration": 0.284
+        }
+      ]
+    },
+    {
+      "page_index": 16,
+      "start": 20.602,
+      "end": 21.42,
+      "text": "unit tests",
+      "words": [
+        {
+          "word": "unit",
+          "start": 20.602,
+          "end": 20.863,
+          "duration": 0.261
+        },
+        {
+          "word": "tests",
+          "start": 20.875,
+          "end": 21.42,
+          "duration": 0.545
+        }
+      ]
+    },
+    {
+      "page_index": 17,
+      "start": 22.205,
+      "end": 23.887,
+      "text": "Step three Observe",
+      "words": [
+        {
+          "word": "Step",
+          "start": 22.205,
+          "end": 22.591,
+          "duration": 0.386
+        },
+        {
+          "word": "three",
+          "start": 22.602,
+          "end": 22.966,
+          "duration": 0.364
+        },
+        {
+          "word": "Observe",
+          "start": 23.273,
+          "end": 23.887,
+          "duration": 0.614
+        }
+      ]
+    },
+    {
+      "page_index": 18,
+      "start": 24.67,
+      "end": 25.738,
+      "text": "It reads compiler",
+      "words": [
+        {
+          "word": "It",
+          "start": 24.67,
+          "end": 24.863,
+          "duration": 0.193
+        },
+        {
+          "word": "reads",
+          "start": 24.875,
+          "end": 25.159,
+          "duration": 0.284
+        },
+        {
+          "word": "compiler",
+          "start": 25.17,
+          "end": 25.738,
+          "duration": 0.568
+        }
+      ]
+    },
+    {
+      "page_index": 19,
+      "start": 25.75,
+      "end": 26.671,
+      "text": "errors and terminal",
+      "words": [
+        {
+          "word": "errors",
+          "start": 25.75,
+          "end": 26.114,
+          "duration": 0.364
+        },
+        {
+          "word": "and",
+          "start": 26.125,
+          "end": 26.261,
+          "duration": 0.136
+        },
+        {
+          "word": "terminal",
+          "start": 26.273,
+          "end": 26.671,
+          "duration": 0.398
+        }
+      ]
+    },
+    {
+      "page_index": 20,
+      "start": 26.682,
+      "end": 27.193,
+      "text": "logs",
+      "words": [
+        {
+          "word": "logs",
+          "start": 26.682,
+          "end": 27.193,
+          "duration": 0.511
+        }
+      ]
+    },
+    {
+      "page_index": 21,
+      "start": 27.977,
+      "end": 29.466,
+      "text": "Step four Iterate",
+      "words": [
+        {
+          "word": "Step",
+          "start": 27.977,
+          "end": 28.363,
+          "duration": 0.386
+        },
+        {
+          "word": "four",
+          "start": 28.375,
+          "end": 28.716,
+          "duration": 0.341
+        },
+        {
+          "word": "Iterate",
+          "start": 28.955,
+          "end": 29.466,
+          "duration": 0.511
+        }
+      ]
+    },
+    {
+      "page_index": 22,
+      "start": 30.25,
+      "end": 31.488,
+      "text": "It self-heals syntax",
+      "words": [
+        {
+          "word": "It",
+          "start": 30.25,
+          "end": 30.409,
+          "duration": 0.159
+        },
+        {
+          "word": "self-heals",
+          "start": 30.42,
+          "end": 31.0,
+          "duration": 0.58
+        },
+        {
+          "word": "syntax",
+          "start": 31.011,
+          "end": 31.488,
+          "duration": 0.477
+        }
+      ]
+    },
+    {
+      "page_index": 23,
+      "start": 31.5,
+      "end": 32.785,
+      "text": "bugs automatically before",
+      "words": [
+        {
+          "word": "bugs",
+          "start": 31.5,
+          "end": 31.841,
+          "duration": 0.341
+        },
+        {
+          "word": "automatically",
+          "start": 31.852,
+          "end": 32.443,
+          "duration": 0.591
+        },
+        {
+          "word": "before",
+          "start": 32.455,
+          "end": 32.785,
+          "duration": 0.33
+        }
+      ]
+    },
+    {
+      "page_index": 24,
+      "start": 32.795,
+      "end": 33.375,
+      "text": "you even see",
+      "words": [
+        {
+          "word": "you",
+          "start": 32.795,
+          "end": 32.897,
+          "duration": 0.102
+        },
+        {
+          "word": "even",
+          "start": 32.909,
+          "end": 33.17,
+          "duration": 0.261
+        },
+        {
+          "word": "see",
+          "start": 33.182,
+          "end": 33.375,
+          "duration": 0.193
+        }
+      ]
+    },
+    {
+      "page_index": 25,
+      "start": 33.386,
+      "end": 33.647,
+      "text": "them",
+      "words": [
+        {
+          "word": "them",
+          "start": 33.386,
+          "end": 33.647,
+          "duration": 0.261
+        }
+      ]
+    },
+    {
+      "page_index": 26,
+      "start": 34.432,
+      "end": 35.534,
+      "text": "Follow StackShade for",
+      "words": [
+        {
+          "word": "Follow",
+          "start": 34.432,
+          "end": 34.807,
+          "duration": 0.375
+        },
+        {
+          "word": "StackShade",
+          "start": 34.818,
+          "end": 35.409,
+          "duration": 0.591
+        },
+        {
+          "word": "for",
+          "start": 35.42,
+          "end": 35.534,
+          "duration": 0.114
+        }
+      ]
+    },
+    {
+      "page_index": 27,
+      "start": 35.545,
+      "end": 36.84,
+      "text": "daily AI engineering",
+      "words": [
+        {
+          "word": "daily",
+          "start": 35.545,
+          "end": 35.909,
+          "duration": 0.364
+        },
+        {
+          "word": "AI",
+          "start": 35.92,
+          "end": 36.284,
+          "duration": 0.364
+        },
+        {
+          "word": "engineering",
+          "start": 36.295,
+          "end": 36.84,
+          "duration": 0.545
+        }
+      ]
+    },
+    {
+      "page_index": 28,
+      "start": 36.852,
+      "end": 37.602,
+      "text": "breakdowns",
+      "words": [
+        {
+          "word": "breakdowns",
+          "start": 36.852,
+          "end": 37.602,
+          "duration": 0.75
+        }
+      ]
+    }
+  ]
+};
