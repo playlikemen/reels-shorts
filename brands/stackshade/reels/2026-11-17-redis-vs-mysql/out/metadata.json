@@ -1,0 +1,19 @@
+{
+  "video_id": "SS-001",
+  "date": "2026-11-17",
+  "title": "Why Redis is 100x Faster Than MySQL (RAM vs Disk)",
+  "category": "System Design & Architecture",
+  "format": "HyperFrames Motion Graphics",
+  "duration": "15s",
+  "local_path": "brands/stackshade/reels/2026-11-17-redis-vs-mysql/out/final.mp4",
+  "drive_link": "https://drive.google.com/drive/folders/1RHQ73lS1kmfo8uGTT6QDlChstP5Q7S0U",
+  "instagram_status": "Ready",
+  "instagram_permalink": "",
+  "youtube_status": "Ready",
+  "youtube_url": "",
+  "caption": "Why is Redis 100x faster than MySQL? \ud83d\ude80\u26a1 RAM vs Disk I/O & Single-Threaded Event Loop explained.",
+  "fps": 30,
+  "frames": 450,
+  "resolution": "1080x1920",
+  "drive_folder_id": "1RHQ73lS1kmfo8uGTT6QDlChstP5Q7S0U"
+}

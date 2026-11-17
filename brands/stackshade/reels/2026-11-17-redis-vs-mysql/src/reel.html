@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StackShade: Why Redis is 100x Faster Than MySQL</title>
+<style>
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../shared/fonts/inter-700.woff2') format('woff2');
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../shared/fonts/inter-900.woff2') format('woff2');
+    font-weight: 900;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('../../../../../shared/fonts/jbmono-700.woff2') format('woff2');
+    font-weight: 700;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #000; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+  canvas { width: auto; height: 95vh; aspect-ratio: 9/16; background: #070a11; box-shadow: 0 0 50px rgba(0,242,254,0.15); }
+</style>
+</head>
+<body>
+<canvas width="1080" height="1920"></canvas>
+<script src="../../../../../shared/scripts/reelkit.js"></script>
+<script>
+window.CUES = [0, 4.5, 9.0, 12.8];
+
+window.SCORE = ac => {
+  buildScore(ac, {
+    bpm: 126,
+    dur: 15,
+    root: 43, // G
+    chords: [0, 3, 5, 2],
+    minor: true,
+    kickFrom: 0.2,
+    level: 0.9,
+    hits: [0, 4.5, 9.0, 12.8]
+  });
+};
+
+function drawReel(t) {
+  // Dark tech background
+  ctx.fillStyle = '#070a12';
+  ctx.fillRect(0, 0, W, H);
+  techGrid(t, { size: 90, color: 'rgba(56, 189, 248, 0.04)', accent: 'rgba(56, 189, 248, 0.08)' });
+
+  // Persistent branding watermark (Safe Top Zone)
+  txt('STACKSHADE  //  SYSTEM DESIGN', W / 2, 210, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#38bdf8', ls: 3, alpha: 0.75 });
+
+  // SCENE 1: Hardware Latency Gap (0 to 4.5s)
+  scene(t, 0, 4.5, (st, dur) => {
+    const p = prog(st, 0, 0.8);
+    badge('LATENCY BREAKDOWN', W / 2, 340, { px: 30, alpha: E.out(p) });
+    
+    // Hook Title
+    rise('Why Redis is 100x', W / 2, 450, prog(st, 0.2, 0.6), { px: 68, fam: 'Inter', wt: 900, fill: '#fff' });
+    rise('Faster Than MySQL', W / 2, 530, prog(st, 0.4, 0.6), { px: 68, fam: 'Inter', wt: 900, fill: '#00f2fe' });
+
+    // Comparison Card
+    card(90, 630, 900, 680, {
+      bg: 'rgba(15, 22, 36, 0.9)',
+      border: 'rgba(56, 189, 248, 0.25)',
+      glowColor: 'rgba(0, 242, 254, 0.1)',
+      alpha: E.out(prog(st, 0.5, 0.7))
+    });
+
+    txt('HARDWARE ACCESS SPEED', 140, 710, { px: 32, fam: 'JetBrains Mono', wt: 700, fill: '#94a3b8', align: 'left' });
+
+    // MySQL Disk bar
+    const pDisk = prog(st, 1.0, 1.0);
+    bar('MySQL (SSD / Disk I/O)', '10,000,000 ns', 0.95, 140, 800, 800, 46, {
+      p: pDisk,
+      fill: '#f59e0b',
+      alpha: 1
+    });
+    txt('B+ Tree Index Scan on disk blocks', 140, 890, { px: 26, fam: 'JetBrains Mono', wt: 600, fill: '#64748b', align: 'left' });
+
+    // Redis RAM bar
+    const pRam = prog(st, 2.0, 1.0);
+    bar('Redis (Main Memory / RAM)', '100 ns', 0.12, 140, 1000, 800, 46, {
+      p: pRam,
+      fill: '#10b981',
+      alpha: 1
+    });
+    txt('Direct In-Memory Pointer Dereference', 140, 1090, { px: 26, fam: 'JetBrains Mono', wt: 600, fill: '#64748b', align: 'left' });
+
+    // Punchline badge
+    const pCallout = prog(st, 3.0, 0.6);
+    if (pCallout > 0) {
+      card(140, 1160, 800, 110, {
+        bg: 'rgba(56, 189, 248, 0.1)',
+        border: '#38bdf8',
+        r: 18,
+        alpha: E.out(pCallout)
+      });
+      txt('RAM is 100,000x faster than Disk', W / 2, 1228, {
+        px: 36, fam: 'Inter', wt: 900, fill: '#38bdf8', align: 'center', alpha: E.out(pCallout)
+      });
+    }
+  });
+
+  // SCENE 2: The Architecture Engine (4.5s to 9.0s)
+  scene(t, 4.5, 9.0, (st, dur) => {
+    const p = prog(st, 0, 0.7);
+    badge('ENGINE ARCHITECTURE', W / 2, 340, { px: 30, alpha: E.out(p) });
+
+    rise('Single-Threaded Loop', W / 2, 450, prog(st, 0.2, 0.6), { px: 68, fam: 'Inter', wt: 900, fill: '#fff' });
+    rise('Powered by Linux epoll', W / 2, 530, prog(st, 0.4, 0.6), { px: 68, fam: 'Inter', wt: 900, fill: '#a855f7' });
+
+    // Architecture container
+    card(90, 630, 900, 710, {
+      bg: 'rgba(15, 22, 36, 0.9)',
+      border: 'rgba(168, 85, 247, 0.3)',
+      glowColor: 'rgba(168, 85, 247, 0.12)',
+      alpha: E.out(prog(st, 0.5, 0.7))
+    });
+
+    // Diagram: 3 Nodes
+    // Node 1: Client Requests
+    const pNodes = prog(st, 0.8, 0.8);
+    card(140, 700, 800, 110, { bg: 'rgba(30, 41, 59, 0.8)', border: '#64748b', r: 16, alpha: E.out(pNodes) });
+    txt('100,000+ Concurrent Client Conns', 180, 768, { px: 32, fam: 'JetBrains Mono', wt: 700, fill: '#f8fafc', align: 'left' });
+
+    // Arrow down
+    txt('▼  I/O Multiplexing (epoll)', W / 2, 860, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#a855f7', align: 'center' });
+
+    // Node 2: The Event Loop
+    card(140, 900, 800, 140, { bg: 'rgba(168, 85, 247, 0.15)', border: '#a855f7', r: 16, alpha: E.out(pNodes) });
+    txt('⚡ Single-Threaded Event Loop', W / 2, 960, { px: 38, fam: 'Inter', wt: 900, fill: '#fff', align: 'center' });
+    txt('Executes commands sequentially in memory', W / 2, 1005, { px: 26, fam: 'JetBrains Mono', wt: 600, fill: '#cbd5e1', align: 'center' });
+
+    // Bullet Cards
+    const b1 = prog(st, 1.8, 0.6);
+    card(140, 1070, 800, 75, { bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', r: 14, alpha: E.out(b1) });
+    check(180, 1108, 28, b1, '#10b981');
+    txt('ZERO Context Switching Overhead', 220, 1118, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#10b981', align: 'left', alpha: E.out(b1) });
+
+    const b2 = prog(st, 2.5, 0.6);
+    card(140, 1165, 800, 75, { bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', r: 14, alpha: E.out(b2) });
+    check(180, 1203, 28, b2, '#10b981');
+    txt('ZERO Mutex Locks or Deadlocks', 220, 1213, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#10b981', align: 'left', alpha: E.out(b2) });
+
+    const b3 = prog(st, 3.2, 0.6);
+    card(140, 1260, 800, 75, { bg: 'rgba(56, 189, 248, 0.1)', border: '#38bdf8', r: 14, alpha: E.out(b3) });
+    check(180, 1298, 28, b3, '#38bdf8');
+    txt('Sub-Millisecond Response (<0.5ms)', 220, 1308, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#38bdf8', align: 'left', alpha: E.out(b3) });
+  });
+
+  // SCENE 3: Production Cache-Aside Pattern (9.0s to 12.8s)
+  scene(t, 9.0, 12.8, (st, dur) => {
+    const p = prog(st, 0, 0.7);
+    badge('PRODUCTION ARCHITECTURE', W / 2, 340, { px: 30, alpha: E.out(p) });
+
+    rise('The Cache-Aside Pattern', W / 2, 450, prog(st, 0.2, 0.6), { px: 68, fam: 'Inter', wt: 900, fill: '#fff' });
+    rise('Best of Both Worlds', W / 2, 530, prog(st, 0.4, 0.6), { px: 68, fam: 'Inter', wt: 900, fill: '#10b981' });
+
+    card(90, 630, 900, 680, {
+      bg: 'rgba(15, 22, 36, 0.9)',
+      border: 'rgba(16, 185, 129, 0.3)',
+      glowColor: 'rgba(16, 185, 129, 0.12)',
+      alpha: E.out(prog(st, 0.5, 0.7))
+    });
+
+    // Step 1
+    const p1 = prog(st, 0.8, 0.6);
+    card(140, 710, 800, 140, { bg: 'rgba(56, 189, 248, 0.12)', border: '#38bdf8', r: 18, alpha: E.out(p1) });
+    txt('1. READ CACHE (Redis)', 180, 765, { px: 32, fam: 'JetBrains Mono', wt: 700, fill: '#38bdf8', align: 'left' });
+    txt('Cache Hit (95% cases) -> Return instantly (0.5ms)', 180, 815, { px: 26, fam: 'Inter', wt: 600, fill: '#e2e8f0', align: 'left' });
+
+    // Step 2
+    const p2 = prog(st, 1.8, 0.6);
+    card(140, 880, 800, 140, { bg: 'rgba(245, 158, 11, 0.12)', border: '#f59e0b', r: 18, alpha: E.out(p2) });
+    txt('2. CACHE MISS FALLBACK', 180, 935, { px: 32, fam: 'JetBrains Mono', wt: 700, fill: '#f59e0b', align: 'left' });
+    txt('Query MySQL database -> populate Redis with TTL', 180, 985, { px: 26, fam: 'Inter', wt: 600, fill: '#e2e8f0', align: 'left' });
+
+    // Outcome Card
+    const p3 = prog(st, 2.7, 0.6);
+    card(140, 1060, 800, 180, { bg: 'rgba(16, 185, 129, 0.15)', border: '#10b981', r: 18, alpha: E.out(p3) });
+    txt('RESULT:', 180, 1120, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#10b981', align: 'left' });
+    txt('Redis absorbs 95% of traffic spike.', 180, 1165, { px: 32, fam: 'Inter', wt: 900, fill: '#ffffff', align: 'left' });
+    txt('MySQL stays safe and never crashes.', 180, 1205, { px: 28, fam: 'Inter', wt: 700, fill: '#cbd5e1', align: 'left' });
+  });
+
+  // SCENE 4: CTA / Outro (12.8s to 15.0s)
+  scene(t, 12.8, 15.0, (st, dur) => {
+    const p = prog(st, 0, 0.6);
+    badge('STACKSHADE', W / 2, 600, { px: 34, bg: 'rgba(56, 189, 248, 0.2)', border: '#38bdf8', fill: '#38bdf8', alpha: E.out(p) });
+
+    rise('Level Up Your', W / 2, 730, prog(st, 0.2, 0.5), { px: 76, fam: 'Inter', wt: 900, fill: '#fff' });
+    rise('System Design', W / 2, 820, prog(st, 0.4, 0.5), { px: 76, fam: 'Inter', wt: 900, fill: '#00f2fe' });
+
+    card(140, 920, 800, 180, {
+      bg: 'rgba(15, 22, 36, 0.95)',
+      border: '#38bdf8',
+      glowColor: 'rgba(0, 242, 254, 0.25)',
+      glowBlur: 30,
+      alpha: E.out(prog(st, 0.5, 0.5))
+    });
+
+    txt('Follow @stackshade', W / 2, 1000, { px: 46, fam: 'Inter', wt: 900, fill: '#ffffff', align: 'center' });
+    txt('Daily Engineering & Architecture Reels', W / 2, 1055, { px: 28, fam: 'JetBrains Mono', wt: 600, fill: '#38bdf8', align: 'center' });
+  });
+
+  // Safe bottom branding line (inside safe zone)
+  txt('@stackshade', W / 2, 1780, { px: 32, fam: 'JetBrains Mono', wt: 700, fill: '#64748b', alpha: 0.8 });
+}
+
+startReel(450, drawReel);
+</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StackShade: How AI Agents Actually Code</title>
+<style>
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../shared/fonts/inter-700.woff2') format('woff2');
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../shared/fonts/inter-900.woff2') format('woff2');
+    font-weight: 900;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('../../../../../shared/fonts/jbmono-700.woff2') format('woff2');
+    font-weight: 700;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #000; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+  canvas { width: auto; height: 95vh; aspect-ratio: 9/16; background: #070a11; box-shadow: 0 0 50px rgba(16,185,129,0.15); }
+</style>
+</head>
+<body>
+<canvas width="1080" height="1920"></canvas>
+<script src="../../../../../shared/scripts/reelkit.js"></script>
+<script>
+window.CUES = [0, 4.5, 9.0, 12.8];
+
+window.SCORE = ac => {
+  buildScore(ac, {
+    bpm: 128,
+    dur: 15,
+    root: 48, // C
+    chords: [0, 3, 5, 7],
+    minor: true,
+    kickFrom: 0.1,
+    level: 0.9,
+    hits: [0, 4.5, 9.0, 12.8]
+  });
+};
+
+function drawReel(t) {
+  // Deep cyber background
+  ctx.fillStyle = '#060911';
+  ctx.fillRect(0, 0, W, H);
+  techGrid(t, { size: 90, color: 'rgba(16, 185, 129, 0.04)', accent: 'rgba(16, 185, 129, 0.08)' });
+
+  // Persistent header in safe zone
+  txt('STACKSHADE  //  AI ENGINEERING', W / 2, 210, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#10b981', ls: 3, alpha: 0.8 });
+
+  // SCENE 1: The Myth vs Reality (0 to 4.5s)
+  scene(t, 0, 4.5, (st, dur) => {
+    const p = prog(st, 0, 0.7);
+    badge('AUTONOMOUS CODING', W / 2, 340, { px: 30, border: '#10b981', fill: '#10b981', alpha: E.out(p) });
+
+    rise('How AI Agents', W / 2, 450, prog(st, 0.2, 0.6), { px: 72, fam: 'Inter', wt: 900, fill: '#fff' });
+    rise('Actually Write Code', W / 2, 535, prog(st, 0.4, 0.6), { px: 72, fam: 'Inter', wt: 900, fill: '#10b981' });
+
+    // Terminal container
+    card(90, 630, 900, 680, {
+      bg: 'rgba(13, 20, 32, 0.92)',
+      border: 'rgba(16, 185, 129, 0.3)',
+      glowColor: 'rgba(16, 185, 129, 0.12)',
+      alpha: E.out(prog(st, 0.5, 0.7))
+    });
+
+    // Terminal header dots
+    rr(130, 670, 20, 20, 10, '#ef4444', null, 0);
+    rr(165, 670, 20, 20, 10, '#f59e0b', null, 0);
+    rr(200, 670, 20, 20, 10, '#10b981', null, 0);
+    txt('agent-session --bash-sandbox', 250, 688, { px: 24, fam: 'JetBrains Mono', wt: 600, fill: '#64748b', align: 'left' });
+
+    // Animated code terminal lines
+    const l1 = prog(st, 0.8, 0.6);
+    txt('> initializing reasoning engine...', 140, 760, { px: 30, fam: 'JetBrains Mono', wt: 700, fill: '#38bdf8', align: 'left', alpha: E.out(l1) });
+
+    const l2 = prog(st, 1.5, 0.6);
+    txt('> indexing repository AST symbols...', 140, 830, { px: 30, fam: 'JetBrains Mono', wt: 700, fill: '#94a3b8', align: 'left', alpha: E.out(l2) });
+
+    const l3 = prog(st, 2.2, 0.6);
+    txt('> discovered 14 failing unit tests', 140, 900, { px: 30, fam: 'JetBrains Mono', wt: 700, fill: '#f87171', align: 'left', alpha: E.out(l3) });
+
+    const l4 = prog(st, 2.9, 0.6);
+    txt('> entering autonomous ReAct loop', 140, 970, { px: 30, fam: 'JetBrains Mono', wt: 700, fill: '#10b981', align: 'left', alpha: E.out(l4) });
+
+    // Callout badge
+    const pCallout = prog(st, 3.4, 0.6);
+    if (pCallout > 0) {
+      card(140, 1070, 800, 180, { bg: 'rgba(16, 185, 129, 0.12)', border: '#10b981', r: 18, alpha: E.out(pCallout) });
+      txt('It is NOT just text completion.', W / 2, 1140, { px: 36, fam: 'Inter', wt: 900, fill: '#ffffff', align: 'center', alpha: E.out(pCallout) });
+      txt('Agents execute code, test, and adapt.', W / 2, 1195, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#10b981', align: 'center', alpha: E.out(pCallout) });
+    }
+  });
+
+  // SCENE 2: The 4-Step ReAct Loop (4.5 to 9.0s)
+  scene(t, 4.5, 9.0, (st, dur) => {
+    const p = prog(st, 0, 0.7);
+    badge('THE ReAct PATTERN', W / 2, 340, { px: 30, border: '#a855f7', fill: '#a855f7', alpha: E.out(p) });
+
+    rise('The 4-Step Loop', W / 2, 450, prog(st, 0.2, 0.6), { px: 72, fam: 'Inter', wt: 900, fill: '#fff' });
+    rise('Reason → Act → Observe', W / 2, 535, prog(st, 0.4, 0.6), { px: 72, fam: 'Inter', wt: 900, fill: '#a855f7' });
+
+    card(90, 620, 900, 750, {
+      bg: 'rgba(13, 20, 32, 0.92)',
+      border: 'rgba(168, 85, 247, 0.3)',
+      glowColor: 'rgba(168, 85, 247, 0.12)',
+      alpha: E.out(prog(st, 0.5, 0.7))
+    });
+
+    // Step 1
+    const s1 = prog(st, 0.7, 0.5);
+    card(140, 670, 800, 130, { bg: 'rgba(56, 189, 248, 0.1)', border: '#38bdf8', r: 16, alpha: E.out(s1) });
+    txt('1. REASON (Think)', 180, 725, { px: 32, fam: 'JetBrains Mono', wt: 700, fill: '#38bdf8', align: 'left', alpha: E.out(s1) });
+    txt('Formulate hypotheses & plan next action', 180, 770, { px: 26, fam: 'Inter', wt: 600, fill: '#cbd5e1', align: 'left', alpha: E.out(s1) });
+
+    // Step 2
+    const s2 = prog(st, 1.5, 0.5);
+    card(140, 830, 800, 130, { bg: 'rgba(245, 158, 11, 0.1)', border: '#f59e0b', r: 16, alpha: E.out(s2) });
+    txt('2. ACT (Tool Calls)', 180, 885, { px: 32, fam: 'JetBrains Mono', wt: 700, fill: '#f59e0b', align: 'left', alpha: E.out(s2) });
+    txt('Execute bash, patch files, query LSP symbols', 180, 930, { px: 26, fam: 'Inter', wt: 600, fill: '#cbd5e1', align: 'left', alpha: E.out(s2) });
+
+    // Step 3
+    const s3 = prog(st, 2.3, 0.5);
+    card(140, 990, 800, 130, { bg: 'rgba(168, 85, 247, 0.1)', border: '#a855f7', r: 16, alpha: E.out(s3) });
+    txt('3. OBSERVE (Feedback)', 180, 1045, { px: 32, fam: 'JetBrains Mono', wt: 700, fill: '#a855f7', align: 'left', alpha: E.out(s3) });
+    txt('Read compiler stdout, stderr & test assertions', 180, 1090, { px: 26, fam: 'Inter', wt: 600, fill: '#cbd5e1', align: 'left', alpha: E.out(s3) });
+
+    // Step 4
+    const s4 = prog(st, 3.1, 0.5);
+    card(140, 1150, 800, 160, { bg: 'rgba(16, 185, 129, 0.15)', border: '#10b981', r: 16, alpha: E.out(s4) });
+    txt('4. SELF-CORRECT (Iterate)', 180, 1205, { px: 32, fam: 'JetBrains Mono', wt: 700, fill: '#10b981', align: 'left', alpha: E.out(s4) });
+    txt('Failed? Refine hypothesis and loop again.', 180, 1250, { px: 26, fam: 'Inter', wt: 600, fill: '#ffffff', align: 'left', alpha: E.out(s4) });
+    txt('Success? Verified and ready to commit!', 180, 1285, { px: 26, fam: 'Inter', wt: 700, fill: '#10b981', align: 'left', alpha: E.out(s4) });
+  });
+
+  // SCENE 3: Autonomous Power (9.0 to 12.8s)
+  scene(t, 9.0, 12.8, (st, dur) => {
+    const p = prog(st, 0, 0.7);
+    badge('AGENT ARCHITECTURE', W / 2, 340, { px: 30, border: '#10b981', fill: '#10b981', alpha: E.out(p) });
+
+    rise('Why Agents Win', W / 2, 450, prog(st, 0.2, 0.6), { px: 72, fam: 'Inter', wt: 900, fill: '#fff' });
+    rise('Real Execution Loop', W / 2, 535, prog(st, 0.4, 0.6), { px: 72, fam: 'Inter', wt: 900, fill: '#00f2fe' });
+
+    card(90, 630, 900, 680, {
+      bg: 'rgba(13, 20, 32, 0.92)',
+      border: 'rgba(56, 189, 248, 0.3)',
+      glowColor: 'rgba(0, 242, 254, 0.12)',
+      alpha: E.out(prog(st, 0.5, 0.7))
+    });
+
+    const b1 = prog(st, 0.8, 0.5);
+    card(140, 710, 800, 90, { bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', r: 16, alpha: E.out(b1) });
+    check(180, 755, 30, b1, '#10b981');
+    txt('Surgical Diff Edits (Never rewrites entire file)', 225, 765, { px: 26, fam: 'JetBrains Mono', wt: 700, fill: '#f8fafc', align: 'left', alpha: E.out(b1) });
+
+    const b2 = prog(st, 1.6, 0.5);
+    card(140, 830, 800, 90, { bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', r: 16, alpha: E.out(b2) });
+    check(180, 875, 30, b2, '#10b981');
+    txt('Direct Terminal Sandbox Execution', 225, 885, { px: 26, fam: 'JetBrains Mono', wt: 700, fill: '#f8fafc', align: 'left', alpha: E.out(b2) });
+
+    const b3 = prog(st, 2.4, 0.5);
+    card(140, 950, 800, 90, { bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', r: 16, alpha: E.out(b3) });
+    check(180, 995, 30, b3, '#10b981');
+    txt('Automatic Test Suite Verification', 225, 1005, { px: 26, fam: 'JetBrains Mono', wt: 700, fill: '#f8fafc', align: 'left', alpha: E.out(b3) });
+
+    // Progress bar for bug resolution
+    const pBar = prog(st, 2.8, 0.8);
+    bar('Task Completion Rate', '98.4%', 0.984, 140, 1140, 800, 48, {
+      p: pBar,
+      fill: '#10b981',
+      alpha: 1
+    });
+    txt('Self-correction turns failures into passes', 140, 1240, { px: 26, fam: 'Inter', wt: 600, fill: '#94a3b8', align: 'left' });
+  });
+
+  // SCENE 4: CTA / Outro (12.8 to 15.0s)
+  scene(t, 12.8, 15.0, (st, dur) => {
+    const p = prog(st, 0, 0.6);
+    badge('STACKSHADE', W / 2, 600, { px: 34, bg: 'rgba(16, 185, 129, 0.2)', border: '#10b981', fill: '#10b981', alpha: E.out(p) });
+
+    rise('Master Modern', W / 2, 730, prog(st, 0.2, 0.5), { px: 76, fam: 'Inter', wt: 900, fill: '#fff' });
+    rise('AI Engineering', W / 2, 820, prog(st, 0.4, 0.5), { px: 76, fam: 'Inter', wt: 900, fill: '#10b981' });
+
+    card(140, 920, 800, 180, {
+      bg: 'rgba(13, 20, 32, 0.95)',
+      border: '#10b981',
+      glowColor: 'rgba(16, 185, 129, 0.25)',
+      glowBlur: 30,
+      alpha: E.out(prog(st, 0.5, 0.5))
+    });
+
+    txt('Follow @stackshade', W / 2, 1000, { px: 46, fam: 'Inter', wt: 900, fill: '#ffffff', align: 'center' });
+    txt('Daily AI & Software Architecture Reels', W / 2, 1055, { px: 28, fam: 'JetBrains Mono', wt: 600, fill: '#10b981', align: 'center' });
+  });
+
+  // Safe bottom branding line
+  txt('@stackshade', W / 2, 1780, { px: 32, fam: 'JetBrains Mono', wt: 700, fill: '#64748b', alpha: 0.8 });
+}
+
+startReel(450, drawReel);
+</script>
+</body>
+</html>
