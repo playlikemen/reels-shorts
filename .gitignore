@@ -16,7 +16,12 @@ node_modules/
 .claude/settings*.json
 .claude/scheduled_tasks.lock
 
-# OS & Editor
+# Python
+__pycache__/
+*.pyc
+
+# Local reference downloads
+reference/
 .DS_Store
 Thumbs.db
 .vscode/

@@ -1,6 +1,8 @@
 # Agent Context & Operation Manual (reels-shorts)
 
-This repository automates vertical video production (Instagram Reels & YouTube Shorts) for tech educational brands, specifically **StackShade** (`@stackshade` / `@StackShade`).
+This repository automates vertical video production (Instagram Reels & YouTube Shorts) for tech educational and SaaS brands:
+1. **StackShade** (`@stackshade` / `@StackShade`): Deep engineering, system design, and AI trend breakdowns.
+2. **IndexFast** (`@indexfast` / `indexfast.co`): Google indexing automation, crawl budget hacks, and programmatic SEO.
 
 ---
 
@@ -10,7 +12,8 @@ This repository automates vertical video production (Instagram Reels & YouTube S
 |---|---|---|---|---|
 | **StackShade** | Instagram | [@stackshade](https://www.instagram.com/stackshade/) | `instagram_create-beta` | Alias: `stackshade`, Active |
 | **StackShade** | YouTube | [@StackShade/shorts](https://www.youtube.com/@StackShade/shorts) | `youtube_run-retin` | Channel: `@StackShade`, Active |
-| **Google Sheets** | Tracker | [Spreadsheet](https://docs.google.com/spreadsheets/d/1wnwYwhGw4kdhC5lHf6MCU208yRslGoppBzHkezUfYEk/edit) | `googlesheets_louse-token` | Tab: `@StackShade` |
+| **IndexFast** | Instagram | [@indexfast](https://www.instagram.com/indexfast/) | `instagram_dam-hinder` | Name: `Indexfast.co`, Active |
+| **Google Sheets** | Tracker | [Spreadsheet](https://docs.google.com/spreadsheets/d/1wnwYwhGw4kdhC5lHf6MCU208yRslGoppBzHkezUfYEk/edit) | `googlesheets_louse-token` | Tabs: `@StackShade`, `@indexfast` |
 | **Google Drive** | Archive | [Drive Folder](https://drive.google.com/drive/folders/1upAISpZAnmyDDYki_FH9tK-FVh_djqLS) | `googledrive_footle-khir` | Folder ID: `1upAISpZAnmyDDYki_FH9tK-FVh_djqLS` |
 
 ---
@@ -24,30 +27,30 @@ reels-shorts/
 ├── package.json               # NPM scripts & dependencies
 ├── node_modules               # Symlinked from videos-skill
 ├── brands/
-│   └── stackshade/
-│       ├── brand.md           # Brand positioning, voice, typography, safe areas
-│       ├── calendar.csv       # Content programming schedule
-│       ├── assets/            # Logos, icons, badges
-│       └── reels/             # Reel production folders
-│           ├── 2026-11-17-redis-vs-mysql/
-│           │   ├── brief.md
-│           │   ├── src/reel.html
-│           │   └── out/ (final.mp4, sheet.jpg, caption.txt, metadata.json)
-│           └── 2026-11-17-how-ai-agents-code/
-│               ├── brief.md
-│               ├── src/reel.html
-│               └── out/ (final.mp4, sheet.jpg, caption.txt, metadata.json)
+│   ├── stackshade/
+│   │   ├── brand.md           # Brand positioning, voice, typography, safe areas
+│   │   ├── calendar.csv       # Content programming schedule
+│   │   ├── assets/            # Logos, icons, badges
+│   │   └── reels/
+│   │       ├── 2026-11-17-redis-vs-mysql/ (SS-001)
+│   │       ├── 2026-11-17-how-ai-agents-code/ (SS-002)
+│   │       └── 2026-11-17-ai-security-alerts/ (SS-003, News/Trend)
+│   └── indexfast/
+│       ├── brand.md           # SEO positioning, crawl budget automation
+│       └── reels/
+│           └── 2026-11-17-google-indexing-in-24h/ (IF-001)
 ├── shared/
 │   ├── fonts/                 # WOFF2 fonts (Inter 700/900, JetBrains Mono 700)
 │   └── scripts/
 │       ├── reelkit.js         # Canvas/HyperFrames animation framework
 │       ├── render.mjs         # Headless browser frame capture & MP4 muxing
-│       ├── sync_sheet.py      # Composio Google Sheets synchronization
-│       ├── sync_drive.py      # Composio Google Drive archival
-│       ├── publish_instagram.py # Instagram Reels publisher
+│       ├── sync_sheet.py      # Composio Google Sheets sync & beautification
+│       ├── sync_drive.py      # Google Drive resumable upload & direct links
+│       ├── publish_instagram.py # Instagram Reels multi-brand publisher
 │       └── publish_youtube.py # YouTube Shorts publisher
 └── pipeline/
     ├── RUNBOOK.md             # Standard Operating Procedure
+    ├── daily_scheduler.py     # Automated daily 3-reel scheduling engine
     └── publish-log.jsonl      # Audit trail & status tracking
 ```
 
@@ -62,30 +65,56 @@ npm run render -- brands/stackshade/reels/<reel_dir>/src/reel.html brands/stacks
 # 2. Render the full MP4 video (with code-synthesized audio)
 npm run render -- brands/stackshade/reels/<reel_dir>/src/reel.html brands/stackshade/reels/<reel_dir>/out/final.mp4
 
-# 3. Upload artifacts to Google Drive
+# 3. Upload artifacts to Google Drive (guarantees size > 100KB, generates direct download link)
 npm run drive:sync -- brands/stackshade/reels/<reel_dir>
 
-# 4. Sync metadata to Google Sheet (@StackShade tab)
-npm run sheet:sync -- --add-json brands/stackshade/reels/<reel_dir>/out/metadata.json
+# 4. Sync metadata to Google Sheet & auto-beautify tab
+npm run sheet:sync -- --add-json brands/stackshade/reels/<reel_dir>/out/metadata.json --tab "@StackShade"
 
-# 5. List current Google Sheet rows
-npm run sheet:sync -- --list
+# 5. Beautify Google Sheet tabs (frozen header, Obsidian header #0F172A, column widths, text wrapping)
+npm run sheet:beautify -- --tab "@StackShade"
+npm run sheet:beautify -- --tab "@indexfast"
 
-# 6. Publish to Instagram (when public video URL is deployed)
-npm run publish:instagram -- brands/stackshade/reels/<reel_dir> --url <public_video_url>
+# 6. Daily scheduler dry-run (inspect queue and planned slots)
+npm run schedule:dry-run
 
-# 7. Publish to YouTube
-npm run publish:youtube -- brands/stackshade/reels/<reel_dir>
+# 7. Daily scheduler live execution (posts to Instagram, updates Google Sheets)
+npm run schedule:publish
 ```
 
 ---
 
-## 4. Engineering & Aesthetic Rules
+## 4. Google Sheet Structure (17 Columns)
+
+Both `@StackShade` and `@indexfast` tabs maintain 17 columns:
+1. `Video ID`: Unique identifier (`SS-001`, `IF-001`)
+2. `Date`: Creation / scheduled post date
+3. `Category / Topic`: Primary content pillar
+4. `Format`: Production engine (`HyperFrames Motion Graphics`, etc.)
+5. `Duration`: Video duration (`15s`, `30s`)
+6. `Local Path`: Relative path to MP4 deliverable
+7. `Google Drive Folder`: Shareable Drive folder link
+8. `Direct MP4 Download Link`: Direct one-click stream link (`https://drive.google.com/uc?id={file_id}&export=download`)
+9. `YouTube Title`: Catchy hook + `#shorts`
+10. `YouTube SEO Tags (Separated)`: Comma-separated high-volume search tags
+11. `YouTube Best SEO Description`: Full SEO description with timestamps, summary, and links
+12. `Instagram Viral Caption`: Hook, emoji bullet breakdown, and CTA
+13. `Instagram Hashtags`: Curated hashtag group
+14. `Instagram Status`: `Draft`, `Ready`, `Published`
+15. `Instagram Post URL`: Live Instagram permalink
+16. `YouTube Status`: `Draft`, `Ready`, `Published`
+17. `YouTube Shorts URL`: Live Shorts permalink
+
+---
+
+## 5. Engineering & Aesthetic Rules
 
 - **Resolution & Aspect**: Always `1080x1920` (9:16 vertical).
 - **Framerate**: Exactly `30 fps`.
 - **Top Safe Area**: **250 px** top margin. No text or crucial elements inside 0-250px.
 - **Bottom Safe Area**: **420 px** bottom margin. No text or crucial elements inside 1500-1920px.
-- **Color Palette**: Dark mode obsidian `#070a12`, Cyan `#38bdf8`, Emerald `#10b981`, Amber `#f59e0b`, Purple `#a855f7`.
-- **Audio**: Deterministic Web Audio synthesizer in `window.SCORE` or licensed lossless audio. Never commit unlicensed music files.
-- **Factuality**: Accurate engineering facts, numbers, and diagrams. Never hallucinate fake benchmark numbers.
+- **Strict Validation**: Video files must exist and be $> 100\text{ KB}$ before any Google Drive upload or Google Sheet entry. Never add 0 KB files.
+- **Color Palette**:
+  - StackShade: Dark obsidian `#070a12`, Cyan `#38bdf8`, Emerald `#10b981`, Amber `#f59e0b`.
+  - IndexFast: Emerald Obsidian `#060d0a`, Neon Emerald `#10b981`, Cyan `#06b6d4`.
+- **Audio**: Deterministic Web Audio synthesizer in `window.SCORE`.

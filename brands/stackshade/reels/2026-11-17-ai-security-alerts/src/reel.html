@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StackShade: 3 Critical AI Hacks Exposed This Week</title>
+<style>
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../shared/fonts/inter-700.woff2') format('woff2');
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../shared/fonts/inter-900.woff2') format('woff2');
+    font-weight: 900;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('../../../../../shared/fonts/jbmono-700.woff2') format('woff2');
+    font-weight: 700;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #000; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+  canvas { width: auto; height: 95vh; aspect-ratio: 9/16; background: #070a11; box-shadow: 0 0 50px rgba(239,68,68,0.2); }
+</style>
+</head>
+<body>
+<canvas width="1080" height="1920"></canvas>
+<script src="../../../../../shared/scripts/reelkit.js"></script>
+<script>
+window.CUES = [0, 4.5, 9.5, 12.8];
+
+window.SCORE = ac => {
+  buildScore(ac, {
+    bpm: 132,
+    dur: 15,
+    root: 45, // A
+    chords: [0, 1, 3, 2], // Minor ominous progression
+    minor: true,
+    kickFrom: 0.1,
+    level: 0.95,
+    hits: [0, 4.5, 9.5, 12.8]
+  });
+};
+
+function drawReel(t) {
+  // Deep cyber background
+  ctx.fillStyle = '#070a12';
+  ctx.fillRect(0, 0, W, H);
+  
+  // Urgent alert grid (red/amber scanning pulses)
+  techGrid(t, { size: 90, color: 'rgba(239, 68, 68, 0.05)', accent: 'rgba(239, 68, 68, 0.12)' });
+
+  // Persistent header in safe zone
+  txt('STACKSHADE  //  SECURITY ALERT', W / 2, 210, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#ef4444', ls: 3, alpha: 0.85 });
+
+  // SCENE 1: The Breaking Alert (0 to 4.5s)
+  scene(t, 0, 4.5, (st, dur) => {
+    const p = prog(st, 0, 0.7);
+    badge('🚨 CYBERSECURITY ALERT', W / 2, 340, { px: 30, bg: 'rgba(239, 68, 68, 0.2)', border: '#ef4444', fill: '#ef4444', alpha: E.out(p) });
+
+    rise('3 Major AI Hacks', W / 2, 450, prog(st, 0.2, 0.6), { px: 72, fam: 'Inter', wt: 900, fill: '#fff' });
+    rise('Exposed This Week', W / 2, 535, prog(st, 0.4, 0.6), { px: 72, fam: 'Inter', wt: 900, fill: '#f87171' });
+
+    // Warning radar container
+    card(90, 630, 900, 680, {
+      bg: 'rgba(20, 15, 24, 0.92)',
+      border: 'rgba(239, 68, 68, 0.35)',
+      glowColor: 'rgba(239, 68, 68, 0.18)',
+      alpha: E.out(prog(st, 0.5, 0.7))
+    });
+
+    // Flashing warning beacon
+    const pulse = 0.6 + 0.4 * Math.sin(t * 8);
+    rr(140, 680, 800, 80, 16, `rgba(239, 68, 68, ${0.15 * pulse})`, '#ef4444', 2);
+    txt('⚠️  CRITICAL VULNERABILITY ADVISORY', W / 2, 730, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#fca5a5', align: 'center' });
+
+    // 3 quick ticker items
+    const t1 = prog(st, 1.0, 0.5);
+    txt('• LiteLLM Token Leakage CVE', 150, 830, { px: 32, fam: 'JetBrains Mono', wt: 700, fill: '#ffffff', align: 'left', alpha: E.out(t1) });
+    txt('API keys extracted via poisoned proxy cache', 150, 875, { px: 26, fam: 'Inter', wt: 600, fill: '#94a3b8', align: 'left', alpha: E.out(t1) });
+
+    const t2 = prog(st, 2.0, 0.5);
+    txt('• Indirect Prompt Injection', 150, 960, { px: 32, fam: 'JetBrains Mono', wt: 700, fill: '#ffffff', align: 'left', alpha: E.out(t2) });
+    txt('Hidden web markdown hijacking LLM instructions', 150, 1005, { px: 26, fam: 'Inter', wt: 600, fill: '#94a3b8', align: 'left', alpha: E.out(t2) });
+
+    const t3 = prog(st, 3.0, 0.5);
+    txt('• Agent Sandbox Escape', 150, 1090, { px: 32, fam: 'JetBrains Mono', wt: 700, fill: '#ffffff', align: 'left', alpha: E.out(t3) });
+    txt('Shell execution escaping container namespace', 150, 1135, { px: 26, fam: 'Inter', wt: 600, fill: '#94a3b8', align: 'left', alpha: E.out(t3) });
+
+    // Urgent footer pill
+    card(140, 1190, 800, 90, { bg: 'rgba(239, 68, 68, 0.1)', border: '#f87171', r: 16, alpha: E.out(prog(st, 3.4, 0.5)) });
+    txt('Every AI developer needs to patch this.', W / 2, 1245, { px: 30, fam: 'Inter', wt: 900, fill: '#f87171', align: 'center', alpha: E.out(prog(st, 3.4, 0.5)) });
+  });
+
+  // SCENE 2: The Attack Breakdown (4.5 to 9.5s)
+  scene(t, 4.5, 9.5, (st, dur) => {
+    const p = prog(st, 0, 0.7);
+    badge('ATTACK VECTOR ANALYSIS', W / 2, 340, { px: 30, border: '#f59e0b', fill: '#f59e0b', alpha: E.out(p) });
+
+    rise('How Attacks Happen', W / 2, 450, prog(st, 0.2, 0.6), { px: 72, fam: 'Inter', wt: 900, fill: '#fff' });
+    rise('Inside The AI Stack', W / 2, 535, prog(st, 0.4, 0.6), { px: 72, fam: 'Inter', wt: 900, fill: '#f59e0b' });
+
+    card(90, 620, 900, 750, {
+      bg: 'rgba(20, 15, 24, 0.92)',
+      border: 'rgba(245, 158, 11, 0.3)',
+      glowColor: 'rgba(245, 158, 11, 0.15)',
+      alpha: E.out(prog(st, 0.5, 0.7))
+    });
+
+    // Card 1: Proxy Leak
+    const s1 = prog(st, 0.7, 0.6);
+    card(140, 670, 800, 140, { bg: 'rgba(239, 68, 68, 0.12)', border: '#ef4444', r: 18, alpha: E.out(s1) });
+    txt('1. PROXY TOKEN HARVESTING', 180, 725, { px: 30, fam: 'JetBrains Mono', wt: 700, fill: '#ef4444', align: 'left', alpha: E.out(s1) });
+    txt('Improper cache collision in LiteLLM leaked client keys.', 180, 770, { px: 25, fam: 'Inter', wt: 600, fill: '#cbd5e1', align: 'left', alpha: E.out(s1) });
+
+    // Card 2: Prompt Injection
+    const s2 = prog(st, 1.8, 0.6);
+    card(140, 830, 800, 140, { bg: 'rgba(245, 158, 11, 0.12)', border: '#f59e0b', r: 18, alpha: E.out(s2) });
+    txt('2. HIDDEN PROMPT INJECTION', 180, 885, { px: 30, fam: 'JetBrains Mono', wt: 700, fill: '#f59e0b', align: 'left', alpha: E.out(s2) });
+    txt('Zero-font text in web pages forced model to exfiltrate data.', 180, 930, { px: 25, fam: 'Inter', wt: 600, fill: '#cbd5e1', align: 'left', alpha: E.out(s2) });
+
+    // Card 3: Sandbox Escape
+    const s3 = prog(st, 2.9, 0.6);
+    card(140, 990, 800, 150, { bg: 'rgba(168, 85, 247, 0.12)', border: '#a855f7', r: 18, alpha: E.out(s3) });
+    txt('3. DOCKER PRIVILEGE ESCALATION', 180, 1045, { px: 30, fam: 'JetBrains Mono', wt: 700, fill: '#a855f7', align: 'left', alpha: E.out(s3) });
+    txt('Unrestricted shell access granted root control of VPS.', 180, 1090, { px: 25, fam: 'Inter', wt: 600, fill: '#cbd5e1', align: 'left', alpha: E.out(s3) });
+
+    // Counter badge
+    const s4 = prog(st, 3.8, 0.5);
+    card(140, 1160, 800, 85, { bg: 'rgba(239, 68, 68, 0.15)', border: '#ef4444', r: 16, alpha: E.out(s4) });
+    txt('Impact: Over 4,000 self-hosted servers compromised.', W / 2, 1215, { px: 27, fam: 'JetBrains Mono', wt: 700, fill: '#fca5a5', align: 'center', alpha: E.out(s4) });
+  });
+
+  // SCENE 3: How to Defend Your Architecture (9.5 to 12.8s)
+  scene(t, 9.5, 12.8, (st, dur) => {
+    const p = prog(st, 0, 0.7);
+    badge('DEFENSE ARCHITECTURE', W / 2, 340, { px: 30, border: '#10b981', fill: '#10b981', alpha: E.out(p) });
+
+    rise('How To Harden', W / 2, 450, prog(st, 0.2, 0.6), { px: 72, fam: 'Inter', wt: 900, fill: '#fff' });
+    rise('Your Agent Stack', W / 2, 535, prog(st, 0.4, 0.6), { px: 72, fam: 'Inter', wt: 900, fill: '#10b981' });
+
+    card(90, 630, 900, 680, {
+      bg: 'rgba(13, 20, 32, 0.92)',
+      border: 'rgba(16, 185, 129, 0.3)',
+      glowColor: 'rgba(16, 185, 129, 0.12)',
+      alpha: E.out(prog(st, 0.5, 0.7))
+    });
+
+    const d1 = prog(st, 0.8, 0.5);
+    card(140, 710, 800, 100, { bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', r: 16, alpha: E.out(d1) });
+    check(185, 760, 30, d1, '#10b981');
+    txt('1. MicroVM Isolation (Firecracker/gVisor)', 230, 770, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#f8fafc', align: 'left', alpha: E.out(d1) });
+
+    const d2 = prog(st, 1.6, 0.5);
+    card(140, 835, 800, 100, { bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', r: 16, alpha: E.out(d2) });
+    check(185, 885, 30, d2, '#10b981');
+    txt('2. Enforce Strict JSON Tool Output Schemas', 230, 895, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#f8fafc', align: 'left', alpha: E.out(d2) });
+
+    const d3 = prog(st, 2.4, 0.5);
+    card(140, 960, 800, 100, { bg: 'rgba(16, 185, 129, 0.1)', border: '#10b981', r: 16, alpha: E.out(d3) });
+    check(185, 1010, 30, d3, '#10b981');
+    txt('3. Automatic API Token Circuit Breakers', 230, 1020, { px: 28, fam: 'JetBrains Mono', wt: 700, fill: '#f8fafc', align: 'left', alpha: E.out(d3) });
+
+    // Audit banner
+    const d4 = prog(st, 2.9, 0.6);
+    card(140, 1100, 800, 140, { bg: 'rgba(56, 189, 248, 0.12)', border: '#38bdf8', r: 18, alpha: E.out(d4) });
+    txt('GOLDEN RULE FOR 2026:', 180, 1150, { px: 26, fam: 'JetBrains Mono', wt: 700, fill: '#38bdf8', align: 'left', alpha: E.out(d4) });
+    txt('Never grant agents raw unrestricted bash access.', 180, 1195, { px: 28, fam: 'Inter', wt: 900, fill: '#ffffff', align: 'left', alpha: E.out(d4) });
+  });
+
+  // SCENE 4: CTA / Outro (12.8 to 15.0s)
+  scene(t, 12.8, 15.0, (st, dur) => {
+    const p = prog(st, 0, 0.6);
+    badge('STACKSHADE', W / 2, 600, { px: 34, bg: 'rgba(239, 68, 68, 0.2)', border: '#ef4444', fill: '#f87171', alpha: E.out(p) });
+
+    rise('Stay Ahead In', W / 2, 730, prog(st, 0.2, 0.5), { px: 76, fam: 'Inter', wt: 900, fill: '#fff' });
+    rise('AI Engineering', W / 2, 820, prog(st, 0.4, 0.5), { px: 76, fam: 'Inter', wt: 900, fill: '#f87171' });
+
+    card(140, 920, 800, 180, {
+      bg: 'rgba(20, 15, 24, 0.95)',
+      border: '#ef4444',
+      glowColor: 'rgba(239, 68, 68, 0.25)',
+      glowBlur: 30,
+      alpha: E.out(prog(st, 0.5, 0.5))
+    });
+
+    txt('Follow @stackshade', W / 2, 1000, { px: 46, fam: 'Inter', wt: 900, fill: '#ffffff', align: 'center' });
+    txt('Daily AI Security, Tech News & Architecture Reels', W / 2, 1055, { px: 26, fam: 'JetBrains Mono', wt: 600, fill: '#fca5a5', align: 'center' });
+  });
+
+  // Safe bottom branding line
+  txt('@stackshade', W / 2, 1780, { px: 32, fam: 'JetBrains Mono', wt: 700, fill: '#64748b', alpha: 0.8 });
+}
+
+startReel(450, drawReel);
+</script>
+</body>
+</html>

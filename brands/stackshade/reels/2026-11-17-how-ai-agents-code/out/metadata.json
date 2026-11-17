@@ -19,5 +19,10 @@
   "caption": "How AI Coding Agents Actually Work: Inside the autonomous ReAct loop (Reason -> Action -> Observe -> Iterate).",
   "fps": 30,
   "frames": 450,
-  "resolution": "1080x1920"
+  "resolution": "1080x1920",
+  "yt_title": "How AI Agents Actually Code (The ReAct Loop Explained) #shorts",
+  "yt_seo_tags": "ai agents, react loop, how ai agents code, cursor ai, claude artifacts, llm tool calling, agentic ai, software development, coding ai, autonomous agents, prompt engineering, python ai",
+  "yt_description": "Welcome to StackShade \u2014 where complex engineering becomes simple.\n\nEver wondered how AI coding agents like Devin, Cursor, and Claude Code actually write software?\nIt's NOT magic. It's the ReAct Loop (Reasoning + Acting):\n\n1. THOUGHT: LLM analyzes user request and plans code edits.\n2. ACTION: Invokes terminal commands (e.g., bash, git, tests).\n3. OBSERVATION: Reads stderr / stdout compiler feedback.\n4. REFLECT & ITERATE: Automatically fixes syntax errors before you even see them!\n\nSubscribe to @StackShade for daily AI engineering breakdowns!\n\n#aiagents #artificialintelligence #coding #softwareengineering #shorts",
+  "insta_caption": "How AI Agents Actually Code (Inside The ReAct Loop) \ud83e\udd16\u26a1\n\nAI coding tools like Devin and Cursor aren't just autocomplete \u2014 they run an autonomous ReAct loop:\n\ud83d\udcad REASON: Parse instructions & plan architectural changes\n\ud83d\udee0\ufe0f ACTION: Run bash commands, read files & edit code\n\ud83d\udc40 OBSERVE: Capture test results & compiler error traces\n\ud83d\udd04 ITERATE: Self-heal bugs until the build passes\n\nFollow @stackshade for daily AI engineering insights \ud83d\ude80",
+  "insta_hashtags": "#aiagents #agenticai #coding #softwareengineering #developer #python #reactloop #devin #cursor #llm #techtrends #reels #shorts"
 }

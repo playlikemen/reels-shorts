@@ -7,9 +7,12 @@
   "scripts": {
     "render": "node shared/scripts/render.mjs",
     "sheet:sync": "python3.11 shared/scripts/sync_sheet.py",
+    "sheet:beautify": "python3.11 shared/scripts/sync_sheet.py --beautify",
     "drive:sync": "python3.11 shared/scripts/sync_drive.py",
     "publish:instagram": "python3.11 shared/scripts/publish_instagram.py",
-    "publish:youtube": "python3.11 shared/scripts/publish_youtube.py"
+    "publish:youtube": "python3.11 shared/scripts/publish_youtube.py",
+    "schedule:dry-run": "python3.11 pipeline/daily_scheduler.py --dry-run",
+    "schedule:publish": "python3.11 pipeline/daily_scheduler.py --publish"
   },
   "dependencies": {
     "playwright-core": "^1.50.0",
