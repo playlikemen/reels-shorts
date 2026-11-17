@@ -1,146 +1,57 @@
 ---
 name: lower-thirds
-description: This skill should be used when the user asks to "make an animated lower third", "add lower thirds", "create a name tag/name lower third", "build broadcast titles", "animate a title/name/role caption", "do a speaker name overlay", or "template lower thirds across a list of names". Covers enter/exit animation (slide/wipe/mask reveal), in/out timing & dwell, safe-area & broadcast conventions, name-vs-role type hierarchy, brand styling, and rendering one design across many names.
-version: 0.1.0
+description: Make animated lower thirds and other broadcast overlays (name straps, corner bugs, subscribe reminders, scripture or song titles) as transparent video files, drawn frame by frame in JavaScript on a canvas and rendered to WebM with alpha for OBS and browsers, or ProRes 4444 for Premiere Pro, DaVinci Resolve and Final Cut. Use when someone wants a lower third, a name title, a chyron, a stream overlay, a corner bug, or any graphic with a transparent background to lay over their own footage or livestream.
 ---
 
-# Lower Thirds
+# Lower thirds
 
-Build a clean, branded lower third — the name/role caption that lives in the bottom band of the frame — that animates in, holds long enough to read, and exits without stealing the shot. The craft is restraint: a crisp reveal, a strong type hierarchy, correct safe-area placement, and one template that drives a whole roster of speakers.
+A lower third is the name-and-role graphic in the bottom part of the frame that says who is speaking, laid over footage the graphic never sees. The deliverable is a file with an alpha channel: everything you do not draw stays see-through.
 
-## When to use
+You copy `templates/lower-third.html` into the working folder, write the design into it, check it with `scripts/render.mjs`, and render the files. Run the script from the working folder (`node <this skill>/scripts/render.mjs …`); outputs land there. Make it in one go: don't ask questions the brief already answers or a sensible default covers, and list the defaults you chose when you deliver.
 
-- Speaker/interview name tags, panel rosters, talking-head captions.
-- Broadcast-style titles, news straps, podcast/webinar name plates.
-- Templating one design across a list of names/titles → many clips (the payoff).
+## 1. Read the brief
 
-## Anatomy
+- **The words, exactly as they should read**: names, roles, show name, handle, scripture reference, song title. Keep the user's spelling and punctuation (setting a line in capitals is styling; the words stay theirs); never invent a title or a surname. If they give no second line, use their own words for one (what the stream is about) or leave it out.
+- **How many cards**: each person or item is one entry in `CARDS`, rendered to its own file with the same design. Add fields when a card needs more than `title` and `sub`.
+- **Where it goes**: OBS or a stream → WebM only; a web page → WebM plus the Safari HEVC copy (`references/delivery.md`); Premiere Pro, DaVinci Resolve, Final Cut → ProRes 4444 `.mov`; both named → both; a phone editor or tool without alpha → an MP4 on a green ground for chroma key. Not said: WebM and `.mov`.
+- **The look**: the show, the brand colours, the mood (news, podcast, gaming, documentary, church, corporate). The design comes from this, not from the template.
+- **Defaults when not given**: 1920×1080 at 30 fps; about 8 seconds (under a second in, a still hold of 5–6 seconds, half a second out); lower left; silent.
 
-A lower third is two text lines plus a graphic bed, placed in the lower band:
+## 2. Design it for this show
 
-| Element | Role | Type treatment |
-|---|---|---|
-| **Name** (primary) | Who | Largest, heaviest, tightest tracking |
-| **Role/title** (secondary) | What/where | ~45–60% of name size, lighter weight, often a brand accent color |
-| **Bar / panel / accent** | Reads against any background | Solid or 70–85% opacity; an accent rule ties to brand |
+The template's `drawGraphic` is a working example of the structure, not the look: rewrite it for the brief. What holds for every design:
 
-Keep it to two lines. A name line + role line is the whole job — extra lines erode the hierarchy and crowd the safe area.
+- **Legible over any footage.** The graphic cannot know what is behind it, so text sits on its own backing (a panel, a bar, a band, a heavy shadow). Thin light text straight on the picture disappears on a bright shot.
+- **Inside title-safe.** Keep every pixel at least 5% in from each edge (`SAFE` in the template is 6%). The lower third lives in the bottom third; a corner bug in a corner; the middle of the frame stays empty for the speaker.
+- **Small.** A name strap covers a few percent of the frame; the name is roughly 50–80 px tall at 1080p, the role about half that.
+- **Still while it's being read.** The motion is in the build-in and build-out; the hold does not move, or moves so little it doesn't pull the eye (one slow sheen at most).
+- **Starts and ends empty.** The first and last frames have nothing in them, so the clip never pops on or cuts off in the edit. Keep `LEAD` and `TAIL`.
+- **The words are never cut.** Use `fit()` so a long name shrinks to its box instead of overflowing it, and size every wipe or clip to the widest thing it reveals. Check the longest entry in `CARDS`.
+- **Fonts**: one Google Fonts `<link>` per family with the weights and italics you use, and every face you draw with listed in `FONTS` (`'700 Inter'`, `'italic 400 Libre Baskerville'`), so nothing renders in a fallback font. Many serifs (Cormorant, EB Garamond, Playfair Display) draw old-style numerals that drop below the line, and canvas can't switch them to lining ones: if the card has digits ("Psalm 1:3", "Episode 12"), pick a face with lining numerals (Lora, for one) and check the stills.
 
-## Three rules that prevent cheap-looking titles
+Several things on screen (a host strap, a guest strap, a corner bug for the whole segment) can be one page with their own timings, or one page per graphic when the editor needs to place them separately; say which you did.
 
-1. **Never hard-cut a title on or off.** A bare appear/disappear reads as a mistake. Even a 12-frame fade or slide makes it feel produced.
-2. **Stagger, don't slam.** Animate the bar first, then the name, then the role, each offset by 3–6 frames. Everything arriving at once feels flat; a short cascade feels designed.
-3. **Hold long enough to read twice.** Roughly 3–5s on screen (read it aloud twice). Too short and it's missed; too long and it nags. Animate in/out, never mid-segment.
-
-## Enter & exit animations
-
-Pick one motion language and reuse it. The most reliable, premium-reading reveals:
-
-| Reveal | Feel | How |
-|---|---|---|
-| **Slide + fade** | Clean, default | Translate in ~24–40px while fading; ease-out on enter |
-| **Wipe bar** | Broadcast | A bar scales/sweeps in (`scaleX`/clip), text fades behind it |
-| **Mask reveal** | Premium | Clip text to a moving rectangle so letters "wipe on" |
-
-Use asymmetric easing: a snappy `ease-out` (`cubic-bezier(.22,1,.36,1)`) on enter, a quicker `ease-in` on exit. Exit faster than you entered (~⅔ the duration) so the title gets out of the way.
-
-```css
-/* Mask reveal: text wipes on left→right, no plugin needed */
-.lt-name { clip-path: inset(0 100% 0 0); animation: wipe .5s cubic-bezier(.22,1,.36,1) forwards; }
-@keyframes wipe { to { clip-path: inset(0 0 0 0); } }
-```
-
-## In/out timing & dwell
-
-Think in three phases. Budget frames, not vibes (at 30fps):
-
-| Phase | Budget | Note |
-|---|---|---|
-| Enter | 12–18f (0.4–0.6s) | Staggered: bar → name → role |
-| Hold | 90–150f (3–5s) | The readable dwell; scale with line length |
-| Exit | 8–12f (0.27–0.4s) | Faster than enter |
-
-In code, drive every state from the current frame (or a paused timeline), not wall-clock time — a video renderer demands deterministic frames. Express enter/hold/exit as a single progress curve so the same component works live in a browser and frame-by-frame in a renderer.
-
-## Safe area & broadcast conventions
-
-The lower third must survive every screen and platform UI. Compose inside the **title-safe area** (inner ~90% / margin 5%) and respect platform chrome:
-
-| Frame | Anchor | Avoid |
-|---|---|---|
-| 16:9 (1920×1080) | Left edge at ~5% margin; baseline ~80–85% down | Outer 5% (title-safe), action-safe outer 10% |
-| 9:16 (1080×1920) | Same left margin; **lift the band up** | Bottom ~18% (captions/UI), top ~12% |
-| 1:1 (1080×1080) | Lower band, center-left | Outer 5% |
-
-Anchor to the **left** and grow rightward so names of different lengths stay pinned and never re-center awkwardly. Keep the role line within the same left margin as the name. For 9:16, do not park the title at the very bottom — platform captions and buttons sit there.
-
-## Type hierarchy & brand styling
-
-Hierarchy is the whole design. Make the name unmistakably dominant:
-
-- **Size contrast** ≥ 1.6× (name vs role). If unsure, push the name bigger, not the role.
-- **Weight + color**: name in bold/near-white; role in a lighter weight and a **brand accent** color (one accent, used consistently).
-- **Contrast for legibility**: text rides over unknown footage. Use a solid/semi-opaque bar, a subtle scrim, or a soft text shadow so it reads over both bright and dark plates.
-- **Brand lock**: pin font, accent color, bar style, and corner radius in one theme object so every title across a series matches.
-
-## Templating one design across a list
-
-The reason to build this in code: change the text/data, re-export — no re-animating. Make name/role/theme **props**, never hardcoded, then map a roster to instances.
-
-```jsx
-const ROSTER = [
-  { name: "Ada Lovelace",  role: "Founder, Analytical Engines" },
-  { name: "Grace Hopper",  role: "Rear Admiral, US Navy" },
-  { name: "Alan Turing",   role: "Mathematician" },
-];
-// One <LowerThird> design; map the list → many instances (sequence them in a renderer)
-{ROSTER.map((p, i) => <LowerThird key={p.name} {...p} theme={BRAND} startFrame={i * 150} />)}
-```
-
-In a renderer, make the roster an input prop and render once per row (`--props`) to emit one branded clip per person — same animation, same brand, only the text changes. See `references/lower-third-component.md` for the full runnable component and batch script.
-
-## Output checklist
-
-- Two lines only: dominant name, secondary role (≥1.6× size contrast).
-- Animated in and out (no hard cut); enter staggered bar→name→role; exit faster.
-- Hold 3–5s (readable twice); motion only at the ends, never mid-segment.
-- Left-anchored inside title-safe; 9:16 band lifted above the bottom-18% UI zone.
-- Text legible over any plate (bar/scrim/shadow); one brand accent throughout.
-- Name/role/theme are props — one template renders the whole roster.
-
-## Deliver & verify (rendered stills → MP4)
-
-> **Packaged helper** (`scripts/`): tile your stills with `scripts/contact-sheet.sh sheet.png f-hook.png f-mid.png f-end.png`, then assert the encode with `scripts/probe-mp4.sh out.mp4 [WxH] [fps]`. See `scripts/README.md`.
-
-The lower third ships as a Remotion composition (`<Composition>` + zod `schema` + `defaultProps`, name/role/theme as props) — enter/dwell/exit all driven by `useCurrentFrame()`, never `Date.now()` / `Math.random()` / timers. Deliverable = `out/*.mp4` + the project (re-render per roster row). 9:16 vertical (1080×1920) is the default.
-
-**Verify loop — render stills → inspect → encode.** Sample the three phases so you catch a stagger or safe-area bug before encoding (or batching the whole roster).
+## 3. Check it
 
 ```bash
-# Stills at enter / dwell / exit — WITH SHIPPED PROPS (a real roster row, not defaults)
-npx remotion still LowerThird out/f-enter.png --frame=10  --props='{"name":"Ada Lovelace","role":"Founder, Analytical Engines"}'
-npx remotion still LowerThird out/f-dwell.png --frame=75  --props='{"name":"Ada Lovelace","role":"Founder, Analytical Engines"}'
-npx remotion still LowerThird out/f-exit.png  --frame=N   --props='{"name":"Ada Lovelace","role":"Founder, Analytical Engines"}'
-
-# Inspect each PNG — focus the DWELL frame (fully on screen):
-#  - hierarchy holds: name dominant (>=1.6x role), role in brand accent; both fully revealed, not mid-wipe
-#  - brand lock: font, accent color, bar/scrim correct; legible over the plate
-#  - 9:16 safe area: band LIFTED above the bottom ~20-35% UI zone, clear of top ~12% and the right action rail; left-anchored inside title-safe
-#  - enter/exit frames show partial reveal (animation actually runs), not a hard cut
-
-npx remotion render LowerThird out/lower-third.mp4 --props='{"name":"Ada Lovelace","role":"Founder, Analytical Engines"}'
-npx remotion render LowerThird out/demo.gif --codec=gif                # README proof clip
+node render.mjs page.html --check                                    # fonts, transparency, empty first/last frame, title-safe, timing
+node render.mjs page.html shot --stills 3s                           # the hold, full frame, over a checkerboard, dark and light footage
+node render.mjs page.html in.jpg --sheet 0.1 --in                    # the build-in, frame by frame, cropped to the graphic
+node render.mjs page.html out.jpg --sheet 0.1 --out                  # the build-out (both read window.PHASES)
 ```
 
-**Batch roster**: verify ONE row via stills *before* rendering all names — catch a layout/overflow bug once, not N times. Use `npx remotion compositions` for `durationInFrames`/`fps` to pick the dwell + exit frames.
+`--check` must pass, but it can't see text cut off by a wipe or text that's hard to read: your eyes do that. In the stills, every word reads over both the dark and the light ground and the spacing is even. In the sheets, nothing jumps, no text shows before or outside the part of its panel that is revealed, none gets cut mid-hold, and the build-out is as clean as the build-in. Check every entry in `CARDS` (`--card N` counts from 0: `--card 1` is the second). Fix and look again until it holds up.
 
-**Before you finish:**
-1. Stills render cleanly at enter, dwell, and exit — no missing font/brand assets.
-2. At the dwell frame: name dominant over role, brand accent + bar correct, fully (not partly) revealed.
-3. The band is inside the 9:16 safe area — lifted above the bottom UI zone, clear of top and right rail — at every checked frame.
-4. Frame-driven only — no `Date.now()` / `Math.random()` / timers; enter/exit show motion, never a hard cut.
-5. A real roster row (not `defaultProps`) renders correctly; MP4 encoded, GIF optional.
+## 4. Render and deliver
 
-## Reference files
+```bash
+node render.mjs page.html maya-chen.webm                    # VP9 with alpha
+node render.mjs page.html maya-chen.mov                     # ProRes 4444 with alpha (large)
+node render.mjs page.html daniel-ortiz.webm --card 1        # the next card
+node render.mjs page.html maya-chen-4k.webm --scale 2       # 3840x2160
+node render.mjs page.html maya-chen-green.mp4 --ground '#00ff00'
+```
 
-- `references/lower-third-component.md` — a complete runnable lower-third: a Remotion component with staggered spring enter, readable hold, and faster exit driven purely by frame; a typed theme object for brand lock; the list→many-instances sequencing pattern; a per-row batch render script; plus a dependency-free CSS/HTML version of the same design with mask-reveal and wipe-bar variants.
+The script refuses an MP4 without `--ground` (H.264 has no alpha) and confirms that WebM and `.mov` files really carry an alpha channel, by decoding a frame from the hold. Hand over the files, the page (they can change a name and re-render), and how to use them in their tool from `references/delivery.md`, in two or three lines (a web page also needs the Safari file described there). Say what you chose that they didn't ask for.
+
+Needs: Node 18+, `npm i playwright-core` in the working folder or any folder above it, ffmpeg, and Chrome (or `npx playwright install chromium`).
