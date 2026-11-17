@@ -1,0 +1,9 @@
+Never retype long commands again! ⚡
+
+Press `Ctrl + R` in your terminal to search your history in real-time.
+
+Type any word like `docker` or `ssh`, press `Ctrl + R` again to cycle, and hit Enter. Boom.
+
+Double tap if this saved you 10 minutes today! 💡
+
+#linux #shortcuts #terminal #bash #developer #devops #coding #stackshade

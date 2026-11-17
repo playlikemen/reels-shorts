@@ -76,16 +76,21 @@ def publish_reel(reel_folder, video_url=None, account=None):
     tab_name = BRAND_TABS.get(brand, "@StackShade")
 
     caption_path = os.path.join(reel_folder, "out", "caption.txt")
-    if not os.path.exists(caption_path):
-        raise FileNotFoundError(f"Missing caption file: {caption_path}")
-    with open(caption_path) as f:
-        caption = f.read().strip()
-
     meta_path = os.path.join(reel_folder, "out", "metadata.json")
     meta = {}
     if os.path.exists(meta_path):
         with open(meta_path) as f:
             meta = json.load(f)
+
+    if os.path.exists(caption_path):
+        with open(caption_path) as f:
+            caption = f.read().strip()
+    elif meta:
+        caption = meta.get("instagram_viral_caption") or meta.get("caption", "")
+        if meta.get("instagram_hashtags"):
+            caption += "\n\n" + meta.get("instagram_hashtags")
+    else:
+        raise FileNotFoundError(f"Missing caption file: {caption_path} or metadata.json")
 
     # Resolve public video URL
     target_url = video_url or meta.get("public_video_url")

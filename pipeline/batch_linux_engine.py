@@ -464,6 +464,11 @@ def produce_episode(ep_data, dry_run=False, publish=False):
     with open(metadata_path, "w") as f:
         json.dump(metadata, f, indent=2)
 
+    # Save caption.txt for Instagram / social publishing
+    caption_path = out_dir / "caption.txt"
+    with open(caption_path, "w") as f:
+        f.write(f"{ep_data['ig_caption']}\n\n{ep_data['ig_tags']}\n")
+
     # 6. Sync to Google Sheets
     print(f"[batch] Syncing metadata to Google Sheet tab '@StackShade'...")
     cmd_sheet = [

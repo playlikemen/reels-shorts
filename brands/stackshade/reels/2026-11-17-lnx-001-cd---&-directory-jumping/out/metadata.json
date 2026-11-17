@@ -13,8 +13,10 @@
   "youtube_best_seo_description": "Stop wasting seconds typing cd ../../.. in your terminal! The 'cd -' command toggles between your current and previous directory instantly.\n\n\u26a1 Commands Covered:\n- cd - : Return to previous directory\n- pushd <dir> : Push directory to stack\n- popd : Pop and return to stacked directory\n\nFollow @StackShade for daily engineering & Linux deep dives!\n#linux #bash #terminal #devops #programming #shorts",
   "instagram_viral_caption": "Stop typing 'cd ../../..' in your terminal! \ud83d\uded1\n\nHere's the single fastest Linux navigation trick you need to know:\n\n\u2728 `cd -` takes you back to your previous working directory instantly.\n\u2728 `pushd <dir>` and `popd` lets you navigate deep paths like a stack.\n\nSave this for your next terminal session! \ud83d\ude80",
   "instagram_hashtags": "#linux #bash #terminal #devops #sysadmin #softwareengineer #coding #tech #programmer #stackshade",
-  "instagram_status": "Ready",
+  "instagram_status": "Published",
   "instagram_post_url": "",
   "youtube_status": "Ready",
-  "youtube_shorts_url": ""
+  "youtube_shorts_url": "",
+  "instagram_permalink": "https://www.instagram.com/reel/Df2OtPQk2n-/",
+  "instagram_media_id": "18500965876110182"
 }
