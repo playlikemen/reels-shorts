@@ -1,5 +1,25 @@
+# Dependencies
 node_modules/
+.pnpm-store/
+
+# Build caches & raw audio
 *.wav
 *.tmp
+*.log
+.cache/
+
+# Local state, environment & secrets
+.env
+.env.*
+!.env.example
+.mcp.json
+.claude/settings*.json
+.claude/scheduled_tasks.lock
+
+# OS & Editor
 .DS_Store
-.env*
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
