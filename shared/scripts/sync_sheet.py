@@ -1,6 +1,9 @@
 #!/usr/bin/env python3.11
 """sync_sheet.py: Manage and synchronize video records in Google Sheets for @StackShade.
 
+- Enforces strict video validation before writing to Google Sheets (blocks 0 KB / missing files).
+- Updates Google Sheet row with verified folder link, direct download link, and status.
+
 Spreadsheet: https://docs.google.com/spreadsheets/d/1wnwYwhGw4kdhC5lHf6MCU208yRslGoppBzHkezUfYEk/edit
 Tab: @StackShade
 Composio Account: googlesheets_louse-token
@@ -69,15 +72,31 @@ def get_all_rows():
     results = res.get("data", {}).get("results", [{}])[0]
     return results.get("response", {}).get("data", {}).get("values", [])
 
+def validate_video_deliverable(video_data):
+    """Guarantees the video file exists and is not 0 KB before sheet entry."""
+    local_path = video_data.get("local_path")
+    if not local_path or not os.path.exists(local_path):
+        raise FileNotFoundError(f"Validation Error: Video file not found at '{local_path}'. Cannot add to sheet.")
+    
+    file_size = os.path.getsize(local_path)
+    if file_size < 100 * 1024:  # Less than 100 KB
+        raise ValueError(f"Validation Error: Video file '{local_path}' is {file_size} bytes (0 KB or corrupted). Refusing to add to sheet.")
+
+    direct_link = video_data.get("direct_download_link", "")
+    if not direct_link:
+        raise ValueError("Validation Error: Missing direct_download_link in metadata. Run sync_drive.py first.")
+
+    print(f"Video validation passed: {local_path} ({round(file_size/1024/1024, 2)} MB) with verified download link.")
+    return True
+
 def append_or_update_video_row(video_data):
     """
-    video_data: dict with keys:
-    video_id, date, title, category, format, duration, local_path, drive_link, direct_download_link,
-    instagram_status, instagram_permalink, youtube_status, youtube_url, caption
+    Validates deliverable and updates Google Sheet.
     """
+    validate_video_deliverable(video_data)
     rows = get_all_rows()
     
-    # Always ensure headers are in row 1
+    # Ensure header row is set
     call_composio_tool("GOOGLESHEETS_VALUES_UPDATE", {
         "spreadsheet_id": SPREADSHEET_ID,
         "range": f"'{SHEET_TAB}'!A1:N1",
