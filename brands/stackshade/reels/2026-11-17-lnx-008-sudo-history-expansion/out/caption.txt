@@ -1,0 +1,9 @@
+Forgot `sudo`? Don't retype! ⚡
+
+Just type `sudo !!` and hit Enter.
+
+The `!!` operator automatically repeats your entire last command with root privileges.
+
+What is your favorite bash shortcut? Tell us below! 👇
+
+#linux #bash #developer #devops #terminalhacks #coding #tech #stackshade

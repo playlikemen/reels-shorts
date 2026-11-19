@@ -1,0 +1,662 @@
+{
+  "text": "Grep is great, but ripgrep is ten times faster across millions of lines of code. Ripgrep automatically respects your gitignore, ignores binary files, and utilizes multiple CPU cores in parallel. Simply install rg and watch multi-gigabyte log searches finish in milliseconds, which is why...",
+  "voice": "en-US-ChristopherNeural",
+  "rate": "+8%",
+  "audio_path": "/home/kunalkashyap8024/sop/scrap/reels-shorts/brands/stackshade/reels/2026-11-17-lnx-004-grep-vs-ripgrep/out/voiceover.mp3",
+  "wav_path": "/home/kunalkashyap8024/sop/scrap/reels-shorts/brands/stackshade/reels/2026-11-17-lnx-004-grep-vs-ripgrep/out/voiceover.wav",
+  "duration": 19.37,
+  "total_words": 44,
+  "total_pages": 15,
+  "words": [
+    {
+      "word": "Grep",
+      "start": 0.096,
+      "end": 0.339,
+      "duration": 0.243
+    },
+    {
+      "word": "is",
+      "start": 0.351,
+      "end": 0.478,
+      "duration": 0.127
+    },
+    {
+      "word": "great",
+      "start": 0.49,
+      "end": 0.849,
+      "duration": 0.359
+    },
+    {
+      "word": "but",
+      "start": 1.045,
+      "end": 1.23,
+      "duration": 0.185
+    },
+    {
+      "word": "ripgrep",
+      "start": 1.242,
+      "end": 1.647,
+      "duration": 0.405
+    },
+    {
+      "word": "is",
+      "start": 1.659,
+      "end": 1.798,
+      "duration": 0.139
+    },
+    {
+      "word": "ten",
+      "start": 1.809,
+      "end": 2.064,
+      "duration": 0.255
+    },
+    {
+      "word": "times",
+      "start": 2.075,
+      "end": 2.422,
+      "duration": 0.347
+    },
+    {
+      "word": "faster",
+      "start": 2.434,
+      "end": 2.885,
+      "duration": 0.451
+    },
+    {
+      "word": "across",
+      "start": 2.897,
+      "end": 3.244,
+      "duration": 0.347
+    },
+    {
+      "word": "millions",
+      "start": 3.256,
+      "end": 3.661,
+      "duration": 0.405
+    },
+    {
+      "word": "of",
+      "start": 3.673,
+      "end": 3.766,
+      "duration": 0.093
+    },
+    {
+      "word": "lines",
+      "start": 3.777,
+      "end": 4.113,
+      "duration": 0.336
+    },
+    {
+      "word": "of",
+      "start": 4.124,
+      "end": 4.217,
+      "duration": 0.093
+    },
+    {
+      "word": "code",
+      "start": 4.228,
+      "end": 4.645,
+      "duration": 0.417
+    },
+    {
+      "word": "Ripgrep",
+      "start": 5.44,
+      "end": 5.926,
+      "duration": 0.486
+    },
+    {
+      "word": "automatically",
+      "start": 5.938,
+      "end": 6.563,
+      "duration": 0.625
+    },
+    {
+      "word": "respects",
+      "start": 6.574,
+      "end": 6.991,
+      "duration": 0.417
+    },
+    {
+      "word": "your",
+      "start": 7.002,
+      "end": 7.129,
+      "duration": 0.127
+    },
+    {
+      "word": "gitignore",
+      "start": 7.141,
+      "end": 7.662,
+      "duration": 0.521
+    },
+    {
+      "word": "ignores",
+      "start": 7.905,
+      "end": 8.333,
+      "duration": 0.428
+    },
+    {
+      "word": "binary",
+      "start": 8.345,
+      "end": 8.773,
+      "duration": 0.428
+    },
+    {
+      "word": "files",
+      "start": 8.785,
+      "end": 9.271,
+      "duration": 0.486
+    },
+    {
+      "word": "and",
+      "start": 9.491,
+      "end": 9.641,
+      "duration": 0.15
+    },
+    {
+      "word": "utilizes",
+      "start": 9.653,
+      "end": 10.278,
+      "duration": 0.625
+    },
+    {
+      "word": "multiple",
+      "start": 10.289,
+      "end": 10.694,
+      "duration": 0.405
+    },
+    {
+      "word": "CPU",
+      "start": 10.706,
+      "end": 11.262,
+      "duration": 0.556
+    },
+    {
+      "word": "cores",
+      "start": 11.273,
+      "end": 11.632,
+      "duration": 0.359
+    },
+    {
+      "word": "in",
+      "start": 11.643,
+      "end": 11.759,
+      "duration": 0.116
+    },
+    {
+      "word": "parallel",
+      "start": 11.771,
+      "end": 12.35,
+      "duration": 0.579
+    },
+    {
+      "word": "Simply",
+      "start": 13.148,
+      "end": 13.588,
+      "duration": 0.44
+    },
+    {
+      "word": "install",
+      "start": 13.6,
+      "end": 14.086,
+      "duration": 0.486
+    },
+    {
+      "word": "rg",
+      "start": 14.097,
+      "end": 14.572,
+      "duration": 0.475
+    },
+    {
+      "word": "and",
+      "start": 14.583,
+      "end": 14.687,
+      "duration": 0.104
+    },
+    {
+      "word": "watch",
+      "start": 14.699,
+      "end": 14.965,
+      "duration": 0.266
+    },
+    {
+      "word": "multi-gigabyte",
+      "start": 14.977,
+      "end": 15.776,
+      "duration": 0.799
+    },
+    {
+      "word": "log",
+      "start": 15.787,
+      "end": 16.053,
+      "duration": 0.266
+    },
+    {
+      "word": "searches",
+      "start": 16.065,
+      "end": 16.493,
+      "duration": 0.428
+    },
+    {
+      "word": "finish",
+      "start": 16.505,
+      "end": 16.829,
+      "duration": 0.324
+    },
+    {
+      "word": "in",
+      "start": 16.84,
+      "end": 16.956,
+      "duration": 0.116
+    },
+    {
+      "word": "milliseconds",
+      "start": 16.968,
+      "end": 17.651,
+      "duration": 0.683
+    },
+    {
+      "word": "which",
+      "start": 17.824,
+      "end": 17.998,
+      "duration": 0.174
+    },
+    {
+      "word": "is",
+      "start": 18.009,
+      "end": 18.125,
+      "duration": 0.116
+    },
+    {
+      "word": "why",
+      "start": 18.137,
+      "end": 18.542,
+      "duration": 0.405
+    }
+  ],
+  "pages": [
+    {
+      "page_index": 0,
+      "start": 0.096,
+      "end": 0.849,
+      "text": "Grep is great",
+      "words": [
+        {
+          "word": "Grep",
+          "start": 0.096,
+          "end": 0.339,
+          "duration": 0.243
+        },
+        {
+          "word": "is",
+          "start": 0.351,
+          "end": 0.478,
+          "duration": 0.127
+        },
+        {
+          "word": "great",
+          "start": 0.49,
+          "end": 0.849,
+          "duration": 0.359
+        }
+      ]
+    },
+    {
+      "page_index": 1,
+      "start": 1.045,
+      "end": 1.798,
+      "text": "but ripgrep is",
+      "words": [
+        {
+          "word": "but",
+          "start": 1.045,
+          "end": 1.23,
+          "duration": 0.185
+        },
+        {
+          "word": "ripgrep",
+          "start": 1.242,
+          "end": 1.647,
+          "duration": 0.405
+        },
+        {
+          "word": "is",
+          "start": 1.659,
+          "end": 1.798,
+          "duration": 0.139
+        }
+      ]
+    },
+    {
+      "page_index": 2,
+      "start": 1.809,
+      "end": 2.885,
+      "text": "ten times faster",
+      "words": [
+        {
+          "word": "ten",
+          "start": 1.809,
+          "end": 2.064,
+          "duration": 0.255
+        },
+        {
+          "word": "times",
+          "start": 2.075,
+          "end": 2.422,
+          "duration": 0.347
+        },
+        {
+          "word": "faster",
+          "start": 2.434,
+          "end": 2.885,
+          "duration": 0.451
+        }
+      ]
+    },
+    {
+      "page_index": 3,
+      "start": 2.897,
+      "end": 3.766,
+      "text": "across millions of",
+      "words": [
+        {
+          "word": "across",
+          "start": 2.897,
+          "end": 3.244,
+          "duration": 0.347
+        },
+        {
+          "word": "millions",
+          "start": 3.256,
+          "end": 3.661,
+          "duration": 0.405
+        },
+        {
+          "word": "of",
+          "start": 3.673,
+          "end": 3.766,
+          "duration": 0.093
+        }
+      ]
+    },
+    {
+      "page_index": 4,
+      "start": 3.777,
+      "end": 4.645,
+      "text": "lines of code",
+      "words": [
+        {
+          "word": "lines",
+          "start": 3.777,
+          "end": 4.113,
+          "duration": 0.336
+        },
+        {
+          "word": "of",
+          "start": 4.124,
+          "end": 4.217,
+          "duration": 0.093
+        },
+        {
+          "word": "code",
+          "start": 4.228,
+          "end": 4.645,
+          "duration": 0.417
+        }
+      ]
+    },
+    {
+      "page_index": 5,
+      "start": 5.44,
+      "end": 6.991,
+      "text": "Ripgrep automatically respects",
+      "words": [
+        {
+          "word": "Ripgrep",
+          "start": 5.44,
+          "end": 5.926,
+          "duration": 0.486
+        },
+        {
+          "word": "automatically",
+          "start": 5.938,
+          "end": 6.563,
+          "duration": 0.625
+        },
+        {
+          "word": "respects",
+          "start": 6.574,
+          "end": 6.991,
+          "duration": 0.417
+        }
+      ]
+    },
+    {
+      "page_index": 6,
+      "start": 7.002,
+      "end": 8.333,
+      "text": "your gitignore ignores",
+      "words": [
+        {
+          "word": "your",
+          "start": 7.002,
+          "end": 7.129,
+          "duration": 0.127
+        },
+        {
+          "word": "gitignore",
+          "start": 7.141,
+          "end": 7.662,
+          "duration": 0.521
+        },
+        {
+          "word": "ignores",
+          "start": 7.905,
+          "end": 8.333,
+          "duration": 0.428
+        }
+      ]
+    },
+    {
+      "page_index": 7,
+      "start": 8.345,
+      "end": 9.641,
+      "text": "binary files and",
+      "words": [
+        {
+          "word": "binary",
+          "start": 8.345,
+          "end": 8.773,
+          "duration": 0.428
+        },
+        {
+          "word": "files",
+          "start": 8.785,
+          "end": 9.271,
+          "duration": 0.486
+        },
+        {
+          "word": "and",
+          "start": 9.491,
+          "end": 9.641,
+          "duration": 0.15
+        }
+      ]
+    },
+    {
+      "page_index": 8,
+      "start": 9.653,
+      "end": 11.262,
+      "text": "utilizes multiple CPU",
+      "words": [
+        {
+          "word": "utilizes",
+          "start": 9.653,
+          "end": 10.278,
+          "duration": 0.625
+        },
+        {
+          "word": "multiple",
+          "start": 10.289,
+          "end": 10.694,
+          "duration": 0.405
+        },
+        {
+          "word": "CPU",
+          "start": 10.706,
+          "end": 11.262,
+          "duration": 0.556
+        }
+      ]
+    },
+    {
+      "page_index": 9,
+      "start": 11.273,
+      "end": 12.35,
+      "text": "cores in parallel",
+      "words": [
+        {
+          "word": "cores",
+          "start": 11.273,
+          "end": 11.632,
+          "duration": 0.359
+        },
+        {
+          "word": "in",
+          "start": 11.643,
+          "end": 11.759,
+          "duration": 0.116
+        },
+        {
+          "word": "parallel",
+          "start": 11.771,
+          "end": 12.35,
+          "duration": 0.579
+        }
+      ]
+    },
+    {
+      "page_index": 10,
+      "start": 13.148,
+      "end": 14.572,
+      "text": "Simply install rg",
+      "words": [
+        {
+          "word": "Simply",
+          "start": 13.148,
+          "end": 13.588,
+          "duration": 0.44
+        },
+        {
+          "word": "install",
+          "start": 13.6,
+          "end": 14.086,
+          "duration": 0.486
+        },
+        {
+          "word": "rg",
+          "start": 14.097,
+          "end": 14.572,
+          "duration": 0.475
+        }
+      ]
+    },
+    {
+      "page_index": 11,
+      "start": 14.583,
+      "end": 15.776,
+      "text": "and watch multi-gigabyte",
+      "words": [
+        {
+          "word": "and",
+          "start": 14.583,
+          "end": 14.687,
+          "duration": 0.104
+        },
+        {
+          "word": "watch",
+          "start": 14.699,
+          "end": 14.965,
+          "duration": 0.266
+        },
+        {
+          "word": "multi-gigabyte",
+          "start": 14.977,
+          "end": 15.776,
+          "duration": 0.799
+        }
+      ]
+    },
+    {
+      "page_index": 12,
+      "start": 15.787,
+      "end": 16.829,
+      "text": "log searches finish",
+      "words": [
+        {
+          "word": "log",
+          "start": 15.787,
+          "end": 16.053,
+          "duration": 0.266
+        },
+        {
+          "word": "searches",
+          "start": 16.065,
+          "end": 16.493,
+          "duration": 0.428
+        },
+        {
+          "word": "finish",
+          "start": 16.505,
+          "end": 16.829,
+          "duration": 0.324
+        }
+      ]
+    },
+    {
+      "page_index": 13,
+      "start": 16.84,
+      "end": 17.998,
+      "text": "in milliseconds which",
+      "words": [
+        {
+          "word": "in",
+          "start": 16.84,
+          "end": 16.956,
+          "duration": 0.116
+        },
+        {
+          "word": "milliseconds",
+          "start": 16.968,
+          "end": 17.651,
+          "duration": 0.683
+        },
+        {
+          "word": "which",
+          "start": 17.824,
+          "end": 17.998,
+          "duration": 0.174
+        }
+      ]
+    },
+    {
+      "page_index": 14,
+      "start": 18.009,
+      "end": 18.542,
+      "text": "is why",
+      "words": [
+        {
+          "word": "is",
+          "start": 18.009,
+          "end": 18.125,
+          "duration": 0.116
+        },
+        {
+          "word": "why",
+          "start": 18.137,
+          "end": 18.542,
+          "duration": 0.405
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,638 @@
+{
+  "text": "This single vertical bar powers all of Linux! The pipe operator streams standard output from one program directly into the input of another, with zero intermediate disk writes. Pair it with xargs to convert text streams into parallel arguments, which is why...",
+  "voice": "en-US-ChristopherNeural",
+  "rate": "+8%",
+  "audio_path": "/home/kunalkashyap8024/sop/scrap/reels-shorts/brands/stackshade/reels/2026-11-17-lnx-005-pipes-xargs/out/voiceover.mp3",
+  "wav_path": "/home/kunalkashyap8024/sop/scrap/reels-shorts/brands/stackshade/reels/2026-11-17-lnx-005-pipes-xargs/out/voiceover.wav",
+  "duration": 15.79,
+  "total_words": 42,
+  "total_pages": 15,
+  "words": [
+    {
+      "word": "This",
+      "start": 0.096,
+      "end": 0.351,
+      "duration": 0.255
+    },
+    {
+      "word": "single",
+      "start": 0.362,
+      "end": 0.674,
+      "duration": 0.312
+    },
+    {
+      "word": "vertical",
+      "start": 0.687,
+      "end": 1.092,
+      "duration": 0.405
+    },
+    {
+      "word": "bar",
+      "start": 1.103,
+      "end": 1.358,
+      "duration": 0.255
+    },
+    {
+      "word": "powers",
+      "start": 1.369,
+      "end": 1.844,
+      "duration": 0.475
+    },
+    {
+      "word": "all",
+      "start": 1.856,
+      "end": 2.064,
+      "duration": 0.208
+    },
+    {
+      "word": "of",
+      "start": 2.075,
+      "end": 2.168,
+      "duration": 0.093
+    },
+    {
+      "word": "Linux",
+      "start": 2.18,
+      "end": 2.736,
+      "duration": 0.556
+    },
+    {
+      "word": "The",
+      "start": 3.53,
+      "end": 3.657,
+      "duration": 0.127
+    },
+    {
+      "word": "pipe",
+      "start": 3.669,
+      "end": 3.947,
+      "duration": 0.278
+    },
+    {
+      "word": "operator",
+      "start": 3.958,
+      "end": 4.409,
+      "duration": 0.451
+    },
+    {
+      "word": "streams",
+      "start": 4.421,
+      "end": 4.815,
+      "duration": 0.394
+    },
+    {
+      "word": "standard",
+      "start": 4.826,
+      "end": 5.208,
+      "duration": 0.382
+    },
+    {
+      "word": "output",
+      "start": 5.22,
+      "end": 5.625,
+      "duration": 0.405
+    },
+    {
+      "word": "from",
+      "start": 5.637,
+      "end": 5.811,
+      "duration": 0.174
+    },
+    {
+      "word": "one",
+      "start": 5.822,
+      "end": 6.007,
+      "duration": 0.185
+    },
+    {
+      "word": "program",
+      "start": 6.019,
+      "end": 6.447,
+      "duration": 0.428
+    },
+    {
+      "word": "directly",
+      "start": 6.458,
+      "end": 6.933,
+      "duration": 0.475
+    },
+    {
+      "word": "into",
+      "start": 6.944,
+      "end": 7.118,
+      "duration": 0.174
+    },
+    {
+      "word": "the",
+      "start": 7.13,
+      "end": 7.211,
+      "duration": 0.081
+    },
+    {
+      "word": "input",
+      "start": 7.222,
+      "end": 7.592,
+      "duration": 0.37
+    },
+    {
+      "word": "of",
+      "start": 7.604,
+      "end": 7.673,
+      "duration": 0.069
+    },
+    {
+      "word": "another",
+      "start": 7.685,
+      "end": 8.032,
+      "duration": 0.347
+    },
+    {
+      "word": "with",
+      "start": 8.241,
+      "end": 8.391,
+      "duration": 0.15
+    },
+    {
+      "word": "zero",
+      "start": 8.403,
+      "end": 8.75,
+      "duration": 0.347
+    },
+    {
+      "word": "intermediate",
+      "start": 8.762,
+      "end": 9.329,
+      "duration": 0.567
+    },
+    {
+      "word": "disk",
+      "start": 9.34,
+      "end": 9.606,
+      "duration": 0.266
+    },
+    {
+      "word": "writes",
+      "start": 9.618,
+      "end": 10.081,
+      "duration": 0.463
+    },
+    {
+      "word": "Pair",
+      "start": 10.88,
+      "end": 11.112,
+      "duration": 0.232
+    },
+    {
+      "word": "it",
+      "start": 11.123,
+      "end": 11.192,
+      "duration": 0.069
+    },
+    {
+      "word": "with",
+      "start": 11.204,
+      "end": 11.331,
+      "duration": 0.127
+    },
+    {
+      "word": "xargs",
+      "start": 11.343,
+      "end": 11.713,
+      "duration": 0.37
+    },
+    {
+      "word": "to",
+      "start": 11.725,
+      "end": 11.818,
+      "duration": 0.093
+    },
+    {
+      "word": "convert",
+      "start": 11.829,
+      "end": 12.234,
+      "duration": 0.405
+    },
+    {
+      "word": "text",
+      "start": 12.245,
+      "end": 12.523,
+      "duration": 0.278
+    },
+    {
+      "word": "streams",
+      "start": 12.535,
+      "end": 12.905,
+      "duration": 0.37
+    },
+    {
+      "word": "into",
+      "start": 12.917,
+      "end": 13.091,
+      "duration": 0.174
+    },
+    {
+      "word": "parallel",
+      "start": 13.102,
+      "end": 13.6,
+      "duration": 0.498
+    },
+    {
+      "word": "arguments",
+      "start": 13.611,
+      "end": 14.155,
+      "duration": 0.544
+    },
+    {
+      "word": "which",
+      "start": 14.271,
+      "end": 14.433,
+      "duration": 0.162
+    },
+    {
+      "word": "is",
+      "start": 14.444,
+      "end": 14.56,
+      "duration": 0.116
+    },
+    {
+      "word": "why",
+      "start": 14.572,
+      "end": 14.977,
+      "duration": 0.405
+    }
+  ],
+  "pages": [
+    {
+      "page_index": 0,
+      "start": 0.096,
+      "end": 1.092,
+      "text": "This single vertical",
+      "words": [
+        {
+          "word": "This",
+          "start": 0.096,
+          "end": 0.351,
+          "duration": 0.255
+        },
+        {
+          "word": "single",
+          "start": 0.362,
+          "end": 0.674,
+          "duration": 0.312
+        },
+        {
+          "word": "vertical",
+          "start": 0.687,
+          "end": 1.092,
+          "duration": 0.405
+        }
+      ]
+    },
+    {
+      "page_index": 1,
+      "start": 1.103,
+      "end": 2.064,
+      "text": "bar powers all",
+      "words": [
+        {
+          "word": "bar",
+          "start": 1.103,
+          "end": 1.358,
+          "duration": 0.255
+        },
+        {
+          "word": "powers",
+          "start": 1.369,
+          "end": 1.844,
+          "duration": 0.475
+        },
+        {
+          "word": "all",
+          "start": 1.856,
+          "end": 2.064,
+          "duration": 0.208
+        }
+      ]
+    },
+    {
+      "page_index": 2,
+      "start": 2.075,
+      "end": 2.736,
+      "text": "of Linux",
+      "words": [
+        {
+          "word": "of",
+          "start": 2.075,
+          "end": 2.168,
+          "duration": 0.093
+        },
+        {
+          "word": "Linux",
+          "start": 2.18,
+          "end": 2.736,
+          "duration": 0.556
+        }
+      ]
+    },
+    {
+      "page_index": 3,
+      "start": 3.53,
+      "end": 4.409,
+      "text": "The pipe operator",
+      "words": [
+        {
+          "word": "The",
+          "start": 3.53,
+          "end": 3.657,
+          "duration": 0.127
+        },
+        {
+          "word": "pipe",
+          "start": 3.669,
+          "end": 3.947,
+          "duration": 0.278
+        },
+        {
+          "word": "operator",
+          "start": 3.958,
+          "end": 4.409,
+          "duration": 0.451
+        }
+      ]
+    },
+    {
+      "page_index": 4,
+      "start": 4.421,
+      "end": 5.625,
+      "text": "streams standard output",
+      "words": [
+        {
+          "word": "streams",
+          "start": 4.421,
+          "end": 4.815,
+          "duration": 0.394
+        },
+        {
+          "word": "standard",
+          "start": 4.826,
+          "end": 5.208,
+          "duration": 0.382
+        },
+        {
+          "word": "output",
+          "start": 5.22,
+          "end": 5.625,
+          "duration": 0.405
+        }
+      ]
+    },
+    {
+      "page_index": 5,
+      "start": 5.637,
+      "end": 6.447,
+      "text": "from one program",
+      "words": [
+        {
+          "word": "from",
+          "start": 5.637,
+          "end": 5.811,
+          "duration": 0.174
+        },
+        {
+          "word": "one",
+          "start": 5.822,
+          "end": 6.007,
+          "duration": 0.185
+        },
+        {
+          "word": "program",
+          "start": 6.019,
+          "end": 6.447,
+          "duration": 0.428
+        }
+      ]
+    },
+    {
+      "page_index": 6,
+      "start": 6.458,
+      "end": 7.211,
+      "text": "directly into the",
+      "words": [
+        {
+          "word": "directly",
+          "start": 6.458,
+          "end": 6.933,
+          "duration": 0.475
+        },
+        {
+          "word": "into",
+          "start": 6.944,
+          "end": 7.118,
+          "duration": 0.174
+        },
+        {
+          "word": "the",
+          "start": 7.13,
+          "end": 7.211,
+          "duration": 0.081
+        }
+      ]
+    },
+    {
+      "page_index": 7,
+      "start": 7.222,
+      "end": 8.032,
+      "text": "input of another",
+      "words": [
+        {
+          "word": "input",
+          "start": 7.222,
+          "end": 7.592,
+          "duration": 0.37
+        },
+        {
+          "word": "of",
+          "start": 7.604,
+          "end": 7.673,
+          "duration": 0.069
+        },
+        {
+          "word": "another",
+          "start": 7.685,
+          "end": 8.032,
+          "duration": 0.347
+        }
+      ]
+    },
+    {
+      "page_index": 8,
+      "start": 8.241,
+      "end": 9.329,
+      "text": "with zero intermediate",
+      "words": [
+        {
+          "word": "with",
+          "start": 8.241,
+          "end": 8.391,
+          "duration": 0.15
+        },
+        {
+          "word": "zero",
+          "start": 8.403,
+          "end": 8.75,
+          "duration": 0.347
+        },
+        {
+          "word": "intermediate",
+          "start": 8.762,
+          "end": 9.329,
+          "duration": 0.567
+        }
+      ]
+    },
+    {
+      "page_index": 9,
+      "start": 9.34,
+      "end": 10.081,
+      "text": "disk writes",
+      "words": [
+        {
+          "word": "disk",
+          "start": 9.34,
+          "end": 9.606,
+          "duration": 0.266
+        },
+        {
+          "word": "writes",
+          "start": 9.618,
+          "end": 10.081,
+          "duration": 0.463
+        }
+      ]
+    },
+    {
+      "page_index": 10,
+      "start": 10.88,
+      "end": 11.331,
+      "text": "Pair it with",
+      "words": [
+        {
+          "word": "Pair",
+          "start": 10.88,
+          "end": 11.112,
+          "duration": 0.232
+        },
+        {
+          "word": "it",
+          "start": 11.123,
+          "end": 11.192,
+          "duration": 0.069
+        },
+        {
+          "word": "with",
+          "start": 11.204,
+          "end": 11.331,
+          "duration": 0.127
+        }
+      ]
+    },
+    {
+      "page_index": 11,
+      "start": 11.343,
+      "end": 12.234,
+      "text": "xargs to convert",
+      "words": [
+        {
+          "word": "xargs",
+          "start": 11.343,
+          "end": 11.713,
+          "duration": 0.37
+        },
+        {
+          "word": "to",
+          "start": 11.725,
+          "end": 11.818,
+          "duration": 0.093
+        },
+        {
+          "word": "convert",
+          "start": 11.829,
+          "end": 12.234,
+          "duration": 0.405
+        }
+      ]
+    },
+    {
+      "page_index": 12,
+      "start": 12.245,
+      "end": 13.091,
+      "text": "text streams into",
+      "words": [
+        {
+          "word": "text",
+          "start": 12.245,
+          "end": 12.523,
+          "duration": 0.278
+        },
+        {
+          "word": "streams",
+          "start": 12.535,
+          "end": 12.905,
+          "duration": 0.37
+        },
+        {
+          "word": "into",
+          "start": 12.917,
+          "end": 13.091,
+          "duration": 0.174
+        }
+      ]
+    },
+    {
+      "page_index": 13,
+      "start": 13.102,
+      "end": 14.433,
+      "text": "parallel arguments which",
+      "words": [
+        {
+          "word": "parallel",
+          "start": 13.102,
+          "end": 13.6,
+          "duration": 0.498
+        },
+        {
+          "word": "arguments",
+          "start": 13.611,
+          "end": 14.155,
+          "duration": 0.544
+        },
+        {
+          "word": "which",
+          "start": 14.271,
+          "end": 14.433,
+          "duration": 0.162
+        }
+      ]
+    },
+    {
+      "page_index": 14,
+      "start": 14.444,
+      "end": 14.977,
+      "text": "is why",
+      "words": [
+        {
+          "word": "is",
+          "start": 14.444,
+          "end": 14.56,
+          "duration": 0.116
+        },
+        {
+          "word": "why",
+          "start": 14.572,
+          "end": 14.977,
+          "duration": 0.405
+        }
+      ]
+    }
+  ]
+}

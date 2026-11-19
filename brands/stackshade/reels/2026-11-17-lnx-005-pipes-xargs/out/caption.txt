@@ -1,0 +1,9 @@
+The true superpower of Linux is the Pipe `|`! ⚡
+
+Instead of saving temporary files, pipe output directly from one tool to another.
+
+Pair it with `xargs -P 4` to process thousands of files across 4 CPU threads simultaneously.
+
+Drop a ❤️ if you love Linux architecture!
+
+#linux #unix #terminal #bash #programming #devops #cloud #stackshade

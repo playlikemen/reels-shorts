@@ -1,0 +1,10 @@
+Still using `grep` in 2026? Switch to `ripgrep` (`rg`)! 🚀
+
+Written in Rust, `ripgrep` is up to 10x faster than GNU grep because it:
+1. Respects `.gitignore` by default
+2. Skips hidden & binary files
+3. Uses multi-core parallelism
+
+Have you tried it yet? Let us know below! 💬
+
+#linux #rustlang #developer #devops #terminal #coding #sysadmin #stackshade

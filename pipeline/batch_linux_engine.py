@@ -14,6 +14,8 @@ Automates end-to-end production of the 40-part Linux Shorts series:
 import os
 import sys
 import json
+import re
+import urllib.parse
 import wave
 import subprocess
 import argparse
@@ -63,6 +65,14 @@ def build_reel_html(ep_data, transcript_data, duration_sec, src_dir):
     hook = ep_data.get("hook", "")
     cmd_dir = ep_data.get("cmd_dir", "~")
 
+    cmd_js = json.dumps(cmd)
+    cmd_dir_js = json.dumps(cmd_dir)
+    badge_js = json.dumps(badge)
+    ep_str_js = json.dumps(f"EPISODE {ep_num} / 40 • LINUX POWER")
+    topic_title_js = json.dumps(topic.upper())
+    hook_text_js = json.dumps(hook)
+    accent_js = json.dumps(color)
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,14 +121,14 @@ def build_reel_html(ep_data, transcript_data, duration_sec, src_dir):
 const GROUPS = {groups_json};
 const DURATION = {duration_sec + 1.2};
 const TOTAL_FRAMES = {total_frames};
-const COMMAND = "{cmd}";
-const CMD_DIR = "{cmd_dir}";
+const COMMAND = {cmd_js};
+const CMD_DIR = {cmd_dir_js};
 const OUTPUT_LINES = {output_lines};
-const ACCENT = "{color}";
-const BADGE_TEXT = "{badge}";
-const EP_STR = "EPISODE {ep_num} / 40 • LINUX POWER";
-const TOPIC_TITLE = "{topic.upper()}";
-const HOOK_TEXT = "{hook}";
+const ACCENT = {accent_js};
+const BADGE_TEXT = {badge_js};
+const EP_STR = {ep_str_js};
+const TOPIC_TITLE = {topic_title_js};
+const HOOK_TEXT = {hook_text_js};
 
 // Scene Timing
 const TYPING_START = 2.2;
@@ -323,8 +333,15 @@ startReel(TOTAL_FRAMES, drawFrame);
 
 def produce_episode(ep_data, dry_run=False, publish=False):
     ep_id = ep_data["id"]
-    reel_dir_name = f"2026-11-17-{ep_id.lower()}-{ep_data['topic'].lower().replace(' ', '-').replace('/', '-').replace(':', '')[:30]}"
-    reel_dir = WORKSPACE / "brands/stackshade/reels" / reel_dir_name
+    clean_topic = re.sub(r'[^a-zA-Z0-9]', '-', ep_data['topic'].lower())
+    clean_topic = re.sub(r'-+', '-', clean_topic).strip('-')[:35]
+    reel_dir_name = f"2026-11-17-{ep_id.lower()}-{clean_topic}"
+
+    existing = list((WORKSPACE / "brands/stackshade/reels").glob(f"*{ep_id.lower()}*"))
+    if existing:
+        reel_dir = existing[0]
+    else:
+        reel_dir = WORKSPACE / "brands/stackshade/reels" / reel_dir_name
     src_dir = reel_dir / "src"
     out_dir = reel_dir / "out"
 
@@ -458,7 +475,8 @@ def produce_episode(ep_data, dry_run=False, publish=False):
         "instagram_status": "Ready",
         "instagram_post_url": "",
         "youtube_status": "Ready",
-        "youtube_shorts_url": ""
+        "youtube_shorts_url": "",
+        "public_video_url": f"https://raw.githubusercontent.com/playlikemen/reels-shorts/main/{urllib.parse.quote(str(final_mp4.relative_to(WORKSPACE)))}"
     }
 
     with open(metadata_path, "w") as f:
@@ -488,7 +506,7 @@ def produce_episode(ep_data, dry_run=False, publish=False):
     # 7. Optional Publish to Instagram & YouTube
     if publish:
         print(f"[batch] Publishing {ep_id} to Instagram & YouTube...")
-        cmd_pub_ig = ["python3.11", str(PUBLISH_IG_SCRIPT), "--reel-dir", str(reel_dir), "--brand", "stackshade"]
+        cmd_pub_ig = ["python3.11", str(PUBLISH_IG_SCRIPT), str(reel_dir)]
         subprocess.run(cmd_pub_ig, capture_output=True, text=True)
 
     print(f"🎉 Episode {ep_id} completely finished and synced!")

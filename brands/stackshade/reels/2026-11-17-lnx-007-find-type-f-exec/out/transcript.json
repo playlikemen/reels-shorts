@@ -1,0 +1,606 @@
+{
+  "text": "Stop running rm dash rf with star wildcards on production servers! If the file list exceeds argument limits, bash crashes. Use find dash type f with dash exec instead to safely filter by date, size, and permissions, which is why...",
+  "voice": "en-US-ChristopherNeural",
+  "rate": "+8%",
+  "audio_path": "/home/kunalkashyap8024/sop/scrap/reels-shorts/brands/stackshade/reels/2026-11-17-lnx-007-find-type-f-exec/out/voiceover.mp3",
+  "wav_path": "/home/kunalkashyap8024/sop/scrap/reels-shorts/brands/stackshade/reels/2026-11-17-lnx-007-find-type-f-exec/out/voiceover.wav",
+  "duration": 16.63,
+  "total_words": 40,
+  "total_pages": 14,
+  "words": [
+    {
+      "word": "Stop",
+      "start": 0.096,
+      "end": 0.513,
+      "duration": 0.417
+    },
+    {
+      "word": "running",
+      "start": 0.525,
+      "end": 0.803,
+      "duration": 0.278
+    },
+    {
+      "word": "rm",
+      "start": 0.814,
+      "end": 1.231,
+      "duration": 0.417
+    },
+    {
+      "word": "dash",
+      "start": 1.242,
+      "end": 1.589,
+      "duration": 0.347
+    },
+    {
+      "word": "rf",
+      "start": 1.601,
+      "end": 2.018,
+      "duration": 0.417
+    },
+    {
+      "word": "with",
+      "start": 2.029,
+      "end": 2.156,
+      "duration": 0.127
+    },
+    {
+      "word": "star",
+      "start": 2.168,
+      "end": 2.515,
+      "duration": 0.347
+    },
+    {
+      "word": "wildcards",
+      "start": 2.527,
+      "end": 3.106,
+      "duration": 0.579
+    },
+    {
+      "word": "on",
+      "start": 3.117,
+      "end": 3.233,
+      "duration": 0.116
+    },
+    {
+      "word": "production",
+      "start": 3.244,
+      "end": 3.684,
+      "duration": 0.44
+    },
+    {
+      "word": "servers",
+      "start": 3.696,
+      "end": 4.263,
+      "duration": 0.567
+    },
+    {
+      "word": "If",
+      "start": 5.058,
+      "end": 5.232,
+      "duration": 0.174
+    },
+    {
+      "word": "the",
+      "start": 5.243,
+      "end": 5.336,
+      "duration": 0.093
+    },
+    {
+      "word": "file",
+      "start": 5.347,
+      "end": 5.671,
+      "duration": 0.324
+    },
+    {
+      "word": "list",
+      "start": 5.683,
+      "end": 5.915,
+      "duration": 0.232
+    },
+    {
+      "word": "exceeds",
+      "start": 5.926,
+      "end": 6.343,
+      "duration": 0.417
+    },
+    {
+      "word": "argument",
+      "start": 6.354,
+      "end": 6.805,
+      "duration": 0.451
+    },
+    {
+      "word": "limits",
+      "start": 6.817,
+      "end": 7.211,
+      "duration": 0.394
+    },
+    {
+      "word": "bash",
+      "start": 7.407,
+      "end": 7.673,
+      "duration": 0.266
+    },
+    {
+      "word": "crashes",
+      "start": 7.685,
+      "end": 8.333,
+      "duration": 0.648
+    },
+    {
+      "word": "Use",
+      "start": 9.132,
+      "end": 9.421,
+      "duration": 0.289
+    },
+    {
+      "word": "find",
+      "start": 9.433,
+      "end": 9.757,
+      "duration": 0.324
+    },
+    {
+      "word": "dash",
+      "start": 9.768,
+      "end": 10.057,
+      "duration": 0.289
+    },
+    {
+      "word": "type",
+      "start": 10.069,
+      "end": 10.335,
+      "duration": 0.266
+    },
+    {
+      "word": "f",
+      "start": 10.347,
+      "end": 10.532,
+      "duration": 0.185
+    },
+    {
+      "word": "with",
+      "start": 10.544,
+      "end": 10.694,
+      "duration": 0.15
+    },
+    {
+      "word": "dash",
+      "start": 10.706,
+      "end": 11.018,
+      "duration": 0.312
+    },
+    {
+      "word": "exec",
+      "start": 11.03,
+      "end": 11.412,
+      "duration": 0.382
+    },
+    {
+      "word": "instead",
+      "start": 11.424,
+      "end": 11.852,
+      "duration": 0.428
+    },
+    {
+      "word": "to",
+      "start": 11.863,
+      "end": 11.932,
+      "duration": 0.069
+    },
+    {
+      "word": "safely",
+      "start": 11.944,
+      "end": 12.361,
+      "duration": 0.417
+    },
+    {
+      "word": "filter",
+      "start": 12.373,
+      "end": 12.743,
+      "duration": 0.37
+    },
+    {
+      "word": "by",
+      "start": 12.755,
+      "end": 12.905,
+      "duration": 0.15
+    },
+    {
+      "word": "date",
+      "start": 12.917,
+      "end": 13.229,
+      "duration": 0.312
+    },
+    {
+      "word": "size",
+      "start": 13.449,
+      "end": 13.947,
+      "duration": 0.498
+    },
+    {
+      "word": "and",
+      "start": 14.178,
+      "end": 14.317,
+      "duration": 0.139
+    },
+    {
+      "word": "permissions",
+      "start": 14.329,
+      "end": 14.931,
+      "duration": 0.602
+    },
+    {
+      "word": "which",
+      "start": 15.104,
+      "end": 15.278,
+      "duration": 0.174
+    },
+    {
+      "word": "is",
+      "start": 15.289,
+      "end": 15.405,
+      "duration": 0.116
+    },
+    {
+      "word": "why",
+      "start": 15.417,
+      "end": 15.811,
+      "duration": 0.394
+    }
+  ],
+  "pages": [
+    {
+      "page_index": 0,
+      "start": 0.096,
+      "end": 1.231,
+      "text": "Stop running rm",
+      "words": [
+        {
+          "word": "Stop",
+          "start": 0.096,
+          "end": 0.513,
+          "duration": 0.417
+        },
+        {
+          "word": "running",
+          "start": 0.525,
+          "end": 0.803,
+          "duration": 0.278
+        },
+        {
+          "word": "rm",
+          "start": 0.814,
+          "end": 1.231,
+          "duration": 0.417
+        }
+      ]
+    },
+    {
+      "page_index": 1,
+      "start": 1.242,
+      "end": 2.156,
+      "text": "dash rf with",
+      "words": [
+        {
+          "word": "dash",
+          "start": 1.242,
+          "end": 1.589,
+          "duration": 0.347
+        },
+        {
+          "word": "rf",
+          "start": 1.601,
+          "end": 2.018,
+          "duration": 0.417
+        },
+        {
+          "word": "with",
+          "start": 2.029,
+          "end": 2.156,
+          "duration": 0.127
+        }
+      ]
+    },
+    {
+      "page_index": 2,
+      "start": 2.168,
+      "end": 3.233,
+      "text": "star wildcards on",
+      "words": [
+        {
+          "word": "star",
+          "start": 2.168,
+          "end": 2.515,
+          "duration": 0.347
+        },
+        {
+          "word": "wildcards",
+          "start": 2.527,
+          "end": 3.106,
+          "duration": 0.579
+        },
+        {
+          "word": "on",
+          "start": 3.117,
+          "end": 3.233,
+          "duration": 0.116
+        }
+      ]
+    },
+    {
+      "page_index": 3,
+      "start": 3.244,
+      "end": 4.263,
+      "text": "production servers",
+      "words": [
+        {
+          "word": "production",
+          "start": 3.244,
+          "end": 3.684,
+          "duration": 0.44
+        },
+        {
+          "word": "servers",
+          "start": 3.696,
+          "end": 4.263,
+          "duration": 0.567
+        }
+      ]
+    },
+    {
+      "page_index": 4,
+      "start": 5.058,
+      "end": 5.671,
+      "text": "If the file",
+      "words": [
+        {
+          "word": "If",
+          "start": 5.058,
+          "end": 5.232,
+          "duration": 0.174
+        },
+        {
+          "word": "the",
+          "start": 5.243,
+          "end": 5.336,
+          "duration": 0.093
+        },
+        {
+          "word": "file",
+          "start": 5.347,
+          "end": 5.671,
+          "duration": 0.324
+        }
+      ]
+    },
+    {
+      "page_index": 5,
+      "start": 5.683,
+      "end": 6.805,
+      "text": "list exceeds argument",
+      "words": [
+        {
+          "word": "list",
+          "start": 5.683,
+          "end": 5.915,
+          "duration": 0.232
+        },
+        {
+          "word": "exceeds",
+          "start": 5.926,
+          "end": 6.343,
+          "duration": 0.417
+        },
+        {
+          "word": "argument",
+          "start": 6.354,
+          "end": 6.805,
+          "duration": 0.451
+        }
+      ]
+    },
+    {
+      "page_index": 6,
+      "start": 6.817,
+      "end": 8.333,
+      "text": "limits bash crashes",
+      "words": [
+        {
+          "word": "limits",
+          "start": 6.817,
+          "end": 7.211,
+          "duration": 0.394
+        },
+        {
+          "word": "bash",
+          "start": 7.407,
+          "end": 7.673,
+          "duration": 0.266
+        },
+        {
+          "word": "crashes",
+          "start": 7.685,
+          "end": 8.333,
+          "duration": 0.648
+        }
+      ]
+    },
+    {
+      "page_index": 7,
+      "start": 9.132,
+      "end": 10.057,
+      "text": "Use find dash",
+      "words": [
+        {
+          "word": "Use",
+          "start": 9.132,
+          "end": 9.421,
+          "duration": 0.289
+        },
+        {
+          "word": "find",
+          "start": 9.433,
+          "end": 9.757,
+          "duration": 0.324
+        },
+        {
+          "word": "dash",
+          "start": 9.768,
+          "end": 10.057,
+          "duration": 0.289
+        }
+      ]
+    },
+    {
+      "page_index": 8,
+      "start": 10.069,
+      "end": 10.694,
+      "text": "type f with",
+      "words": [
+        {
+          "word": "type",
+          "start": 10.069,
+          "end": 10.335,
+          "duration": 0.266
+        },
+        {
+          "word": "f",
+          "start": 10.347,
+          "end": 10.532,
+          "duration": 0.185
+        },
+        {
+          "word": "with",
+          "start": 10.544,
+          "end": 10.694,
+          "duration": 0.15
+        }
+      ]
+    },
+    {
+      "page_index": 9,
+      "start": 10.706,
+      "end": 11.852,
+      "text": "dash exec instead",
+      "words": [
+        {
+          "word": "dash",
+          "start": 10.706,
+          "end": 11.018,
+          "duration": 0.312
+        },
+        {
+          "word": "exec",
+          "start": 11.03,
+          "end": 11.412,
+          "duration": 0.382
+        },
+        {
+          "word": "instead",
+          "start": 11.424,
+          "end": 11.852,
+          "duration": 0.428
+        }
+      ]
+    },
+    {
+      "page_index": 10,
+      "start": 11.863,
+      "end": 12.743,
+      "text": "to safely filter",
+      "words": [
+        {
+          "word": "to",
+          "start": 11.863,
+          "end": 11.932,
+          "duration": 0.069
+        },
+        {
+          "word": "safely",
+          "start": 11.944,
+          "end": 12.361,
+          "duration": 0.417
+        },
+        {
+          "word": "filter",
+          "start": 12.373,
+          "end": 12.743,
+          "duration": 0.37
+        }
+      ]
+    },
+    {
+      "page_index": 11,
+      "start": 12.755,
+      "end": 13.947,
+      "text": "by date size",
+      "words": [
+        {
+          "word": "by",
+          "start": 12.755,
+          "end": 12.905,
+          "duration": 0.15
+        },
+        {
+          "word": "date",
+          "start": 12.917,
+          "end": 13.229,
+          "duration": 0.312
+        },
+        {
+          "word": "size",
+          "start": 13.449,
+          "end": 13.947,
+          "duration": 0.498
+        }
+      ]
+    },
+    {
+      "page_index": 12,
+      "start": 14.178,
+      "end": 15.278,
+      "text": "and permissions which",
+      "words": [
+        {
+          "word": "and",
+          "start": 14.178,
+          "end": 14.317,
+          "duration": 0.139
+        },
+        {
+          "word": "permissions",
+          "start": 14.329,
+          "end": 14.931,
+          "duration": 0.602
+        },
+        {
+          "word": "which",
+          "start": 15.104,
+          "end": 15.278,
+          "duration": 0.174
+        }
+      ]
+    },
+    {
+      "page_index": 13,
+      "start": 15.289,
+      "end": 15.811,
+      "text": "is why",
+      "words": [
+        {
+          "word": "is",
+          "start": 15.289,
+          "end": 15.405,
+          "duration": 0.116
+        },
+        {
+          "word": "why",
+          "start": 15.417,
+          "end": 15.811,
+          "duration": 0.394
+        }
+      ]
+    }
+  ]
+}
