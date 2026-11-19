@@ -1,0 +1,64 @@
+1
+00:00:00,229 --> 00:00:02,189
+Stop waiting for search engines to find
+
+2
+00:00:02,149 --> 00:00:05,041
+your new page Tell them IndexNow is
+
+3
+00:00:05,002 --> 00:00:07,142
+a protocol You ping a search engine
+
+4
+00:00:07,105 --> 00:00:09,723
+the moment a URL is added updated
+
+5
+00:00:10,115 --> 00:00:13,008
+or deleted Step one Create a key
+
+6
+00:00:13,446 --> 00:00:14,963
+and host it as a text file
+
+7
+00:00:14,923 --> 00:00:16,850
+at the root of your site Step
+
+8
+00:00:16,811 --> 00:00:19,325
+two Send one request with the changed
+
+9
+00:00:19,286 --> 00:00:22,308
+URL and your key Big site One
+
+10
+00:00:22,270 --> 00:00:24,968
+post request can carry ten thousand URLs
+
+11
+00:00:25,475 --> 00:00:27,461
+And you only tell one engine It
+
+12
+00:00:27,422 --> 00:00:30,132
+shares your URL with every other participating
+
+13
+00:00:30,094 --> 00:00:32,897
+engine One honest note A two hundred
+
+14
+00:00:32,859 --> 00:00:35,863
+means accepted It does not guarantee instant
+
+15
+00:00:35,825 --> 00:00:40,382
+indexing Publish Ping Done Follow IndexFast for
+
+16
+00:00:40,344 --> 00:00:40,768
+more
+

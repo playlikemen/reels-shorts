@@ -1,0 +1,72 @@
+1
+00:00:00,243 --> 00:00:01,716
+Under the hood Git is just a
+
+2
+00:00:01,677 --> 00:00:03,819
+key value store You hand it some
+
+3
+00:00:03,782 --> 00:00:05,811
+content It hands you back a forty
+
+4
+00:00:05,772 --> 00:00:08,192
+character key That key is a hash
+
+5
+00:00:08,153 --> 00:00:09,720
+of a tiny header plus the content
+
+6
+00:00:09,682 --> 00:00:11,788
+itself It is saved under dot git
+
+7
+00:00:11,750 --> 00:00:14,103
+objects The first two characters name the
+
+8
+00:00:14,065 --> 00:00:16,071
+folder The other thirty eight name the
+
+9
+00:00:16,032 --> 00:00:18,381
+file There are three kinds of object
+
+10
+00:00:18,713 --> 00:00:20,939
+A blob holds file content No file
+
+11
+00:00:20,899 --> 00:00:23,309
+name A tree holds the names and
+
+12
+00:00:23,271 --> 00:00:25,597
+points to blobs and other trees A
+
+13
+00:00:25,559 --> 00:00:27,717
+commit points to one tree its parent
+
+14
+00:00:27,678 --> 00:00:30,445
+commit and your message So every commit
+
+15
+00:00:30,407 --> 00:00:32,540
+is a snapshot of your project addressed
+
+16
+00:00:32,501 --> 00:00:34,941
+by its hash Try it Git cat
+
+17
+00:00:34,902 --> 00:00:37,893
+file dash p and any hash Follow
+
+18
+00:00:37,853 --> 00:00:38,807
+StackShade for more
+

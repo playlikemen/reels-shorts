@@ -1,0 +1,424 @@
+{
+ "title": "Prompt caching: stop paying full price for the same prompt",
+ "style": "brutal",
+ "format": "short",
+ "series": "PROMPT CACHING",
+ "meta": {
+  "id": "SS-101",
+  "brand": "stackshade",
+  "topic": "AI Engineering / Prompt caching",
+  "schedule": "2026-11-20 19:00",
+  "yt_title": "Prompt Caching Explained: Pay 10% for the Same Prompt #shorts",
+  "yt_tags": [
+   "prompt caching",
+   "claude api",
+   "llm cost",
+   "ai engineering",
+   "llm optimization",
+   "anthropic api",
+   "reduce llm cost",
+   "ai agents",
+   "system prompt",
+   "token cost",
+   "software engineering",
+   "stackshade"
+  ],
+  "yt_description": "You are paying full price to resend the same prompt on every call. Prompt caching fixes that.\n\n• The provider caches the start of your prompt: tools, then system, then messages\n• Claude API: a cache read costs 0.1x the base input price (less on newer models)\n• Writing the cache costs 1.25x for the 5-minute cache\n• The cache lasts 5 minutes and every hit refreshes it at no extra cost\n• Put stable content first and the changing question last\n\n#promptcaching #aiengineering #llm #claude #softwareengineering",
+  "ig_caption": "You're paying full price for the same prompt. Every. Single. Call. 💸\n\n⚡ Prompt caching stores the start of your prompt\n💰 Cache read on the Claude API = 0.1x input price\n✍️ First write = 1.25x\n⏱️ Lives 5 minutes, refreshed on every hit\n📐 Rule: stable stuff first, question last\n\nSave this before your next API bill. Follow @stackshade for more.\n\nVoiceover is AI-generated. Source: Claude API docs, prompt caching.",
+  "ig_hashtags": [
+   "#promptcaching",
+   "#aiengineering",
+   "#llm",
+   "#claudeapi",
+   "#softwareengineering",
+   "#aiagents",
+   "#programming",
+   "#developers",
+   "#backend",
+   "#tech"
+  ],
+  "sources": [
+   "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 THE BILL",
+   "bg": "purple",
+   "say": "You're paying full price for the same prompt, over and over.",
+   "els": [
+    {
+     "type": "row",
+     "gap": 14,
+     "align": "center",
+     "at": -0.3,
+     "children": [
+      {
+       "type": "kicker",
+       "text": "LLM API COSTS"
+      },
+      {
+       "type": "tag",
+       "text": "EVERY CALL",
+       "color": "pink",
+       "size": 30,
+       "rot": -4,
+       "anim": "stamp"
+      }
+     ]
+    },
+    {
+     "type": "headline",
+     "text": "SAME PROMPT.\n[[FULL PRICE.]]",
+     "size": 128,
+     "at": -0.32
+    },
+    {
+     "type": "collage",
+     "w": 250,
+     "h": 230,
+     "abs": [
+      420,
+      560
+     ],
+     "at": "same prompt",
+     "tiles": [
+      {
+       "x": 20,
+       "y": 10,
+       "w": 150,
+       "h": 150,
+       "kind": "violet",
+       "rot": 4,
+       "shadow": "mint"
+      },
+      {
+       "x": 110,
+       "y": 110,
+       "w": 92,
+       "h": 92,
+       "kind": "yellow",
+       "rot": -6,
+       "shadow": "black"
+      }
+     ]
+    },
+    {
+     "type": "tags",
+     "quote": true,
+     "mt": 30,
+     "at": "over",
+     "items": [
+      {
+       "text": "OVER",
+       "color": "mint",
+       "at": "over"
+      },
+      {
+       "text": "AND OVER",
+       "color": "white",
+       "at": "and over"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 THE FIX",
+   "bg": "black",
+   "say": "Prompt caching fixes that. The provider stores the start of your prompt and reuses it.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "THE FIX",
+     "at": "Prompt"
+    },
+    {
+     "type": "headline",
+     "text": "PROMPT\n[[CACHING]]",
+     "size": 150,
+     "at": "Prompt"
+    },
+    {
+     "type": "serif",
+     "text": "tools → system → messages",
+     "at": "stores",
+     "ml": 10
+    },
+    {
+     "type": "row",
+     "gap": 18,
+     "mt": 44,
+     "align": "center",
+     "at": "reuses",
+     "children": [
+      {
+       "type": "icon",
+       "name": "layers",
+       "size": 130,
+       "bg": "paper",
+       "color": "purple"
+      },
+      {
+       "type": "note",
+       "text": "STORED ONCE,\n**REUSED ON THE NEXT CALL**"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 THE FIX",
+   "bg": "mint",
+   "say": "On the Claude API, reading from the cache costs one tenth of the normal input price. Even less on the newest models.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "CACHE READ · CLAUDE API",
+     "at": "On the"
+    },
+    {
+     "type": "stat",
+     "text": "0.1×",
+     "size": 260,
+     "count": {
+      "from": 1,
+      "to": 0.1,
+      "decimals": 1,
+      "suffix": "×"
+     },
+     "at": "one tenth"
+    },
+    {
+     "type": "tag",
+     "text": "OF THE BASE INPUT PRICE",
+     "color": "black",
+     "size": 54,
+     "at": "normal"
+    },
+    {
+     "type": "label",
+     "text": "NEWEST MODELS: AS LOW AS 0.025×",
+     "variant": "dark",
+     "at": "Even less",
+     "mt": 30
+    }
+   ]
+  },
+  {
+   "chapter": "02 THE CATCH",
+   "bg": "pink",
+   "say": "The catch: the first call costs a bit more. Writing the cache is one point two five times the price.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "PRICE PER INPUT TOKEN · VS BASE",
+     "at": "The catch"
+    },
+    {
+     "type": "bars",
+     "h": 480,
+     "bw": 150,
+     "max": 1.4,
+     "mt": 20,
+     "at": "first call",
+     "items": [
+      {
+       "label": "NORMAL",
+       "value": 1.0,
+       "text": "1×",
+       "big": true,
+       "color": "white",
+       "at": "first call"
+      },
+      {
+       "label": "CACHE WRITE",
+       "value": 1.25,
+       "text": "1.25×",
+       "big": true,
+       "color": "black",
+       "at": "one point"
+      },
+      {
+       "label": "CACHE READ",
+       "value": 0.1,
+       "text": "0.1×",
+       "big": true,
+       "color": "mint",
+       "at": "price"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 THE CATCH",
+   "bg": "black",
+   "say": "The cache lives for five minutes, and every hit resets the timer for free.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "DEFAULT LIFETIME",
+     "at": "The cache"
+    },
+    {
+     "type": "bigmono",
+     "text": "05:00",
+     "from": "00:00",
+     "at": "five minutes"
+    },
+    {
+     "type": "tag",
+     "text": "EVERY HIT RESETS IT",
+     "color": "mint",
+     "size": 62,
+     "at": "every hit",
+     "mt": 20
+    },
+    {
+     "type": "stamp",
+     "text": "NO EXTRA COST",
+     "color": "white",
+     "size": 60,
+     "rot": -3,
+     "burst": "pink",
+     "at": "free",
+     "mt": 50
+    }
+   ]
+  },
+  {
+   "chapter": "03 THE RULE",
+   "bg": "paper",
+   "say": "So the rule is simple. Put what never changes first: tools, system prompt, documents. Put the question last.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "PROMPT ORDER",
+     "at": "So the"
+    },
+    {
+     "type": "headline",
+     "text": "STABLE [[FIRST]]",
+     "size": 110,
+     "at": "never changes"
+    },
+    {
+     "type": "table",
+     "w": 640,
+     "mt": 20,
+     "at": "tools",
+     "rows": [
+      {
+       "k": "1 · CACHED",
+       "v": "TOOLS",
+       "at": "tools"
+      },
+      {
+       "k": "2 · CACHED",
+       "v": "SYSTEM PROMPT",
+       "at": "system"
+      },
+      {
+       "k": "3 · CACHED",
+       "v": "DOCUMENTS",
+       "at": "documents"
+      },
+      {
+       "k": "4 · FRESH",
+       "v": "THE QUESTION",
+       "sub": "CHANGES EVERY CALL",
+       "at": "question"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 THE RULE",
+   "bg": "purple",
+   "say": "Change something near the top, and the cached prefix no longer matches.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "WATCH OUT",
+     "at": "Change"
+    },
+    {
+     "type": "headline",
+     "text": "EDIT THE TOP,\n[[LOSE THE CACHE]]",
+     "size": 104,
+     "at": "Change"
+    },
+    {
+     "type": "stamp",
+     "text": "CACHE MISS",
+     "color": "pink",
+     "size": 96,
+     "rot": -6,
+     "burst": "mint",
+     "at": "no longer",
+     "mt": 60
+    },
+    {
+     "type": "note",
+     "text": "TIMESTAMPS AND IDS BELONG **AT THE END**",
+     "at": "matches",
+     "mt": 50
+    }
+   ]
+  },
+  {
+   "chapter": "04 DO IT",
+   "bg": "mint",
+   "say": "Stable first. Cache it. Pay a tenth. Follow StackShade for more.",
+   "els": [
+    {
+     "type": "tags",
+     "gap": 12,
+     "at": "Stable",
+     "items": [
+      {
+       "text": "STABLE FIRST",
+       "color": "black",
+       "size": 92,
+       "at": "Stable"
+      },
+      {
+       "text": "CACHE IT",
+       "color": "purple",
+       "size": 92,
+       "at": "Cache"
+      },
+      {
+       "text": "PAY A TENTH",
+       "color": "pink",
+       "size": 92,
+       "at": "Pay"
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "gap": 16,
+     "mt": 60,
+     "align": "center",
+     "at": "Follow",
+     "children": [
+      {
+       "type": "icon",
+       "name": "bolt",
+       "size": 110,
+       "bg": "black",
+       "color": "mint"
+      },
+      {
+       "type": "note",
+       "text": "FOLLOW\n**@STACKSHADE**"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

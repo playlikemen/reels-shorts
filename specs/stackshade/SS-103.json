@@ -1,0 +1,428 @@
+{
+ "title": "Postgres never overwrites a row: MVCC and VACUUM",
+ "style": "brutal",
+ "format": "short",
+ "series": "POSTGRES INTERNALS",
+ "meta": {
+  "id": "SS-103",
+  "brand": "stackshade",
+  "topic": "Databases / PostgreSQL MVCC",
+  "schedule": "2026-11-22 19:00",
+  "yt_title": "Why Postgres Never Overwrites a Row (MVCC + VACUUM) #shorts",
+  "yt_tags": [
+   "postgresql",
+   "mvcc",
+   "vacuum",
+   "autovacuum",
+   "postgres internals",
+   "database internals",
+   "dead rows",
+   "system design",
+   "backend engineering",
+   "sql",
+   "databases",
+   "stackshade"
+  ],
+  "yt_description": "An UPDATE in PostgreSQL does not remove the old row right away.\n\n• Postgres keeps old row versions: multiversion concurrency control (MVCC)\n• Each statement sees a snapshot, so reading never blocks writing and writing never blocks reading\n• Old versions become dead rows that take disk space\n• VACUUM removes dead rows and marks the space for reuse\n• Plain VACUUM usually does not return space to the OS; VACUUM FULL does, with an exclusive lock\n\n#postgresql #databases #systemdesign #backend #softwareengineering",
+  "ig_caption": "UPDATE in Postgres doesn't overwrite your row. 🤯\n\n🧬 It keeps the old version next to the new one (MVCC)\n👀 Readers never block writers, writers never block readers\n💀 Old versions pile up as dead rows\n🧹 VACUUM clears them, autovacuum runs it for you\n🔒 VACUUM FULL shrinks the table but locks it\n\nFollow @stackshade for more.\n\nVoiceover is AI-generated. Source: PostgreSQL documentation.",
+  "ig_hashtags": [
+   "#postgresql",
+   "#postgres",
+   "#databases",
+   "#systemdesign",
+   "#backend",
+   "#softwareengineering",
+   "#sql",
+   "#programming",
+   "#developers",
+   "#tech"
+  ],
+  "sources": [
+   "https://www.postgresql.org/docs/current/mvcc-intro.html",
+   "https://www.postgresql.org/docs/current/routine-vacuuming.html"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 THE TWIST",
+   "bg": "purple",
+   "say": "When you update a row in Postgres, the old row is not removed right away.",
+   "els": [
+    {
+     "type": "row",
+     "gap": 14,
+     "align": "center",
+     "at": -0.3,
+     "children": [
+      {
+       "type": "kicker",
+       "text": "POSTGRESQL"
+      },
+      {
+       "type": "tag",
+       "text": "INTERNALS",
+       "color": "pink",
+       "size": 30,
+       "rot": -4,
+       "anim": "stamp"
+      }
+     ]
+    },
+    {
+     "type": "headline",
+     "text": "UPDATE DOES\n[[NOT OVERWRITE]]",
+     "size": 112,
+     "at": -0.32
+    },
+    {
+     "type": "type",
+     "text": "UPDATE users SET plan = 'pro';",
+     "prefix": "db=# ",
+     "at": "update",
+     "mt": 20
+    },
+    {
+     "type": "tags",
+     "quote": true,
+     "mt": 34,
+     "at": "old row",
+     "items": [
+      {
+       "text": "THE OLD ROW",
+       "color": "mint",
+       "at": "old row"
+      },
+      {
+       "text": "STAYS",
+       "color": "white",
+       "at": "not removed"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 MVCC",
+   "bg": "black",
+   "say": "Postgres writes a new version of the row, and keeps the old one next to it.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "ONE ROW · TWO VERSIONS",
+     "at": "Postgres"
+    },
+    {
+     "type": "vs",
+     "mt": 40,
+     "at": "new version",
+     "left": {
+      "small": "OLD VERSION",
+      "value": "free",
+      "shadow": "pink"
+     },
+     "right": {
+      "small": "NEW VERSION",
+      "value": "pro",
+      "shadow": "mint",
+      "at": "new version"
+     },
+     "sym": "+"
+    },
+    {
+     "type": "note",
+     "text": "BOTH SIT IN THE TABLE,\n**SIDE BY SIDE**",
+     "at": "keeps",
+     "mt": 50
+    }
+   ]
+  },
+  {
+   "chapter": "01 MVCC",
+   "bg": "mint",
+   "say": "This is multi version concurrency control. M V C C.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "THE NAME FOR IT",
+     "at": "This"
+    },
+    {
+     "type": "headline",
+     "text": "MVCC",
+     "size": 270,
+     "at": "multi"
+    },
+    {
+     "type": "tag",
+     "text": "MULTIVERSION",
+     "color": "black",
+     "size": 58,
+     "at": "multi"
+    },
+    {
+     "type": "tag",
+     "text": "CONCURRENCY CONTROL",
+     "color": "pink",
+     "size": 58,
+     "at": "concurrency"
+    }
+   ]
+  },
+  {
+   "chapter": "02 WHY",
+   "bg": "pink",
+   "say": "Every statement sees a snapshot of the data. So readers never block writers, and writers never block readers.",
+   "els": [
+    {
+     "type": "row",
+     "gap": 18,
+     "align": "center",
+     "at": "Every",
+     "children": [
+      {
+       "type": "icon",
+       "name": "eye",
+       "size": 120,
+       "bg": "black",
+       "color": "mint"
+      },
+      {
+       "type": "note",
+       "text": "EACH STATEMENT SEES\n**A SNAPSHOT**"
+      }
+     ]
+    },
+    {
+     "type": "tags",
+     "gap": 12,
+     "mt": 40,
+     "at": "readers",
+     "items": [
+      {
+       "text": "READERS NEVER",
+       "color": "black",
+       "size": 76,
+       "at": "readers"
+      },
+      {
+       "text": "BLOCK WRITERS",
+       "color": "white",
+       "size": 76,
+       "at": "block"
+      },
+      {
+       "text": "WRITERS NEVER",
+       "color": "black",
+       "size": 76,
+       "at": "writers never"
+      },
+      {
+       "text": "BLOCK READERS",
+       "color": "white",
+       "size": 76,
+       "at": "block#2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 THE COST",
+   "bg": "black",
+   "say": "The catch: those old versions pile up as dead rows, and they take disk space.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "THE COST",
+     "at": "The catch"
+    },
+    {
+     "type": "headline",
+     "text": "DEAD\n[[ROWS]]",
+     "size": 210,
+     "at": "dead rows"
+    },
+    {
+     "type": "collage",
+     "w": 300,
+     "h": 260,
+     "abs": [
+      380,
+      250
+     ],
+     "at": "pile up",
+     "tiles": [
+      {
+       "x": 10,
+       "y": 120,
+       "w": 130,
+       "h": 130,
+       "kind": "grain",
+       "rot": -5,
+       "shadow": "pink"
+      },
+      {
+       "x": 100,
+       "y": 60,
+       "w": 130,
+       "h": 130,
+       "kind": "paper",
+       "rot": 6,
+       "shadow": "mint"
+      },
+      {
+       "x": 160,
+       "y": 0,
+       "w": 110,
+       "h": 110,
+       "kind": "ember",
+       "rot": -8,
+       "shadow": "black"
+      }
+     ]
+    },
+    {
+     "type": "tag",
+     "text": "STILL ON DISK",
+     "color": "pink",
+     "size": 66,
+     "at": "disk space",
+     "mt": 30
+    }
+   ]
+  },
+  {
+   "chapter": "04 VACUUM",
+   "bg": "paper",
+   "say": "Vacuum removes dead rows and marks the space for reuse. Autovacuum runs it for you.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "THE CLEAN-UP",
+     "at": "Vacuum"
+    },
+    {
+     "type": "type",
+     "text": "VACUUM;",
+     "prefix": "db=# ",
+     "at": "Vacuum"
+    },
+    {
+     "type": "table",
+     "w": 640,
+     "mt": 30,
+     "at": "removes",
+     "rows": [
+      {
+       "k": "VACUUM",
+       "v": "REMOVES DEAD ROWS",
+       "at": "removes"
+      },
+      {
+       "k": "SPACE",
+       "v": "MARKED FOR REUSE",
+       "at": "marks"
+      },
+      {
+       "k": "AUTOVACUUM",
+       "v": "ON BY DEFAULT",
+       "sub": "RUNS IT FOR YOU",
+       "at": "Autovacuum"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 VACUUM",
+   "bg": "purple",
+   "say": "But plain vacuum usually does not give the space back to the operating system. Vacuum full does, and it locks the table.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "DISK SPACE BACK TO THE OS?",
+     "at": "But"
+    },
+    {
+     "type": "vs",
+     "mt": 30,
+     "at": "plain",
+     "left": {
+      "small": "VACUUM",
+      "value": "REUSE",
+      "shadow": "mint"
+     },
+     "right": {
+      "small": "VACUUM FULL",
+      "value": "SHRINK",
+      "shadow": "pink",
+      "at": "Vacuum full"
+     },
+     "sym": "/"
+    },
+    {
+     "type": "stamp",
+     "text": "LOCKS THE TABLE",
+     "color": "pink",
+     "size": 72,
+     "rot": -4,
+     "burst": "mint",
+     "at": "locks",
+     "mt": 60
+    }
+   ]
+  },
+  {
+   "chapter": "05 TAKEAWAY",
+   "bg": "mint",
+   "say": "So think twice before turning autovacuum off. Follow StackShade for more.",
+   "els": [
+    {
+     "type": "tags",
+     "gap": 12,
+     "at": "think",
+     "items": [
+      {
+       "text": "KEEP",
+       "color": "black",
+       "size": 110,
+       "at": "think"
+      },
+      {
+       "text": "AUTOVACUUM",
+       "color": "purple",
+       "size": 110,
+       "at": "autovacuum"
+      },
+      {
+       "text": "ON",
+       "color": "pink",
+       "size": 110,
+       "at": "off"
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "gap": 16,
+     "mt": 60,
+     "align": "center",
+     "at": "Follow",
+     "children": [
+      {
+       "type": "icon",
+       "name": "server",
+       "size": 110,
+       "bg": "black",
+       "color": "mint"
+      },
+      {
+       "type": "note",
+       "text": "FOLLOW\n**@STACKSHADE**"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

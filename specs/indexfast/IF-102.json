@@ -1,0 +1,359 @@
+{
+ "title": "Crawl budget: who needs to care and what wastes it",
+ "style": "clean",
+ "format": "short",
+ "meta": {
+  "id": "IF-102",
+  "brand": "indexfast",
+  "topic": "Technical SEO / Crawl budget",
+  "schedule": "2026-11-21 12:30",
+  "yt_title": "Crawl Budget: Most Sites Don't Have This Problem (Google's Rules) #shorts",
+  "yt_tags": [
+   "crawl budget",
+   "technical seo",
+   "googlebot",
+   "seo",
+   "noindex",
+   "robots.txt",
+   "soft 404",
+   "google search central",
+   "indexing",
+   "seo tips",
+   "sitemap",
+   "indexfast"
+  ],
+  "yt_description": "Most sites do not have a crawl budget problem. Here is what Google's own guide says.\n\n• It matters for roughly 1 million+ pages, or 10,000+ pages that change daily\n• Crawl budget = the set of URLs Google can and wants to crawl\n• Wasters: duplicate content, soft 404s, long redirect chains\n• noindex does not save budget: Google still requests the page, then drops it\n• Use robots.txt for pages you never want crawled\n• A 404 is a strong signal not to crawl a URL again\n• Keep your sitemap current\n\n#seo #technicalseo #crawlbudget #googlebot #seotips",
+  "ig_caption": "Most sites do NOT have a crawl budget problem. 🕷️\n\n📏 Google: it matters at ~1M+ pages, or 10K+ that change daily\n🧮 Crawl budget = URLs Google can AND wants to crawl\n🗑️ Wasters: duplicates, soft 404s, long redirect chains\n⚠️ noindex does not save budget\n🚫 robots.txt stops the crawl\n🪦 404 = strong signal to stop\n\nFollow @indexfast for more.\n\nVoiceover is AI-generated. Source: Google Search Central.",
+  "ig_hashtags": [
+   "#seo",
+   "#technicalseo",
+   "#crawlbudget",
+   "#googlebot",
+   "#seotips",
+   "#searchconsole",
+   "#googleindexing",
+   "#digitalmarketing",
+   "#contentmarketing",
+   "#webdev"
+  ],
+  "sources": [
+   "https://developers.google.com/crawling/docs/crawl-budget"
+  ]
+ },
+ "scenes": [
+  {
+   "say": "Most sites do not have a crawl budget problem.",
+   "splash": "tl,br",
+   "cap": [
+    {
+     "text": "Most sites",
+     "size": "l"
+    },
+    {
+     "text": "do not have a",
+     "size": "m"
+    },
+    {
+     "text": "crawl budget",
+     "size": "xl",
+     "pos": "bottom"
+    },
+    {
+     "text": "problem.",
+     "size": "l",
+     "pos": "bottom",
+     "style": "pill"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "search",
+     "tile": "dark",
+     "size": 190,
+     "at": -0.3
+    }
+   ]
+  },
+  {
+   "say": "Google's guide is for sites with about a million pages, or ten thousand pages that change every day.",
+   "cap": [
+    {
+     "text": "Google's guide is for sites with about",
+     "size": "s"
+    },
+    {
+     "text": "a million pages,",
+     "size": "l"
+    },
+    {
+     "text": "or ten thousand pages",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "that change every day.",
+     "size": "m",
+     "pos": "bottom",
+     "color": "accent"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tiles",
+     "size": 160,
+     "items": [
+      {
+       "text": "1M+",
+       "tile": "dark",
+       "at": "million"
+      },
+      {
+       "text": "10K+",
+       "tile": "orange",
+       "at": "ten thousand"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Crawl budget is the set of URLs Google can crawl, and wants to crawl.",
+   "cap": [
+    {
+     "text": "Crawl budget",
+     "size": "l"
+    },
+    {
+     "text": "is the set of URLs",
+     "size": "m"
+    },
+    {
+     "text": "Google can crawl,",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "and wants to crawl.",
+     "size": "m",
+     "pos": "bottom",
+     "color": "accent"
+    }
+   ],
+   "vis": [
+    {
+     "type": "bridge",
+     "at": "budget",
+     "from": {
+      "icon": "search",
+      "tile": "orange",
+      "size": 140
+     },
+     "items": [
+      {
+       "text": "can",
+       "tile": "dark",
+       "at": "can"
+      },
+      {
+       "text": "wants",
+       "tile": "dark",
+       "at": "wants"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "What wastes it? Duplicate pages, soft four oh fours, and long redirect chains.",
+   "cap": [
+    {
+     "text": "What wastes it?",
+     "size": "l"
+    }
+   ],
+   "vis": [
+    {
+     "type": "checklist",
+     "size": 38,
+     "items": [
+      {
+       "text": "duplicate pages",
+       "at": "Duplicate"
+      },
+      {
+       "text": "soft 404s",
+       "at": "soft"
+      },
+      {
+       "text": "long redirect chains",
+       "at": "redirect"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Here is the trap. No index does not save budget. Google still requests the page, then drops it.",
+   "cap": [
+    {
+     "text": "Here is the trap.",
+     "size": "m"
+    },
+    {
+     "text": "No index",
+     "size": "xl"
+    },
+    {
+     "text": "does not save budget.",
+     "size": "m",
+     "pos": "bottom",
+     "style": "pill"
+    },
+    {
+     "text": "Google still requests the page, then drops it.",
+     "size": "s",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "big",
+     "text": "noindex",
+     "color": "accent",
+     "size": 120,
+     "at": "No index"
+    },
+    {
+     "type": "label",
+     "text": "still requested, then dropped",
+     "at": "still"
+    }
+   ]
+  },
+  {
+   "say": "To stop the crawl itself, block the page in robots dot text.",
+   "cap": [
+    {
+     "text": "To stop the crawl itself,",
+     "size": "m"
+    },
+    {
+     "text": "block the page in",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "robots dot text.",
+     "size": "l",
+     "pos": "bottom",
+     "color": "accent"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "shield",
+     "tile": "dark",
+     "size": 150,
+     "label": "Disallow: /filters/",
+     "at": "block"
+    }
+   ]
+  },
+  {
+   "say": "Page gone for good? Return a four oh four. Google treats it as a strong signal to stop.",
+   "cap": [
+    {
+     "text": "Page gone for good?",
+     "size": "m"
+    },
+    {
+     "text": "Return a four oh four.",
+     "size": "l"
+    },
+    {
+     "text": "Google treats it as a",
+     "size": "s",
+     "pos": "bottom"
+    },
+    {
+     "text": "strong signal to stop.",
+     "size": "m",
+     "pos": "bottom",
+     "color": "accent"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tiles",
+     "size": 170,
+     "items": [
+      {
+       "text": "404",
+       "tile": "dark",
+       "at": "four"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "And keep your sitemap current. Google reads it regularly.",
+   "cap": [
+    {
+     "text": "And keep your",
+     "size": "m"
+    },
+    {
+     "text": "sitemap current.",
+     "size": "l"
+    },
+    {
+     "text": "Google reads it regularly.",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "doc",
+     "tile": "orange",
+     "size": 170,
+     "label": "sitemap.xml",
+     "at": "sitemap"
+    }
+   ]
+  },
+  {
+   "say": "Fix the waste first. Follow IndexFast for more.",
+   "splash": "tl,br",
+   "cap": [
+    {
+     "text": "Fix the waste first.",
+     "size": "l"
+    },
+    {
+     "text": "Follow IndexFast",
+     "size": "l",
+     "pos": "bottom"
+    },
+    {
+     "text": "for more.",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "check",
+     "tile": "orange",
+     "size": 170,
+     "at": "Fix"
+    }
+   ]
+  }
+ ]
+}

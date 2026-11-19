@@ -1,0 +1,402 @@
+{
+ "title": "IndexNow: tell search engines about a new URL in one request",
+ "style": "brutal",
+ "format": "short",
+ "series": "INDEXNOW",
+ "meta": {
+  "id": "IF-101",
+  "brand": "indexfast",
+  "topic": "Indexing / IndexNow protocol",
+  "schedule": "2026-11-20 12:30",
+  "yt_title": "IndexNow Explained: Tell Search Engines About New Pages Instantly #shorts",
+  "yt_tags": [
+   "indexnow",
+   "seo",
+   "technical seo",
+   "indexing",
+   "bing indexnow",
+   "url submission",
+   "search engine indexing",
+   "seo tips",
+   "get indexed faster",
+   "website seo",
+   "indexfast"
+  ],
+  "yt_description": "Stop waiting for search engines to find your new page. Tell them with IndexNow.\n\n• Ping a search engine when a URL is added, updated or deleted\n• Step 1: host your key as a .txt file at the site root (key is 8 to 128 characters)\n• Step 2: send one request with the URL and your key\n• One POST can carry up to 10,000 URLs\n• Tell one engine and it is shared with the other participating engines\n• A 200 means accepted; it does not guarantee immediate indexing\n\n#seo #indexnow #technicalseo #indexing #seotips",
+  "ig_caption": "Stop waiting for search engines to find your new page. Tell them. 📣\n\n⚡ IndexNow = one ping when a URL is added, updated or deleted\n🔑 Step 1: host your key as a .txt file at your site root\n📨 Step 2: send one request with the URL + key\n📦 Up to 10,000 URLs in one POST\n🔁 Tell one engine, the others get it too\n\nA 200 means accepted, not guaranteed indexing.\n\nFollow @indexfast for more.\n\nVoiceover is AI-generated. Source: indexnow.org.",
+  "ig_hashtags": [
+   "#seo",
+   "#indexnow",
+   "#technicalseo",
+   "#indexing",
+   "#seotips",
+   "#searchengineoptimization",
+   "#websitetraffic",
+   "#contentmarketing",
+   "#digitalmarketing",
+   "#webdev"
+  ],
+  "sources": [
+   "https://www.indexnow.org/documentation",
+   "https://www.indexnow.org/faq"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 THE WAIT",
+   "bg": "purple",
+   "say": "Stop waiting for search engines to find your new page. Tell them.",
+   "els": [
+    {
+     "type": "row",
+     "gap": 14,
+     "align": "center",
+     "at": -0.3,
+     "children": [
+      {
+       "type": "kicker",
+       "text": "NEW PAGE LIVE"
+      },
+      {
+       "type": "tag",
+       "text": "NOT INDEXED",
+       "color": "pink",
+       "size": 30,
+       "rot": -4,
+       "anim": "stamp"
+      }
+     ]
+    },
+    {
+     "type": "headline",
+     "text": "DON'T WAIT.\n[[TELL THEM.]]",
+     "size": 136,
+     "at": -0.32
+    },
+    {
+     "type": "collage",
+     "w": 250,
+     "h": 230,
+     "abs": [
+      420,
+      560
+     ],
+     "at": "search engines",
+     "tiles": [
+      {
+       "x": 20,
+       "y": 10,
+       "w": 150,
+       "h": 150,
+       "kind": "mint",
+       "rot": 4,
+       "shadow": "black"
+      },
+      {
+       "x": 110,
+       "y": 110,
+       "w": 92,
+       "h": 92,
+       "kind": "yellow",
+       "rot": -6,
+       "shadow": "black"
+      }
+     ]
+    },
+    {
+     "type": "tags",
+     "quote": true,
+     "mt": 30,
+     "at": "find",
+     "items": [
+      {
+       "text": "STOP WAITING",
+       "color": "mint",
+       "at": "find"
+      },
+      {
+       "text": "START PINGING",
+       "color": "white",
+       "at": "Tell"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 INDEXNOW",
+   "bg": "black",
+   "say": "IndexNow is a protocol. You ping a search engine the moment a URL is added, updated, or deleted.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "AN OPEN PROTOCOL",
+     "at": "IndexNow"
+    },
+    {
+     "type": "headline",
+     "text": "INDEX[[NOW]]",
+     "size": 150,
+     "at": "IndexNow"
+    },
+    {
+     "type": "note",
+     "text": "ONE PING WHEN A URL IS",
+     "at": "ping",
+     "mt": 20
+    },
+    {
+     "type": "tags",
+     "gap": 12,
+     "at": "added",
+     "items": [
+      {
+       "text": "ADDED",
+       "color": "mint",
+       "size": 88,
+       "at": "added"
+      },
+      {
+       "text": "UPDATED",
+       "color": "white",
+       "size": 88,
+       "at": "updated"
+      },
+      {
+       "text": "DELETED",
+       "color": "pink",
+       "size": 88,
+       "at": "deleted"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 SETUP",
+   "bg": "mint",
+   "say": "Step one. Create a key, and host it as a text file at the root of your site.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "STEP 1 · PROVE THE SITE IS YOURS",
+     "at": "Step"
+    },
+    {
+     "type": "headline",
+     "text": "HOST\nYOUR KEY",
+     "size": 140,
+     "at": "key"
+    },
+    {
+     "type": "type",
+     "text": "/3f9a1c7e2b.txt",
+     "prefix": "yoursite.com",
+     "at": "text file",
+     "mt": 20
+    },
+    {
+     "type": "label",
+     "text": "KEY LENGTH: 8 TO 128 CHARACTERS",
+     "variant": "dark",
+     "at": "root",
+     "mt": 30
+    }
+   ]
+  },
+  {
+   "chapter": "02 SETUP",
+   "bg": "paper",
+   "say": "Step two. Send one request with the changed URL and your key.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "STEP 2 · ONE HTTP REQUEST",
+     "at": "Step"
+    },
+    {
+     "type": "headline",
+     "text": "SEND [[ONE]]\nREQUEST",
+     "size": 130,
+     "at": "one request"
+    },
+    {
+     "type": "type",
+     "text": "/indexnow?url=…&key=…",
+     "prefix": "GET ",
+     "at": "URL",
+     "mt": 20
+    },
+    {
+     "type": "stamp",
+     "text": "200 OK",
+     "color": "mint",
+     "size": 90,
+     "rot": -5,
+     "burst": "pink",
+     "at": "key",
+     "mt": 50
+    }
+   ]
+  },
+  {
+   "chapter": "03 SCALE",
+   "bg": "black",
+   "say": "Big site? One post request can carry ten thousand URLs.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "BULK SUBMISSION",
+     "at": "Big"
+    },
+    {
+     "type": "stat",
+     "text": "10,000",
+     "size": 210,
+     "color": "mint",
+     "count": {
+      "from": 0,
+      "to": 10000
+     },
+     "at": "ten thousand"
+    },
+    {
+     "type": "tag",
+     "text": "URLS IN ONE POST",
+     "color": "pink",
+     "size": 64,
+     "at": "URLs"
+    }
+   ]
+  },
+  {
+   "chapter": "03 SCALE",
+   "bg": "pink",
+   "say": "And you only tell one engine. It shares your URL with every other participating engine.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "TELL ONE · REACH ALL",
+     "at": "And"
+    },
+    {
+     "type": "tree",
+     "root": "YOU → [[ONE ENGINE]]",
+     "icon": "globe",
+     "mt": 14,
+     "at": "one engine",
+     "items": [
+      {
+       "small": "SHARED",
+       "text": "ENGINE TWO",
+       "color": "mint",
+       "icon": "search",
+       "at": "shares"
+      },
+      {
+       "small": "SHARED",
+       "text": "ENGINE THREE",
+       "color": "yellow",
+       "icon": "search",
+       "at": "every"
+      },
+      {
+       "small": "SHARED",
+       "text": "ALL THE REST",
+       "color": "paper",
+       "icon": "globe",
+       "at": "participating"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 REALITY",
+   "bg": "purple",
+   "say": "One honest note. A two hundred means accepted. It does not guarantee instant indexing.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "ONE HONEST NOTE",
+     "at": "One"
+    },
+    {
+     "type": "vs",
+     "mt": 30,
+     "at": "two hundred",
+     "left": {
+      "small": "HTTP 200",
+      "value": "OK",
+      "shadow": "mint"
+     },
+     "right": {
+      "small": "INDEXED NOW?",
+      "value": "MAYBE",
+      "shadow": "pink",
+      "at": "guarantee"
+     },
+     "sym": "≠"
+    },
+    {
+     "type": "note",
+     "text": "IT HELPS CHANGES GET\n**FOUND AND CRAWLED FASTER**",
+     "at": "instant",
+     "mt": 50
+    }
+   ]
+  },
+  {
+   "chapter": "05 DO IT",
+   "bg": "mint",
+   "say": "Publish. Ping. Done. Follow IndexFast for more.",
+   "els": [
+    {
+     "type": "tags",
+     "gap": 12,
+     "at": "Publish",
+     "items": [
+      {
+       "text": "PUBLISH",
+       "color": "black",
+       "size": 110,
+       "at": "Publish"
+      },
+      {
+       "text": "PING",
+       "color": "purple",
+       "size": 110,
+       "at": "Ping"
+      },
+      {
+       "text": "DONE",
+       "color": "pink",
+       "size": 110,
+       "at": "Done"
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "gap": 16,
+     "mt": 60,
+     "align": "center",
+     "at": "Follow",
+     "children": [
+      {
+       "type": "icon",
+       "name": "bolt",
+       "size": 110,
+       "bg": "black",
+       "color": "mint"
+      },
+      {
+       "type": "note",
+       "text": "FOLLOW\n**@INDEXFAST**"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

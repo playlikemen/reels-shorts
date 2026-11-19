@@ -1,0 +1,72 @@
+1
+00:00:00,254 --> 00:00:01,796
+You're paying full price for the same
+
+2
+00:00:01,758 --> 00:00:04,748
+prompt over and over Prompt caching fixes
+
+3
+00:00:04,708 --> 00:00:06,714
+that The provider stores the start of
+
+4
+00:00:06,676 --> 00:00:08,995
+your prompt and reuses it On the
+
+5
+00:00:08,957 --> 00:00:11,402
+Claude API reading from the cache costs
+
+6
+00:00:11,364 --> 00:00:13,393
+one tenth of the normal input price
+
+7
+00:00:13,724 --> 00:00:15,950
+Even less on the newest models The
+
+8
+00:00:15,912 --> 00:00:17,814
+catch the first call costs a bit
+
+9
+00:00:17,774 --> 00:00:19,978
+more Writing the cache is one point
+
+10
+00:00:19,940 --> 00:00:22,459
+two five times the price The cache
+
+11
+00:00:22,420 --> 00:00:24,519
+lives for five minutes and every hit
+
+12
+00:00:24,480 --> 00:00:26,657
+resets the timer for free So the
+
+13
+00:00:26,618 --> 00:00:28,880
+rule is simple Put what never changes
+
+14
+00:00:28,841 --> 00:00:32,387
+first tools system prompt documents Put the
+
+15
+00:00:32,347 --> 00:00:34,951
+question last Change something near the top
+
+16
+00:00:35,167 --> 00:00:37,128
+and the cached prefix no longer matches
+
+17
+00:00:37,675 --> 00:00:40,119
+Stable first Cache it Pay a tenth
+
+18
+00:00:40,499 --> 00:00:41,647
+Follow StackShade for more
+

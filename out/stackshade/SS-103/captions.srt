@@ -1,0 +1,72 @@
+1
+00:00:00,243 --> 00:00:01,843
+When you update a row in Postgres
+
+2
+00:00:01,990 --> 00:00:03,706
+the old row is not removed right
+
+3
+00:00:03,667 --> 00:00:06,122
+away Postgres writes a new version of
+
+4
+00:00:06,083 --> 00:00:07,788
+the row and keeps the old one
+
+5
+00:00:07,750 --> 00:00:10,099
+next to it This is multi version
+
+6
+00:00:10,060 --> 00:00:13,208
+concurrency control M V C C Every
+
+7
+00:00:13,169 --> 00:00:15,211
+statement sees a snapshot of the data
+
+8
+00:00:15,542 --> 00:00:18,012
+So readers never block writers and writers
+
+9
+00:00:17,972 --> 00:00:20,844
+never block readers The catch those old
+
+10
+00:00:20,804 --> 00:00:22,800
+versions pile up as dead rows and
+
+11
+00:00:22,760 --> 00:00:25,690
+they take disk space Vacuum removes dead
+
+12
+00:00:25,650 --> 00:00:27,795
+rows and marks the space for reuse
+
+13
+00:00:28,128 --> 00:00:30,375
+Autovacuum runs it for you But plain
+
+14
+00:00:30,337 --> 00:00:32,411
+vacuum usually does not give the space
+
+15
+00:00:32,374 --> 00:00:34,668
+back to the operating system Vacuum full
+
+16
+00:00:34,631 --> 00:00:36,963
+does and it locks the table So
+
+17
+00:00:36,925 --> 00:00:39,775
+think twice before turning autovacuum off Follow
+
+18
+00:00:39,737 --> 00:00:40,689
+StackShade for more
+

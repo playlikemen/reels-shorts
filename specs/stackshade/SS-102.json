@@ -1,0 +1,418 @@
+{
+ "title": "Git is a key-value store: how a commit is really stored",
+ "style": "clean",
+ "format": "short",
+ "meta": {
+  "id": "SS-102",
+  "brand": "stackshade",
+  "topic": "Developer Tools / Git internals",
+  "schedule": "2026-11-21 19:00",
+  "yt_title": "Git Is Secretly a Key-Value Store (How Commits Are Stored) #shorts",
+  "yt_tags": [
+   "git internals",
+   "how git works",
+   "git objects",
+   "git commit",
+   "git blob tree commit",
+   "sha-1",
+   "version control",
+   "git tutorial",
+   "software engineering",
+   "developer tools",
+   "programming",
+   "stackshade"
+  ],
+  "yt_description": "Under the hood, Git is a simple key-value store.\n\n• You hand Git content, it returns a 40-character SHA-1 key\n• The key is a hash of a small header plus the content\n• Objects live in .git/objects: first 2 characters are the folder, the other 38 the file name\n• blob = file content, tree = names + pointers, commit = one tree + parent + message\n• Try it: git cat-file -p <hash>\n\n#git #programming #softwareengineering #developers #coding",
+  "ig_caption": "Git is secretly just a key-value store. 🗝️\n\n📦 Hand it content, get back a 40-character key\n🔐 Key = SHA-1 of a small header + your content\n📁 Stored in .git/objects (2 chars folder, 38 chars file)\n🌳 blob = content, tree = names, commit = tree + parent + message\n\nTry: git cat-file -p <hash>\n\nFollow @stackshade for more.\n\nVoiceover is AI-generated. Source: Pro Git, Git Internals.",
+  "ig_hashtags": [
+   "#git",
+   "#gitinternals",
+   "#programming",
+   "#softwareengineering",
+   "#developers",
+   "#coding",
+   "#devtools",
+   "#learntocode",
+   "#webdev",
+   "#tech"
+  ],
+  "sources": [
+   "https://git-scm.com/book/en/v2/Git-Internals-Git-Objects"
+  ]
+ },
+ "scenes": [
+  {
+   "say": "Under the hood, Git is just a key value store.",
+   "splash": "tl,br",
+   "cap": [
+    {
+     "text": "Under the hood,",
+     "size": "m"
+    },
+    {
+     "text": "Git",
+     "size": "xl"
+    },
+    {
+     "text": "is just a",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "key value store.",
+     "size": "l",
+     "pos": "bottom",
+     "style": "pill"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "branch",
+     "tile": "dark",
+     "size": 190,
+     "at": -0.3
+    }
+   ]
+  },
+  {
+   "say": "You hand it some content. It hands you back a forty character key.",
+   "cap": [
+    {
+     "text": "You hand it some",
+     "size": "m"
+    },
+    {
+     "text": "content.",
+     "size": "l"
+    },
+    {
+     "text": "It hands you back a",
+     "size": "s",
+     "pos": "bottom"
+    },
+    {
+     "text": "forty character key.",
+     "size": "l",
+     "pos": "bottom",
+     "color": "accent"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tiles",
+     "size": 150,
+     "items": [
+      {
+       "icon": "doc",
+       "tile": "light",
+       "at": "content"
+      },
+      {
+       "icon": "lock",
+       "tile": "orange",
+       "at": "forty"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "That key is a hash of a tiny header plus the content itself.",
+   "cap": [
+    {
+     "text": "That key is a",
+     "size": "m"
+    },
+    {
+     "text": "hash",
+     "size": "xl"
+    },
+    {
+     "text": "of a tiny header",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "plus the content itself.",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "big",
+     "text": "SHA-1",
+     "color": "accent",
+     "size": 130,
+     "at": "hash"
+    },
+    {
+     "type": "label",
+     "text": "header + content",
+     "at": "header"
+    }
+   ]
+  },
+  {
+   "say": "It is saved under dot git objects. The first two characters name the folder. The other thirty eight name the file.",
+   "cap": [
+    {
+     "text": "It is saved under",
+     "size": "s"
+    },
+    {
+     "text": "dot git objects.",
+     "size": "l"
+    },
+    {
+     "text": "The first two characters name the folder.",
+     "size": "s",
+     "pos": "bottom"
+    },
+    {
+     "text": "The other thirty eight name the file.",
+     "size": "s",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tree",
+     "at": "saved",
+     "root": {
+      "icon": "server",
+      "tile": "orange",
+      "size": 130
+     },
+     "items": [
+      {
+       "text": "d6/",
+       "at": "first two"
+      },
+      {
+       "text": "70460b…",
+       "at": "thirty"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "There are three kinds of object. A blob holds file content. No file name.",
+   "cap": [
+    {
+     "text": "There are",
+     "size": "s"
+    },
+    {
+     "text": "three kinds of object.",
+     "size": "l"
+    },
+    {
+     "text": "A blob holds file content.",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "No file name.",
+     "size": "m",
+     "pos": "bottom",
+     "style": "pill"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tiles",
+     "size": 140,
+     "items": [
+      {
+       "text": "blob",
+       "tile": "orange",
+       "at": "blob"
+      },
+      {
+       "text": "tree",
+       "tile": "light",
+       "at": "three"
+      },
+      {
+       "text": "commit",
+       "tile": "dark",
+       "at": "three"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "A tree holds the names, and points to blobs and other trees.",
+   "cap": [
+    {
+     "text": "A tree",
+     "size": "l"
+    },
+    {
+     "text": "holds the names,",
+     "size": "m"
+    },
+    {
+     "text": "and points to blobs",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "and other trees.",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tree",
+     "at": "tree",
+     "root": {
+      "text": "tree",
+      "tile": "orange",
+      "size": 130
+     },
+     "items": [
+      {
+       "text": "blob",
+       "at": "blobs"
+      },
+      {
+       "text": "blob",
+       "at": "blobs"
+      },
+      {
+       "text": "tree",
+       "at": "other"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "A commit points to one tree, its parent commit, and your message.",
+   "cap": [
+    {
+     "text": "A commit",
+     "size": "l"
+    },
+    {
+     "text": "points to one tree,",
+     "size": "m"
+    },
+    {
+     "text": "its parent commit,",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "and your message.",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "bridge",
+     "at": "commit",
+     "from": {
+      "text": "commit",
+      "tile": "orange",
+      "size": 140
+     },
+     "items": [
+      {
+       "text": "tree",
+       "tile": "dark",
+       "at": "one tree"
+      },
+      {
+       "text": "parent",
+       "tile": "dark",
+       "at": "parent"
+      },
+      {
+       "text": "message",
+       "tile": "dark",
+       "at": "message"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "So every commit is a snapshot of your project, addressed by its hash.",
+   "cap": [
+    {
+     "text": "So every commit is a",
+     "size": "m"
+    },
+    {
+     "text": "snapshot",
+     "size": "xl"
+    },
+    {
+     "text": "of your project,",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "addressed by its hash.",
+     "size": "m",
+     "pos": "bottom",
+     "color": "accent"
+    }
+   ],
+   "vis": [
+    {
+     "type": "checklist",
+     "size": 34,
+     "items": [
+      {
+       "text": "commit = snapshot",
+       "at": "snapshot"
+      },
+      {
+       "text": "key = hash",
+       "at": "hash"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Try it. Git cat file, dash p, and any hash. Follow StackShade for more.",
+   "splash": "tl,br",
+   "cap": [
+    {
+     "text": "Try it.",
+     "size": "l"
+    },
+    {
+     "text": "Follow StackShade",
+     "size": "l",
+     "pos": "bottom"
+    },
+    {
+     "text": "for more.",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "terminal",
+     "tile": "dark",
+     "size": 150,
+     "label": "git cat-file -p <hash>",
+     "at": "Git"
+    }
+   ]
+  }
+ ]
+}
