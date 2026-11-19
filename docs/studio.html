@@ -1,0 +1,79 @@
+<title>Reels Shorts Studio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* layout: one narrow column, a poster-style header in the engine's own type, then numbered steps as a real sequence */
+:root{--bg:#F1F0EC;--fg:#0A0A0A;--muted:#55534d;--line:#0A0A0A;--violet:#4B00F3;--mint:#12b892;--pink:#EE248A;--card:#ffffff;--code:#0A0A0A;--codefg:#4CFFD1;
+  --display:'Anton','Arial Narrow',Impact,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0c10;--fg:#F1F0EC;--muted:#a9a69c;--line:#F1F0EC;--violet:#9a78ff;--mint:#4CFFD1;--pink:#ff5aa8;--card:#18171d;--code:#000;--codefg:#4CFFD1;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d0c10;--fg:#F1F0EC;--muted:#a9a69c;--line:#F1F0EC;--violet:#9a78ff;--mint:#4CFFD1;--pink:#ff5aa8;--card:#18171d;--code:#000;--codefg:#4CFFD1;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:16px/1.55 var(--body)}
+.wrap{max-width:760px;margin:0 auto;padding-block:36px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:34px}
+.bar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--line);padding-bottom:10px}
+.bar span:first-child{background:var(--fg);color:var(--bg);padding:3px 8px}
+h1{font:400 clamp(52px,13vw,104px)/.9 var(--display);text-transform:uppercase;margin:0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--violet)}
+.lede{font-size:18px;max-width:60ch;margin:0}
+h2{font:400 30px/1 var(--display);text-transform:uppercase;letter-spacing:.01em;margin:0 0 12px}
+section{display:flex;flex-direction:column;gap:12px;min-width:0}
+p{margin:0;max-width:65ch}
+ol.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:var(--card);border:2px solid var(--line);padding:12px 14px;box-shadow:5px 5px 0 var(--violet)}
+ol.steps li::before{content:counter(s,decimal-leading-zero);font:400 28px/1 var(--display);color:var(--pink)}
+ol.steps li>div{min-width:0}
+pre{background:var(--code);color:var(--codefg);font:500 13px/1.6 var(--mono);padding:14px 16px;margin:0;overflow-x:auto;border:2px solid var(--line)}
+code{font:500 .92em var(--mono)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+.scroll{overflow-x:auto}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:700 11px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.note{border-left:4px solid var(--pink);padding:2px 0 2px 12px;color:var(--muted);font-size:14px}
+a{color:var(--violet)}
+</style>
+<div class="wrap">
+  <div class="bar"><span>Kinetic Video Engine</span><span>v2 · 19 Nov 2026 · 1080×1920 · 30 fps</span></div>
+  <header style="display:flex;flex-direction:column;gap:16px">
+    <h1>Spec in.<br><em>Short out.</em></h1>
+    <p class="lede">A complete kit for an AI agent to make narrated motion-graphics Reels and Shorts for StackShade and IndexFast: the render engine, two brand configurations, the publishing scripts and the written workflow.</p>
+  </header>
+
+  <section>
+    <h2>Fetch and run</h2>
+    <p>For an agent with the Artifact tool. Every file is published next to this page; <code>MANIFEST.txt</code> lists the paths.</p>
+    <ol class="steps">
+      <li><div>Read <code>MANIFEST.txt</code> from this artifact, then read every listed path into a work folder, keeping the folder structure.</div></li>
+      <li><div>Install: <code>npm install</code>, <code>npx playwright install chromium-headless-shell</code>, <code>python3.11 -m pip install edge-tts faster-whisper numpy</code>. ffmpeg must be on PATH.</div></li>
+      <li><div>Read <code>SKILL.md</code> (workflow) and <code>AGENTS.md</code> (accounts, commands, rules). The element reference is <code>skills/kinetic-explainer-video/SKILL.md</code>.</div></li>
+      <li><div>Write a spec in <code>specs/&lt;brand&gt;/&lt;ID&gt;.json</code>, preview stills, render, verify, then sync.</div></li>
+    </ol>
+    <pre>python3.11 ops/make.py specs/stackshade/SS-101.json --stills 0.3,7,14,21   # look first
+python3.11 ops/make.py specs/stackshade/SS-101.json --no-sync              # render + verify
+python3.11 ops/make.py specs/stackshade/SS-101.json --sync-only            # Drive + sheet + schedule</pre>
+    <p class="note">The full repository, with 76 reference skills for motion design and distribution, is at github.com/playlikemen/reels-shorts. Syncing and publishing need the owner's Composio connections; rendering does not.</p>
+  </section>
+
+  <section>
+    <h2>What is inside</h2>
+    <div class="scroll"><table>
+      <tr><th>Path</th><th>What it does</th></tr>
+      <tr><td><code>engine/</code></td><td>Spec to MP4: neural voice with word timing, cue-synced elements, frame-exact render, synthesised music and effects, mix to −14 LUFS. Styles <code>brutal</code> and <code>clean</code>, recoloured per brand with <code>theme</code>.</td></tr>
+      <tr><td><code>brands/</code></td><td>Accounts, voice, colours, posting slot and topic rules for each channel.</td></tr>
+      <tr><td><code>specs/</code></td><td>Five finished specs with sources, plus the engine's own examples.</td></tr>
+      <tr><td><code>ops/make.py</code></td><td>Build, verify (resolution, frame rate, codecs, duration, size, loudness), archive to Drive, write the sheet row.</td></tr>
+      <tr><td><code>ops/scheduler.py</code></td><td>Posts rows whose scheduled time has passed. Marks a row before posting so nothing is posted twice. Checks the first YouTube upload after 30 minutes before sending more.</td></tr>
+      <tr><td><code>SKILL.md</code>, <code>AGENTS.md</code></td><td>The workflow and the rules: sourced facts only, no third-party logos, AI-voice disclosure, look at stills before syncing.</td></tr>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>First batch</h2>
+    <div class="scroll"><table>
+      <tr><th>ID</th><th>Topic</th><th>Style</th><th>Scheduled (IST)</th></tr>
+      <tr><td>IF-101</td><td>IndexNow: tell search engines about a URL in one request</td><td>brutal</td><td>20 Nov 12:30</td></tr>
+      <tr><td>SS-101</td><td>Prompt caching: pay a tenth for the same prompt</td><td>brutal</td><td>20 Nov 19:00</td></tr>
+      <tr><td>IF-102</td><td>Crawl budget: who needs to care, what wastes it</td><td>clean</td><td>21 Nov 12:30</td></tr>
+      <tr><td>SS-102</td><td>Git is a key-value store: how a commit is stored</td><td>clean</td><td>21 Nov 19:00</td></tr>
+      <tr><td>SS-103</td><td>Postgres never overwrites a row: MVCC and VACUUM</td><td>brutal</td><td>22 Nov 19:00</td></tr>
+    </table></div>
+  </section>
+</div>
