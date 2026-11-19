@@ -4,6 +4,7 @@
 (function () {
   const { h, esc, clamp, ease } = KV;
   const C = { accent: '#E2704C', ink: '#1B1B1B', muted: '#A2A2A2', white: '#FFFFFF' };
+  KV.palette = C;   // spec.theme overrides these (see runtime.js __init)
   const mix = (a, b, p) => { const pa = a.match(/\w\w/g).map(x => parseInt(x, 16)), pb = b.match(/\w\w/g).map(x => parseInt(x, 16)); return `rgb(${pa.map((v, i) => Math.round(v + (pb[i] - v) * p)).join(',')})`; };
   const md = s => esc(s || '').replace(/\*(.+?)\*/g, '<em>$1</em>').replace(/\n/g, '<br>');
 

@@ -4,6 +4,7 @@
 (function () {
   const { h, esc, clamp, ease, rand } = KV;
   const C = { purple: '#4B00F3', mint: '#4CFFD1', pink: '#EE248A', black: '#0A0A0A', ink: '#0A0A0A', paper: '#F1F0EC', white: '#F7F7F2', yellow: '#FFD23F', orange: '#FF7A3D' };
+  KV.palette = C;   // spec.theme overrides these (see runtime.js __init)
   const col = c => C[c] || c || C.mint;
   const onDark = c => ['black', 'ink', 'purple', '#0A0A0A', '#4B00F3'].includes(c);
   const THEMES = {
@@ -13,6 +14,7 @@
     black: { bg: C.black, fg: C.white, head: C.white, accent: C.mint, accent2: C.mint, hlBg: C.pink, hlFg: C.ink, chapBg: C.mint, chapFg: C.ink, shadow: C.pink, grid: 'rgba(255,255,255,.07)', rule: 'rgba(255,255,255,.75)', stroke: 'rgba(255,255,255,.3)' },
     paper: { bg: C.paper, fg: C.ink, head: C.purple, accent: C.pink, accent2: C.purple, hlBg: C.mint, hlFg: C.ink, chapBg: C.purple, chapFg: C.white, shadow: C.purple, grid: 'rgba(10,10,10,.07)', rule: C.ink, stroke: 'rgba(10,10,10,.35)' },
   };
+  KV.themeTables = THEMES;   // recoloured together with the palette when spec.theme is set
   // [[accent]]  {{highlight box}}  \n = line break
   const md = s => esc(s || '').replace(/\[\[(.+?)\]\]/g, '<span class="acc">$1</span>').replace(/\{\{(.+?)\}\}/g, '<span class="hl">$1</span>').replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/\n/g, '<br>');
   const TEXT_TYPES = new Set(['kicker', 'note', 'headline', 'tag', 'tags', 'stat', 'stamp', 'serif', 'label', 'bigmono', 'quote', 'spacer']);

@@ -74,6 +74,16 @@
 
   window.__init = (spec, style) => {
     SPEC = spec;
+    // spec.theme = {colourName: "#hex"} recolours a style per brand: it overrides the style's palette and CSS variables.
+    if (spec.theme) {
+      const before = Object.assign({}, R.palette || {});
+      Object.assign(R.palette || {}, spec.theme);
+      // background tables were built from the old palette: swap the old hex for the new one
+      for (const tbl of Object.values(R.themeTables || {}))
+        for (const k of Object.keys(tbl))
+          for (const [name, hex] of Object.entries(spec.theme)) if (before[name] && tbl[k] === before[name]) { tbl[k] = hex; break; }
+      for (const [k, v] of Object.entries(spec.theme)) document.documentElement.style.setProperty('--' + k, v);
+    }
     const stage = document.getElementById('stage');
     stage.style.width = spec.W + 'px'; stage.style.height = spec.H + 'px';
     document.body.classList.add(spec.W > spec.H ? 'land' : 'port');

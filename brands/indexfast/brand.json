@@ -1,0 +1,55 @@
+{
+  "key": "indexfast",
+  "name": "IndexFast",
+  "id_prefix": "IF",
+  "sheet_tab": "@indexfast",
+  "instagram": {
+    "account": "instagram_dam-hinder",
+    "ig_user_id": "29263285359956214",
+    "handle": "@indexfast"
+  },
+  "youtube": null,
+  "voice": {
+    "engine": "edge",
+    "name": "en-US-BrianNeural",
+    "rate": "+10%"
+  },
+  "styles": {
+    "brutal": {
+      "theme": {
+        "purple": "#00513A",
+        "mint": "#3DFFA8",
+        "pink": "#FF5A36"
+      },
+      "music": "pulse",
+      "music_db": -22,
+      "sfx_db": -10
+    },
+    "clean": {
+      "theme": {
+        "accent": "#0E9F6E",
+        "accentLight": "#34D399",
+        "accentDark": "#059669"
+      },
+      "accent": "#0E9F6E",
+      "music": "bright",
+      "music_db": -18,
+      "sfx_db": -9,
+      "brand": "indexfast.co"
+    }
+  },
+  "cta": "Follow IndexFast for more.",
+  "hashtags": [
+    "#seo",
+    "#technicalseo",
+    "#googleindexing",
+    "#searchconsole",
+    "#seotips",
+    "#crawlbudget",
+    "#contentmarketing",
+    "#websitetraffic"
+  ],
+  "slots_ist": [
+    "12:30"
+  ]
+}

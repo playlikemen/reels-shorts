@@ -1,0 +1,16 @@
+{
+  "key": "stackshade",
+  "name": "StackShade",
+  "id_prefix": "SS",
+  "sheet_tab": "@StackShade",
+  "instagram": {"account": "instagram_create-beta", "ig_user_id": "28900280462925770", "handle": "@stackshade"},
+  "youtube": {"account": "youtube_run-retin", "channel_id": "UCEoKWUYSnfJw6as6vl9MeBQ", "handle": "@StackShade"},
+  "voice": {"engine": "edge", "name": "en-US-AndrewNeural", "rate": "+8%"},
+  "styles": {
+    "brutal": {"theme": {}, "music": "pulse", "music_db": -22, "sfx_db": -10},
+    "clean": {"theme": {}, "music": "bright", "music_db": -18, "sfx_db": -9, "brand": "stackshade"}
+  },
+  "cta": "Follow StackShade for more.",
+  "hashtags": ["#softwareengineering", "#systemdesign", "#programming", "#developers", "#backend", "#coding", "#learntocode", "#tech"],
+  "slots_ist": ["19:00"]
+}

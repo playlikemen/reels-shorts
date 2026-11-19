@@ -16,3 +16,5 @@ out/**/concat.txt
 out/**/resolved.json
 out/**/events.json
 out/**/still_*.jpg
+out/**/spec.build.json
+out/**/preview.jpg
