@@ -1,0 +1,523 @@
+{
+ "title": "Gym owners: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "hi": {},
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-104",
+  "brand": "craftlayer",
+  "topic": "Gym / 3 problems: renewals, drop-offs, enquiries",
+  "schedule": {
+   "hi": "2026-11-20 19:30",
+   "en": "2026-11-25 19:30"
+  },
+  "yt_title": {
+   "hi": "January mein gym full, March mein khaali? Gym owners ki 3 problems #shorts",
+   "en": "Packed in January, empty by March: 3 gym owner problems #shorts"
+  },
+  "yt_tags": [
+   "gym owner",
+   "gym business",
+   "gym management software",
+   "fitness business",
+   "gym website",
+   "membership renewal",
+   "gym marketing",
+   "gym india",
+   "craftlayer studio",
+   "fitness studio"
+  ],
+  "yt_description": {
+   "hi": "Membership renewals, members jo aana band kar dete hain, aur Instagram enquiries: gym ki 3 problems aur unke fix. Concept demo: Forge Fitness.",
+   "en": "Missed renewals, members who quietly stop coming, and slow Instagram replies: three gym problems and their fixes. Concept demo: Forge Fitness."
+  },
+  "ig_caption": {
+   "hi": "January mein gym full. March mein khaali kyun? 🏋️\n\n1️⃣ Membership khatam, renew ka reminder nahi\n✅ Fix: automatic WhatsApp reminder + UPI renew link\n\n2️⃣ Member 2 hafte se nahi aaya, kisi ko pata nahi\n✅ Fix: QR check-in + roz subah 'kaun nahi aaya' list\n\n3️⃣ Instagram par price poocha, reply agle din\n✅ Fix: website par plans, prices, free trial booking 24x7\n\nForge Fitness ek concept demo hai. Apne gym ke liye chahiye? Comment karo GYM 👇\n\nVoiceover is AI-generated.",
+   "en": "Packed in January. Empty by March. Why? 🏋️\n\n1️⃣ Memberships run out and nobody asks to renew\n✅ Fix: automatic WhatsApp reminders + a UPI renew link\n\n2️⃣ A member stops coming and nobody notices\n✅ Fix: QR check-in + a daily 'who stopped coming' list\n\n3️⃣ Price questions on Instagram get answered tomorrow\n✅ Fix: plans, prices and free-trial booking on your website, 24x7\n\nForge Fitness is a concept demo. Want this for your gym? Comment GYM 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#gymowner",
+   "#gymbusiness",
+   "#fitnessbusiness",
+   "#gymlife",
+   "#gymindia",
+   "#fitnessstudio",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/gym/",
+   "https://craftlayer-studio.github.io/industries/fitness/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Gym",
+   "say": {
+    "hi": "January में gym भर जाता है। March में खाली क्यों हो जाता है?",
+    "en": "In *January* the gym is packed. Why is it empty by *March*?"
+   },
+   "show": {
+    "hi": "*January* mein gym bhar jaata hai. *March* mein khaali kyun ho jaata hai?",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 62,
+     "text": {
+      "hi": "Jan *full*.\nMarch *khaali*?",
+      "en": "Jan *packed*.\nMarch *empty*?"
+     }
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "users",
+       "size": 170,
+       "label": "January",
+       "c": "#465FFF",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "users",
+       "size": 170,
+       "label": "March",
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": {
+    "hi": "पहली problem: membership खत्म हो गई, और किसी ने renew करने को बोला ही नहीं।",
+    "en": "Problem one: a *membership* ran out, and nobody asked them to *renew*."
+   },
+   "show": {
+    "hi": "Pehli problem: *membership* khatam ho gayi, aur kisi ne *renew* karne ko bola hi nahi.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Forge Fitness · Members",
+        "t": "Plans *ending*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.2,
+        "hl": 0,
+        "selAt": "45%",
+        "items": [
+         {
+          "t": "Rohan M.",
+          "s": "Expired 3 days ago",
+          "v": "!",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Priya S.",
+          "s": "Ends tomorrow",
+          "ic": "users",
+          "c": "#F5B83D"
+         },
+         {
+          "t": "Aman K.",
+          "s": "Ends in 4 days",
+          "ic": "users",
+          "c": "#F5B83D"
+         },
+         {
+          "t": "Neha R.",
+          "s": "Ends in 6 days",
+          "ic": "users"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "No reminder sent",
+       "ic": "bell",
+       "x": 420,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": {
+    "hi": "Fix: expiry से पहले automatic WhatsApp reminder, और एक link से UPI पर renew।",
+    "en": "The fix: an *automatic* WhatsApp reminder before expiry, and one *link* to *renew* by UPI."
+   },
+   "show": {
+    "hi": "Fix: expiry se pehle *automatic* WhatsApp reminder, aur ek *link* se UPI par *renew*.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screens": [
+      {
+       "bg": "#EFE9E1",
+       "blocks": [
+        {
+         "k": "head",
+         "t": "Forge *Fitness*",
+         "s": "WhatsApp"
+        },
+        {
+         "k": "chat",
+         "msgs": [
+          {
+           "t": "Hi Rohan, your plan ends on 28 Nov. Renew in one tap: forge.fit/renew",
+           "at": "15%"
+          },
+          {
+           "me": true,
+           "t": "Done, thanks!",
+           "at": "50%"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "at": "62%",
+       "blocks": [
+        {
+         "k": "head",
+         "t": "Renew *plan*",
+         "s": "Rohan M. · Monthly"
+        },
+        {
+         "k": "total",
+         "v": "₹1,500"
+        },
+        {
+         "k": "pay",
+         "items": [
+          "Cash",
+          "Bank transfer",
+          "Card",
+          "UPI"
+         ],
+         "sel": [
+          {
+           "i": 3,
+           "selAt": "78%"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": {
+    "hi": "दूसरी problem: member दो हफ्ते से नहीं आया, और किसी को पता ही नहीं।",
+    "en": "Problem two: a member hasn't come in for *two weeks*, and *nobody noticed*."
+   },
+   "show": {
+    "hi": "Doosri problem: member *do hafte* se nahi aaya, aur kisi ko *pata hi nahi*.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "badge": "TODAY",
+        "t": "Not seen in *14 days*"
+       },
+       {
+        "k": "kv",
+        "stagger": 0.25,
+        "items": [
+         [
+          "Vikram P.",
+          "last visit 16 days ago"
+         ],
+         [
+          "Sana A.",
+          "last visit 15 days ago"
+         ],
+         [
+          "Karan J.",
+          "last visit 14 days ago"
+         ]
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": {
+    "hi": "Fix: QR से check-in, और हर सुबह एक list: कौन नहीं आया, उसे call करो।",
+    "en": "The fix: *QR* check-in, and a *list* every morning of who stopped coming, so you can *call* them."
+   },
+   "show": {
+    "hi": "Fix: *QR* se check-in, aur har subah ek *list*: kaun nahi aaya, use *call* karo.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "qr",
+     "size": 230,
+     "at": "0%"
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Checked in · 6:42 AM",
+       "ic": "check",
+       "x": 380,
+       "y": 120,
+       "at": "18%"
+      },
+      {
+       "t": "Call list: 3 members",
+       "ic": "phone",
+       "x": 30,
+       "y": 600,
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": {
+    "hi": "तीसरी problem: Instagram पर पूछा price क्या है, और reply अगले दिन गया।",
+    "en": "Problem three: someone asked your *price* on Instagram, and the reply went out *the next day*."
+   },
+   "show": {
+    "hi": "Teesri problem: Instagram par poocha *price* kya hai, aur reply *agle din* gaya.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#F2F3F7",
+      "blocks": [
+       {
+        "k": "head",
+        "t": "Direct *messages*",
+        "s": "forge.fitness"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Hi, monthly fees kitni hai?",
+          "at": "20%"
+         },
+         {
+          "t": "Seen 9:14 PM",
+          "at": "45%"
+         },
+         {
+          "me": true,
+          "t": "Sorry for the late reply!",
+          "at": "80%"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": {
+    "hi": "Fix: website पर plans, prices और free trial booking, चौबीस घंटे।",
+    "en": "The fix: *plans*, *prices* and *free trial* booking on your website, twenty-four hours a day."
+   },
+   "show": {
+    "hi": "Fix: website par *plans*, *prices* aur *free trial* booking, chaubees ghante.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "forge.fit",
+        "t": "Forge *Fitness*",
+        "s": "Plans and prices"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Monthly",
+          "s": "All equipment",
+          "v": "₹1,500",
+          "ic": "bolt",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Quarterly",
+          "s": "+ 1 PT session",
+          "v": "₹4,000",
+          "ic": "bolt",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Yearly",
+          "s": "+ diet plan",
+          "v": "₹12,000",
+          "ic": "bolt",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Book a free trial",
+        "grow": true
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": {
+    "hi": "Renewals, check-in, enquiries, तीनों एक system में।",
+    "en": "*Renewals*, *check-ins* and *enquiries*, all in one system."
+   },
+   "show": {
+    "hi": "*Renewals*, *check-in*, *enquiries*, teeno ek system mein.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · gym system",
+     "items": [
+      {
+       "t": "Renewals",
+       "s": "auto reminders + UPI",
+       "at": "2%"
+      },
+      {
+       "t": "Check-in",
+       "s": "QR + daily call list",
+       "at": "25%"
+      },
+      {
+       "t": "Enquiries",
+       "s": "plans + free trial 24x7",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · GYM",
+   "say": {
+    "hi": "अपने gym के लिए ये चाहिए? Comment करो GYM, या DM करो।",
+    "en": "Want this for your *gym*? Comment *GYM* or send us a *DM*."
+   },
+   "show": {
+    "hi": "Apne *gym* ke liye ye chahiye? Comment karo *GYM*, ya *DM* karo.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "GYM",
+     "label": "Comment *GYM*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

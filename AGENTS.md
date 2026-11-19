@@ -13,6 +13,7 @@ This repo makes narrated motion-graphics videos (Instagram Reels, YouTube Shorts
 - Drive archive folder: `1upAISpZAnmyDDYki_FH9tK-FVh_djqLS` (Composio `googledrive_footle-khir`)
 - Engine artifact for other agents (private until shared): https://claude.ai/artifact/MGoZv9wiFjTq8X19uHpfAc. Its files are listed in `MANIFEST.txt`; republish `docs/studio.html` with those files after changing the engine or ops.
 - CampusLoop (`brands/campusloop/`, tab `@campusloop`, Instagram `instagram_skyish-rhe`): one reel a day at most (`max_reels_per_day`). Read `brands/campusloop/playbook.md` before making anything for it. Phone recordings go through `ops/clip.py`; weekly numbers come from `ops/ig_report.py campusloop --sheet`.
+- CraftLayer Studio (`brands/craftlayer/`, tab `@craftlayer`, Instagram `@craftlayer.studio` via `instagram_hinoki-scrape`): bilingual reels (Hindi first, English later) in the `showcase` style. Read `brands/craftlayer/playbook.md` first. The plan and every script live in `brands/craftlayer/plan.json` and are mirrored to the "CraftLayer Studio · Reels plan" sheet by `python3.11 ops/plan_sheet.py craftlayer`.
 - These ids belong to the owner's Composio account. In any other account, list the connections first and use what exists.
 
 ## Layout
@@ -39,6 +40,8 @@ python3.11 ops/make.py specs/<brand>/<ID>.json --sync-only            # Drive + 
 python3.11 engine/check.py out/<brand>/<ID>/<id>.mp4 --transcribe     # contact sheet + Whisper transcript
 python3.11 ops/sheet.py --show                                        # status and schedule of every row
 python3.11 ops/scheduler.py --dry-run                                 # what would be posted now
+python3.11 ops/scheduler.py --publish --now CR-106-HI                 # post these rows now (owner asked; skips schedule and daily cap)
+python3.11 ops/make.py specs/<brand>/<ID>.json --lang hi              # one language of a bilingual spec ("langs"); id becomes <ID>-HI
 bash ops/install_cron.sh            # publish due rows every 15 minutes
 bash ops/install_cron.sh --remove   # stop automatic publishing
 ```

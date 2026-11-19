@@ -7,7 +7,7 @@ STATE.mkdir(parents=True, exist_ok=True)
 
 SPREADSHEET_ID = "1wnwYwhGw4kdhC5lHf6MCU208yRslGoppBzHkezUfYEk"
 SHEETS_ACCOUNT = "googlesheets_louse-token"
-TAB_SHEET_IDS = {"@StackShade": 0, "@indexfast": 1056788903, "@campusloop": 406628331}
+TAB_SHEET_IDS = {"@StackShade": 0, "@indexfast": 1056788903, "@campusloop": 406628331, "@craftlayer": 1350891349}
 DRIVE_ACCOUNT = "googledrive_footle-khir"
 DRIVE_PARENT = "1upAISpZAnmyDDYki_FH9tK-FVh_djqLS"
 TIMEZONE = "Asia/Kolkata"

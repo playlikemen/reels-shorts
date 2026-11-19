@@ -1,0 +1,498 @@
+{
+ "title": "Jewellery shops: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "hi": {},
+  "en": {}
+ },
+ "theme": {
+  "accent": "#E8C26A",
+  "accent2": "#C9962E"
+ },
+ "meta": {
+  "id": "CR-105",
+  "brand": "craftlayer",
+  "topic": "Jewellery shop / 3 problems: rate calls, designs, trust",
+  "schedule": {
+   "hi": "2026-11-24 19:30",
+   "en": "2026-11-26 19:30"
+  },
+  "yt_title": {
+   "hi": "Gold rate poochne call kiya, phir dukaan nahi aaya. Jewellery shop ki 3 problems #shorts",
+   "en": "They called for the gold rate and never came in: 3 jewellery shop problems #shorts"
+  },
+  "yt_tags": [
+   "jewellery shop",
+   "jewellery business",
+   "jewellery website",
+   "gold rate today",
+   "jewellery shop marketing",
+   "jeweller india",
+   "hallmark jewellery",
+   "jewellery catalogue",
+   "craftlayer studio",
+   "small business india"
+  ],
+  "yt_description": {
+   "hi": "Roz ka gold rate, designs dekhne ke liye dukaan aana, aur naye customer ka bharosa: jewellery shop ki 3 problems aur website se unka fix. Concept demo.",
+   "en": "Daily rate calls, customers who must visit to see designs, and earning a new customer's trust: three jewellery shop problems and how a website fixes them. Concept demo."
+  },
+  "ig_caption": {
+   "hi": "Customer ne aaj ka gold rate poochne ke liye call kiya... aur phir nahi aaya. 💍\n\n1️⃣ Roz wahi sawaal: aaj ka rate?\n✅ Fix: website par aaj ka rate, aap subah ek baar update karo\n\n2️⃣ Designs dekhne dukaan tak aana padta hai\n✅ Fix: online catalogue, weight, purity, making charges + visit booking\n\n3️⃣ Naya customer bharosa kaise kare?\n✅ Fix: hallmark details, reviews, photos, address, ek page par\n\nYe ek concept demo hai. Apni jewellery shop ke liye website chahiye? Comment karo GOLD 👇\n\nVoiceover is AI-generated.",
+   "en": "A customer called to ask today's gold rate... and never came in. 💍\n\n1️⃣ The same question every day: today's rate?\n✅ Fix: today's rate on your website, updated by you each morning\n\n2️⃣ Customers must visit just to see designs\n✅ Fix: an online catalogue with weight, purity, making charges + visit booking\n\n3️⃣ Why should a new customer trust you?\n✅ Fix: hallmark details, reviews, photos and address on one page\n\nThis is a concept demo. Need a website for your jewellery shop? Comment GOLD 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#jewellery",
+   "#jewelleryshop",
+   "#jewellerybusiness",
+   "#goldjewellery",
+   "#jeweller",
+   "#smallbusinessindia",
+   "#websitedesign",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industries/ecommerce-retail/",
+   "https://craftlayer-studio.github.io/services/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Gold",
+   "say": {
+    "hi": "Customer ने आज का gold rate पूछने के लिए call किया, और फिर नहीं आया।",
+    "en": "A customer *called* to ask today's *gold rate*, and *never came in*."
+   },
+   "show": {
+    "hi": "Customer ne aaj ka *gold rate* poochne ke liye *call* kiya, aur phir *nahi aaya*.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 62,
+     "text": {
+      "hi": "Aaj ka *rate*?",
+      "en": "Today's *rate*?"
+     }
+    },
+    {
+     "type": "phone",
+     "w": 290,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": -0.4,
+     "anim": "none",
+     "screen": {
+      "bg": "#101828",
+      "dark": true,
+      "blocks": [
+       {
+        "k": "space",
+        "h": 60
+       },
+       {
+        "k": "big",
+        "t": "Incoming *call*",
+        "s": "Customer"
+       },
+       {
+        "k": "bell",
+        "t": "Rate kya hai?"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": {
+    "hi": "पहली problem: हर दिन वही सवाल, आज का rate क्या है?",
+    "en": "Problem one: the *same question* every day. What's today's *rate*?"
+   },
+   "show": {
+    "hi": "Pehli problem: har din *wahi sawaal*, aaj ka *rate* kya hai?",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "tile",
+     "ic": "phone",
+     "size": 200,
+     "at": "0%",
+     "label": "Every day"
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Aaj ka rate?",
+       "ic": "chat",
+       "x": 40,
+       "y": 120,
+       "at": "15%"
+      },
+      {
+       "t": "Gold rate kya hai?",
+       "ic": "chat",
+       "x": 400,
+       "y": 220,
+       "at": "30%"
+      },
+      {
+       "t": "22K ka rate?",
+       "ic": "chat",
+       "x": 30,
+       "y": 560,
+       "at": "45%"
+      },
+      {
+       "t": "Silver rate?",
+       "ic": "chat",
+       "x": 450,
+       "y": 640,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": {
+    "hi": "Fix: website पर आज का rate, जो आप सुबह एक बार update करते हो।",
+    "en": "The fix: *today's rate* on your website, which you update *once* each morning."
+   },
+   "show": {
+    "hi": "Fix: website par *aaj ka rate*, jo aap subah *ek baar* update karte ho.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Updated today 10:00 AM",
+        "t": "Today's *rate*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.2,
+        "items": [
+         {
+          "t": "Gold 24K",
+          "s": "per 10 g",
+          "v": "₹ ••,•••",
+          "ic": "star",
+          "c": "#C9962E"
+         },
+         {
+          "t": "Gold 22K",
+          "s": "per 10 g",
+          "v": "₹ ••,•••",
+          "ic": "star",
+          "c": "#C9962E"
+         },
+         {
+          "t": "Silver",
+          "s": "per 1 kg",
+          "v": "₹ ••,•••",
+          "ic": "star",
+          "c": "#9AA3B8"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Update rate (owner)",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "You update it once",
+       "ic": "clock",
+       "x": 420,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": {
+    "hi": "दूसरी problem: customer designs देखने के लिए दुकान तक आना पड़ता है।",
+    "en": "Problem two: customers have to *come to the shop* just to see *designs*."
+   },
+   "show": {
+    "hi": "Doosri problem: customer *designs* dekhne ke liye *dukaan tak* aana padta hai.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "tile",
+     "ic": "pin",
+     "size": 200,
+     "at": "0%",
+     "label": "Shop only"
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": {
+    "hi": "Fix: online catalogue, weight, purity और making charges के साथ, और visit book करने का button।",
+    "en": "The fix: an online *catalogue* with *weight*, *purity* and making charges, and a *button* to book a visit."
+   },
+   "show": {
+    "hi": "Fix: online *catalogue*, *weight*, *purity* aur making charges ke saath, aur visit book karne ka *button*.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screens": [
+      {
+       "blocks": [
+        {
+         "k": "head",
+         "t": "Bridal *necklaces*",
+         "s": "Catalogue · 24 designs"
+        },
+        {
+         "k": "grid",
+         "stagger": 0.08,
+         "items": [
+          {
+           "ic": "star",
+           "c": "#C9962E"
+          },
+          {
+           "ic": "gift",
+           "c": "#B8862B"
+          },
+          {
+           "ic": "star",
+           "c": "#D9A84A"
+          },
+          {
+           "ic": "gift",
+           "c": "#C9962E"
+          },
+          {
+           "ic": "star",
+           "c": "#B8862B"
+          },
+          {
+           "ic": "gift",
+           "c": "#D9A84A"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "at": "35%",
+       "blocks": [
+        {
+         "k": "dish",
+         "t": "Kundan necklace",
+         "ic": "star",
+         "c": "#C9962E"
+        },
+        {
+         "k": "kv",
+         "items": [
+          [
+           "Weight",
+           "32.4 g"
+          ],
+          [
+           "Purity",
+           "22K"
+          ],
+          [
+           "Making",
+           "shown on request"
+          ]
+         ]
+        },
+        {
+         "k": "btn",
+         "t": "Book a visit",
+         "grow": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": {
+    "hi": "तीसरी problem: नया customer भरोसा कैसे करे?",
+    "en": "Problem three: why should a new customer *trust* you?"
+   },
+   "show": {
+    "hi": "Teesri problem: naya customer *bharosa* kaise kare?",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "title",
+     "text": "?",
+     "size": 220,
+     "at": "0%",
+     "anim": "pop"
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": {
+    "hi": "Fix: hallmark details, reviews, photos और address, सब एक page पर।",
+    "en": "The fix: *hallmark* details, *reviews*, photos and your *address*, all on one page."
+   },
+   "show": {
+    "hi": "Fix: *hallmark* details, *reviews*, photos aur *address*, sab ek page par.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "t": "Why *us*",
+        "s": "Since day one, on record"
+       },
+       {
+        "k": "kv",
+        "items": [
+         [
+          "Hallmark",
+          "HUID on each piece"
+         ],
+         [
+          "Reviews",
+          "on Google"
+         ]
+        ]
+       },
+       {
+        "k": "stars",
+        "fill": 5,
+        "size": 26,
+        "selAt": "40%"
+       },
+       {
+        "k": "map"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "04 · Website",
+   "say": {
+    "hi": "Rate, catalogue, भरोसा, तीनों आपकी website पर।",
+    "en": "*Rate*, *catalogue* and *trust*, all on your website."
+   },
+   "show": {
+    "hi": "*Rate*, *catalogue*, *bharosa*, teeno aapki website par.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · jewellery website",
+     "items": [
+      {
+       "t": "Rate",
+       "s": "updated by you",
+       "at": "2%"
+      },
+      {
+       "t": "Catalogue",
+       "s": "weight, purity, visit",
+       "at": "22%"
+      },
+      {
+       "t": "Trust",
+       "s": "hallmark, reviews, map",
+       "at": "45%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · GOLD",
+   "say": {
+    "hi": "Jewellery shop के लिए website चाहिए? Comment करो GOLD, या DM करो।",
+    "en": "Need a website for your *jewellery* shop? Comment *GOLD* or send us a *DM*."
+   },
+   "show": {
+    "hi": "*Jewellery* shop ke liye website chahiye? Comment karo *GOLD*, ya *DM* karo.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "GOLD",
+     "label": "Comment *GOLD*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

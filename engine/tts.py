@@ -39,12 +39,16 @@ def edge_tts(text, voice="en-US-AndrewNeural", rate="+0%", pitch="+0Hz"):
     key = hashlib.sha1(json.dumps([text, voice, rate, pitch]).encode()).hexdigest()[:16]
     mp3, js = CACHE / f"{key}.mp3", CACHE / f"{key}.json"
     if not (mp3.exists() and js.exists()):
-        for attempt in range(3):
+        # Some voices (the Multilingual ones) return no audio for certain sentences every time.
+        # The same words with the final punctuation or the commas removed usually work, and keep captions aligned.
+        variants = [text, text, text.rstrip(".!?। "), text.replace(",", ""), text.rstrip(".!?। ").replace(",", ""),
+                    text.replace(":", ","), text + ".."]
+        for attempt, variant in enumerate(variants):
             try:
-                words = asyncio.run(_edge(text, voice, rate, pitch, mp3))
+                words = asyncio.run(_edge(variant, voice, rate, pitch, mp3))
                 break
-            except Exception as e:  # transient websocket errors happen; retry
-                if attempt == 2:
+            except Exception as e:  # transient websocket errors, or a sentence the voice will not read
+                if attempt == len(variants) - 1:
                     raise
         js.write_text(json.dumps(words))
     return str(mp3), duration(mp3), json.loads(js.read_text())
@@ -63,4 +67,4 @@ def align_file(path, model="small.en"):
 
 
 def norm(w):
-    return re.sub(r"[^a-z0-9%$.]", "", w.lower()).strip(".")
+    return re.sub(r"[^a-z0-9%$.\u0900-\u097f]", "", w.lower()).strip(".").strip("\u0964\u0965")

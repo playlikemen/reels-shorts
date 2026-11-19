@@ -40,7 +40,7 @@ Save to `specs/<brand>/<ID>.json`. Copy the closest existing spec and edit it.
 }
 ```
 
-- `style`: `brutal` (numbered chapters, flat colour, condensed caps; best for numbers, news, comparisons) or `clean` (word-by-word captions, app tiles, diagrams; best for how-it-works). Alternate between them so the feed does not look the same every day.
+- `style`: `showcase` (dark or `"light": true` product demo: phones, tablets, browser, floor plan, QR, chips, checklist, orbit, net/water metaphors; Roman captions over any voice language; used by CraftLayer; read `engine/styles/showcase.js` for element and screen-block options), `brutal` (numbered chapters, flat colour, condensed caps; best for numbers, news, comparisons) or `clean` (word-by-word captions, app tiles, diagrams; best for how-it-works). Alternate between them so the feed does not look the same every day.
 - Voice, music and colours come from `brands/<brand>/brand.json`. Set `voice`, `music` or `theme` in the spec only to override them for one video.
 - `meta.schedule` is IST, `YYYY-MM-DD HH:MM`. Use the brand's `slots_ist` and the next free day.
 - Every element has `at`: a phrase copied from that scene's `say`, or seconds from the scene start. A cue must be whole spoken words.
@@ -76,6 +76,10 @@ Uploads the MP4 to a new Drive folder, then writes the sheet row with status `Re
 ## 8. Commit
 
 Commit the spec and `out/<brand>/<ID>/` (MP4, thumb, captions, contact sheet). Report the Video ID, schedule time, Drive link and the YouTube title, description and tags.
+
+## Bilingual specs (Hindi + English)
+
+Add `"langs": {"hi": {}, "en": {}}`. Any value can then be `{"hi": ..., "en": ...}` (say, titles, captions, schedule). For Hindi, `say` is Devanagari with English product words in Latin script, and `show` is the same sentence in Roman Hinglish with exactly the same number of words; captions show `show`, timed to the Hindi audio. Mark accent words with `*stars*`. Cue visuals with `"at": "40%"` of the scene's voice so both languages line up. Build each with `--lang hi` / `--lang en`; the brand's `voices` picks the voice per language.
 
 ## Other formats
 

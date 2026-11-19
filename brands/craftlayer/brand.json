@@ -1,0 +1,87 @@
+{
+  "key": "craftlayer",
+  "name": "CraftLayer Studio",
+  "id_prefix": "CR",
+  "sheet_tab": "@craftlayer",
+  "instagram": {
+    "account": "instagram_hinoki-scrape",
+    "ig_user_id": "29338396192483138",
+    "handle": "@craftlayer.studio"
+  },
+  "youtube": null,
+  "voice": {
+    "engine": "edge",
+    "name": "hi-IN-MadhurNeural",
+    "rate": "+8%"
+  },
+  "voices": {
+    "hi": {
+      "engine": "edge",
+      "name": "hi-IN-MadhurNeural",
+      "rate": "+8%"
+    },
+    "en": {
+      "engine": "edge",
+      "name": "en-US-AndrewMultilingualNeural",
+      "rate": "+4%"
+    }
+  },
+  "styles": {
+    "showcase": {
+      "theme": {
+        "accent": "#8A99FF",
+        "accent2": "#465FFF",
+        "text": "#F2F4F8"
+      },
+      "lightTheme": {
+        "accent": "#3A50E0",
+        "accent2": "#465FFF",
+        "text": "#101828"
+      },
+      "music": "pulse",
+      "music_db": -23,
+      "sfx_db": -13,
+      "logo": "brands/craftlayer/logo.png",
+      "brand": "CraftLayer",
+      "handle": "@craftlayer.studio"
+    },
+    "clean": {
+      "theme": {
+        "accent": "#465FFF",
+        "accentLight": "#8A99FF",
+        "accentDark": "#3A50E0"
+      },
+      "music": "bright",
+      "music_db": -19,
+      "sfx_db": -10,
+      "brand": "craftlayer.studio"
+    },
+    "brutal": {
+      "theme": {
+        "purple": "#465FFF",
+        "mint": "#8A99FF",
+        "pink": "#FF6B4A"
+      },
+      "music": "pulse",
+      "music_db": -22,
+      "sfx_db": -10
+    }
+  },
+  "cta": "DM us on Instagram or visit craftlayer-studio.github.io",
+  "hashtags": [
+    "#restaurantbusiness",
+    "#cafeowner",
+    "#smallbusinessindia",
+    "#websitedesign",
+    "#digitalmarketing",
+    "#qrmenu",
+    "#restauranttech",
+    "#craftlayer"
+  ],
+  "slots_ist": [
+    "19:30"
+  ],
+  "max_reels_per_day": 1,
+  "site": "https://craftlayer-studio.github.io/",
+  "plan_sheet": "1k_bJcEDqopIHFUALLDZhb0c_8lC7-HHHFmdCccKycy4"
+}

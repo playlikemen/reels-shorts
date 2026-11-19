@@ -41,19 +41,25 @@ def find_phrase(words, phrase, start=0):
     return None
 
 
-def resolve(obj, words, off, floor, lead, warn):
-    """walk element tree; replace cue keys with absolute times."""
+def resolve(obj, words, off, floor, lead, warn, dur=None):
+    """walk element tree; replace cue keys with absolute times.
+    A cue is seconds from the voice start (number), a spoken phrase, or "NN%" of the scene's voice duration
+    (language-independent, so one spec can drive Hindi and English renders)."""
     if isinstance(obj, list):
         for x in obj:
-            resolve(x, words, off, floor, lead, warn)
+            resolve(x, words, off, floor, lead, warn, dur)
         return
     if not isinstance(obj, dict):
         return
-    for key, out in (("at", "tin"), ("moveAt", "moveTin"), ("vAt", "vAt"), ("outAt", "out"), ("fillAt", "fillTin"), ("labelAt", "labelTin")):
+    keys = [("at", "tin"), ("moveAt", "moveTin"), ("vAt", "vAt"), ("outAt", "out"), ("fillAt", "fillTin"), ("labelAt", "labelTin"), ("selAt", "selTin")]
+    keys += [(k, k[:-2] + "Tin") for k in list(obj) if k.endswith("At") and k not in dict(keys)]   # any fooAt -> fooTin
+    for key, out in keys:
         if key in obj and obj[key] is not None:
             cue = obj[key]
             if isinstance(cue, (int, float)):
                 t = off + float(cue)
+            elif isinstance(cue, str) and re.fullmatch(r"-?\d+(\.\d+)?%", cue.strip()):
+                t = off + (dur or 0) * float(cue.strip()[:-1]) / 100
             else:
                 i = find_phrase(words, str(cue))
                 if i is None:
@@ -67,7 +73,61 @@ def resolve(obj, words, off, floor, lead, warn):
                 obj.pop(key, None)
     for v in obj.values():
         if isinstance(v, (list, dict)):
-            resolve(v, words, off, floor, lead, warn)
+            resolve(v, words, off, floor, lead, warn, dur)
+
+
+def pick_lang(obj, lang, langs):
+    """{"hi": x, "en": y} -> x for lang "hi", anywhere in the spec (dicts whose keys are all language codes)."""
+    if isinstance(obj, list):
+        return [pick_lang(x, lang, langs) for x in obj]
+    if isinstance(obj, dict):
+        if obj and set(obj) <= langs:
+            return pick_lang(obj.get(lang), lang, langs)
+        return {k: pick_lang(v, lang, langs) for k, v in obj.items()}
+    return obj
+
+
+def apply_lang(spec, lang):
+    """A spec with "langs": {"hi": {...overrides}, "en": {...}} renders one language at a time."""
+    langs = spec.get("langs")
+    if not langs:
+        return spec
+    lang = lang or next(iter(langs))
+    if lang not in langs:
+        raise SystemExit(f"language {lang} not in spec langs {list(langs)}")
+    out = pick_lang({k: v for k, v in spec.items() if k != "langs"}, lang, set(langs))
+    for k, v in (langs[lang] or {}).items():
+        out[k] = {**out.get(k, {}), **v} if isinstance(v, dict) and isinstance(out.get(k), dict) else v
+    out["lang"] = lang
+    return out
+
+
+def marks(text):
+    """'*live orders* aur timers' -> [("live", True), ("orders", True), ("aur", False), ("timers", False)]"""
+    out, on = [], False
+    for tok in (text or "").split():
+        st = tok.startswith("*"); en = tok.rstrip(".,!?;:।…'\"").endswith("*")
+        out.append((tok.replace("*", ""), on or st))
+        if st and not en:
+            on = True
+        if en:
+            on = False
+    return out
+
+
+def display_words(sc, words, off, warn, i):
+    """Words as shown on screen, with times. `show` (e.g. Roman Hinglish for a Hindi voice) replaces the
+    spoken words one for one; if the counts differ, its words are spread over the spoken timings."""
+    src = marks(sc.get("show") or sc.get("say", ""))
+    if not words:
+        return []
+    if len(src) == len(words):
+        pairs = list(zip(src, words))
+    else:
+        if sc.get("show"):
+            warn.append(f"scene {i}: show has {len(src)} words, voice has {len(words)}; timings spread")
+        pairs = [(src[j], words[min(len(words) - 1, j * len(words) // len(src))]) for j in range(len(src))]
+    return [{"w": w, "acc": acc, "t": round(off + sw["s"], 3), "e": round(off + sw["e"], 3)} for (w, acc), sw in pairs]
 
 
 def caption_times(cap, words, off):
@@ -129,8 +189,9 @@ def main():
     ap.add_argument("--stills", default=""); ap.add_argument("--stills-only", action="store_true")
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--only", default="", help="comma list of scene indexes to re-render (others reused)")
+    ap.add_argument("--lang", default="", help="language to render when the spec has \"langs\"")
     a = ap.parse_args()
-    spec = json.load(open(a.spec))
+    spec = apply_lang(json.load(open(a.spec)), a.lang)
     out = pathlib.Path(a.out); out.mkdir(parents=True, exist_ok=True)
     W, H = (spec["W"], spec["H"]) if "W" in spec else FORMATS[spec.get("format", "short")]
     v = spec.get("voice", {})
@@ -142,7 +203,7 @@ def main():
         if sc.get("voice_file"):
             p, d, words = T.align_file(sc["voice_file"])
         elif v.get("engine", "edge") == "edge":
-            p, d, words = T.edge_tts(sc["say"], v.get("name", "en-US-AndrewNeural"), v.get("rate", "+0%"), v.get("pitch", "+0Hz"))
+            p, d, words = T.edge_tts(sc["say"].replace("*", ""), v.get("name", "en-US-AndrewNeural"), v.get("rate", "+0%"), v.get("pitch", "+0Hz"))
         else:
             raise SystemExit("unknown voice engine")
         clips.append((p, d, words))
@@ -177,11 +238,16 @@ def main():
         changed = ch != prev_ch
         prev_ch = ch
         floor = -1.0 if i == 0 else sc["t0"] + (0.28 if changed else 0.06)   # scene 0 may start mid-animation (hook frame)
-        resolve(sc.get("els", []), words, o, floor, spec.get("lead", 0.06), warns)
+        if sc.get("show") and len(marks(sc["show"])) == len(words):   # cues may then use the shown (Roman) words
+            words = [{**w, "w": m[0]} for w, m in zip(words, marks(sc["show"]))]
+        resolve(sc.get("els", []), words, o, floor, spec.get("lead", 0.06), warns, d)
+        if rs["style"] == "showcase":
+            sc["words"] = display_words(sc, words, o, warns, i)
+            resolve(sc.get("vis", []), words, o, floor, spec.get("lead", 0.06), warns, d)
         if rs["style"] == "clean":
             cap = sc["cap"] if "cap" in sc else auto_caption(sc["say"])   # "cap": [] = no captions
             caption_times(cap, words, o); sc["cap"] = cap
-            resolve(sc.get("vis", []), words, o, floor, spec.get("lead", 0.06), warns)
+            resolve(sc.get("vis", []), words, o, floor, spec.get("lead", 0.06), warns, d)
     for w in warns:
         print("WARN", w)
     if a.stills:

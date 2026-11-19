@@ -1,0 +1,400 @@
+{
+ "title": "A website is a net",
+ "style": "showcase",
+ "format": "short",
+ "light": true,
+ "langs": {
+  "hi": {},
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-103",
+  "brand": "craftlayer",
+  "topic": "Website + traffic / the net and the water",
+  "schedule": {
+   "hi": "2026-11-19 22:55",
+   "en": "2026-11-23 19:30"
+  },
+  "yt_title": {
+   "hi": "Sirf website se customers nahi aate. Website jaal hai, traffic paani #shorts",
+   "en": "A website alone won't bring customers. It's a net, not the water #shorts"
+  },
+  "yt_tags": [
+   "website traffic",
+   "website for business",
+   "google ads",
+   "seo",
+   "social media marketing",
+   "small business india",
+   "digital marketing",
+   "web design",
+   "craftlayer studio",
+   "business growth"
+  ],
+  "yt_description": {
+   "hi": "Website machhli pakadne ka jaal hai. Paani teen jagah hai: ads, Google aur social media. Dono chahiye.",
+   "en": "A website is a fishing net. The water is in three places: ads, Google and social media. You need both."
+  },
+  "ig_caption": {
+   "hi": "Hum websites banate hain, aur hum hi bol rahe hain: sirf website se customers nahi aate. 🎣\n\nWebsite = jaal\nTraffic = paani\n\n💸 Ads: paisa lagta hai\n🔎 Google: time lagta hai\n📱 Social media: mehnat lagti hai\n\nJaal bina paani: sookha. Paani bina jaal: paisa paani mein.\n\nAapki website par log kahaan se aate hain? Comment karo 👇\n\nVoiceover is AI-generated.",
+   "en": "We build websites, and even we'll say it: a website alone won't bring customers. 🎣\n\nWebsite = the net\nTraffic = the water\n\n💸 Ads cost money\n🔎 Google takes time\n📱 Social media takes effort\n\nA net with no water stays dry. Water with no net is money down the drain.\n\nWhere do your website visitors come from? Comment 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#websitedesign",
+   "#digitalmarketing",
+   "#smallbusinessindia",
+   "#seo",
+   "#googleads",
+   "#socialmediamarketing",
+   "#businessgrowth",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/services/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Sach",
+   "say": {
+    "hi": "हम websites बनाते हैं, और हम ही बोल रहे हैं: सिर्फ website से customers नहीं आते।",
+    "en": "We build *websites*, and even we'll say it: a website alone *won't bring customers*."
+   },
+   "show": {
+    "hi": "Hum *websites* banate hain, aur hum hi bol rahe hain: sirf website se *customers nahi aate*.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 56,
+     "text": {
+      "hi": "Website se\n*customers*?",
+      "en": "Website =\n*customers*?"
+     }
+    },
+    {
+     "type": "browser",
+     "at": -0.4,
+     "anim": "none",
+     "w": 540,
+     "url": "yourcafe.in",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Fresh · Local · Daily",
+        "t": "Taste you *remember*.",
+        "s": "Order online · Menu · Reviews"
+       },
+       {
+        "k": "grid",
+        "items": [
+         {
+          "ic": "coffee"
+         },
+         {
+          "ic": "leaf",
+          "c": "#7FB069"
+         },
+         {
+          "ic": "coffee",
+          "c": "#9E6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Jaal",
+   "say": {
+    "hi": "Website मछली पकड़ने का जाल है। जाल कितना भी अच्छा हो, उसे पानी में डालना पड़ता है।",
+    "en": "A website is a *fishing net*. However good the net is, you have to put it *in the water*."
+   },
+   "show": {
+    "hi": "Website machhli pakadne ka *jaal* hai. Jaal kitna bhi achha ho, use *paani mein* daalna padta hai.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "net",
+     "w": 400,
+     "at": "0%"
+    },
+    {
+     "type": "water",
+     "at": "68%",
+     "level": 470
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Paani",
+   "say": {
+    "hi": "पानी तीन जगह है। Ads, जहाँ पैसा लगता है। Google, जहाँ time लगता है। और social media, जहाँ मेहनत लगती है।",
+    "en": "The water is in *three* places. *Ads*, which cost money. *Google*, which takes time. And *social media*, which takes effort."
+   },
+   "show": {
+    "hi": "Paani *teen* jagah hai. *Ads*, jahaan paisa lagta hai. *Google*, jahaan time lagta hai. Aur *social media*, jahaan mehnat lagti hai.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "water",
+     "at": -0.4,
+     "level": 520
+    },
+    {
+     "type": "pipes",
+     "at": "0%",
+     "items": [
+      {
+       "k": "01 / 03",
+       "t": "Ads",
+       "ic": "tag",
+       "at": "16%"
+      },
+      {
+       "k": "02 / 03",
+       "t": "Google",
+       "ic": "search",
+       "at": "43%"
+      },
+      {
+       "k": "03 / 03",
+       "t": "Social",
+       "ic": "chat",
+       "at": "70%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Sookha",
+   "say": {
+    "hi": "जिसने सिर्फ website बनाई और बैठ गया, उसके पास एक सुंदर जाल है। सूखा।",
+    "en": "Whoever just built a website and sat back has a beautiful net. *Bone dry.*"
+   },
+   "show": {
+    "hi": "Jisne *sirf* website banayi aur baith gaya, uske paas ek sundar jaal hai. *Sookha.*",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "title",
+     "at": "84%",
+     "size": 84,
+     "anim": "slam",
+     "text": {
+      "hi": "*SOOKHA.*",
+      "en": "*DRY.*"
+     }
+    },
+    {
+     "type": "net",
+     "w": 380,
+     "at": "0%",
+     "dryAt": "84%",
+     "anim": "fade"
+    }
+   ]
+  },
+  {
+   "chapter": "04 · Trust",
+   "say": {
+    "hi": "लोग ad से आए, website ने rate दिखाया, भरोसा दिया, button दिया, तब वो customer बने।",
+    "en": "People came from an *ad*. The website showed the *price*, built *trust*, gave them a *button*. Then they became *customers*."
+   },
+   "show": {
+    "hi": "Log *ad* se aaye, website ne *rate* dikhaya, *bharosa* diya, *button* diya, tab wo *customer* bane.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screens": [
+      {
+       "blocks": [
+        {
+         "k": "dish",
+         "t": "Cold coffee",
+         "v": "₹149",
+         "ic": "coffee",
+         "c": "#9E6B4A",
+         "s": "Thick, creamy, iced"
+        },
+        {
+         "k": "stars",
+         "fill": 5,
+         "size": 22,
+         "selAt": "35%"
+        },
+        {
+         "k": "rows",
+         "items": [
+          {
+           "t": "Rohit K.",
+           "s": "Best cold coffee in town",
+           "ic": "users",
+           "c": "#465FFF"
+          },
+          {
+           "t": "Neha S.",
+           "s": "Same taste every time",
+           "ic": "users",
+           "c": "#C94F4F"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "at": "62%",
+       "blocks": [
+        {
+         "k": "big",
+         "t": "Order *now*",
+         "s": "Cold coffee · ₹149"
+        },
+        {
+         "k": "kv",
+         "items": [
+          [
+           "Delivery",
+           "30 min"
+          ],
+          [
+           "Pickup",
+           "10 min"
+          ]
+         ]
+        },
+        {
+         "k": "btn",
+         "t": "Order on WhatsApp",
+         "c": "#1FAF5A",
+         "grow": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · Dono",
+   "say": {
+    "hi": "दोनों चाहिए। अकेली website कुछ नहीं, और बिना website के ad का पैसा पानी में।",
+    "en": "You need *both*. A website alone does nothing, and ads without a website are *money down the drain*."
+   },
+   "show": {
+    "hi": "*Dono chahiye.* Akeli website kuch nahi, aur bina website ke ad ka *paisa paani mein*.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "row",
+     "at": "0%",
+     "gap": 30,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "globe",
+       "size": 160,
+       "label": "Website"
+      },
+      {
+       "type": "title",
+       "text": "+",
+       "size": 80
+      },
+      {
+       "type": "tile",
+       "ic": "trend",
+       "size": 160,
+       "label": "Traffic",
+       "c": "#465FFF",
+       "at": "12%"
+      }
+     ]
+    },
+    {
+     "type": "water",
+     "at": "58%",
+     "level": 560
+    },
+    {
+     "type": "coins",
+     "at": "66%",
+     "y": 600
+    }
+   ]
+  },
+  {
+   "chapter": "06 · Comment",
+   "say": {
+    "hi": "आपकी website पर लोग कहाँ से आते हैं? पता नहीं, तो comment में लिखो: पता नहीं।",
+    "en": "Where do people find your website? Don't know? *Comment* *don't know*."
+   },
+   "show": {
+    "hi": "Aapki website par log *kahaan se* aate hain? Pata nahi, toh *comment* mein likho: *pata nahi*.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "title",
+     "text": "?",
+     "size": 220,
+     "at": "0%",
+     "anim": "pop"
+    },
+    {
+     "type": "cta",
+     "at": "55%",
+     "text": {
+      "hi": "pata nahi",
+      "en": "don't know"
+     },
+     "label": "Comment"
+    }
+   ]
+  },
+  {
+   "chapter": "07 · DM",
+   "say": {
+    "hi": "Website चाहिए? DM या email करो।",
+    "en": "Need a website? *DM* or *email* us."
+   },
+   "show": {
+    "hi": "Website chahiye? *DM* ya *email* karo.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "We build websites"
+    },
+    {
+     "type": "sub",
+     "at": "30%",
+     "text": "sh20raj@gmail.com · craftlayer-studio.github.io"
+    }
+   ]
+  }
+ ]
+}

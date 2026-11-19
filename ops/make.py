@@ -6,6 +6,7 @@
   python3.11 ops/make.py specs/stackshade/SS-101.json --no-sync             # render and check only
   python3.11 ops/make.py specs/stackshade/SS-101.json --only 0,3            # re-render those scenes (same narration)
   python3.11 ops/make.py specs/stackshade/SS-101.json --sync-only           # Drive + sheet for an existing render
+  python3.11 ops/make.py specs/craftlayer/CR-101.json --lang hi             # one language of a bilingual spec ("langs")
 
 The spec is an engine spec (see skills/kinetic-explainer-video/SKILL.md) plus a "meta" block (see SKILL.md).
 Brand defaults from brands/<brand>/brand.json (voice, music, colours) fill anything the spec leaves out.
@@ -13,6 +14,8 @@ Brand defaults from brands/<brand>/brand.json (voice, music, colours) fill anyth
 import argparse, json, os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(__file__))
 import config as K
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "engine"))
+from build import apply_lang
 
 META_REQUIRED = ["id", "brand", "topic", "yt_title", "yt_tags", "yt_description", "ig_caption", "ig_hashtags", "sources", "schedule"]
 
@@ -20,12 +23,14 @@ META_REQUIRED = ["id", "brand", "topic", "yt_title", "yt_tags", "yt_description"
 def merged_spec(spec):
     b = K.brand(spec["meta"]["brand"])
     out = dict(spec)
-    out.setdefault("voice", b["voice"])
+    out.setdefault("voice", (b.get("voices") or {}).get(spec.get("lang")) or b["voice"])
     for k, v in b["styles"][spec["style"]].items():
         if k == "theme":
             out["theme"] = {**v, **spec.get("theme", {})}
         else:
             out.setdefault(k, v)
+    if out.get("logo") and not str(out["logo"]).startswith(("file:", "http", "data:")):
+        out["logo"] = (K.ROOT / out["logo"]).resolve().as_uri()   # style pages load it from file://
     out["slug"] = spec["meta"]["id"].lower()
     out.setdefault("format", "short")
     return out
@@ -60,9 +65,13 @@ def main():
     ap.add_argument("spec"); ap.add_argument("--stills", default=""); ap.add_argument("--only", default="")
     ap.add_argument("--no-sync", action="store_true"); ap.add_argument("--sync-only", action="store_true")
     ap.add_argument("--workers", type=int, default=min(8, os.cpu_count() or 2))
+    ap.add_argument("--lang", default="", help="language to build when the spec has \"langs\" (default: the first)")
     a = ap.parse_args()
-    spec = json.load(open(a.spec))
+    raw = json.load(open(a.spec))
+    spec = apply_lang(raw, a.lang)
     meta = spec.get("meta") or {}
+    if raw.get("langs") and isinstance((raw.get("meta") or {}).get("id"), str):
+        meta["id"] = f"{meta['id']}-{spec['lang'].upper()}"   # CR-101 -> CR-101-HI / CR-101-EN
     missing = [k for k in META_REQUIRED if not meta.get(k)]
     if missing:
         raise SystemExit(f"spec meta is missing: {', '.join(missing)}")

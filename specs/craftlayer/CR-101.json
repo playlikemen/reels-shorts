@@ -1,0 +1,921 @@
+{
+ "title": "Restaurant table ordering system",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "hi": {},
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-101",
+  "brand": "craftlayer",
+  "topic": "Restaurant / QR table ordering system",
+  "schedule": {
+   "hi": "2026-11-19 22:45",
+   "en": "2026-11-21 19:30"
+  },
+  "yt_title": {
+   "hi": "Restaurant ka waiter har table par nahi ho sakta, website ho sakti hai #shorts",
+   "en": "Your waiter can't be at every table. Your website can. #shorts"
+  },
+  "yt_tags": [
+   "restaurant software",
+   "qr menu",
+   "table ordering",
+   "kitchen display system",
+   "restaurant website",
+   "split bill",
+   "craftlayer studio",
+   "web development india",
+   "restaurant tech",
+   "cafe software"
+  ],
+  "yt_description": {
+   "hi": "QR menu se order, kitchen display, call waiter, live floor map aur table par payment: ek restaurant system ka concept demo. Ye hum aapke restaurant ke liye bana sakte hain.",
+   "en": "QR menu ordering, a kitchen display, call-waiter, a live floor map and pay-at-table: a concept demo of one restaurant system. We can build this for your restaurant."
+  },
+  "ig_caption": {
+   "hi": "Aapka waiter har table par ek saath nahi ho sakta. Aapki website ho sakti hai. 🍽️\n\n📱 QR scan karke poora menu\n🌶️ Allergy, spice level, half/full\n👨‍🍳 Kitchen display par live orders\n🔔 Ek tap mein waiter\n💳 Bill split, tip, table par payment\n\nYe ek concept demo hai. Ye system hum aapke restaurant ke liye bana sakte hain.\nDetails chahiye? Comment karo \"DEMO\" 👇\n\nVoiceover is AI-generated.",
+   "en": "Your waiter can't be at every table at once. Your website can. 🍽️\n\n📱 Scan the QR, see the full menu\n🌶️ Allergens, spice level, half or full\n👨‍🍳 Live orders on a kitchen display\n🔔 Call the waiter in one tap\n💳 Split the bill, tip and pay at the table\n\nThis is a concept demo. We can build this system for your restaurant.\nWant the details? Comment \"DEMO\" 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#restaurantbusiness",
+   "#restaurantowner",
+   "#qrmenu",
+   "#restauranttech",
+   "#cafeowner",
+   "#smallbusinessindia",
+   "#kitchendisplay",
+   "#webdevelopment",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/restaurant/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": {
+    "hi": "आपका waiter हर table पर एक साथ नहीं हो सकता, लेकिन आपकी website हो सकती है।",
+    "en": "Your waiter can't be at every *table* at once. But your *website* can."
+   },
+   "show": {
+    "hi": "Aapka waiter har *table* par ek saath nahi ho sakta, lekin aapki *website* ho sakti hai.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 58,
+     "text": {
+      "hi": "Waiter *ek*.\nTables *anek*.",
+      "en": "One *waiter*.\nSix *tables*."
+     }
+    },
+    {
+     "type": "floor",
+     "at": -0.4,
+     "tables": [
+      {
+       "id": "T1"
+      },
+      {
+       "id": "T2"
+      },
+      {
+       "id": "T3"
+      },
+      {
+       "id": "T4"
+      },
+      {
+       "id": "T5"
+      },
+      {
+       "id": "T6"
+      }
+     ],
+     "hl": [
+      "T5"
+     ],
+     "selAt": -0.4,
+     "phones": true,
+     "phonesAt": "52%",
+     "anim": "none",
+     "w": 540
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Scan",
+   "say": {
+    "hi": "दो customers table पाँच पर बैठते हैं, और अपने phone से table का QR code scan करते हैं।",
+    "en": "Two *guests* sit at *table five* and scan the table's *QR code* with their phone."
+   },
+   "show": {
+    "hi": "Do *customers* table *paanch* par baithte hain, aur apne *phone* se table ka QR code *scan* karte hain.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "avatars",
+     "at": "3%",
+     "items": [
+      {
+       "t": "A"
+      },
+      {
+       "t": "R"
+      }
+     ]
+    },
+    {
+     "type": "qr",
+     "size": 250,
+     "at": "50%"
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Menu",
+   "say": {
+    "hi": "उनके सामने आपका पूरा menu खुल जाता है, हर dish की photo, price और detail के साथ।",
+    "en": "Your full *menu* opens on their phone, with a photo, price and detail for every *dish*."
+   },
+   "show": {
+    "hi": "Unke saamne aapka poora *menu* khul jaata hai, har *dish* ki photo, price aur detail ke saath.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      6,
+      -12,
+      0
+     ],
+     "at": "0%",
+     "screens": [
+      {
+       "blocks": [
+        {
+         "k": "head",
+         "badge": "TABLE 5",
+         "t": "Juniper *Kitchen*",
+         "s": "Scan · order · pay"
+        },
+        {
+         "k": "search",
+         "ph": "Search dishes"
+        },
+        {
+         "k": "tabs",
+         "items": [
+          "Starters",
+          "Mains",
+          "Breads",
+          "Drinks"
+         ],
+         "on": 1
+        },
+        {
+         "k": "rows",
+         "plus": true,
+         "stagger": 0.12,
+         "items": [
+          {
+           "t": "Paneer Makhani",
+           "s": "Tomato butter gravy",
+           "v": "₹320"
+          },
+          {
+           "t": "Dal Makhani",
+           "s": "Slow-cooked black dal",
+           "v": "₹280"
+          },
+          {
+           "t": "Veg Biryani",
+           "s": "Dum cooked",
+           "v": "₹300"
+          },
+          {
+           "t": "Garlic Naan",
+           "s": "Tandoor",
+           "v": "₹60"
+          },
+          {
+           "t": "Mango Lassi",
+           "s": "Chilled",
+           "v": "₹120"
+          },
+          {
+           "t": "Gulab Jamun",
+           "s": "Two pieces",
+           "v": "₹90"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "at": "62%",
+       "blocks": [
+        {
+         "k": "head",
+         "t": "Paneer Makhani",
+         "s": "Mains · Table 5"
+        },
+        {
+         "k": "dish",
+         "t": "Paneer Makhani",
+         "v": "₹320",
+         "s": "Cottage cheese in a slow-cooked tomato butter gravy"
+        },
+        {
+         "k": "kv",
+         "items": [
+          [
+           "Allergens",
+           "Dairy · Nuts"
+          ],
+          [
+           "Spice",
+           "Medium"
+          ],
+          [
+           "Size",
+           "Half · Full"
+          ]
+         ]
+        },
+        {
+         "k": "btn",
+         "t": "Add to order · ₹320",
+         "grow": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Details",
+   "say": {
+    "hi": "Allergy information, spice level, half या full, और आज के offers, सब एक जगह।",
+    "en": "*Allergy* info, *spice* level, half or full, and today's *offers*. All in one place."
+   },
+   "show": {
+    "hi": "*Allergy* information, *spice* level, half ya full, aur aaj ke *offers*, sab ek jagah.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      4,
+      10,
+      0
+     ],
+     "at": "0%",
+     "anim": "fade",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "t": "Paneer Makhani",
+        "s": "Mains · Table 5"
+       },
+       {
+        "k": "dish",
+        "t": "Paneer Makhani",
+        "v": "₹320"
+       },
+       {
+        "k": "kv",
+        "items": [
+         [
+          "Allergens",
+          "Dairy · Nuts"
+         ],
+         [
+          "Spice",
+          "Medium"
+         ],
+         [
+          "Size",
+          "Half · Full"
+         ],
+         [
+          "Offer",
+          "10% off today"
+         ]
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Add to order · ₹320",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Dairy · Nuts",
+       "ic": "leaf",
+       "x": 18,
+       "y": 170,
+       "at": "2%"
+      },
+      {
+       "t": "Spice: Medium",
+       "ic": "fire",
+       "x": 470,
+       "y": 290,
+       "at": "22%"
+      },
+      {
+       "t": "Half / Full",
+       "ic": "menu",
+       "x": 14,
+       "y": 470,
+       "at": "45%"
+      },
+      {
+       "t": "10% off today",
+       "ic": "tag",
+       "x": 455,
+       "y": 590,
+       "at": "62%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · Order",
+   "say": {
+    "hi": "वो phone से ही order करते हैं, और आपका staff एक tap में order kitchen भेज देता है।",
+    "en": "They *order* from the phone, and your staff sends it to the *kitchen* with one *tap*."
+   },
+   "show": {
+    "hi": "Wo phone se hi *order* karte hain, aur aapka staff ek *tap* mein order *kitchen* bhej deta hai.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screens": [
+      {
+       "blocks": [
+        {
+         "k": "head",
+         "badge": "T5 · NEW",
+         "t": "New *order*",
+         "s": "Table 5 · 2 guests"
+        },
+        {
+         "k": "kv",
+         "items": [
+          [
+           "Paneer Makhani × 1",
+           "₹320"
+          ],
+          [
+           "Dal Makhani × 1",
+           "₹280"
+          ],
+          [
+           "Garlic Naan × 4",
+           "₹240"
+          ],
+          [
+           "Mango Lassi × 2",
+           "₹240"
+          ]
+         ]
+        },
+        {
+         "k": "btn",
+         "t": "Send to kitchen →",
+         "grow": true
+        }
+       ]
+      },
+      {
+       "at": "74%",
+       "blocks": [
+        {
+         "k": "big",
+         "t": "Sent to *kitchen*",
+         "s": "Table 5 · 4 items · ₹1,080"
+        },
+        {
+         "k": "stats",
+         "items": [
+          {
+           "l": "Status",
+           "v": "Cooking"
+          },
+          {
+           "l": "Items",
+           "v": "4"
+          },
+          {
+           "l": "Table",
+           "v": "T5"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · Kitchen",
+   "say": {
+    "hi": "Kitchen display पर live orders और timers दिखते हैं, कुछ भी miss नहीं होता।",
+    "en": "The kitchen *display* shows *live orders* and *timers*, so nothing gets missed."
+   },
+   "show": {
+    "hi": "Kitchen *display* par *live orders* aur *timers* dikhte hain, kuch bhi miss nahi hota.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 640,
+     "tilt": [
+      12,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "badge": "LIVE",
+        "t": "Kitchen *display*"
+       },
+       {
+        "k": "cols",
+        "stagger": 0.18,
+        "cols": [
+         {
+          "h": "TANDOOR",
+          "items": [
+           {
+            "t": "T5 Naan × 4",
+            "v": "03:12"
+           },
+           {
+            "t": "T3 Tikka",
+            "v": "06:40"
+           }
+          ]
+         },
+         {
+          "h": "CURRY",
+          "items": [
+           {
+            "t": "T5 Makhani",
+            "v": "08:20"
+           },
+           {
+            "t": "T1 Dal",
+            "v": "04:05"
+           }
+          ]
+         },
+         {
+          "h": "DRINKS",
+          "items": [
+           {
+            "t": "T5 Lassi × 2",
+            "v": "01:30"
+           },
+           {
+            "t": "T4 Chai",
+            "v": "00:45"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "06 · Wait",
+   "say": {
+    "hi": "जब तक खाना बन रहा है, guests अपने phone पर live status देखते हैं।",
+    "en": "While the food cooks, guests watch the *live status* on their phone."
+   },
+   "show": {
+    "hi": "Jab tak *khaana* ban raha hai, guests apne phone par *live status* dekhte hain.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "t": "Your food is *cooking*",
+        "s": "Table 5 · Order 214"
+       },
+       {
+        "k": "ring",
+        "count": [
+         712,
+         650
+        ],
+        "dur": 4,
+        "l": "min left",
+        "size": 180
+       },
+       {
+        "k": "kv",
+        "items": [
+         [
+          "Ordered",
+          "✓"
+         ],
+         [
+          "Cooking",
+          "●"
+         ],
+         [
+          "Serving",
+          "next"
+         ]
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "07 · Call",
+   "say": {
+    "hi": "कुछ चाहिए? बस एक tap, और waiter को उसी second पता चल जाता है।",
+    "en": "Need something? *One tap*, and the *waiter* knows that same second."
+   },
+   "show": {
+    "hi": "Kuch chahiye? Bas *ek tap*, aur *waiter* ko usi second pata chal jaata hai.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "t": "Need *something*?",
+        "s": "Table 5"
+       },
+       {
+        "k": "bell",
+        "t": "Call waiter",
+        "selAt": "32%"
+       },
+       {
+        "k": "tabs",
+        "items": [
+         "Water",
+         "Napkins",
+         "Bill"
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "T5 needs help",
+       "ic": "bell",
+       "x": 430,
+       "y": 160,
+       "at": "45%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "08 · Floor",
+   "say": {
+    "hi": "आपका staff live floor map पर देखता है कि किस table को help चाहिए।",
+    "en": "Your staff sees on a *live floor map* which *table* needs help."
+   },
+   "show": {
+    "hi": "Aapka staff *live floor map* par dekhta hai ki kis *table* ko help chahiye.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "floor",
+     "at": "0%",
+     "statusAt": "8%",
+     "hl": [
+      "T5"
+     ],
+     "selAt": "55%",
+     "rx": 40,
+     "tables": [
+      {
+       "id": "T1",
+       "s": "EATING"
+      },
+      {
+       "id": "T2",
+       "s": "BILL",
+       "c": "#F5B83D"
+      },
+      {
+       "id": "T3",
+       "s": "ORDERING",
+       "c": "#8A99FF"
+      },
+      {
+       "id": "T4",
+       "s": "EATING"
+      },
+      {
+       "id": "T5",
+       "s": "HELP",
+       "c": "#FF6B4A"
+      },
+      {
+       "id": "T6",
+       "s": "EATING"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "09 · Pay",
+   "say": {
+    "hi": "आख़िर में bill split करें, tip जोड़ें, और table पर ही pay करें: cash, card या UPI।",
+    "en": "At the end, *split* the bill, add a tip, and *pay* at the table: cash, card or *UPI*."
+   },
+   "show": {
+    "hi": "Aakhir mein bill *split* karein, tip jodein, aur table par hi *pay* karein: cash, card ya *UPI*.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screens": [
+      {
+       "blocks": [
+        {
+         "k": "head",
+         "t": "Your *bill*",
+         "s": "Table 5"
+        },
+        {
+         "k": "kv",
+         "items": [
+          [
+           "Paneer Makhani",
+           "₹320"
+          ],
+          [
+           "Dal Makhani",
+           "₹280"
+          ],
+          [
+           "Garlic Naan × 4",
+           "₹240"
+          ],
+          [
+           "Mango Lassi × 2",
+           "₹240"
+          ]
+         ]
+        },
+        {
+         "k": "total",
+         "v": "₹1,080"
+        },
+        {
+         "k": "split",
+         "items": [
+          {
+           "l": "A",
+           "v": "₹540"
+          },
+          {
+           "l": "R",
+           "v": "₹540"
+          }
+         ]
+        },
+        {
+         "k": "tabs",
+         "items": [
+          "Tip 5%",
+          "10%",
+          "15%"
+         ],
+         "on": 1
+        }
+       ]
+      },
+      {
+       "at": "50%",
+       "blocks": [
+        {
+         "k": "head",
+         "t": "Pay at *table*",
+         "s": "Includes 10% tip"
+        },
+        {
+         "k": "total",
+         "v": "₹1,188"
+        },
+        {
+         "k": "pay",
+         "items": [
+          "Cash",
+          "Bank transfer",
+          "Card",
+          "UPI"
+         ],
+         "sel": [
+          {
+           "i": 0,
+           "selAt": "68%"
+          },
+          {
+           "i": 2,
+           "selAt": "78%"
+          },
+          {
+           "i": 3,
+           "selAt": "88%"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "10 · Review",
+   "say": {
+    "hi": "और review देना भी बस एक tap का काम।",
+    "en": "And leaving a *review* takes *one tap*."
+   },
+   "show": {
+    "hi": "Aur *review* dena bhi bas *ek tap* ka kaam.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "t": "How was your *meal*?",
+        "s": "Table 5 · Juniper Kitchen"
+       },
+       {
+        "k": "stars",
+        "fill": 5,
+        "selAt": "30%",
+        "size": 34
+       },
+       {
+        "k": "search",
+        "ph": "Tell us more (optional)"
+       },
+       {
+        "k": "btn",
+        "t": "Submit review",
+        "grow": true
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "11 · System",
+   "say": {
+    "hi": "Floor, kitchen और guests, एक ही system में। ये हम आपके restaurant के लिए बना सकते हैं।",
+    "en": "*Floor*, *kitchen* and *guests* in one system. We can build this for your *restaurant*."
+   },
+   "show": {
+    "hi": "*Floor*, *kitchen* aur *guests*, ek hi system mein. Ye hum aapke *restaurant* ke liye bana sakte hain.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "orbit",
+     "at": "0%",
+     "items": [
+      {
+       "t": "Floor",
+       "at": "2%"
+      },
+      {
+       "t": "Kitchen",
+       "at": "15%"
+      },
+      {
+       "t": "Guests",
+       "at": "30%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "12 · Demo",
+   "say": {
+    "hi": "Details चाहिए? Comment में लिखिए DEMO।",
+    "en": "Want the details? Comment *DEMO*."
+   },
+   "show": {
+    "hi": "*Details* chahiye? Comment mein likhiye *DEMO*.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "DEMO",
+     "label": "Comment *DEMO*",
+     "mt": 30
+    }
+   ]
+  }
+ ]
+}

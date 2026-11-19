@@ -1,0 +1,701 @@
+{
+ "title": "Cafe website from day one",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "hi": {},
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-102",
+  "brand": "craftlayer",
+  "topic": "Cafe / website from day one",
+  "schedule": {
+   "hi": "2026-11-19 22:50",
+   "en": "2026-11-22 19:30"
+  },
+  "yt_title": {
+   "hi": "Agar main aapke cafe ki website banata, pehle din se ye hota #shorts",
+   "en": "If I built your cafe's website, this is day one #shorts"
+  },
+  "yt_tags": [
+   "cafe website",
+   "restaurant website",
+   "small business website",
+   "website for business",
+   "google my business",
+   "whatsapp ordering",
+   "web design india",
+   "craftlayer studio",
+   "cafe marketing",
+   "local business"
+  ],
+  "yt_description": {
+   "hi": "Google par naam, menu with prices, WhatsApp order aur table booking, location, reviews aur offers: ek cafe website pehle din se. Concept demo: Brightwater Coffee.",
+   "en": "Found on Google, a menu with prices, WhatsApp orders and table booking, location, reviews and offers: a cafe website from day one. Concept demo: Brightwater Coffee."
+  },
+  "ig_caption": {
+   "hi": "Agar main aapke cafe ki website banata, toh pehle din se ye hota ☕\n\n01 Google par naam\n02 Menu, photos, prices (PDF nahi)\n03 WhatsApp par order ya table booking\n04 Location, timings, reviews\n05 Offers aap khud update karo\n06 Instagram bio link seedha website par\n\nBrightwater Coffee ek concept demo hai.\nApne business ke liye website chahiye? DM karo ya email: sh20raj@gmail.com\n\nVoiceover is AI-generated.",
+   "en": "If I built your cafe's website, here's day one ☕\n\n01 Found on Google\n02 Menu, photos, prices (no PDF)\n03 Order or book a table on WhatsApp\n04 Location, hours, reviews\n05 Offers you update yourself\n06 Your Instagram bio link goes straight to it\n\nBrightwater Coffee is a concept demo.\nNeed a website for your business? DM us or email sh20raj@gmail.com\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#cafeowner",
+   "#cafebusiness",
+   "#coffeeshop",
+   "#smallbusinessindia",
+   "#websitedesign",
+   "#localbusiness",
+   "#whatsappbusiness",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/coffee/",
+   "https://craftlayer-studio.github.io/services/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Cafe",
+   "say": {
+    "hi": "अगर मैं आपके cafe की website बनाता, तो पहले दिन से ये होता।",
+    "en": "If I built your *cafe's website*, here's what you'd have from *day one*."
+   },
+   "show": {
+    "hi": "Agar main aapke *cafe* ki *website* banata, toh pehle din se ye hota.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": {
+      "hi": "Day *01*",
+      "en": "Day *01*"
+     }
+    },
+    {
+     "type": "browser",
+     "at": -0.4,
+     "anim": "none",
+     "w": 560,
+     "url": "brightwater.coffee",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Specialty coffee · fresh bakes",
+        "t": "Brightwater *Coffee*",
+        "s": "Open today 8 AM to 11 PM"
+       },
+       {
+        "k": "grid",
+        "items": [
+         {
+          "ic": "coffee",
+          "t": "Latte"
+         },
+         {
+          "ic": "coffee",
+          "t": "Cold brew",
+          "c": "#9E6B4A"
+         },
+         {
+          "ic": "leaf",
+          "t": "Matcha",
+          "c": "#7FB069"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Search",
+   "say": {
+    "hi": "सबसे पहले, Google पर cafe near me search करो, और आपका नाम ऊपर दिखे।",
+    "en": "First, someone searches *cafe near me*, and your *name* shows up."
+   },
+   "show": {
+    "hi": "Sabse pehle, *Google* par cafe near me search karo, aur aapka *naam* upar dikhe.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "search",
+        "t": "cafe near me",
+        "type": true,
+        "typeAt": "20%"
+       },
+       {
+        "k": "rows",
+        "hl": 0,
+        "selAt": "68%",
+        "items": [
+         {
+          "t": "Brightwater Coffee",
+          "s": "4.8 ★ · Cafe · Open now",
+          "ic": "coffee",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Corner Cafe",
+          "s": "Cafe · 1.2 km",
+          "ic": "coffee"
+         },
+         {
+          "t": "Bean There",
+          "s": "Cafe · 2 km",
+          "ic": "coffee"
+         },
+         {
+          "t": "Morning Mug",
+          "s": "Cafe · 3 km",
+          "ic": "coffee"
+         }
+        ]
+       },
+       {
+        "k": "map"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Menu",
+   "say": {
+    "hi": "Website खोलते ही menu, photos और prices, बिना PDF download किए।",
+    "en": "Open the site and the *menu*, *photos* and *prices* are right there. No PDF download."
+   },
+   "show": {
+    "hi": "Website kholte hi *menu*, *photos* aur *prices*, bina PDF download kiye.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "t": "Brightwater *Coffee*",
+        "s": "Menu"
+       },
+       {
+        "k": "tabs",
+        "items": [
+         "Coffee",
+         "Cold",
+         "Bakes"
+        ],
+        "on": 0
+       },
+       {
+        "k": "grid",
+        "stagger": 0.1,
+        "items": [
+         {
+          "ic": "coffee",
+          "t": "Latte"
+         },
+         {
+          "ic": "coffee",
+          "t": "Mocha",
+          "c": "#9E6B4A"
+         },
+         {
+          "ic": "leaf",
+          "t": "Matcha",
+          "c": "#7FB069"
+         }
+        ]
+       },
+       {
+        "k": "rows",
+        "stagger": 0.12,
+        "items": [
+         {
+          "t": "Cappuccino",
+          "v": "₹180",
+          "ic": "coffee"
+         },
+         {
+          "t": "Cold brew",
+          "v": "₹210",
+          "ic": "coffee"
+         },
+         {
+          "t": "Almond croissant",
+          "v": "₹160"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "No PDF",
+       "ic": "check",
+       "x": 470,
+       "y": 520,
+       "at": "70%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Order",
+   "say": {
+    "hi": "एक button, सीधा WhatsApp पर order या table booking।",
+    "en": "One *button* opens *WhatsApp* for an order or a *table booking*."
+   },
+   "show": {
+    "hi": "Ek *button*, seedha *WhatsApp* par order ya *table booking*.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screens": [
+      {
+       "blocks": [
+        {
+         "k": "dish",
+         "t": "Cold brew",
+         "v": "₹210",
+         "ic": "coffee",
+         "c": "#9E6B4A",
+         "s": "Steeped 16 hours"
+        },
+        {
+         "k": "btn",
+         "t": "Order on WhatsApp",
+         "c": "#1FAF5A",
+         "grow": true
+        },
+        {
+         "k": "btn",
+         "t": "Book a table"
+        }
+       ]
+      },
+      {
+       "at": "42%",
+       "bg": "#EFE9E1",
+       "blocks": [
+        {
+         "k": "head",
+         "t": "Brightwater *Coffee*",
+         "s": "WhatsApp chat"
+        },
+        {
+         "k": "chat",
+         "msgs": [
+          {
+           "me": true,
+           "t": "Hi! Table for 2 at 7 pm?",
+           "at": "50%"
+          },
+          {
+           "t": "Done. Table 4 is booked for 7 pm.",
+           "at": "72%"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · Visit",
+   "say": {
+    "hi": "Location, timings और reviews, customer को कुछ पूछना ही ना पड़े।",
+    "en": "*Location*, *opening hours* and *reviews*, so customers never have to ask."
+   },
+   "show": {
+    "hi": "*Location*, *timings* aur *reviews*, customer ko kuch poochna hi na pade.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "t": "Visit *us*",
+        "s": "Brightwater Coffee"
+       },
+       {
+        "k": "map"
+       },
+       {
+        "k": "kv",
+        "items": [
+         [
+          "Mon to Fri",
+          "8 AM to 10 PM"
+         ],
+         [
+          "Sat, Sun",
+          "8 AM to 11 PM"
+         ]
+        ]
+       },
+       {
+        "k": "stars",
+        "fill": 5,
+        "size": 26,
+        "selAt": "60%"
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Get directions",
+       "ic": "pin",
+       "x": 16,
+       "y": 200,
+       "at": "5%"
+      },
+      {
+       "t": "Open now",
+       "ic": "clock",
+       "x": 480,
+       "y": 380,
+       "at": "28%"
+      },
+      {
+       "t": "Reviews",
+       "ic": "star",
+       "x": 30,
+       "y": 560,
+       "at": "52%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · Offers",
+   "say": {
+    "hi": "Weekend offer बदलना है? आप खुद update कर लो।",
+    "en": "New *weekend offer*? You update it *yourself*."
+   },
+   "show": {
+    "hi": "Weekend *offer* badalna hai? Aap *khud* update kar lo.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "browser",
+     "w": 580,
+     "at": "0%",
+     "url": "brightwater.coffee/admin",
+     "screens": [
+      {
+       "blocks": [
+        {
+         "k": "head",
+         "kick": "Admin · Offers",
+         "t": "This *week*"
+        },
+        {
+         "k": "kv",
+         "items": [
+          [
+           "Weekday special",
+           "Latte ₹150"
+          ],
+          [
+           "Status",
+           "Live"
+          ]
+         ]
+        },
+        {
+         "k": "btn",
+         "t": "Edit offer"
+        }
+       ]
+      },
+      {
+       "at": "55%",
+       "blocks": [
+        {
+         "k": "head",
+         "kick": "Admin · Offers",
+         "t": "Weekend *1+1*"
+        },
+        {
+         "k": "kv",
+         "items": [
+          [
+           "Cold brew",
+           "Buy 1, get 1"
+          ],
+          [
+           "Status",
+           "Live on the site"
+          ]
+         ]
+        },
+        {
+         "k": "btn",
+         "t": "Saved",
+         "c": "#1FAF5A"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "06 · Link",
+   "say": {
+    "hi": "और Instagram bio का link सीधा इसी website पर।",
+    "en": "And your *Instagram* bio *link* goes straight to this site."
+   },
+   "show": {
+    "hi": "Aur *Instagram* bio ka *link* seedha isi website par.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "profile",
+        "ini": "B",
+        "name": "Brightwater Coffee",
+        "stats": [
+         [
+          "48",
+          "posts"
+         ],
+         [
+          "1,240",
+          "followers"
+         ],
+         [
+          "80",
+          "following"
+         ]
+        ],
+        "bio": [
+         "Specialty coffee · fresh bakes",
+         "Open daily 8 AM to 11 PM",
+         "*brightwater.coffee*"
+        ],
+        "hl": 2,
+        "selAt": "55%"
+       },
+       {
+        "k": "hl",
+        "items": [
+         {
+          "t": "Menu",
+          "ic": "menu"
+         },
+         {
+          "t": "Reviews",
+          "ic": "star"
+         },
+         {
+          "t": "Offers",
+          "ic": "tag"
+         },
+         {
+          "t": "Visit",
+          "ic": "pin"
+         }
+        ]
+       },
+       {
+        "k": "grid",
+        "items": [
+         {
+          "ic": "coffee"
+         },
+         {
+          "ic": "leaf",
+          "c": "#7FB069"
+         },
+         {
+          "ic": "coffee",
+          "c": "#9E6B4A"
+         },
+         {
+          "ic": "gift",
+          "c": "#465FFF",
+          "t": "1+1"
+         },
+         {
+          "ic": "coffee",
+          "c": "#E8B04B"
+         },
+         {
+          "ic": "star",
+          "c": "#C94F4F"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "07 · Day one",
+   "say": {
+    "hi": "Search, menu, WhatsApp, reviews, offers, सब पहले दिन से ready।",
+    "en": "*Search*, *menu*, *WhatsApp*, *reviews*, *offers*: all *ready* from day one."
+   },
+   "show": {
+    "hi": "*Search*, *menu*, *WhatsApp*, *reviews*, *offers*, sab pehle din se *ready*.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · cafe setup",
+     "items": [
+      {
+       "t": "Search",
+       "s": "found on Google",
+       "at": "2%"
+      },
+      {
+       "t": "Menu",
+       "s": "photos and prices",
+       "at": "16%"
+      },
+      {
+       "t": "WhatsApp",
+       "s": "orders and bookings",
+       "at": "30%"
+      },
+      {
+       "t": "Reviews",
+       "s": "location and hours",
+       "at": "48%"
+      },
+      {
+       "t": "Offers",
+       "s": "you update them",
+       "at": "62%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "08 · You",
+   "say": {
+    "hi": "आप बस coffee बनाओ, बाकी website संभालेगी।",
+    "en": "You make the *coffee*. The *website* handles the rest."
+   },
+   "show": {
+    "hi": "Aap bas *coffee* banao, baaki *website* sambhalegi.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "tile",
+     "ic": "coffee",
+     "size": 230,
+     "at": "0%",
+     "label": "Brightwater Coffee"
+    }
+   ]
+  },
+  {
+   "chapter": "09 · DM",
+   "say": {
+    "hi": "अपने business के लिए website चाहिए? हमें DM करो, या email करो।",
+    "en": "Need a website for your *business*? *DM* us or *email* us."
+   },
+   "show": {
+    "hi": "Apne *business* ke liye website chahiye? Humein *DM* karo, ya *email* karo.",
+    "en": null
+   },
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "We build websites"
+    },
+    {
+     "type": "cta",
+     "at": "20%",
+     "text": "WEBSITE",
+     "label": "DM *WEBSITE*",
+     "mt": 24
+    },
+    {
+     "type": "sub",
+     "at": "55%",
+     "text": "sh20raj@gmail.com · craftlayer-studio.github.io"
+    }
+   ]
+  }
+ ]
+}

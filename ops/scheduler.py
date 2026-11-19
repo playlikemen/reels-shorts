@@ -61,7 +61,8 @@ def canary_state():
     return json.load(open(CANARY)) if CANARY.exists() else {"state": "none"}
 
 
-def run(publish):
+def run(publish, force=()):
+    """force: video ids to post now, ignoring their scheduled time and the daily cap (an owner's explicit request)."""
     import sheet, publish_instagram, publish_youtube
     for b in K.brands():
         tab = b["sheet_tab"]
@@ -71,9 +72,9 @@ def run(publish):
         for row in sorted(sheet.rows(tab), key=lambda r: r["Scheduled Time (IST)"]):
             vid, n = row["Video ID"], row["_row"]
             mp4 = K.ROOT / row["Local Path"]
-            is_due = due(row)
+            is_due = due(row) or vid in force
 
-            if row["Instagram Status"] == "Ready" and is_due and cap and sent >= cap:
+            if row["Instagram Status"] == "Ready" and is_due and cap and sent >= cap and vid not in force:
                 print(f"{vid}: daily limit of {cap} reached for {b['name']}; it goes out on the next free day")
             elif row["Instagram Status"] == "Ready" and is_due:
                 sent += 1
@@ -134,10 +135,11 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--dry-run", action="store_true"); g.add_argument("--publish", action="store_true")
+    ap.add_argument("--now", default="", help="comma list of video ids to post now (skips schedule time and daily cap)")
     a = ap.parse_args()
     lock = open(K.STATE / "scheduler.lock", "w")
     try:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except BlockingIOError:
         sys.exit("another scheduler run is still going")
-    run(a.publish)
+    run(a.publish, {x.strip() for x in a.now.split(',') if x.strip()})

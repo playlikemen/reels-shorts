@@ -1,0 +1,943 @@
+{
+ "brand": "craftlayer",
+ "updated": "2026-11-19",
+ "made": [
+  {
+   "id": "CR-101",
+   "series": "System walkthrough",
+   "topic": "Restaurant table ordering",
+   "hi": "Published 2026-11-19",
+   "en": "Scheduled 2026-11-21 19:30"
+  },
+  {
+   "id": "CR-102",
+   "series": "Day one",
+   "topic": "Cafe website",
+   "hi": "Published 2026-11-19",
+   "en": "Scheduled 2026-11-22 19:30"
+  },
+  {
+   "id": "CR-103",
+   "series": "Metaphor truth",
+   "topic": "Website is a net, traffic is water",
+   "hi": "Published 2026-11-19",
+   "en": "Scheduled 2026-11-23 19:30"
+  },
+  {
+   "id": "CR-104",
+   "series": "3 problems",
+   "topic": "Gym owners",
+   "hi": "Scheduled 2026-11-20 19:30",
+   "en": "Scheduled 2026-11-25 19:30"
+  },
+  {
+   "id": "CR-105",
+   "series": "3 problems",
+   "topic": "Jewellery shops",
+   "hi": "Scheduled 2026-11-24 19:30",
+   "en": "Scheduled 2026-11-26 19:30"
+  }
+ ],
+ "formats": [
+  {
+   "name": "System walkthrough",
+   "what": "A whole product, screen by screen, in one story (CR-101).",
+   "style": "showcase dark",
+   "cta": "Comment keyword"
+  },
+  {
+   "name": "Day one",
+   "what": "'If I built your X, day one looks like this' with a checklist (CR-102).",
+   "style": "showcase dark",
+   "cta": "DM keyword"
+  },
+  {
+   "name": "Metaphor truth",
+   "what": "One honest, contrarian idea told through a simple metaphor (CR-103).",
+   "style": "showcase light",
+   "cta": "Comment answer"
+  },
+  {
+   "name": "3 problems",
+   "what": "Hook, then three problems of one business, each with its fix (CR-104, CR-105).",
+   "style": "showcase dark",
+   "cta": "Comment keyword + send to an owner"
+  },
+  {
+   "name": "Before / after",
+   "what": "An old site or none, then the new one, side by side.",
+   "style": "showcase",
+   "cta": "DM"
+  },
+  {
+   "name": "Feature in 30s",
+   "what": "One CraftLayer service or real project in 30 seconds.",
+   "style": "showcase / clean",
+   "cta": "Link in bio"
+  }
+ ],
+ "businesses": [
+  {
+   "key": "restaurant",
+   "business": "Restaurants",
+   "hook_hi": "Aapka waiter har table par ek saath nahi ho sakta. Aapki website ho sakti hai.",
+   "hook_en": "Your waiter can't be at every table. Your website can.",
+   "problems": [
+    {
+     "problem": "Menu poochne aur order lene mein waiter busy",
+     "fix": "QR menu se table se hi order"
+    },
+    {
+     "problem": "Kitchen tak order late ya galat pahunchta hai",
+     "fix": "Kitchen display par live orders aur timers"
+    },
+    {
+     "problem": "Bill aur payment mein 10 minute",
+     "fix": "Table par split bill, tip aur UPI"
+    }
+   ],
+   "keyword": "DEMO",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/restaurant/"
+  },
+  {
+   "key": "cafe",
+   "business": "Cafes",
+   "hook_hi": "Agar main aapke cafe ki website banata, toh pehle din se ye hota.",
+   "hook_en": "If I built your cafe's website, here's day one.",
+   "problems": [
+    {
+     "problem": "Google par naam nahi milta",
+     "fix": "Search mein dikhne wala page"
+    },
+    {
+     "problem": "Menu PDF ya photo mein",
+     "fix": "Menu, photos, prices website par"
+    },
+    {
+     "problem": "Booking ke liye call",
+     "fix": "WhatsApp order aur table booking button"
+    }
+   ],
+   "keyword": "WEBSITE",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/coffee/"
+  },
+  {
+   "key": "gym",
+   "business": "Gyms",
+   "hook_hi": "January mein gym full. March mein khaali kyun?",
+   "hook_en": "Packed in January. Empty by March. Why?",
+   "problems": [
+    {
+     "problem": "Membership khatam, renew ka reminder nahi",
+     "fix": "Automatic WhatsApp reminder + UPI renew link"
+    },
+    {
+     "problem": "Member aana band, kisi ko pata nahi",
+     "fix": "QR check-in + roz 'kaun nahi aaya' list"
+    },
+    {
+     "problem": "Instagram par price poocha, reply agle din",
+     "fix": "Plans, prices, free trial booking 24x7"
+    }
+   ],
+   "keyword": "GYM",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/gym/"
+  },
+  {
+   "key": "jewellery",
+   "business": "Jewellery shops",
+   "hook_hi": "Customer ne gold rate poochne call kiya, aur phir nahi aaya.",
+   "hook_en": "They called for the gold rate and never came in.",
+   "problems": [
+    {
+     "problem": "Roz wahi sawaal: aaj ka rate?",
+     "fix": "Website par aaj ka rate, aap ek baar update karo"
+    },
+    {
+     "problem": "Designs dekhne dukaan aana padta hai",
+     "fix": "Catalogue: weight, purity, making + visit booking"
+    },
+    {
+     "problem": "Naya customer bharosa kaise kare",
+     "fix": "Hallmark details, reviews, photos, address ek page par"
+    }
+   ],
+   "keyword": "GOLD",
+   "demo": null
+  },
+  {
+   "key": "clinic",
+   "business": "Clinics and doctors",
+   "hook_hi": "Aapke clinic ka phone din mein kitni baar bajta hai sirf 'doctor kab baithte hain' poochne ke liye?",
+   "hook_en": "How many calls a day are just 'when is the doctor in?'",
+   "problems": [
+    {
+     "problem": "Timings aur appointment ke liye calls",
+     "fix": "Online appointment slots"
+    },
+    {
+     "problem": "Waiting room mein ghanton intezaar",
+     "fix": "Live queue number on phone"
+    },
+    {
+     "problem": "Reports lene dobara aana",
+     "fix": "Reports aur prescriptions WhatsApp par"
+    }
+   ],
+   "keyword": "CLINIC",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/clinic/"
+  },
+  {
+   "key": "dental",
+   "business": "Dental practices",
+   "hook_hi": "Dentist ka naam sunke hi patient appointment taal deta hai.",
+   "hook_en": "Patients put off the dentist. Your website can change that.",
+   "problems": [
+    {
+     "problem": "Treatment ka kharcha pata nahi, isliye darr",
+     "fix": "Treatments aur price range website par"
+    },
+    {
+     "problem": "Follow-up visit bhool jaate hain",
+     "fix": "Automatic recall reminders"
+    },
+    {
+     "problem": "Pehli visit ka darr",
+     "fix": "Clinic tour, doctor intro, reviews"
+    }
+   ],
+   "keyword": "SMILE",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/dental/"
+  },
+  {
+   "key": "salon",
+   "business": "Salons and spas",
+   "hook_hi": "Saturday ko salon full, Tuesday ko khaali. Ye fix ho sakta hai.",
+   "hook_en": "Full on Saturday, empty on Tuesday. That's fixable.",
+   "problems": [
+    {
+     "problem": "Weekend rush, weekday khaali",
+     "fix": "Online booking + weekday offers"
+    },
+    {
+     "problem": "No-show customers",
+     "fix": "Booking reminders + advance UPI"
+    },
+    {
+     "problem": "Services aur rates poochne calls",
+     "fix": "Service menu with prices and stylists"
+    }
+   ],
+   "keyword": "SALON",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/salon/"
+  },
+  {
+   "key": "coaching",
+   "business": "Coaching institutes",
+   "hook_hi": "Parents fees se pehle teen cheezein dekhte hain. Aapki website dikhati hai?",
+   "hook_en": "Parents check three things before paying fees. Does your website show them?",
+   "problems": [
+    {
+     "problem": "Results aur faculty ka proof nahi",
+     "fix": "Results, faculty, batches ek page par"
+    },
+    {
+     "problem": "Demo class ke liye calls",
+     "fix": "Online demo class booking"
+    },
+    {
+     "problem": "Fees aur attendance ki updates",
+     "fix": "Parent portal: attendance, fees, tests"
+    }
+   ],
+   "keyword": "BATCH",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/academy/"
+  },
+  {
+   "key": "real-estate",
+   "business": "Real estate agents",
+   "hook_hi": "Har enquiry 'price kya hai?' se shuru hoti hai aur wahi khatam.",
+   "hook_en": "Every enquiry starts with 'what's the price?' and ends there.",
+   "problems": [
+    {
+     "problem": "Har listing ke liye photos WhatsApp karna",
+     "fix": "Listings page: photos, price, location, video"
+    },
+    {
+     "problem": "Fake enquiries mein time waste",
+     "fix": "Enquiry form with budget and timeline"
+    },
+    {
+     "problem": "Site visit coordinate karna",
+     "fix": "Visit slot booking"
+    }
+   ],
+   "keyword": "PROPERTY",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/real-estate/"
+  },
+  {
+   "key": "ca-legal",
+   "business": "CAs, lawyers and consultants",
+   "hook_hi": "Client aapko Google karta hai. Kya milta hai?",
+   "hook_en": "Clients Google you before they call. What do they find?",
+   "problems": [
+    {
+     "problem": "Online koi presence nahi, sirf visiting card",
+     "fix": "Professional site with services and credentials"
+    },
+    {
+     "problem": "Documents WhatsApp par bikhre",
+     "fix": "Secure document upload"
+    },
+    {
+     "problem": "Consultation fix karne mein back and forth",
+     "fix": "Paid consultation booking"
+    }
+   ],
+   "keyword": "CONSULT",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/legal/"
+  },
+  {
+   "key": "hotel",
+   "business": "Hotels and homestays",
+   "hook_hi": "Har booking par OTA ko commission. Direct booking kyun nahi?",
+   "hook_en": "A commission on every OTA booking. Why not book direct?",
+   "problems": [
+    {
+     "problem": "Har booking par commission",
+     "fix": "Direct booking engine on your site"
+    },
+    {
+     "problem": "Rooms aur photos outdated",
+     "fix": "Rooms, photos, rates you update"
+    },
+    {
+     "problem": "Guest ke sawaal check-in se pehle",
+     "fix": "Pre-arrival WhatsApp info"
+    }
+   ],
+   "keyword": "STAY",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/hotel/"
+  },
+  {
+   "key": "interiors",
+   "business": "Architects and interior designers",
+   "hook_hi": "Aapka best kaam phone ki gallery mein pada hai.",
+   "hook_en": "Your best work is stuck in your phone's gallery.",
+   "problems": [
+    {
+     "problem": "Portfolio phone gallery mein",
+     "fix": "Project pages with before/after"
+    },
+    {
+     "problem": "Budget clear nahi, time waste",
+     "fix": "Enquiry form with budget range"
+    },
+    {
+     "problem": "Client updates WhatsApp par",
+     "fix": "Project progress page per client"
+    }
+   ],
+   "keyword": "DESIGN",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/architecture/"
+  },
+  {
+   "key": "builders",
+   "business": "Builders and contractors",
+   "hook_hi": "Contractor ka kaam dikhta hai, par online nahi.",
+   "hook_en": "Your work is visible on every street, but not online.",
+   "problems": [
+    {
+     "problem": "Pichle projects ka proof nahi",
+     "fix": "Project gallery with locations"
+    },
+    {
+     "problem": "Estimate ke liye site visits",
+     "fix": "Online estimate request with photos"
+    },
+    {
+     "problem": "Payment milestones ka hisaab",
+     "fix": "Client portal: milestones and payments"
+    }
+   ],
+   "keyword": "BUILD",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/builders/"
+  },
+  {
+   "key": "weddings",
+   "business": "Wedding and event venues",
+   "hook_hi": "Shaadi ka season aata hai, aur aapka phone band nahi hota.",
+   "hook_en": "Wedding season starts and your phone never stops.",
+   "problems": [
+    {
+     "problem": "Dates available hain? Har din yahi call",
+     "fix": "Live availability calendar"
+    },
+    {
+     "problem": "Packages aur capacity samjhana",
+     "fix": "Packages page with capacity and menu"
+    },
+    {
+     "problem": "Venue visit ke liye coordination",
+     "fix": "Visit booking + virtual tour"
+    }
+   ],
+   "keyword": "VENUE",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/weddings/"
+  },
+  {
+   "key": "garage",
+   "business": "Garages and service centres",
+   "hook_hi": "Gaadi di thi subah, shaam tak koi update nahi.",
+   "hook_en": "Dropped the car in the morning. No update by evening.",
+   "problems": [
+    {
+     "problem": "Customer baar baar call karke status poochta hai",
+     "fix": "Live job status by link"
+    },
+    {
+     "problem": "Estimate aur actual bill alag",
+     "fix": "Approve estimate on WhatsApp first"
+    },
+    {
+     "problem": "Next service bhool jaate hain",
+     "fix": "Service due reminders"
+    }
+   ],
+   "keyword": "SERVICE",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/automotive/"
+  },
+  {
+   "key": "vet",
+   "business": "Vets and pet clinics",
+   "hook_hi": "Pet bimar hai aur clinic ka number nahi mil raha.",
+   "hook_en": "Your pet is sick and you can't find the clinic's number.",
+   "problems": [
+    {
+     "problem": "Emergency mein contact nahi milta",
+     "fix": "One-tap call and directions"
+    },
+    {
+     "problem": "Vaccination dates bhool jaate hain",
+     "fix": "Vaccine reminders per pet"
+    },
+    {
+     "problem": "Appointment ke liye wait",
+     "fix": "Online slots"
+    }
+   ],
+   "keyword": "PET",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/vet/"
+  },
+  {
+   "key": "boutique",
+   "business": "Boutiques and clothing stores",
+   "hook_hi": "Instagram par 'price?' comment aata hai, aur sale wahi ruk jaati hai.",
+   "hook_en": "'Price?' in the comments is where your sale dies.",
+   "problems": [
+    {
+     "problem": "Har post par price DM karna",
+     "fix": "Catalogue with prices and sizes"
+    },
+    {
+     "problem": "Size aur stock poochna",
+     "fix": "Live sizes and stock"
+    },
+    {
+     "problem": "Order WhatsApp par manual",
+     "fix": "Cart to WhatsApp or UPI checkout"
+    }
+   ],
+   "keyword": "SHOP",
+   "demo": null
+  },
+  {
+   "key": "bakery",
+   "business": "Bakeries and cake shops",
+   "hook_hi": "Birthday cake ka order last minute aata hai, aur aapke paas design nahi.",
+   "hook_en": "Birthday cake orders come in last minute, with no design picked.",
+   "problems": [
+    {
+     "problem": "Custom cake ke liye lambi chat",
+     "fix": "Cake builder: size, flavour, message"
+    },
+    {
+     "problem": "Advance payment nahi",
+     "fix": "UPI advance on order"
+    },
+    {
+     "problem": "Pickup time confusion",
+     "fix": "Pickup slots and reminders"
+    }
+   ],
+   "keyword": "CAKE",
+   "demo": null
+  },
+  {
+   "key": "kirana",
+   "business": "Kirana and local stores",
+   "hook_hi": "Aapka customer ab app se order karta hai. Aapse kyun nahi?",
+   "hook_en": "Your customers order from apps now. Why not from you?",
+   "problems": [
+    {
+     "problem": "Customer apps par chale gaye",
+     "fix": "Your own order page on WhatsApp"
+    },
+    {
+     "problem": "Udhaar ka hisaab register mein",
+     "fix": "Digital khata with reminders"
+    },
+    {
+     "problem": "Delivery area aur timing",
+     "fix": "Order slots by area"
+    }
+   ],
+   "keyword": "ORDER",
+   "demo": null
+  },
+  {
+   "key": "travel",
+   "business": "Travel agents",
+   "hook_hi": "Har package ke liye wahi PDF, wahi itinerary, wahi 20 messages.",
+   "hook_en": "The same PDF and the same 20 messages for every package.",
+   "problems": [
+    {
+     "problem": "Packages PDF mein",
+     "fix": "Package pages with prices and dates"
+    },
+    {
+     "problem": "Custom trip ke liye lambi baat",
+     "fix": "Trip request form"
+    },
+    {
+     "problem": "Payments aur documents bikhre",
+     "fix": "Booking page with UPI and document upload"
+    }
+   ],
+   "keyword": "TRIP",
+   "demo": null
+  },
+  {
+   "key": "photographer",
+   "business": "Photographers",
+   "hook_hi": "Aapka portfolio Instagram grid mein kho jaata hai.",
+   "hook_en": "Your portfolio is lost in your Instagram grid.",
+   "problems": [
+    {
+     "problem": "Portfolio scattered",
+     "fix": "Portfolio site by category"
+    },
+    {
+     "problem": "Dates available? Har baar poochna",
+     "fix": "Availability calendar"
+    },
+    {
+     "problem": "Client photos Google Drive link",
+     "fix": "Private client galleries"
+    }
+   ],
+   "keyword": "SHOOT",
+   "demo": null
+  },
+  {
+   "key": "school",
+   "business": "Schools",
+   "hook_hi": "Admission season mein parents ka pehla stop: aapki website.",
+   "hook_en": "In admission season, parents start at your website.",
+   "problems": [
+    {
+     "problem": "Admission info PDF mein",
+     "fix": "Admissions page with dates and fees"
+    },
+    {
+     "problem": "Circulars WhatsApp groups mein kho jaate",
+     "fix": "Notice board page"
+    },
+    {
+     "problem": "Fees ke liye line",
+     "fix": "Online fee payment"
+    }
+   ],
+   "keyword": "SCHOOL",
+   "demo": null
+  },
+  {
+   "key": "nonprofit",
+   "business": "NGOs and nonprofits",
+   "hook_hi": "Log donate karna chahte hain. Unhe bharosa chahiye.",
+   "hook_en": "People want to donate. They need to trust you first.",
+   "problems": [
+    {
+     "problem": "Kaam ka proof nahi",
+     "fix": "Impact page with photos and reports"
+    },
+    {
+     "problem": "Donation ka process mushkil",
+     "fix": "UPI donation with receipt"
+    },
+    {
+     "problem": "Volunteers manage karna",
+     "fix": "Volunteer sign-up form"
+    }
+   ],
+   "keyword": "HELP",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/nonprofit/"
+  },
+  {
+   "key": "d2c",
+   "business": "D2C and e-commerce brands",
+   "hook_hi": "Marketplace commission aapka margin kha raha hai.",
+   "hook_en": "Marketplace commissions are eating your margin.",
+   "problems": [
+    {
+     "problem": "Har sale par commission",
+     "fix": "Your own store"
+    },
+    {
+     "problem": "Customer ka data aapke paas nahi",
+     "fix": "Your customer list for repeat sales"
+    },
+    {
+     "problem": "Slow store, cart abandon",
+     "fix": "Fast store and simple checkout"
+    }
+   ],
+   "keyword": "STORE",
+   "demo": null
+  },
+  {
+   "key": "startup",
+   "business": "Startups and founders",
+   "hook_hi": "Idea pe 6 mahine soch liya. Prototype kab?",
+   "hook_en": "Six months thinking about the idea. When's the prototype?",
+   "problems": [
+    {
+     "problem": "Idea sirf slides mein",
+     "fix": "Clickable prototype in weeks"
+    },
+    {
+     "problem": "MVP mein sab features",
+     "fix": "Scoped MVP with weekly demos"
+    },
+    {
+     "problem": "Launch ke baad maintain kaun karega",
+     "fix": "Code you own, with handover docs"
+    }
+   ],
+   "keyword": "MVP",
+   "demo": "https://craftlayer-studio.github.io/industry-demos/saas/"
+  }
+ ],
+ "features": [
+  {
+   "feature": "Web development",
+   "hook_hi": "Website jo 3 second mein khule, wahi bikti hai.",
+   "hook_en": "Fast sites that load in seconds.",
+   "source": "https://craftlayer-studio.github.io/services/"
+  },
+  {
+   "feature": "SaaS development",
+   "hook_hi": "Aapka idea, ek product jo log subscribe karein.",
+   "hook_en": "Your idea as a product people subscribe to.",
+   "source": "https://craftlayer-studio.github.io/services/"
+  },
+  {
+   "feature": "AI applications",
+   "hook_hi": "AI jo sach mein kaam aaye, sirf demo nahi.",
+   "hook_en": "AI that does a job, not just a demo.",
+   "source": "https://craftlayer-studio.github.io/services/"
+  },
+  {
+   "feature": "E-commerce",
+   "hook_hi": "Apna store, apne customers, apna margin.",
+   "hook_en": "Your store, your customers, your margin.",
+   "source": "https://craftlayer-studio.github.io/services/"
+  },
+  {
+   "feature": "Business automation",
+   "hook_hi": "Jo kaam roz haath se hota hai, wo khud ho.",
+   "hook_en": "The task you do by hand every day, done for you.",
+   "source": "https://craftlayer-studio.github.io/services/"
+  },
+  {
+   "feature": "Custom software",
+   "hook_hi": "Excel se business chal raha hai? Ab nahi.",
+   "hook_en": "Running the business on Excel? Not any more.",
+   "source": "https://craftlayer-studio.github.io/services/"
+  },
+  {
+   "feature": "Our process",
+   "hook_hi": "Hum kaise kaam karte hain: scope, weekly demo, handover.",
+   "hook_en": "How we work: scope, weekly demos, handover.",
+   "source": "https://craftlayer-studio.github.io/process/"
+  },
+  {
+   "feature": "Concept demos",
+   "hook_hi": "20 industries ke websites, live dekh lo.",
+   "hook_en": "Live concept sites for 20 industries.",
+   "source": "https://craftlayer-studio.github.io/industry-demos/"
+  },
+  {
+   "feature": "Real work: CampusLoop",
+   "hook_hi": "Ek college app jo humne banaya aur chalaya.",
+   "hook_en": "A college app we built and run.",
+   "source": "https://campusloop.space/"
+  },
+  {
+   "feature": "Real work: IndexFast",
+   "hook_hi": "Google indexing tool jo humne banaya.",
+   "hook_en": "An indexing tool we built.",
+   "source": "https://indexfast.co/"
+  }
+ ],
+ "calendar": [
+  {
+   "date": "2026-11-27",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Clinics and doctors",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-11-28",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Dental practices",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-11-29",
+   "time": "19:30",
+   "series": "Feature in 30s",
+   "topic": "Web development",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-11-30",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Salons and spas",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-01",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Coaching institutes",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-02",
+   "time": "19:30",
+   "series": "Feature in 30s",
+   "topic": "SaaS development",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-03",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Real estate agents",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-04",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "CAs, lawyers and consultants",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-05",
+   "time": "19:30",
+   "series": "Feature in 30s",
+   "topic": "AI applications",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-06",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Hotels and homestays",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-07",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Architects and interior designers",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-08",
+   "time": "19:30",
+   "series": "Feature in 30s",
+   "topic": "E-commerce",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-09",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Builders and contractors",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-10",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Wedding and event venues",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-11",
+   "time": "19:30",
+   "series": "Feature in 30s",
+   "topic": "Business automation",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-12",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Garages and service centres",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-13",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Vets and pet clinics",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-14",
+   "time": "19:30",
+   "series": "Feature in 30s",
+   "topic": "Custom software",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-15",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Boutiques and clothing stores",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-16",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Bakeries and cake shops",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-17",
+   "time": "19:30",
+   "series": "Feature in 30s",
+   "topic": "Our process",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-18",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Kirana and local stores",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-19",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Travel agents",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-20",
+   "time": "19:30",
+   "series": "Feature in 30s",
+   "topic": "Concept demos",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-21",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Photographers",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-22",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Schools",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-23",
+   "time": "19:30",
+   "series": "Feature in 30s",
+   "topic": "Real work: CampusLoop",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-24",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "NGOs and nonprofits",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-25",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "D2C and e-commerce brands",
+   "lang": "hi",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-26",
+   "time": "19:30",
+   "series": "Feature in 30s",
+   "topic": "Real work: IndexFast",
+   "lang": "en",
+   "status": "Planned"
+  },
+  {
+   "date": "2026-12-27",
+   "time": "19:30",
+   "series": "3 problems",
+   "topic": "Startups and founders",
+   "lang": "hi",
+   "status": "Planned"
+  }
+ ]
+}

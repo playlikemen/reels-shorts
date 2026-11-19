@@ -34,7 +34,7 @@ a{color:var(--violet)}
   <div class="bar"><span>Kinetic Video Engine</span><span>v2 · 19 Nov 2026 · 1080×1920 · 30 fps</span></div>
   <header style="display:flex;flex-direction:column;gap:16px">
     <h1>Spec in.<br><em>Short out.</em></h1>
-    <p class="lede">A complete kit for an AI agent to make narrated motion-graphics Reels and Shorts for StackShade, IndexFast and CampusLoop: the render engine, three brand configurations, a phone-clip tool, the publishing scripts and the written workflow.</p>
+    <p class="lede">A complete kit for an AI agent to make narrated motion-graphics Reels and Shorts for StackShade, IndexFast, CampusLoop and CraftLayer Studio: the render engine, three brand configurations, a phone-clip tool, the publishing scripts and the written workflow.</p>
   </header>
 
   <section>
@@ -56,13 +56,15 @@ python3.11 ops/make.py specs/stackshade/SS-101.json --sync-only            # Dri
     <h2>What is inside</h2>
     <div class="scroll"><table>
       <tr><th>Path</th><th>What it does</th></tr>
-      <tr><td><code>engine/</code></td><td>Spec to MP4: neural voice with word timing, cue-synced elements, frame-exact render, synthesised music and effects, mix to −14 LUFS. Styles <code>brutal</code> and <code>clean</code>, recoloured per brand with <code>theme</code>.</td></tr>
+      <tr><td><code>engine/</code></td><td>Spec to MP4: neural voice with word timing, cue-synced elements, frame-exact render, synthesised music and effects, mix to −14 LUFS. Styles <code>brutal</code>, <code>clean</code> and <code>showcase</code> (product-demo reels with phones, tablets and Roman captions over Hindi or English voice), recoloured per brand with <code>theme</code>. One spec can render several languages with <code>--lang</code>.</td></tr>
       <tr><td><code>brands/</code></td><td>Accounts, voice, colours, posting slot and topic rules for each channel.</td></tr>
       <tr><td><code>specs/</code></td><td>Five finished specs with sources, plus the engine's own examples.</td></tr>
       <tr><td><code>ops/make.py</code></td><td>Build, verify (resolution, frame rate, codecs, duration, size, loudness), archive to Drive, write the sheet row.</td></tr>
       <tr><td><code>ops/scheduler.py</code></td><td>Posts rows whose scheduled time has passed. Marks a row before posting so nothing is posted twice. Checks the first YouTube upload after 30 minutes before sending more.</td></tr>
       <tr><td><code>ops/clip.py</code></td><td>Phone recording to an upright 1080×1920 reel with hook text, word captions and −14 LUFS.</td></tr>
       <tr><td><code>ops/ig_report.py</code></td><td>Views, reach, shares, saves and watch time per reel, written to the brand's insights tab.</td></tr>
+      <tr><td><code>ops/plan_sheet.py</code></td><td>Mirrors a brand's content plan and every reel script into its own organised Google Sheet.</td></tr>
+      <tr><td><code>brands/craftlayer/playbook.md</code></td><td>Reel formula, ranking signals, honesty rules and cadence for CraftLayer Studio; the 25-business plan is in <code>plan.json</code>.</td></tr>
       <tr><td><code>brands/campusloop/playbook.md</code></td><td>Weekly posting schedule, founder scripts and the growth plan for CampusLoop.</td></tr>
       <tr><td><code>SKILL.md</code>, <code>AGENTS.md</code></td><td>The workflow and the rules: sourced facts only, no third-party logos, AI-voice disclosure, look at stills before syncing.</td></tr>
     </table></div>
