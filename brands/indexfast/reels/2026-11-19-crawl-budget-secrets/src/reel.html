@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>IF-002 - Crawl Budget Secrets</title>
+  <style>
+    @font-face {
+      font-family: "Inter";
+      src: url("../../../../../shared/fonts/Inter-Bold.woff2") format("woff2");
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: "Inter";
+      src: url("../../../../../shared/fonts/Inter-Black.woff2") format("woff2");
+      font-weight: 900;
+    }
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("../../../../../shared/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+      font-weight: 700;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    canvas {
+      width: 1080px;
+      height: 1920px;
+      max-width: 100vw;
+      max-height: 100vh;
+      object-fit: contain;
+      box-shadow: 0 0 60px rgba(0,0,0,0.9);
+    }
+  </style>
+</head>
+<body>
+<canvas width="1080" height="1920"></canvas>
+<script src="../../../../../shared/scripts/reelkit.js"></script>
+<script>
+const GROUPS = [
+  {
+    "page_index": 0,
+    "start": 0.096,
+    "end": 1.3,
+    "text": "Googlebot is ignoring",
+    "words": [
+      {
+        "word": "Googlebot",
+        "start": 0.096,
+        "end": 0.675,
+        "duration": 0.579
+      },
+      {
+        "word": "is",
+        "start": 0.698,
+        "end": 0.814,
+        "duration": 0.116
+      },
+      {
+        "word": "ignoring",
+        "start": 0.837,
+        "end": 1.3,
+        "duration": 0.463
+      }
+    ]
+  },
+  {
+    "page_index": 1,
+    "start": 1.312,
+    "end": 1.983,
+    "text": "eighty percent of",
+    "words": [
+      {
+        "word": "eighty",
+        "start": 1.312,
+        "end": 1.52,
+        "duration": 0.208
+      },
+      {
+        "word": "percent",
+        "start": 1.543,
+        "end": 1.913,
+        "duration": 0.37
+      },
+      {
+        "word": "of",
+        "start": 1.925,
+        "end": 1.983,
+        "duration": 0.058
+      }
+    ]
+  },
+  {
+    "page_index": 2,
+    "start": 2.006,
+    "end": 2.804,
+    "text": "your new pages",
+    "words": [
+      {
+        "word": "your",
+        "start": 2.006,
+        "end": 2.133,
+        "duration": 0.127
+      },
+      {
+        "word": "new",
+        "start": 2.156,
+        "end": 2.283,
+        "duration": 0.127
+      },
+      {
+        "word": "pages",
+        "start": 2.295,
+        "end": 2.804,
+        "duration": 0.509
+      }
+    ]
+  },
+  {
+    "page_index": 3,
+    "start": 3.623,
+    "end": 4.282,
+    "text": "If your server",
+    "words": [
+      {
+        "word": "If",
+        "start": 3.623,
+        "end": 3.785,
+        "duration": 0.162
+      },
+      {
+        "word": "your",
+        "start": 3.808,
+        "end": 3.935,
+        "duration": 0.127
+      },
+      {
+        "word": "server",
+        "start": 3.958,
+        "end": 4.282,
+        "duration": 0.324
+      }
+    ]
+  },
+  {
+    "page_index": 4,
+    "start": 4.306,
+    "end": 5.324,
+    "text": "response time exceeds",
+    "words": [
+      {
+        "word": "response",
+        "start": 4.306,
+        "end": 4.723,
+        "duration": 0.417
+      },
+      {
+        "word": "time",
+        "start": 4.734,
+        "end": 4.931,
+        "duration": 0.197
+      },
+      {
+        "word": "exceeds",
+        "start": 4.954,
+        "end": 5.324,
+        "duration": 0.37
+      }
+    ]
+  },
+  {
+    "page_index": 5,
+    "start": 5.336,
+    "end": 6.493,
+    "text": "five hundred milliseconds",
+    "words": [
+      {
+        "word": "five",
+        "start": 5.336,
+        "end": 5.556,
+        "duration": 0.22
+      },
+      {
+        "word": "hundred",
+        "start": 5.567,
+        "end": 5.833,
+        "duration": 0.266
+      },
+      {
+        "word": "milliseconds",
+        "start": 5.856,
+        "end": 6.493,
+        "duration": 0.637
+      }
+    ]
+  },
+  {
+    "page_index": 6,
+    "start": 6.69,
+    "end": 7.361,
+    "text": "Google cuts your",
+    "words": [
+      {
+        "word": "Google",
+        "start": 6.69,
+        "end": 6.991,
+        "duration": 0.301
+      },
+      {
+        "word": "cuts",
+        "start": 7.014,
+        "end": 7.222,
+        "duration": 0.208
+      },
+      {
+        "word": "your",
+        "start": 7.245,
+        "end": 7.361,
+        "duration": 0.116
+      }
+    ]
+  },
+  {
+    "page_index": 7,
+    "start": 7.384,
+    "end": 8.056,
+    "text": "crawl budget in",
+    "words": [
+      {
+        "word": "crawl",
+        "start": 7.384,
+        "end": 7.65,
+        "duration": 0.266
+      },
+      {
+        "word": "budget",
+        "start": 7.674,
+        "end": 7.963,
+        "duration": 0.289
+      },
+      {
+        "word": "in",
+        "start": 7.975,
+        "end": 8.056,
+        "duration": 0.081
+      }
+    ]
+  },
+  {
+    "page_index": 8,
+    "start": 8.079,
+    "end": 8.554,
+    "text": "half",
+    "words": [
+      {
+        "word": "half",
+        "start": 8.079,
+        "end": 8.554,
+        "duration": 0.475
+      }
+    ]
+  },
+  {
+    "page_index": 9,
+    "start": 9.375,
+    "end": 10.474,
+    "text": "Fast internal linking",
+    "words": [
+      {
+        "word": "Fast",
+        "start": 9.375,
+        "end": 9.722,
+        "duration": 0.347
+      },
+      {
+        "word": "internal",
+        "start": 9.745,
+        "end": 10.104,
+        "duration": 0.359
+      },
+      {
+        "word": "linking",
+        "start": 10.127,
+        "end": 10.474,
+        "duration": 0.347
+      }
+    ]
+  },
+  {
+    "page_index": 10,
+    "start": 10.625,
+    "end": 11.829,
+    "text": "instant API indexing",
+    "words": [
+      {
+        "word": "instant",
+        "start": 10.625,
+        "end": 10.961,
+        "duration": 0.336
+      },
+      {
+        "word": "API",
+        "start": 10.984,
+        "end": 11.343,
+        "duration": 0.359
+      },
+      {
+        "word": "indexing",
+        "start": 11.366,
+        "end": 11.829,
+        "duration": 0.463
+      }
+    ]
+  },
+  {
+    "page_index": 11,
+    "start": 11.968,
+    "end": 12.881,
+    "text": "and compressing bloated",
+    "words": [
+      {
+        "word": "and",
+        "start": 11.968,
+        "end": 12.061,
+        "duration": 0.093
+      },
+      {
+        "word": "compressing",
+        "start": 12.083,
+        "end": 12.558,
+        "duration": 0.475
+      },
+      {
+        "word": "bloated",
+        "start": 12.569,
+        "end": 12.881,
+        "duration": 0.312
+      }
+    ]
+  },
+  {
+    "page_index": 12,
+    "start": 12.893,
+    "end": 14.155,
+    "text": "JavaScript forces Google",
+    "words": [
+      {
+        "word": "JavaScript",
+        "start": 12.893,
+        "end": 13.472,
+        "duration": 0.579
+      },
+      {
+        "word": "forces",
+        "start": 13.495,
+        "end": 13.831,
+        "duration": 0.336
+      },
+      {
+        "word": "Google",
+        "start": 13.854,
+        "end": 14.155,
+        "duration": 0.301
+      }
+    ]
+  },
+  {
+    "page_index": 13,
+    "start": 14.178,
+    "end": 14.78,
+    "text": "to crawl twenty",
+    "words": [
+      {
+        "word": "to",
+        "start": 14.178,
+        "end": 14.259,
+        "duration": 0.081
+      },
+      {
+        "word": "crawl",
+        "start": 14.282,
+        "end": 14.514,
+        "duration": 0.232
+      },
+      {
+        "word": "twenty",
+        "start": 14.525,
+        "end": 14.78,
+        "duration": 0.255
+      }
+    ]
+  },
+  {
+    "page_index": 14,
+    "start": 14.803,
+    "end": 15.706,
+    "text": "times more pages",
+    "words": [
+      {
+        "word": "times",
+        "start": 14.803,
+        "end": 15.115,
+        "duration": 0.312
+      },
+      {
+        "word": "more",
+        "start": 15.139,
+        "end": 15.313,
+        "duration": 0.174
+      },
+      {
+        "word": "pages",
+        "start": 15.324,
+        "end": 15.706,
+        "duration": 0.382
+      }
+    ]
+  },
+  {
+    "page_index": 15,
+    "start": 15.729,
+    "end": 16.609,
+    "text": "every day which",
+    "words": [
+      {
+        "word": "every",
+        "start": 15.729,
+        "end": 15.914,
+        "duration": 0.185
+      },
+      {
+        "word": "day",
+        "start": 15.938,
+        "end": 16.181,
+        "duration": 0.243
+      },
+      {
+        "word": "which",
+        "start": 16.447,
+        "end": 16.609,
+        "duration": 0.162
+      }
+    ]
+  },
+  {
+    "page_index": 16,
+    "start": 16.62,
+    "end": 17.084,
+    "text": "is why",
+    "words": [
+      {
+        "word": "is",
+        "start": 16.62,
+        "end": 16.724,
+        "duration": 0.104
+      },
+      {
+        "word": "why",
+        "start": 16.748,
+        "end": 17.084,
+        "duration": 0.336
+      }
+    ]
+  }
+];
+const DURATION = 19.099999999999998;
+const TOTAL_FRAMES = 572;
+const ACCENT = "#10B981";
+const CYAN = "#06B6D4";
+
+window.CUES = [0.8, 3.5, 7.5, 12.0];
+
+window.SCORE = ac => {
+  const hits = [
+    { t: 0.8, type: "whoosh" },
+    { t: 3.5, type: "enter" },
+    { t: 7.5, type: "whoosh" },
+    { t: 12.0, type: "enter" }
+  ];
+  buildScore(ac, {
+    bpm: 126,
+    dur: DURATION,
+    root: 45,
+    chords: [0, 3, 5, 2],
+    minor: true,
+    kickFrom: 0.2,
+    level: 0.75,
+    hits
+  });
+};
+
+function drawFrame(t) {
+  ctx.save();
+  punchCamera(t, [0.8, 3.5, 7.5, 12.0], 0.45, 1.07);
+
+  // Background
+  ctx.fillStyle = "#060D0A";
+  ctx.fillRect(0, 0, W, H);
+  grid(t, 64, "rgba(16, 185, 129, 0.05)", "rgba(16, 185, 129, 0.12)");
+
+  // Top Safe Zone Header (Y: 280)
+  const hp = clamp(t / 0.5);
+  if (hp > 0) {
+    const hy = 280;
+    rr(120, hy, 840, 68, 34, "rgba(16, 26, 22, 0.85)", "rgba(16, 185, 129, 0.25)", 2, hp);
+    txt("INDEXFAST SEO LABS • CRAWL BUDGET", 540, hy + 44, { px: 26, fam: "JetBrains Mono", wt: 700, fill: "#34D399", align: "center", alpha: hp });
+    glow(ACCENT, 20);
+    rr(540 - 120, hy + 86, 240, 48, 24, ACCENT, null, 0, hp);
+    noGlow();
+    txt("CRAWL HACK", 540, hy + 120, { px: 22, fam: "Inter", wt: 900, fill: "#000", align: "center", alpha: hp });
+  }
+
+  // Hook Title (0 - 3.2s)
+  if (t < 3.2) {
+    const hookProg = clamp(t / 0.4);
+    const hookAlpha = t > 2.6 ? (3.2 - t) / 0.6 : 1.0;
+    ctx.save();
+    setA(hookAlpha * hookProg);
+    glow("rgba(0,0,0,0.8)", 30);
+    txt("Googlebot is ignoring 80% of your new pages!", 540, 520, { px: 52, fam: "Inter", wt: 900, fill: "#FFFFFF", stroke: "#000", strokeW: 14, align: "center" });
+    noGlow();
+    ctx.restore();
+  } else {
+    const titleP = clamp((t - 3.2) / 0.4);
+    txt("CRAWL BUDGET SECRETS", 540, 500, { px: 46, fam: "Inter", wt: 900, fill: ACCENT, stroke: "#000", strokeW: 10, align: "center", alpha: titleP });
+  }
+
+  // Diagnostic Card (Y: 570 - 1180)
+  const cx = 90, cy = 560, cw = 900, ch = 620;
+  const cp = clamp(t / 0.5);
+  drawTerminalCard(cx, cy, cw, ch, {
+    title: "googlebot-crawler-audit — 1080×1920",
+    bg: "#08140E",
+    border: ACCENT,
+    glowColor: "rgba(16, 185, 129, 0.2)",
+    alpha: cp
+  });
+
+  // Metrics inside card
+  const line1P = clamp((t - 2.5) / 0.4);
+  if (line1P > 0) {
+    bar("Server TTFB (>500ms Penalty)", "CRAWL CUT -50%", 0.35, cx + 44, cy + 160, cw - 88, 38, { p: line1P, fill: "#EF4444", alpha: line1P });
+  }
+
+  const line2P = clamp((t - 6.0) / 0.4);
+  if (line2P > 0) {
+    bar("IndexFast Instant API Push", "20X CRAWL CAPACITY", 0.95, cx + 44, cy + 290, cw - 88, 38, { p: line2P, fill: ACCENT, alpha: line2P });
+  }
+
+  const line3P = clamp((t - 9.5) / 0.4);
+  if (line3P > 0) {
+    rr(cx + 44, cy + 390, cw - 88, 140, 20, "rgba(16, 185, 129, 0.12)", ACCENT, 2, line3P);
+    txt("RESULT: 10,000+ Pages Indexed in < 24 Hours", cx + 70, cy + 450, { px: 28, fam: "Inter", wt: 900, fill: "#FFFFFF", align: "left", alpha: line3P });
+    txt("Google Search Console Status: Valid & Indexed (Zero Lag)", cx + 70, cy + 495, { px: 24, fam: "JetBrains Mono", wt: 700, fill: CYAN, align: "left", alpha: line3P });
+  }
+
+  // Karaoke Captions (Y: 1320)
+  renderCaptions(t);
+
+  // Bottom Safe Zone
+  txt("indexfast.co • Automated Google Indexing in Hours", 540, 1460, { px: 28, fam: "Inter", wt: 700, fill: "#64748B", align: "center" });
+
+  ctx.restore();
+}
+
+function renderCaptions(t) {
+  let curGroup = null;
+  for (const g of GROUPS) {
+    if (t >= g.start && t <= g.end + 0.3) {
+      curGroup = g;
+      break;
+    }
+  }
+  if (!curGroup) return;
+
+  const words = curGroup.words || [];
+  if (!words.length) return;
+
+  ctx.save();
+  ctx.font = '900 68px "Inter", -apple-system, sans-serif';
+
+  let totalW = 0;
+  const wordWidths = words.map(w => {
+    const wWidth = ctx.measureText(w.word.toUpperCase()).width;
+    totalW += wWidth + 24;
+    return wWidth;
+  });
+  totalW -= 24;
+
+  const startX = 540 - totalW / 2;
+  const capY = 1320;
+
+  rr(startX - 36, capY - 76, totalW + 72, 106, 28, "rgba(0, 0, 0, 0.85)", "rgba(16, 185, 129, 0.25)", 2);
+
+  let curX = startX;
+  for (let i = 0; i < words.length; i++) {
+    const w = words[i];
+    const isActive = t >= w.start && t <= w.end + 0.15;
+    const wordStr = w.word.toUpperCase();
+    const wWidth = wordWidths[i];
+
+    ctx.save();
+    if (isActive) {
+      const wordProg = clamp((t - w.start) / 0.15);
+      const scale = 1.0 + Math.sin(wordProg * Math.PI) * 0.18;
+      ctx.translate(curX + wWidth / 2, capY);
+      ctx.scale(scale, scale);
+      ctx.translate(-(curX + wWidth / 2), -capY);
+
+      glow("#FFE45E", 24);
+      txt(wordStr, curX, capY, { px: 68, fam: "Inter", wt: 900, fill: "#FFE45E", stroke: "#000000", strokeW: 16, align: "left" });
+      noGlow();
+    } else {
+      txt(wordStr, curX, capY, { px: 68, fam: "Inter", wt: 900, fill: "#FFFFFF", stroke: "#000000", strokeW: 12, align: "left" });
+    }
+    ctx.restore();
+    curX += wWidth + 24;
+  }
+  ctx.restore();
+}
+
+startReel(TOTAL_FRAMES, drawFrame);
+</script>
+</body>
+</html>
