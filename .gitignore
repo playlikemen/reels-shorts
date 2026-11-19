@@ -1,0 +1,18 @@
+node_modules/
+__pycache__/
+*.pyc
+.env
+.env.*
+.mcp.json
+.claude/settings*.json
+*.log
+.DS_Store
+# render intermediates (final mp4, thumb, captions, contact sheet are kept)
+out/smoke/
+out/**/segs/
+out/**/*.wav
+out/**/video_silent.mp4
+out/**/concat.txt
+out/**/resolved.json
+out/**/events.json
+out/**/still_*.jpg

@@ -1,0 +1,638 @@
+{
+ "title": "5 Claude Skills Every Developer Should Install",
+ "slug": "stackshade_claude_skills_top5",
+ "style": "brutal",
+ "format": "short",
+ "series": "CLAUDE SKILLS",
+ "voice": {
+  "engine": "edge",
+  "name": "en-US-AndrewNeural",
+  "rate": "+12%"
+ },
+ "music": "pulse",
+ "music_db": -21,
+ "sfx_db": -10,
+ "gap": 0.14,
+ "tail": 1.7,
+ "thumb": 0.4,
+ "scenes": [
+  {
+   "chapter": "00 TOP 5",
+   "word": "TOP 5",
+   "bg": "purple",
+   "say": "Five free Claude skills that work like a designer, a security team, and a recruiter.",
+   "els": [
+    {
+     "type": "row",
+     "gap": 14,
+     "align": "center",
+     "at": -0.3,
+     "children": [
+      {
+       "type": "kicker",
+       "text": "FOR DEVELOPERS"
+      },
+      {
+       "type": "tag",
+       "text": "FREE",
+       "color": "pink",
+       "size": 30,
+       "rot": -5,
+       "anim": "stamp"
+      }
+     ]
+    },
+    {
+     "type": "headline",
+     "text": "5 CLAUDE\n[[SKILLS]]",
+     "size": 176,
+     "at": -0.6
+    },
+    {
+     "type": "note",
+     "text": "THAT WORK LIKE",
+     "at": "work like",
+     "mt": 16
+    },
+    {
+     "type": "tags",
+     "quote": false,
+     "gap": 10,
+     "at": "designer",
+     "items": [
+      {
+       "text": "A DESIGNER",
+       "color": "mint",
+       "size": 70,
+       "at": "designer"
+      },
+      {
+       "text": "A SECURITY TEAM",
+       "color": "white",
+       "size": 70,
+       "at": "security team"
+      },
+      {
+       "text": "A RECRUITER",
+       "color": "pink",
+       "size": 70,
+       "at": "recruiter"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 HALLMARK",
+   "bg": "mint",
+   "say": "One: Hallmark. An anti AI slop design skill for Claude Code, Cursor, and Codex.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "#1 · UI / UX DESIGN",
+     "at": "One"
+    },
+    {
+     "type": "headline",
+     "text": "HALLMARK",
+     "size": 190,
+     "at": "Hallmark"
+    },
+    {
+     "type": "stamp",
+     "text": "ANTI AI-SLOP",
+     "color": "pink",
+     "size": 76,
+     "rot": -4,
+     "burst": "purple",
+     "at": "anti",
+     "mt": 10
+    },
+    {
+     "type": "note",
+     "text": "DESIGN SKILL FOR",
+     "at": "design skill",
+     "mt": 34
+    },
+    {
+     "type": "tags",
+     "gap": 10,
+     "at": "Claude Code",
+     "items": [
+      {
+       "text": "CLAUDE CODE",
+       "color": "black",
+       "size": 66,
+       "at": "Claude Code"
+      },
+      {
+       "text": "CURSOR",
+       "color": "white",
+       "size": 66,
+       "at": "Cursor"
+      },
+      {
+       "text": "CODEX",
+       "color": "purple",
+       "size": 66,
+       "at": "Codex"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 HALLMARK",
+   "bg": "black",
+   "say": "Audit a page, or redesign it. Over forty-one thousand stars on GitHub.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "TWO COMMANDS",
+     "at": "Audit"
+    },
+    {
+     "type": "type",
+     "text": "/hallmark audit <path>",
+     "at": "Audit",
+     "mt": 6
+    },
+    {
+     "type": "type",
+     "text": "/hallmark redesign <path>",
+     "at": "redesign"
+    },
+    {
+     "type": "stat",
+     "text": "41.5K",
+     "size": 230,
+     "color": "mint",
+     "count": {
+      "from": 0,
+      "to": 41.5,
+      "decimals": 1,
+      "suffix": "K"
+     },
+     "at": "Over",
+     "mt": 40
+    },
+    {
+     "type": "tag",
+     "text": "GITHUB STARS",
+     "color": "pink",
+     "size": 74,
+     "at": "stars"
+    },
+    {
+     "type": "note",
+     "text": "AS OF 31 OCT 2026",
+     "at": "GitHub",
+     "mt": 6
+    }
+   ]
+  },
+  {
+   "chapter": "02 SECURITY",
+   "bg": "pink",
+   "say": "Two: Security Audit. Scouts map your repo, hunters chase bugs, and another agent tries to disprove each one.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "#2 · REPO SECURITY",
+     "at": "Two"
+    },
+    {
+     "type": "headline",
+     "text": "SECURITY\nAUDIT",
+     "size": 140,
+     "at": "Security Audit"
+    },
+    {
+     "type": "tree",
+     "root": "LEAD [[AGENT]]",
+     "icon": "shield",
+     "mt": 14,
+     "at": "Scouts",
+     "items": [
+      {
+       "small": "PHASE 1",
+       "text": "SCOUTS MAP",
+       "color": "mint",
+       "icon": "search",
+       "at": "Scouts"
+      },
+      {
+       "small": "PHASE 2",
+       "text": "HUNTERS FIND",
+       "color": "yellow",
+       "icon": "bolt",
+       "at": "hunters"
+      },
+      {
+       "small": "VERIFY",
+       "text": "CRITIC DISPROVES",
+       "color": "paper",
+       "icon": "shield",
+       "at": "disprove"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 SECURITY",
+   "bg": "black",
+   "say": "Every finding ends confirmed, needs validation, or rejected. And it never hits your live servers.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "EVERY FINDING ENDS AS",
+     "at": "Every"
+    },
+    {
+     "type": "tags",
+     "gap": 12,
+     "mt": 6,
+     "at": "confirmed",
+     "items": [
+      {
+       "text": "✓ CONFIRMED",
+       "color": "mint",
+       "size": 84,
+       "at": "confirmed"
+      },
+      {
+       "text": "? NEEDS VALIDATION",
+       "color": "yellow",
+       "size": 84,
+       "at": "needs"
+      },
+      {
+       "text": "✗ REJECTED",
+       "color": "pink",
+       "size": 84,
+       "at": "rejected"
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "SOURCE CODE ONLY",
+     "color": "white",
+     "size": 60,
+     "rot": -3,
+     "burst": "mint",
+     "at": "never",
+     "mt": 60
+    },
+    {
+     "type": "note",
+     "text": "NO TRAFFIC TO **LIVE SYSTEMS**",
+     "at": "live servers",
+     "mt": 14
+    }
+   ]
+  },
+  {
+   "chapter": "03 SKILL AUDIT",
+   "word": "AUDITOR",
+   "bg": "purple",
+   "say": "Three: Skill Security Auditor. Scan a skill for prompt injection and credential theft before you install it.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "#3 · BEFORE YOU INSTALL",
+     "at": "Three"
+    },
+    {
+     "type": "headline",
+     "text": "SKILL SECURITY\n[[AUDITOR]]",
+     "size": 118,
+     "at": "Skill Security"
+    },
+    {
+     "type": "note",
+     "text": "SCANS EVERY SKILL FOR",
+     "at": "Scan",
+     "mt": 18
+    },
+    {
+     "type": "tags",
+     "gap": 10,
+     "at": "prompt",
+     "items": [
+      {
+       "text": "PROMPT INJECTION",
+       "color": "pink",
+       "size": 70,
+       "at": "prompt"
+      },
+      {
+       "text": "CREDENTIAL THEFT",
+       "color": "mint",
+       "size": 70,
+       "at": "credential"
+      },
+      {
+       "text": "+ EXFILTRATION · SUPPLY CHAIN",
+       "color": "white",
+       "size": 40,
+       "at": "install"
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "gap": 16,
+     "mt": 30,
+     "at": "before",
+     "children": [
+      {
+       "type": "icon",
+       "name": "shield",
+       "size": 110,
+       "bg": "paper",
+       "color": "purple"
+      },
+      {
+       "type": "icon",
+       "name": "lock",
+       "size": 110,
+       "bg": "mint",
+       "color": "black"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 SKILL AUDIT",
+   "word": "AUDITOR",
+   "bg": "paper",
+   "say": "Pass, warn, or fail. Run it on every skill in this video.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "THE VERDICT",
+     "at": "Pass"
+    },
+    {
+     "type": "row",
+     "gap": 22,
+     "align": "center",
+     "mt": 20,
+     "at": "Pass",
+     "children": [
+      {
+       "type": "stamp",
+       "text": "PASS",
+       "color": "mint",
+       "size": 76,
+       "rot": -4,
+       "at": "Pass"
+      },
+      {
+       "type": "stamp",
+       "text": "WARN",
+       "color": "yellow",
+       "size": 76,
+       "rot": 3,
+       "at": "warn"
+      },
+      {
+       "type": "stamp",
+       "text": "FAIL",
+       "color": "pink",
+       "size": 76,
+       "rot": -3,
+       "at": "fail"
+      }
+     ]
+    },
+    {
+     "type": "label",
+     "text": "PRO TIP",
+     "variant": "dark",
+     "at": "Run",
+     "mt": 70
+    },
+    {
+     "type": "headline",
+     "text": "RUN IT ON\n{{THIS LIST}}",
+     "size": 150,
+     "at": "every skill"
+    }
+   ]
+  },
+  {
+   "chapter": "04 FREEHIRE",
+   "bg": "mint",
+   "say": "Four: Freehire Search. Tech jobs from a public API, no key needed, filtered by country or remote.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "#4 · FIND TECH JOBS",
+     "at": "Four"
+    },
+    {
+     "type": "headline",
+     "text": "FREEHIRE\n[[SEARCH]]",
+     "size": 150,
+     "at": "Freehire"
+    },
+    {
+     "type": "row",
+     "gap": 18,
+     "align": "center",
+     "mt": 20,
+     "at": "public",
+     "children": [
+      {
+       "type": "tag",
+       "text": "PUBLIC API",
+       "color": "black",
+       "size": 60,
+       "at": "public"
+      },
+      {
+       "type": "stamp",
+       "text": "NO KEY",
+       "color": "pink",
+       "size": 56,
+       "rot": 4,
+       "at": "no key"
+      }
+     ]
+    },
+    {
+     "type": "type",
+     "text": "--country --region --remote",
+     "at": "filtered",
+     "mt": 40
+    },
+    {
+     "type": "row",
+     "gap": 16,
+     "mt": 30,
+     "at": "Tech jobs",
+     "children": [
+      {
+       "type": "icon",
+       "name": "globe",
+       "size": 110,
+       "bg": "paper",
+       "color": "purple"
+      },
+      {
+       "type": "icon",
+       "name": "code",
+       "size": 110,
+       "bg": "paper",
+       "color": "black"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 JOB SEARCH",
+   "word": "APPLY",
+   "bg": "black",
+   "say": "Five: Job Search Skills. Match your resume, crawl career pages, fill forms, and find referrals.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "#5 · APPLY FASTER",
+     "at": "Five"
+    },
+    {
+     "type": "headline",
+     "text": "JOB SEARCH\n[[SKILLS]]",
+     "size": 118,
+     "at": "Job Search"
+    },
+    {
+     "type": "tree",
+     "root": "4 [[SKILLS]]",
+     "icon": "users",
+     "mt": 10,
+     "at": "Match",
+     "items": [
+      {
+       "small": "JOB-ANALYZER",
+       "text": "MATCH RESUME",
+       "color": "mint",
+       "icon": "doc",
+       "at": "Match"
+      },
+      {
+       "small": "JOB-CRAWLER",
+       "text": "CRAWL CAREERS",
+       "color": "yellow",
+       "icon": "search",
+       "at": "crawl"
+      },
+      {
+       "small": "JOB-FORM-FILLER",
+       "text": "FILL FORMS",
+       "color": "pink",
+       "icon": "check",
+       "at": "fill"
+      },
+      {
+       "small": "NETWORK-FINDER",
+       "text": "FIND REFERRALS",
+       "color": "paper",
+       "icon": "users",
+       "at": "referrals"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 JOB SEARCH",
+   "word": "APPLY",
+   "bg": "pink",
+   "say": "It stops before submitting, so you review first.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "THE SAFE PART",
+     "at": "It"
+    },
+    {
+     "type": "headline",
+     "text": "STOPS\nBEFORE\n{{SUBMIT}}",
+     "size": 168,
+     "at": "stops"
+    },
+    {
+     "type": "stamp",
+     "text": "YOU REVIEW FIRST",
+     "color": "white",
+     "size": 64,
+     "rot": -3,
+     "burst": "black",
+     "at": "review",
+     "mt": 40
+    }
+   ]
+  },
+  {
+   "chapter": "06 SAVE",
+   "word": "SAVE THIS",
+   "bg": "purple",
+   "say": "Save this, and follow StackShade for more.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "THE TOP 5",
+     "at": "Save"
+    },
+    {
+     "type": "tags",
+     "gap": 8,
+     "at": "Save",
+     "items": [
+      {
+       "text": "1 HALLMARK",
+       "color": "mint",
+       "size": 60
+      },
+      {
+       "text": "2 SECURITY AUDIT",
+       "color": "white",
+       "size": 60
+      },
+      {
+       "text": "3 SKILL AUDITOR",
+       "color": "pink",
+       "size": 60
+      },
+      {
+       "text": "4 FREEHIRE SEARCH",
+       "color": "yellow",
+       "size": 60
+      },
+      {
+       "text": "5 JOB SEARCH SKILLS",
+       "color": "paper",
+       "size": 60
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "FOLLOW @STACKSHADE",
+     "color": "mint",
+     "size": 56,
+     "rot": -3,
+     "burst": "pink",
+     "at": "follow",
+     "mt": 40
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,560 @@
+{
+ "title": "AI agents now start 40% of GitHub pull requests (Octoverse 2026)",
+ "slug": "stackshade_octoverse2026_short",
+ "style": "brutal",
+ "format": "short",
+ "series": "OCTOVERSE 2026",
+ "voice": {
+  "engine": "edge",
+  "name": "en-US-AndrewNeural",
+  "rate": "+7%"
+ },
+ "music": "pulse",
+ "music_db": -22,
+ "sfx_db": -10,
+ "gap": 0.14,
+ "scenes": [
+  {
+   "chapter": "00 THE DROP",
+   "bg": "purple",
+   "say": "GitHub just dropped Octoverse 2026, and one number stands out.",
+   "els": [
+    {
+     "type": "row",
+     "gap": 14,
+     "align": "center",
+     "at": -0.3,
+     "children": [
+      {
+       "type": "kicker",
+       "text": "GITHUB"
+      },
+      {
+       "type": "tag",
+       "text": "NEW REPORT",
+       "color": "pink",
+       "size": 30,
+       "rot": -4,
+       "anim": "stamp"
+      }
+     ]
+    },
+    {
+     "type": "headline",
+     "text": "OCTOVERSE\n[[2026]]",
+     "size": 150,
+     "at": -0.32
+    },
+    {
+     "type": "serif",
+     "text": "Published Oct 28, 2026",
+     "at": "Octoverse",
+     "ml": 16
+    },
+    {
+     "type": "collage",
+     "w": 250,
+     "h": 230,
+     "abs": [
+      420,
+      520
+     ],
+     "at": "one number",
+     "tiles": [
+      {
+       "x": 20,
+       "y": 10,
+       "w": 150,
+       "h": 150,
+       "kind": "violet",
+       "rot": 4,
+       "shadow": "mint"
+      },
+      {
+       "x": 110,
+       "y": 110,
+       "w": 92,
+       "h": 92,
+       "kind": "yellow",
+       "rot": -6,
+       "shadow": "black"
+      }
+     ]
+    },
+    {
+     "type": "tags",
+     "quote": true,
+     "mt": 24,
+     "at": "one number",
+     "items": [
+      {
+       "text": "ONE NUMBER",
+       "color": "mint",
+       "at": "one number"
+      },
+      {
+       "text": "STANDS OUT",
+       "color": "white",
+       "at": "stands out"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 AGENTS",
+   "bg": "black",
+   "say": "As of September, more than forty percent of pull requests start with an AI agent.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "SHARE OF PULL REQUESTS · SEP 2026",
+     "at": "As of"
+    },
+    {
+     "type": "stat",
+     "text": "40%+",
+     "size": 250,
+     "color": "mint",
+     "count": {
+      "from": 0,
+      "to": 40,
+      "suffix": "%+"
+     },
+     "at": "forty percent"
+    },
+    {
+     "type": "tag",
+     "text": "START WITH AN AI AGENT",
+     "color": "pink",
+     "size": 64,
+     "at": "start with"
+    },
+    {
+     "type": "row",
+     "gap": 18,
+     "mt": 50,
+     "align": "center",
+     "at": "agent",
+     "children": [
+      {
+       "type": "icon",
+       "name": "pr",
+       "size": 130,
+       "bg": "paper",
+       "color": "purple"
+      },
+      {
+       "type": "note",
+       "text": "FIRST DRAFT BY AN AGENT,\n**MERGED BY A HUMAN**"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 AGENTS",
+   "bg": "mint",
+   "say": "In March, it was seventeen percent. It more than doubled in six months.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "PRs STARTED BY AN AGENT",
+     "at": "In March"
+    },
+    {
+     "type": "row",
+     "gap": 34,
+     "mt": 24,
+     "at": "In March",
+     "children": [
+      {
+       "type": "bars",
+       "h": 470,
+       "bw": 150,
+       "max": 45,
+       "items": [
+        {
+         "label": "MARCH",
+         "value": 17,
+         "text": "17%",
+         "big": true,
+         "color": "pink",
+         "at": "seventeen"
+        },
+        {
+         "label": "SEPTEMBER",
+         "value": 40,
+         "text": "40%+",
+         "big": true,
+         "color": "purple",
+         "at": "more than doubled"
+        }
+       ]
+      },
+      {
+       "type": "col",
+       "gap": 8,
+       "children": [
+        {
+         "type": "tag",
+         "text": "MORE THAN",
+         "color": "black",
+         "size": 44,
+         "at": "more than doubled"
+        },
+        {
+         "type": "stat",
+         "text": "2×",
+         "size": 190,
+         "at": "doubled"
+        },
+        {
+         "type": "tag",
+         "text": "IN 6 MONTHS",
+         "color": "pink",
+         "size": 52,
+         "at": "six months"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 SCALE",
+   "bg": "purple",
+   "say": "Developers pushed code seventeen point nine billion times in a year. More than 2024 and 2025 combined.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "CODE PUSHES · OCTOVERSE YEAR",
+     "at": "Developers"
+    },
+    {
+     "type": "stat",
+     "text": "17.9B",
+     "size": 200,
+     "color": "mint",
+     "count": {
+      "from": 0,
+      "to": 17.9,
+      "decimals": 1,
+      "suffix": "B"
+     },
+     "at": "seventeen point"
+    },
+    {
+     "type": "bars",
+     "h": 330,
+     "bw": 140,
+     "max": 17.9,
+     "mt": 20,
+     "at": "More than",
+     "items": [
+      {
+       "label": "2024",
+       "value": 5.2,
+       "text": "5.2B",
+       "color": "white",
+       "at": "More than"
+      },
+      {
+       "label": "2025",
+       "value": 6.7,
+       "text": "6.7B",
+       "color": "white",
+       "at": "2024"
+      },
+      {
+       "label": "2026",
+       "value": 17.9,
+       "text": "17.9B",
+       "color": "mint",
+       "at": "combined"
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "MORE THAN 2024 + 2025 COMBINED",
+     "color": "pink",
+     "size": 40,
+     "rot": -3,
+     "at": "combined",
+     "mt": 12
+    }
+   ]
+  },
+  {
+   "chapter": "02 SCALE",
+   "bg": "black",
+   "say": "Merged pull requests hit one point three billion. About three and a half million a day.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "MERGED PULL REQUESTS",
+     "at": "Merged"
+    },
+    {
+     "type": "bigmono",
+     "text": "1.3B",
+     "from": "0.0B",
+     "size": 190,
+     "at": "one point three"
+    },
+    {
+     "type": "note",
+     "text": "IN THE PAST 12 MONTHS",
+     "at": "billion"
+    },
+    {
+     "type": "tag",
+     "text": "≈ 3.5M EVERY DAY",
+     "color": "mint",
+     "size": 92,
+     "at": "three and a half",
+     "mt": 30
+    },
+    {
+     "type": "row",
+     "gap": 18,
+     "mt": 40,
+     "at": "a day",
+     "children": [
+      {
+       "type": "icon",
+       "name": "pr",
+       "size": 110,
+       "bg": "paper",
+       "color": "black"
+      },
+      {
+       "type": "icon",
+       "name": "pr",
+       "size": 110,
+       "bg": "mint",
+       "color": "black"
+      },
+      {
+       "type": "icon",
+       "name": "pr",
+       "size": 110,
+       "bg": "pink",
+       "color": "black"
+      },
+      {
+       "type": "icon",
+       "name": "pr",
+       "size": 110,
+       "bg": "paper",
+       "color": "purple"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 SIGNAL",
+   "bg": "paper",
+   "say": "And new repos with an agent config file logged eight times as many commits as those without.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "NEW REPOS WITH AN AGENT CONFIG FILE",
+     "at": "new repos"
+    },
+    {
+     "type": "type",
+     "text": "AGENTS.md",
+     "prefix": "e.g. ",
+     "at": "agent config"
+    },
+    {
+     "type": "stat",
+     "text": "8×",
+     "size": 260,
+     "at": "eight times"
+    },
+    {
+     "type": "tag",
+     "text": "MORE COMMITS",
+     "color": "mint",
+     "size": 80,
+     "at": "commits"
+    },
+    {
+     "type": "vs",
+     "mt": 34,
+     "sym": "VS",
+     "at": "as those",
+     "left": {
+      "small": "WITH CONFIG",
+      "value": "8×",
+      "shadow": "purple"
+     },
+     "right": {
+      "small": "WITHOUT",
+      "value": "1×",
+      "shadow": "pink",
+      "at": "without"
+     }
+    }
+   ]
+  },
+  {
+   "chapter": "04 INDIA",
+   "bg": "pink",
+   "say": "India now has thirty-two million developers, second only to the US at thirty-eight point three million.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "DEVELOPERS ON GITHUB · SEP 2026",
+     "at": "India"
+    },
+    {
+     "type": "headline",
+     "text": "INDIA IS [[#2]]",
+     "size": 130,
+     "at": "India now"
+    },
+    {
+     "type": "table",
+     "w": 640,
+     "at": "thirty-two",
+     "rows": [
+      {
+       "k": "USA",
+       "v": "38.3M",
+       "at": "India now"
+      },
+      {
+       "k": "INDIA",
+       "v": "32.0M",
+       "at": "thirty-two"
+      },
+      {
+       "k": "CHINA",
+       "v": "12.4M",
+       "at": "second only"
+      },
+      {
+       "k": "BRAZIL",
+       "v": "10.2M",
+       "at": "second only"
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "+10M DEVS THIS YEAR",
+     "color": "white",
+     "size": 46,
+     "rot": -3,
+     "at": "point three million",
+     "mt": 24
+    }
+   ]
+  },
+  {
+   "chapter": "05 STACK",
+   "bg": "purple",
+   "say": "TypeScript is still number one, Python second, and Rust grew fastest, doubling in a year.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "LANGUAGES BY CONTRIBUTORS",
+     "at": "TypeScript"
+    },
+    {
+     "type": "tags",
+     "mt": 10,
+     "gap": 12,
+     "at": "TypeScript",
+     "items": [
+      {
+       "text": "#1 TYPESCRIPT",
+       "color": "mint",
+       "size": 96,
+       "at": "TypeScript"
+      },
+      {
+       "text": "#2 PYTHON",
+       "color": "white",
+       "size": 96,
+       "at": "Python"
+      },
+      {
+       "text": "#3 JAVASCRIPT",
+       "color": "paper",
+       "size": 96,
+       "at": "second"
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "RUST · FASTEST GROWTH · 2×",
+     "color": "pink",
+     "size": 50,
+     "rot": -3,
+     "burst": "mint",
+     "at": "Rust",
+     "mt": 40
+    },
+    {
+     "type": "row",
+     "gap": 18,
+     "mt": 30,
+     "at": "doubling",
+     "children": [
+      {
+       "type": "icon",
+       "name": "code",
+       "size": 110,
+       "bg": "paper",
+       "color": "purple"
+      },
+      {
+       "type": "icon",
+       "name": "trend",
+       "size": 110,
+       "bg": "mint",
+       "color": "black"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "06 VERDICT",
+   "bg": "black",
+   "say": "Agents write the first draft now. Your edge is reviewing it. Follow StackShade for more.",
+   "els": [
+    {
+     "type": "headline",
+     "text": "AGENTS\n[[DRAFT.]]",
+     "size": 160,
+     "at": "Agents"
+    },
+    {
+     "type": "headline",
+     "text": "YOU\n{{REVIEW.}}",
+     "size": 160,
+     "at": "Your edge"
+    },
+    {
+     "type": "stamp",
+     "text": "FOLLOW @STACKSHADE",
+     "color": "mint",
+     "size": 58,
+     "rot": -3,
+     "burst": "pink",
+     "at": "Follow",
+     "mt": 30
+    }
+   ]
+  }
+ ]
+}

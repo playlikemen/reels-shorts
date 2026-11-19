@@ -1,0 +1,183 @@
+{
+  "title": "Haiku 5.5 launch breakdown (recreation of video 1)",
+  "slug": "recreation_v1_haiku55",
+  "style": "brutal",
+  "format": "short",
+  "series": "HAIKU 5.5",
+  "voice": {"engine": "edge", "name": "en-US-AndrewNeural", "rate": "+4%"},
+  "music": "pulse", "music_db": -24, "sfx_db": -11,
+  "scenes": [
+    {"chapter": "00 LAUNCH", "bg": "purple",
+     "say": "Anthropic just released Haiku 5.5, and they're calling it the cheapest, fastest, and most capable small model they have ever released.",
+     "els": [
+       {"type": "row", "gap": 14, "align": "center", "at": "Anthropic", "children": [
+         {"type": "kicker", "text": "ANTHROPIC"},
+         {"type": "tag", "text": "NEW", "color": "pink", "size": 30, "rot": -5, "anim": "stamp"}]},
+       {"type": "headline", "text": "HAIKU [[5.5]]", "size": 150, "at": "Haiku"},
+       {"type": "serif", "text": "Claude Haiku 5.5", "at": "calling", "ml": 20},
+       {"type": "collage", "w": 250, "h": 230, "abs": [400, 455], "at": "calling", "tiles": [
+         {"x": 20, "y": 10, "w": 150, "h": 150, "kind": "sunset", "rot": 3},
+         {"x": 110, "y": 110, "w": 92, "h": 92, "kind": "yellow", "rot": -6, "shadow": "black"}]},
+       {"type": "tags", "quote": true, "mt": 10, "at": "cheapest", "items": [
+         {"text": "CHEAPEST", "color": "mint", "at": "cheapest"},
+         {"text": "FASTEST", "color": "white", "at": "fastest"},
+         {"text": "MOST CAPABLE", "color": "pink", "at": "most capable"}]},
+       {"type": "note", "text": "SMALL MODEL EVER <b>— ANTHROPIC</b>", "at": "small model", "ml": 20}
+     ]},
+    {"chapter": "01 PRICE", "bg": "mint",
+     "say": "For most requests, it's about ten times cheaper than Haiku 4.5.",
+     "els": [
+       {"type": "kicker", "text": "INPUT PRICE · PER 1M TOKENS", "at": "For"},
+       {"type": "label", "text": "FOR MOST REQUESTS", "variant": "dark", "at": "most requests"},
+       {"type": "row", "gap": 34, "mt": 30, "at": "ten times", "children": [
+         {"type": "bars", "h": 420, "bw": 120, "max": 1.0, "items": [
+           {"label": "HAIKU 4.5", "value": 1.0, "text": "$1.00", "color": "black", "at": "most requests"},
+           {"label": "HAIKU 5.5", "value": 0.1, "text": "$0.10", "color": "purple", "at": "cheaper"}]},
+         {"type": "col", "gap": 6, "children": [
+           {"type": "stat", "text": "10×", "size": 170, "at": "ten times"},
+           {"type": "tag", "text": "CHEAPER", "color": "pink", "at": "cheaper"}]}]}
+     ]},
+    {"chapter": "01 PRICE", "bg": "black",
+     "say": "Input now costs ten cents per million tokens, which is the same price as OpenAI's GPT-6 Luna.",
+     "els": [
+       {"type": "bigmono", "text": "$0.10", "from": "$1.00", "at": "ten cents", "mt": 10},
+       {"type": "note", "text": "PER 1M INPUT TOKENS", "at": "per million"},
+       {"type": "tag", "text": "SAME PRICE", "color": "pink", "size": 92, "at": "same price", "mt": 20},
+       {"type": "vs", "mt": 40, "at": "OpenAI's", "left": {"small": "HAIKU 5.5", "value": "$0.10", "shadow": "mint"},
+        "right": {"small": "GPT-6 LUNA", "value": "$0.10", "shadow": "pink", "at": "Luna"}, "sym": "="}
+     ]},
+    {"chapter": "01 PRICE", "bg": "pink",
+     "say": "Above one hundred thousand tokens, you only get half off.",
+     "els": [
+       {"type": "kicker", "text": "INPUT PRICE vs PROMPT LENGTH", "at": "Above"},
+       {"type": "headline", "text": "100K+", "size": 120, "at": "hundred thousand"},
+       {"type": "bars", "h": 330, "bw": 150, "max": 1.0, "mt": 20, "at": "hundred thousand", "items": [
+         {"label": "UNDER 100K", "value": 0.1, "text": "$0.10", "color": "black", "at": "Above"},
+         {"label": "OVER 100K", "value": 0.5, "text": "$0.50", "color": "white", "at": "thousand tokens"},
+         {"label": "HAIKU 4.5", "value": 1.0, "text": "$1.00", "ghost": true, "at": "only"}]},
+       {"type": "stamp", "text": "HALF OFF", "color": "white", "size": 70, "at": "half off", "mt": 10}
+     ]},
+    {"chapter": "01 PRICE", "bg": "paper",
+     "say": "And Anthropic's own estimate is about seventy-five percent cheaper on average.",
+     "els": [
+       {"type": "label", "text": "ANTHROPIC'S ESTIMATE", "variant": "dark", "at": "estimate"},
+       {"type": "stat", "text": "~75%", "size": 230, "count": {"from": 0, "to": 75, "prefix": "~", "suffix": "%"}, "at": "seventy-five"},
+       {"type": "tag", "text": "CHEAPER ON AVERAGE", "color": "mint", "size": 66, "at": "on average"},
+       {"type": "row", "gap": 18, "mt": 40, "at": "cheaper", "children": [
+         {"type": "icon", "name": "trend", "size": 120, "bg": "paper", "color": "purple"},
+         {"type": "note", "text": "BLENDED ACROSS<br>REAL PROMPT MIX"}]}
+     ]},
+    {"chapter": "02 SMARTS", "bg": "purple",
+     "say": "Now, the wild thing is that this is also much more capable.",
+     "els": [
+       {"type": "kicker", "text": "THE WILD THING", "at": "wild thing"},
+       {"type": "headline", "text": "MUCH MORE\n{{CAPABLE}}", "size": 130, "at": "much more"},
+       {"type": "collage", "w": 640, "h": 260, "mt": 40, "at": "also", "tiles": [
+         {"x": 10, "y": 30, "w": 190, "h": 190, "kind": "violet", "rot": -4},
+         {"x": 230, "y": 0, "w": 170, "h": 170, "kind": "ember", "rot": 3},
+         {"x": 430, "y": 50, "w": 170, "h": 170, "kind": "mint", "rot": -2, "shadow": "black"}]},
+       {"type": "label", "text": "ANTHROPIC'S NUMBERS", "at": "capable", "mt": 10}
+     ]},
+    {"chapter": "02 SMARTS", "bg": "black",
+     "say": "On computer use, Anthropic says its score went from sixteen percent to seventy-two percent.",
+     "els": [
+       {"type": "headline", "text": "COMPUTER USE", "size": 110, "at": "computer use"},
+       {"type": "label", "text": "OSWORLD 2.1 (OFFLINE SUBSET)", "at": "computer use"},
+       {"type": "bars", "h": 470, "bw": 150, "max": 100, "mt": 30, "at": "computer use", "items": [
+         {"label": "HAIKU 4.5", "value": 15.7, "text": "15.7%", "big": true, "color": "pink", "at": "sixteen"},
+         {"label": "HAIKU 5.5", "value": 72.4, "text": "72.4%", "big": true, "color": "mint", "at": "seventy-two"},
+         {"label": "SONNET 5.5", "value": 83.9, "text": "83.9%", "ghost": true, "at": "Anthropic says"}]},
+       {"type": "label", "text": "ANTHROPIC'S NUMBERS", "variant": "mint", "at": "score", "mt": 12}
+     ]},
+    {"chapter": "02 SMARTS", "bg": "mint",
+     "say": "It's also the first Haiku with an effort setting, which lets you trade cost for intelligence.",
+     "els": [
+       {"type": "kicker", "text": "FIRST HAIKU WITH AN", "at": "first"},
+       {"type": "headline", "text": "EFFORT", "size": 190, "at": "effort"},
+       {"type": "segmented", "items": ["LOW", "MED", "HIGH", "XHIGH", "MAX"], "active": 1, "moveTo": 4, "note": "DEFAULT", "at": "setting", "moveAt": "intelligence"},
+       {"type": "chart", "w": 560, "h": 280, "mt": 70, "rot": -1.5, "at": "trade", "ymin": 30, "ymax": 80, "yticks": [40, 50, 60, 70],
+        "series": [{"name": "Effort", "color": "pink", "pts": [[0, 41, "Low"], [1, 52, "Med"], [2, 60, "High"], [3, 66, "Xhigh"], [4, 70, "Max"]]}]},
+       {"type": "label", "text": "ILLUSTRATIVE CURVE", "variant": "dark", "at": "trade", "ml": 360, "mt": -30},
+       {"type": "headline", "text": "COST ⇄ [[INTELLIGENCE]]", "size": 62, "color": "black", "at": "cost", "mt": 10}
+     ]},
+    {"chapter": "03 ROLE", "bg": "paper",
+     "say": "Anthropic is positioning it as the workhorse model for Opus and Sonnet, doing things like summarization, classification, and subagent jobs.",
+     "els": [
+       {"type": "kicker", "text": "ANTHROPIC POSITIONS IT AS THE", "at": "positioning"},
+       {"type": "headline", "text": "WORKHORSE", "size": 140, "at": "workhorse"},
+       {"type": "tree", "root": "OPUS / [[SONNET]]", "at": "Opus", "mt": 20, "items": [
+         {"small": "HAIKU 5.5", "text": "SUMMARIZATION", "color": "mint", "icon": "doc", "at": "summarization"},
+         {"small": "HAIKU 5.5", "text": "CLASSIFICATION", "color": "pink", "icon": "layers", "at": "classification"},
+         {"small": "HAIKU 5.5", "text": "SUBAGENT JOBS", "color": "purple", "icon": "branch", "at": "subagent"}]}
+     ]},
+    {"chapter": "03 ROLE", "bg": "pink",
+     "say": "But they also say the bigger models are still better choices for complex agentic coding.",
+     "els": [
+       {"type": "kicker", "text": "BUT ANTHROPIC ALSO SAYS", "at": "But"},
+       {"type": "label", "text": "TERMINAL-BENCH 4.0", "at": "also say"},
+       {"type": "tag", "text": "SONNET / OPUS", "color": "black", "size": 104, "at": "bigger models", "mt": 40},
+       {"type": "note", "text": "STILL BETTER FOR", "at": "still better"},
+       {"type": "tag", "text": "COMPLEX AGENTIC CODING", "color": "white", "size": 62, "at": "complex"},
+       {"type": "row", "gap": 20, "mt": 40, "at": "coding", "children": [
+         {"type": "icon", "name": "terminal", "size": 130, "bg": "paper", "color": "black"},
+         {"type": "icon", "name": "code", "size": 130, "bg": "mint", "color": "black"}]}
+     ]},
+    {"chapter": "04 RACE", "bg": "purple",
+     "say": "With the last few releases, Anthropic has really been pushing efficiency, which was the main selling point of OpenAI up till now.",
+     "els": [
+       {"type": "kicker", "text": "THE 5.5 FAMILY", "at": "last few"},
+       {"type": "headline", "text": "EFFICIENCY", "size": 130, "at": "efficiency"},
+       {"type": "timeline", "mt": 16, "at": "releases", "items": [
+         {"date": "SEP 22", "title": "OPUS 5.5", "at": "releases"},
+         {"date": "SEP 28", "title": "SONNET 5.5", "at": "Anthropic has", "chips": ["30%+ FASTER", "UP TO 30% LESS", "CACHE READS $0.20 → $0.10"]},
+         {"date": "OCT 07", "title": "HAIKU 5.5", "at": "pushing", "chips": [{"text": "~75% LESS", "color": "mint"}]}]}
+     ]},
+    {"chapter": "04 RACE", "bg": "black",
+     "say": "So the competition is really heating up.",
+     "els": [
+       {"type": "kicker", "text": "THE COMPETITION", "at": "competition"},
+       {"type": "row", "gap": 22, "align": "center", "at": "competition", "children": [
+         {"type": "tag", "text": "ANTHROPIC", "color": "paper", "size": 50, "rot": -2},
+         {"type": "tag", "text": "VS", "color": "pink", "size": 40},
+         {"type": "tag", "text": "OPENAI", "color": "paper", "size": 50, "rot": 2}]},
+       {"type": "squiggle", "at": "really", "mt": 10, "colors": ["pink", "mint", "pink"]},
+       {"type": "stamp", "text": "HEATING UP", "color": "pink", "size": 96, "rot": -3, "at": "heating up"},
+       {"type": "collage", "w": 640, "h": 210, "mt": 30, "at": "heating", "tiles": [
+         {"x": 0, "y": 30, "w": 180, "h": 160, "kind": "grain", "rot": -3},
+         {"x": 210, "y": 20, "w": 180, "h": 170, "kind": "spheres", "rot": 2},
+         {"x": 420, "y": 0, "w": 170, "h": 170, "kind": "sunset", "rot": -2}]}
+     ]},
+    {"chapter": "05 PERKS", "bg": "mint",
+     "say": "Now, if you're on a Max or Team plan, you're also getting monthly API credits starting this week, which is pretty incredible.",
+     "els": [
+       {"type": "kicker", "text": "MAX + TEAM PLANS", "at": "Max"},
+       {"type": "headline", "text": "API CREDITS", "size": 128, "at": "API credits"},
+       {"type": "table", "w": 640, "at": "Team plan", "rows": [
+         {"k": "MAX 5x", "v": "$100/MO", "at": "Max"},
+         {"k": "MAX 20x", "v": "$200/MO", "at": "Team"},
+         {"k": "TEAM", "v": "UP TO $500/MO", "sub": "POOLED", "at": "monthly"}]},
+       {"type": "stamp", "text": "ROLLING OUT THIS WEEK", "color": "pink", "size": 52, "burst": "purple", "rot": -3, "at": "this week", "mt": 30}
+     ]},
+    {"chapter": "06 ACCESS", "bg": "paper",
+     "say": "It's available today on the Claude API and all three major clouds.",
+     "els": [
+       {"type": "headline", "text": "AVAILABLE\n{{TODAY}}", "size": 120, "color": "black", "at": "available"},
+       {"type": "grid", "mt": 16, "at": "today", "items": [
+         {"title": "CLAUDE API", "icon": "code", "at": "Claude API"},
+         {"title": "AWS", "icon": "cloud", "at": "three"},
+         {"title": "GOOGLE CLOUD", "icon": "cloud", "at": "major"},
+         {"title": "AZURE", "icon": "cloud", "at": "clouds"}]},
+       {"type": "type", "text": "claude-haiku-5-5", "prefix": "model: ", "at": "clouds", "mt": 16}
+     ]},
+    {"chapter": "07 VERDICT", "bg": "purple",
+     "say": "So now we get to see how good this model really is in practice.",
+     "els": [
+       {"type": "headline", "text": "HOW GOOD\n[[IN PRACTICE?]]", "size": 118, "at": "how good"},
+       {"type": "stat", "text": "HAIKU 5.5", "size": 150, "color": "white", "mt": 50, "at": "this model"},
+       {"type": "magnifier", "abs": [330, 330], "at": "this model"},
+       {"type": "row", "gap": 30, "mt": 30, "align": "center", "at": "practice", "children": [
+         {"type": "badge", "text": "?"},
+         {"type": "collage", "w": 200, "h": 150, "tiles": [{"x": 30, "y": 0, "w": 130, "h": 130, "kind": "paper", "rot": -5, "shadow": "mint"}]}]}
+     ]}
+  ]
+}

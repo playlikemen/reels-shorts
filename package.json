@@ -1,0 +1,16 @@
+{
+  "name": "reels-shorts",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Kinetic Video Engine studio: JSON spec to narrated motion-graphics Reels and Shorts for StackShade and IndexFast",
+  "scripts": {
+    "stills": "python3.11 ops/make.py --stills",
+    "make": "python3.11 ops/make.py",
+    "schedule:dry-run": "python3.11 ops/scheduler.py --dry-run",
+    "schedule:publish": "python3.11 ops/scheduler.py --publish"
+  },
+  "dependencies": {
+    "playwright": "^1.50.0"
+  },
+  "license": "MIT"
+}

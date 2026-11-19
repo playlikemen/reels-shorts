@@ -1,0 +1,573 @@
+{
+ "title": "9Router explainer (recreation of video 2)",
+ "slug": "recreation_v2_9router",
+ "style": "clean",
+ "format": "short",
+ "brand": "stackshade",
+ "voice": {
+  "engine": "edge",
+  "name": "en-US-BrianNeural",
+  "rate": "+16%"
+ },
+ "music": "bright",
+ "music_db": -17,
+ "sfx_db": -9,
+ "gap": 0.1,
+ "scenes": [
+  {
+   "say": "You can now run Claude Code with unlimited usage, completely free.",
+   "splash": "tl,br",
+   "cap": [
+    {
+     "text": "You can now run",
+     "size": "m"
+    },
+    {
+     "text": "CLAUDE CODE",
+     "size": "xl"
+    },
+    {
+     "text": "with unlimited usage",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "completely free",
+     "size": "l",
+     "pos": "bottom",
+     "style": "pill"
+    }
+   ],
+   "vis": [
+    {
+     "type": "ocard",
+     "title": "Claude Code",
+     "sub": "Terminal · Agents · Skills",
+     "icons": [
+      "terminal",
+      "code",
+      "bolt",
+      "doc"
+     ],
+     "at": "Claude"
+    }
+   ]
+  },
+  {
+   "say": "Save this before you hit your limit mid-session and lose everything you were working on.",
+   "cap": [
+    {
+     "text": "Save this before you hit your",
+     "size": "s"
+    },
+    {
+     "text": "limit mid-session",
+     "size": "l"
+    },
+    {
+     "text": "and lose everything",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "you were working on.",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "bookmark",
+     "tile": "light",
+     "size": 180,
+     "at": "Save",
+     "fillAt": "this"
+    }
+   ]
+  },
+  {
+   "say": "Someone on GitHub just built a free tool called 9 Router.",
+   "cap": [
+    {
+     "text": "Someone on",
+     "size": "s"
+    },
+    {
+     "text": "GitHub",
+     "size": "l"
+    },
+    {
+     "text": "just built a free tool called",
+     "size": "s",
+     "pos": "bottom"
+    },
+    {
+     "text": "9Router",
+     "size": "xl",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "branch",
+     "tile": "dark",
+     "size": 110,
+     "at": "GitHub"
+    },
+    {
+     "type": "card",
+     "title": "9Router — free AI router & token saver",
+     "at": "free tool"
+    }
+   ]
+  },
+  {
+   "say": "It acts as a silent bridge between Claude Code and free AI providers like Gemini, Kimi, and GLM.",
+   "cap": [
+    {
+     "text": "It acts as a silent bridge between",
+     "size": "s"
+    },
+    {
+     "text": "Claude Code",
+     "size": "l"
+    },
+    {
+     "text": "and free AI providers like",
+     "size": "s",
+     "pos": "bottom"
+    },
+    {
+     "text": "Gemini, Kimi and GLM",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "bridge",
+     "at": "bridge",
+     "from": {
+      "icon": "terminal",
+      "tile": "orange",
+      "size": 140
+     },
+     "items": [
+      {
+       "text": "Gemini",
+       "tile": "dark",
+       "at": "Gemini"
+      },
+      {
+       "text": "Kimi",
+       "tile": "dark",
+       "at": "Kimi"
+      },
+      {
+       "text": "GLM",
+       "tile": "dark",
+       "at": "GLM"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "It sits in the background, and you never have to think about it.",
+   "cap": [
+    {
+     "text": "It sits in the",
+     "size": "s"
+    },
+    {
+     "text": "background",
+     "size": "l"
+    },
+    {
+     "text": "and you never have to",
+     "size": "s"
+    },
+    {
+     "text": "think about it.",
+     "size": "l"
+    }
+   ]
+  },
+  {
+   "say": "The second your Claude limit runs out, it doesn't ask you what to do.",
+   "cap": [
+    {
+     "text": "The second your Claude limit",
+     "size": "s"
+    },
+    {
+     "text": "runs out!",
+     "size": "xl"
+    },
+    {
+     "text": "it doesn't ask you",
+     "size": "s",
+     "pos": "bottom"
+    },
+    {
+     "text": "what to do.",
+     "size": "l",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "row",
+     "gap": 10,
+     "at": "second",
+     "children": [
+      {
+       "type": "icon",
+       "icon": "terminal",
+       "tile": "orange",
+       "size": 170,
+       "anim": "drop"
+      },
+      {
+       "type": "big",
+       "text": "!?",
+       "color": "accent",
+       "size": 120,
+       "at": "runs out"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "It just switches to the next available provider on its own, all the way down to completely free models if it needs to.",
+   "splash": "tr",
+   "cap": [
+    {
+     "text": "It just switches to the next",
+     "size": "s"
+    },
+    {
+     "text": "available provider",
+     "size": "l"
+    },
+    {
+     "text": "on its own, all the way down to",
+     "size": "s",
+     "pos": "bottom"
+    },
+    {
+     "text": "completely free models",
+     "size": "l",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tree",
+     "at": "switches",
+     "root": {
+      "icon": "router",
+      "tile": "orange",
+      "size": 130
+     },
+     "items": [
+      {
+       "text": "Gemini",
+       "at": "next"
+      },
+      {
+       "text": "Kimi",
+       "at": "available"
+      },
+      {
+       "text": "GLM",
+       "at": "provider"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Your session keeps going like nothing happened. You set it up once, connect your providers,",
+   "cap": [
+    {
+     "text": "Your session keeps going like",
+     "size": "s"
+    },
+    {
+     "text": "nothing happened",
+     "size": "l"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "play",
+     "tile": "orange",
+     "size": 150,
+     "at": "session"
+    },
+    {
+     "type": "checklist",
+     "size": 34,
+     "items": [
+      {
+       "text": "you set it up once.",
+       "at": "set it up"
+      },
+      {
+       "text": "connect your providers",
+       "at": "connect"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "and from that moment on, 9 Router manages everything automatically, every single time.",
+   "splash": "bl",
+   "cap": [
+    {
+     "text": "and from that moment on,",
+     "size": "s"
+    },
+    {
+     "text": "9Router",
+     "size": "xl"
+    },
+    {
+     "text": "manages everything automatically,",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "every single time.",
+     "size": "l",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tree",
+     "at": "Router",
+     "root": {
+      "icon": "router",
+      "tile": "dark",
+      "size": 120
+     },
+     "items": [
+      {
+       "text": "GLM",
+       "at": "manages"
+      },
+      {
+       "text": "Kimi",
+       "at": "everything"
+      },
+      {
+       "text": "Gemini",
+       "at": "automatically"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "No manual switching. No interruptions. No extra cost.",
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "terminal",
+     "tile": "orange",
+     "size": 150,
+     "at": "No"
+    },
+    {
+     "type": "checklist",
+     "size": 40,
+     "items": [
+      {
+       "text": "No manual switching.",
+       "at": "manual"
+      },
+      {
+       "text": "No interruptions.",
+       "at": "interruptions"
+      },
+      {
+       "text": "No extra cost.",
+       "at": "extra"
+      }
+     ]
+    }
+   ],
+   "cap": []
+  },
+  {
+   "say": "And it's not just for Claude Code. Cursor, Codex, Antigravity,",
+   "cap": [
+    {
+     "text": "And it's not just for",
+     "size": "s"
+    },
+    {
+     "text": "Claude Code",
+     "size": "xl"
+    },
+    {
+     "text": "Cursor - Codex - Antigravity",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tiles",
+     "size": 130,
+     "items": [
+      {
+       "icon": "cursor",
+       "tile": "dark",
+       "at": "Cursor"
+      },
+      {
+       "icon": "terminal",
+       "tile": "blue",
+       "at": "Codex"
+      },
+      {
+       "icon": "bolt",
+       "tile": "light",
+       "at": "Antigravity"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "and almost every other AI coding tool out there works with it straight out of the box.",
+   "cap": [
+    {
+     "text": "And almost every other",
+     "size": "s",
+     "pos": "bottom"
+    },
+    {
+     "text": "AI coding tool out there",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "works with it straight",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "out of the box.",
+     "size": "l",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tiles",
+     "size": 112,
+     "gap": 30,
+     "wrap": 440,
+     "items": [
+      {
+       "icon": "cursor",
+       "tile": "dark"
+      },
+      {
+       "icon": "terminal",
+       "tile": "blue"
+      },
+      {
+       "icon": "bolt",
+       "tile": "light"
+      },
+      {
+       "icon": "spark",
+       "tile": "orange"
+      },
+      {
+       "icon": "code",
+       "tile": "dark"
+      },
+      {
+       "icon": "layers",
+       "tile": "light"
+      }
+     ],
+     "at": "every"
+    }
+   ]
+  },
+  {
+   "say": "One free tool. Zero interruptions. Unlimited sessions.",
+   "vis": [
+    {
+     "type": "card",
+     "title": "9Router — free AI router & token saver",
+     "at": "One"
+    },
+    {
+     "type": "checklist",
+     "size": 34,
+     "items": [
+      {
+       "text": "One free tool.",
+       "at": "free tool"
+      },
+      {
+       "text": "Zero interruptions.",
+       "at": "Zero"
+      },
+      {
+       "text": "Unlimited sessions.",
+       "at": "Unlimited"
+      }
+     ]
+    }
+   ],
+   "cap": []
+  },
+  {
+   "say": "Follow StackShade for more AI tools like this.",
+   "splash": "tl,br",
+   "cap": [
+    {
+     "text": "Follow",
+     "size": "m"
+    },
+    {
+     "text": "StackShade",
+     "size": "xl"
+    },
+    {
+     "text": "for more AI tools",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "like this.",
+     "size": "l",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "play",
+     "tile": "dark",
+     "size": 190,
+     "at": "Follow"
+    }
+   ]
+  }
+ ]
+}
