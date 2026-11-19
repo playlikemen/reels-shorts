@@ -34,7 +34,7 @@ a{color:var(--violet)}
   <div class="bar"><span>Kinetic Video Engine</span><span>v2 · 19 Nov 2026 · 1080×1920 · 30 fps</span></div>
   <header style="display:flex;flex-direction:column;gap:16px">
     <h1>Spec in.<br><em>Short out.</em></h1>
-    <p class="lede">A complete kit for an AI agent to make narrated motion-graphics Reels and Shorts for StackShade and IndexFast: the render engine, two brand configurations, the publishing scripts and the written workflow.</p>
+    <p class="lede">A complete kit for an AI agent to make narrated motion-graphics Reels and Shorts for StackShade, IndexFast and CampusLoop: the render engine, three brand configurations, a phone-clip tool, the publishing scripts and the written workflow.</p>
   </header>
 
   <section>
@@ -61,6 +61,9 @@ python3.11 ops/make.py specs/stackshade/SS-101.json --sync-only            # Dri
       <tr><td><code>specs/</code></td><td>Five finished specs with sources, plus the engine's own examples.</td></tr>
       <tr><td><code>ops/make.py</code></td><td>Build, verify (resolution, frame rate, codecs, duration, size, loudness), archive to Drive, write the sheet row.</td></tr>
       <tr><td><code>ops/scheduler.py</code></td><td>Posts rows whose scheduled time has passed. Marks a row before posting so nothing is posted twice. Checks the first YouTube upload after 30 minutes before sending more.</td></tr>
+      <tr><td><code>ops/clip.py</code></td><td>Phone recording to an upright 1080×1920 reel with hook text, word captions and −14 LUFS.</td></tr>
+      <tr><td><code>ops/ig_report.py</code></td><td>Views, reach, shares, saves and watch time per reel, written to the brand's insights tab.</td></tr>
+      <tr><td><code>brands/campusloop/playbook.md</code></td><td>Weekly posting schedule, founder scripts and the growth plan for CampusLoop.</td></tr>
       <tr><td><code>SKILL.md</code>, <code>AGENTS.md</code></td><td>The workflow and the rules: sourced facts only, no third-party logos, AI-voice disclosure, look at stills before syncing.</td></tr>
     </table></div>
   </section>
@@ -72,8 +75,11 @@ python3.11 ops/make.py specs/stackshade/SS-101.json --sync-only            # Dri
       <tr><td>IF-101</td><td>IndexNow: tell search engines about a URL in one request</td><td>brutal</td><td>20 Nov 12:30</td></tr>
       <tr><td>SS-101</td><td>Prompt caching: pay a tenth for the same prompt</td><td>brutal</td><td>20 Nov 19:00</td></tr>
       <tr><td>IF-102</td><td>Crawl budget: who needs to care, what wastes it</td><td>clean</td><td>21 Nov 12:30</td></tr>
+      <tr><td>CL-101</td><td>The 75% attendance rule, by someone at 74</td><td>clean</td><td>20 Nov 19:30</td></tr>
       <tr><td>SS-102</td><td>Git is a key-value store: how a commit is stored</td><td>clean</td><td>21 Nov 19:00</td></tr>
       <tr><td>SS-103</td><td>Postgres never overwrites a row: MVCC and VACUUM</td><td>brutal</td><td>22 Nov 19:00</td></tr>
+      <tr><td>CL-102</td><td>The four people in every group project</td><td>clean</td><td>22 Nov 19:30</td></tr>
+      <tr><td>CL-103</td><td>The night before the exam, hour by hour</td><td>clean</td><td>24 Nov 19:30</td></tr>
     </table></div>
   </section>
 </div>
