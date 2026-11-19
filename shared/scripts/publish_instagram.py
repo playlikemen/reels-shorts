@@ -16,6 +16,8 @@ import subprocess
 import argparse
 from datetime import datetime
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 BRAND_ACCOUNTS = {
     "stackshade": "instagram_create-beta",
     "indexfast": "instagram_dam-hinder"

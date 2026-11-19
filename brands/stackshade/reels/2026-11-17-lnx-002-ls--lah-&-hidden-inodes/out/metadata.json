@@ -21,8 +21,11 @@
   "insta_caption": "Stop typing plain 'ls' in your terminal! \u274c\n\nRun `ls -lah` instead to get:\n1. Detailed permissions & ownership\n2. Hidden dotfiles (`.env`, `.bashrc`)\n3. Human-readable file sizes (MB/GB instead of raw bytes)\n\nAdd `-i` to see the internal inode number! \ud83d\udc27\n\nFollow @stackshade for daily dev tips! \ud83d\udd25",
   "instagram_hashtags": "#linux #developer #programming #terminal #devops #codinglife #sysadmin #stackshade",
   "insta_hashtags": "#linux #developer #programming #terminal #devops #codinglife #sysadmin #stackshade",
-  "instagram_status": "Ready",
+  "instagram_status": "Published",
   "instagram_post_url": "",
   "youtube_status": "Ready",
-  "youtube_shorts_url": ""
+  "youtube_shorts_url": "",
+  "public_video_url": "https://raw.githubusercontent.com/playlikemen/reels-shorts/main/brands/stackshade/reels/2026-11-17-lnx-002-ls--lah-%26-hidden-inodes/out/final.mp4",
+  "instagram_permalink": "https://www.instagram.com/reel/Df6j3fzDxSM/",
+  "instagram_media_id": "18142361096503826"
 }

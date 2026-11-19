@@ -21,8 +21,11 @@
   "insta_caption": "Never retype long commands again! \u26a1\n\nPress `Ctrl + R` in your terminal to search your history in real-time.\n\nType any word like `docker` or `ssh`, press `Ctrl + R` again to cycle, and hit Enter. Boom.\n\nDouble tap if this saved you 10 minutes today! \ud83d\udca1",
   "instagram_hashtags": "#linux #shortcuts #terminal #bash #developer #devops #coding #stackshade",
   "insta_hashtags": "#linux #shortcuts #terminal #bash #developer #devops #coding #stackshade",
-  "instagram_status": "Ready",
+  "instagram_status": "Published",
   "instagram_post_url": "",
   "youtube_status": "Ready",
-  "youtube_shorts_url": ""
+  "youtube_shorts_url": "",
+  "public_video_url": "https://raw.githubusercontent.com/playlikemen/reels-shorts/main/brands/stackshade/reels/2026-11-17-lnx-003-ctrl%2Br-%26-reverse-search/out/final.mp4",
+  "instagram_permalink": "https://www.instagram.com/reel/Df6j-hfilGx/",
+  "instagram_media_id": "17986220691102391"
 }
