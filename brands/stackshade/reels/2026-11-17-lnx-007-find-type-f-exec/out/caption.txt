@@ -1,9 +1,0 @@
-Avoid `rm -rf *` on giant folders! ⚠️
-
-When directories have 100k+ files, the shell throws 'Argument list too long' errors.
-
-Use `find -type f -mtime +30 -exec rm {} +` to safely clean files older than 30 days without choking the kernel.
-
-Share with your team! 🛡️
-
-#linux #sysadmin #devops #cybersecurity #coding #programmer #stackshade

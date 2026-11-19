@@ -1,8 +1,0 @@
-day,pillar,topic,hook,format
-Monday,System Design,Redis vs MySQL In-Memory vs Disk,"Why Redis is 100x Faster Than MySQL",motion-graphics
-Tuesday,AI Engineering,How AI Coding Agents Loop,"How AI Agents Actually Code (ReAct Loop)",motion-graphics
-Wednesday,Under The Hood,Memory Hierarchy Latency Numbers,"Latency Numbers Every Engineer Must Know",motion-graphics
-Thursday,System Design,Message Queues Kafka vs RabbitMQ,"Kafka vs RabbitMQ: Which One Should You Pick?",motion-graphics
-Friday,DevOps & Cloud,Docker Container vs Virtual Machine,"Docker vs VM: What Really Happens Inside the Kernel",motion-graphics
-Saturday,Algorithms & DSA,Sliding Window Pattern,"Master Sliding Window in 20 Seconds",motion-graphics
-Sunday,AI Engineering,Vector Databases & Embeddings,"How Vector Search Finds Meaning in 10ms",motion-graphics
