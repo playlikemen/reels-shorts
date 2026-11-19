@@ -1,0 +1,56 @@
+{
+  "key": "campusloop",
+  "name": "CampusLoop",
+  "id_prefix": "CL",
+  "sheet_tab": "@campusloop",
+  "instagram": {
+    "account": "instagram_skyish-rhe",
+    "ig_user_id": "29102939302671601",
+    "handle": "@campusloop.space"
+  },
+  "youtube": null,
+  "voice": {
+    "engine": "edge",
+    "name": "en-IN-PrabhatNeural",
+    "rate": "+6%"
+  },
+  "styles": {
+    "brutal": {
+      "theme": {
+        "purple": "#5B2BE0",
+        "mint": "#FFD23F",
+        "pink": "#FF4D8D"
+      },
+      "music": "pulse",
+      "music_db": -22,
+      "sfx_db": -10
+    },
+    "clean": {
+      "theme": {
+        "accent": "#6A3DE8",
+        "accentLight": "#9B7BFF",
+        "accentDark": "#4F27C4"
+      },
+      "music": "bright",
+      "music_db": -18,
+      "sfx_db": -9,
+      "brand": "campusloop"
+    }
+  },
+  "cta": "Find your college at campusloop.space",
+  "hashtags": [
+    "#collegelife",
+    "#hostellife",
+    "#engineeringstudents",
+    "#indiancollege",
+    "#campuslife",
+    "#studentlife",
+    "#btech",
+    "#collegememes"
+  ],
+  "slots_ist": [
+    "19:30"
+  ],
+  "max_reels_per_day": 1,
+  "insights_tab": "@campusloop-insights"
+}

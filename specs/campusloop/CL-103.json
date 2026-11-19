@@ -1,0 +1,269 @@
+{
+ "title": "The night before the exam, hour by hour",
+ "style": "clean",
+ "format": "short",
+ "meta": {
+  "id": "CL-103",
+  "brand": "campusloop",
+  "topic": "Campus truth / night before exam",
+  "schedule": "2026-11-24 19:30",
+  "yt_title": "The Night Before The Exam, Hour By Hour #shorts",
+  "yt_tags": [
+   "college life",
+   "hostel life",
+   "indian college",
+   "student life",
+   "campusloop"
+  ],
+  "yt_description": "The Night Before The Exam, Hour By Hour\n\nCampusLoop is the app only for students of your college: confessions, polls, notes and events. campusloop.space",
+  "ig_caption": "The night before the exam, hour by hour. 🌙\n\n9 PM: full plan\n11 PM: Maggi break\n1 AM: what is the syllabus\n3 AM: one PDF from a senior\n\nNotes and past papers are free on CampusLoop, by branch.\n\nSend this to the friend with the PDF.\n\nYour campus. Only your campus. Link in bio.\n\nVoiceover is AI-generated.",
+  "ig_hashtags": [
+   "#collegelife",
+   "#hostellife",
+   "#engineeringstudents",
+   "#indiancollege",
+   "#campuslife",
+   "#studentlife",
+   "#btech",
+   "#collegememes",
+   "#attendance",
+   "#examseason"
+  ],
+  "sources": [
+   "https://campusloop.space/"
+  ]
+ },
+ "scenes": [
+  {
+   "say": "The night before the exam, hour by hour.",
+   "splash": "tl,br",
+   "cap": [
+    {
+     "text": "The night before",
+     "size": "l"
+    },
+    {
+     "text": "the exam,",
+     "size": "xl",
+     "pos": "bottom"
+    },
+    {
+     "text": "hour by hour.",
+     "size": "m",
+     "pos": "bottom",
+     "style": "pill"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "book",
+     "tile": "dark",
+     "size": 190,
+     "at": -0.3
+    }
+   ]
+  },
+  {
+   "say": "Nine P M. A full plan. Five units. Colour coded.",
+   "cap": [
+    {
+     "text": "9 PM",
+     "size": "xl",
+     "color": "accent"
+    },
+    {
+     "text": "A full plan.",
+     "size": "l"
+    },
+    {
+     "text": "Five units. Colour coded.",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tiles",
+     "size": 150,
+     "items": [
+      {
+       "text": "9 PM",
+       "tile": "dark",
+       "at": "Nine"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Eleven P M. Maggi break. It has been forty minutes.",
+   "cap": [
+    {
+     "text": "11 PM",
+     "size": "xl",
+     "color": "accent"
+    },
+    {
+     "text": "Maggi break.",
+     "size": "l"
+    },
+    {
+     "text": "It has been forty minutes.",
+     "size": "m",
+     "pos": "bottom",
+     "style": "pill"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tiles",
+     "size": 150,
+     "items": [
+      {
+       "text": "11 PM",
+       "tile": "orange",
+       "at": "Eleven"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "One A M. Somebody asks in the group, what is the syllabus?",
+   "cap": [
+    {
+     "text": "1 AM",
+     "size": "xl",
+     "color": "accent"
+    },
+    {
+     "text": "Somebody asks in the group:",
+     "size": "m"
+    },
+    {
+     "text": "“what is the syllabus?”",
+     "size": "l",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tiles",
+     "size": 150,
+     "items": [
+      {
+       "text": "1 AM",
+       "tile": "dark",
+       "at": "One"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Three A M. One P D F from a senior saves the whole floor.",
+   "cap": [
+    {
+     "text": "3 AM",
+     "size": "xl",
+     "color": "accent"
+    },
+    {
+     "text": "One PDF from a senior",
+     "size": "l"
+    },
+    {
+     "text": "saves the whole floor.",
+     "size": "m",
+     "pos": "bottom",
+     "color": "accent"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "doc",
+     "tile": "orange",
+     "size": 170,
+     "label": "unit-3-final-FINAL.pdf",
+     "at": "P D F"
+    }
+   ]
+  },
+  {
+   "say": "That P D F should not depend on luck. Notes and past papers are free on CampusLoop, by branch.",
+   "cap": [
+    {
+     "text": "That PDF should not",
+     "size": "m"
+    },
+    {
+     "text": "depend on luck.",
+     "size": "l"
+    },
+    {
+     "text": "Notes and past papers",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "free on CampusLoop.",
+     "size": "l",
+     "pos": "bottom",
+     "style": "pill"
+    }
+   ],
+   "vis": [
+    {
+     "type": "checklist",
+     "size": 38,
+     "items": [
+      {
+       "text": "notes",
+       "at": "Notes"
+      },
+      {
+       "text": "past papers",
+       "at": "past"
+      },
+      {
+       "text": "by branch, free",
+       "at": "free"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Send this to the friend who always has the P D F.",
+   "splash": "tl,br",
+   "cap": [
+    {
+     "text": "Send this to the friend",
+     "size": "l"
+    },
+    {
+     "text": "who always has",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "the PDF.",
+     "size": "xl",
+     "pos": "bottom",
+     "style": "pill"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "bookmark",
+     "tile": "dark",
+     "size": 170,
+     "at": "Send"
+    }
+   ]
+  }
+ ]
+}

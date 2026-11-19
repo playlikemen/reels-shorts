@@ -1,0 +1,263 @@
+{
+ "title": "The 75% attendance rule, by someone at 74",
+ "style": "clean",
+ "format": "short",
+ "meta": {
+  "id": "CL-101",
+  "brand": "campusloop",
+  "topic": "Campus truth / 75% attendance",
+  "schedule": "2026-11-20 19:30",
+  "yt_title": "The 75% Attendance Rule, Explained By Someone At 74 #shorts",
+  "yt_tags": [
+   "college life",
+   "hostel life",
+   "indian college",
+   "student life",
+   "campusloop"
+  ],
+  "yt_description": "The 75% Attendance Rule, Explained By Someone At 74\n\nCampusLoop is the app only for students of your college: confessions, polls, notes and events. campusloop.space",
+  "ig_caption": "The 75% rule, explained by someone at 74. 😅\n\n40 classes in a semester? You can miss 10.\nNot 11. Ten.\n\nSend this to the friend who is at 74 right now.\n\nYour campus. Only your campus. Link in bio.\n\nVoiceover is AI-generated.",
+  "ig_hashtags": [
+   "#collegelife",
+   "#hostellife",
+   "#engineeringstudents",
+   "#indiancollege",
+   "#campuslife",
+   "#studentlife",
+   "#btech",
+   "#collegememes",
+   "#attendance",
+   "#examseason"
+  ],
+  "sources": [
+   "https://campusloop.space/"
+  ]
+ },
+ "scenes": [
+  {
+   "say": "The seventy five percent attendance rule, explained by someone at seventy four.",
+   "splash": "tl,br",
+   "cap": [
+    {
+     "text": "The 75% rule,",
+     "size": "l"
+    },
+    {
+     "text": "explained by someone",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "at 74.",
+     "size": "xl",
+     "pos": "bottom",
+     "style": "pill"
+    }
+   ],
+   "vis": [
+    {
+     "type": "big",
+     "text": "74%",
+     "color": "accent",
+     "size": 150,
+     "at": "seventy four"
+    }
+   ]
+  },
+  {
+   "say": "Say your subject has forty classes this semester.",
+   "cap": [
+    {
+     "text": "Say your subject has",
+     "size": "m"
+    },
+    {
+     "text": "40 classes",
+     "size": "xl",
+     "pos": "bottom"
+    },
+    {
+     "text": "this semester.",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tiles",
+     "size": 170,
+     "items": [
+      {
+       "text": "40",
+       "tile": "dark",
+       "at": "forty"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Seventy five percent of forty is thirty. So you must sit in thirty.",
+   "cap": [
+    {
+     "text": "75% of 40",
+     "size": "l"
+    },
+    {
+     "text": "is 30.",
+     "size": "xl",
+     "color": "accent"
+    },
+    {
+     "text": "So you must sit in 30.",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "tiles",
+     "size": 160,
+     "items": [
+      {
+       "text": "40",
+       "tile": "dark",
+       "at": "forty"
+      },
+      {
+       "text": "30",
+       "tile": "orange",
+       "at": "thirty"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "That leaves ten classes you can miss. Not eleven. Ten.",
+   "cap": [
+    {
+     "text": "That leaves",
+     "size": "m"
+    },
+    {
+     "text": "10 classes",
+     "size": "xl"
+    },
+    {
+     "text": "you can miss.",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "Not eleven. Ten.",
+     "size": "l",
+     "pos": "bottom",
+     "style": "pill"
+    }
+   ],
+   "vis": [
+    {
+     "type": "big",
+     "text": "10",
+     "color": "accent",
+     "size": 170,
+     "at": "ten classes"
+    }
+   ]
+  },
+  {
+   "say": "The trap is, you spend them in August. Then November arrives.",
+   "cap": [
+    {
+     "text": "The trap:",
+     "size": "m"
+    },
+    {
+     "text": "you spend them in August.",
+     "size": "l"
+    },
+    {
+     "text": "Then November arrives.",
+     "size": "l",
+     "pos": "bottom",
+     "color": "accent"
+    }
+   ],
+   "vis": [
+    {
+     "type": "checklist",
+     "size": 38,
+     "items": [
+      {
+       "text": "Aug: bunk, bunk, bunk",
+       "at": "August"
+      },
+      {
+       "text": "Nov: 74%",
+       "at": "November"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "So count your bunks like money. Because they are.",
+   "cap": [
+    {
+     "text": "Count your bunks",
+     "size": "l"
+    },
+    {
+     "text": "like money.",
+     "size": "xl",
+     "pos": "bottom"
+    },
+    {
+     "text": "Because they are.",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "gauge",
+     "tile": "orange",
+     "size": 170,
+     "at": "count"
+    }
+   ]
+  },
+  {
+   "say": "Send this to the friend who is at seventy four right now.",
+   "splash": "tl,br",
+   "cap": [
+    {
+     "text": "Send this to the friend",
+     "size": "l"
+    },
+    {
+     "text": "who is at 74",
+     "size": "xl",
+     "pos": "bottom",
+     "style": "pill"
+    },
+    {
+     "text": "right now.",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "users",
+     "tile": "dark",
+     "size": 170,
+     "at": "Send"
+    }
+   ]
+  }
+ ]
+}

@@ -41,6 +41,22 @@ def log(**entry):
     print(json.dumps(entry))
 
 
+def posted_today(prefix):
+    """Instagram posts already published today (IST) for video ids with this prefix, from the publish log."""
+    if not LOG.exists():
+        return 0
+    today, n = now().date().isoformat(), 0
+    for line in open(LOG):
+        try:
+            e = json.loads(line)
+        except ValueError:
+            continue
+        if (e.get("platform") == "instagram" and e.get("status") == "published"
+                and str(e.get("video", "")).startswith(prefix + "-") and str(e.get("at", "")).startswith(today)):
+            n += 1
+    return n
+
+
 def canary_state():
     return json.load(open(CANARY)) if CANARY.exists() else {"state": "none"}
 
@@ -49,12 +65,18 @@ def run(publish):
     import sheet, publish_instagram, publish_youtube
     for b in K.brands():
         tab = b["sheet_tab"]
-        for row in sheet.rows(tab):
+        # A backlog must never flood the feed: brands may cap Instagram posts per day.
+        cap = b.get("max_reels_per_day")
+        sent = posted_today(b["id_prefix"]) if cap else 0
+        for row in sorted(sheet.rows(tab), key=lambda r: r["Scheduled Time (IST)"]):
             vid, n = row["Video ID"], row["_row"]
             mp4 = K.ROOT / row["Local Path"]
             is_due = due(row)
 
-            if row["Instagram Status"] == "Ready" and is_due:
+            if row["Instagram Status"] == "Ready" and is_due and cap and sent >= cap:
+                print(f"{vid}: daily limit of {cap} reached for {b['name']}; it goes out on the next free day")
+            elif row["Instagram Status"] == "Ready" and is_due:
+                sent += 1
                 if not publish:
                     print(f"[dry-run] would post {vid} to Instagram {b['instagram']['handle']}")
                 elif not mp4.exists():

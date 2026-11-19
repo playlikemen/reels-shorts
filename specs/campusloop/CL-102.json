@@ -1,0 +1,246 @@
+{
+ "title": "The four people in every group project",
+ "style": "clean",
+ "format": "short",
+ "meta": {
+  "id": "CL-102",
+  "brand": "campusloop",
+  "topic": "Campus truth / group project",
+  "schedule": "2026-11-22 19:30",
+  "yt_title": "The 4 People In Every College Group Project #shorts",
+  "yt_tags": [
+   "college life",
+   "hostel life",
+   "indian college",
+   "student life",
+   "campusloop"
+  ],
+  "yt_description": "The 4 People In Every College Group Project\n\nCampusLoop is the app only for students of your college: confessions, polls, notes and events. campusloop.space",
+  "ig_caption": "Every group project has the same 4 people. 👀\n\n1. The one who does everything\n2. The ghost\n3. \"I'll make the PPT\"\n4. Shows up on presentation day\n\nTag your number 2.\n\nYour campus. Only your campus. Link in bio.\n\nVoiceover is AI-generated.",
+  "ig_hashtags": [
+   "#collegelife",
+   "#hostellife",
+   "#engineeringstudents",
+   "#indiancollege",
+   "#campuslife",
+   "#studentlife",
+   "#btech",
+   "#collegememes",
+   "#attendance",
+   "#examseason"
+  ],
+  "sources": [
+   "https://campusloop.space/"
+  ]
+ },
+ "scenes": [
+  {
+   "say": "Every college group project has the same four people.",
+   "splash": "tl,br",
+   "cap": [
+    {
+     "text": "Every group project",
+     "size": "l"
+    },
+    {
+     "text": "has the same",
+     "size": "m",
+     "pos": "bottom"
+    },
+    {
+     "text": "4 people.",
+     "size": "xl",
+     "pos": "bottom",
+     "style": "pill"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "users",
+     "tile": "dark",
+     "size": 190,
+     "at": -0.3
+    }
+   ]
+  },
+  {
+   "say": "One. The one who does everything, and says it is fine.",
+   "cap": [
+    {
+     "text": "1.",
+     "size": "xl",
+     "color": "accent"
+    },
+    {
+     "text": "The one who does everything",
+     "size": "l"
+    },
+    {
+     "text": "and says it is fine.",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "bolt",
+     "tile": "orange",
+     "size": 170,
+     "at": "everything"
+    }
+   ]
+  },
+  {
+   "say": "Two. The ghost. Last seen when the group was made.",
+   "cap": [
+    {
+     "text": "2.",
+     "size": "xl",
+     "color": "accent"
+    },
+    {
+     "text": "The ghost.",
+     "size": "xl"
+    },
+    {
+     "text": "Last seen when the group was made.",
+     "size": "m",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "eye",
+     "tile": "dark",
+     "size": 170,
+     "label": "last seen: day 1",
+     "at": "ghost"
+    }
+   ]
+  },
+  {
+   "say": "Three. I will make the P P T. Changes the font. Done.",
+   "cap": [
+    {
+     "text": "3.",
+     "size": "xl",
+     "color": "accent"
+    },
+    {
+     "text": "“I'll make the PPT.”",
+     "size": "l"
+    },
+    {
+     "text": "Changes the font. Done.",
+     "size": "m",
+     "pos": "bottom",
+     "style": "pill"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "layers",
+     "tile": "orange",
+     "size": 170,
+     "at": "font"
+    }
+   ]
+  },
+  {
+   "say": "Four. Appears on presentation day, and somehow explains it best.",
+   "cap": [
+    {
+     "text": "4.",
+     "size": "xl",
+     "color": "accent"
+    },
+    {
+     "text": "Appears on presentation day",
+     "size": "l"
+    },
+    {
+     "text": "and explains it best.",
+     "size": "m",
+     "pos": "bottom",
+     "color": "accent"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "star",
+     "tile": "dark",
+     "size": 170,
+     "at": "presentation"
+    }
+   ]
+  },
+  {
+   "say": "You already know who is who.",
+   "cap": [
+    {
+     "text": "You already know",
+     "size": "l"
+    },
+    {
+     "text": "who is who.",
+     "size": "xl",
+     "pos": "bottom"
+    }
+   ],
+   "vis": [
+    {
+     "type": "checklist",
+     "size": 38,
+     "items": [
+      {
+       "text": "does everything",
+       "at": "already"
+      },
+      {
+       "text": "ghost",
+       "at": "know"
+      },
+      {
+       "text": "PPT font",
+       "at": "who"
+      },
+      {
+       "text": "presentation day",
+       "at": "is who"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "say": "Send this to your number two.",
+   "splash": "tl,br",
+   "cap": [
+    {
+     "text": "Send this to",
+     "size": "l"
+    },
+    {
+     "text": "your number 2.",
+     "size": "xl",
+     "pos": "bottom",
+     "style": "pill"
+    }
+   ],
+   "vis": [
+    {
+     "type": "icon",
+     "icon": "play",
+     "tile": "orange",
+     "size": 170,
+     "at": "Send"
+    }
+   ]
+  }
+ ]
+}

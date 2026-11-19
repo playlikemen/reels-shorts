@@ -12,6 +12,7 @@ This repo makes narrated motion-graphics videos (Instagram Reels, YouTube Shorts
 - Sheet: https://docs.google.com/spreadsheets/d/1wnwYwhGw4kdhC5lHf6MCU208yRslGoppBzHkezUfYEk (Composio `googlesheets_louse-token`)
 - Drive archive folder: `1upAISpZAnmyDDYki_FH9tK-FVh_djqLS` (Composio `googledrive_footle-khir`)
 - Engine artifact for other agents (private until shared): https://claude.ai/artifact/MGoZv9wiFjTq8X19uHpfAc. Its files are listed in `MANIFEST.txt`; republish `docs/studio.html` with those files after changing the engine or ops.
+- CampusLoop (`brands/campusloop/`, tab `@campusloop`, Instagram `instagram_skyish-rhe`): one reel a day at most (`max_reels_per_day`). Read `brands/campusloop/playbook.md` before making anything for it. Phone recordings go through `ops/clip.py`; weekly numbers come from `ops/ig_report.py campusloop --sheet`.
 - These ids belong to the owner's Composio account. In any other account, list the connections first and use what exists.
 
 ## Layout
