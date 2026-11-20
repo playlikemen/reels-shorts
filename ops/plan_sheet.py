@@ -72,7 +72,7 @@ def main(brand):
     overview = [["CraftLayer Studio · Reels plan", ""],
                 ["Updated", plan["updated"]],
                 ["Instagram", b["instagram"]["handle"]],
-                ["Posting", "1 reel a day at 19:30 IST, Hindi first, English 2 to 5 days later"],
+                ["Posting", "1 reel a day at 19:30 IST, English voice (Kokoro). Hindi paused until a better Hindi voice is available"],
                 ["Publishing sheet", f"https://docs.google.com/spreadsheets/d/{K.SPREADSHEET_ID} (tab {b['sheet_tab']})"],
                 ["Source of truth", "reels-shorts repo: brands/craftlayer/plan.json, playbook.md, specs/craftlayer/*.json"],
                 ["Formula", "Hook in 3 s, then problem and fix three times, then a checklist, then a comment keyword or DM"],
