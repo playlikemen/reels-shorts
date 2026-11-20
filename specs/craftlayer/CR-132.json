@@ -1,0 +1,515 @@
+{
+ "title": "Custom software: 3 signs you need this",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "light": true,
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-132",
+  "brand": "craftlayer",
+  "topic": "Custom software: 3 signs you need this",
+  "schedule": {
+   "en": "2026-12-16 19:30"
+  },
+  "yt_title": {
+   "en": "Five spreadsheets. One is wrong. #shorts"
+  },
+  "yt_tags": [
+   "custom software development",
+   "admin panel",
+   "real-time dashboard",
+   "replace excel",
+   "event management system",
+   "business software india",
+   "software you own",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "If your business runs on five spreadsheets, at least one of them is wrong. 📊"
+  },
+  "ig_caption": {
+   "en": "If your business runs on five spreadsheets, at least one of them is wrong. 📊\n\n1️⃣ Nobody knows which sheet is the latest\n✅ Fix: an admin panel shaped around how you work, with one source of truth\n\n2️⃣ On event day you're calling people to find out what's happening\n✅ Fix: a real-time dashboard where every gate updates live\n\n3️⃣ Off-the-shelf tools make you work their way\n✅ Fix: a written scope, builds you review as they grow, and code you own\n\nCobalt Events is a concept demo.\nSend this to a business owner who needs it.\nOutgrown your spreadsheets? Comment SYSTEM 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#customsoftware",
+   "#softwaredevelopment",
+   "#dashboard",
+   "#eventmanagement",
+   "#smallbusinessindia",
+   "#excel",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/services/custom-software/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "If your business runs on *five spreadsheets*, at least one of them is *wrong*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Five spreadsheets.\nOne is *wrong*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "menu",
+       "size": 170,
+       "label": "final_v3.xlsx",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "check",
+       "size": 170,
+       "label": "One system",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Sign one: nobody knows which *sheet* is the latest, so everyone keeps their *own*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Cobalt Events",
+        "t": "Shared *drive*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "registrations_final.xlsx",
+          "s": "Edited by Neha",
+          "ic": "menu"
+         },
+         {
+          "t": "registrations_final_v2.xlsx",
+          "s": "Edited by Arjun",
+          "v": "!",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "registrations_REAL.xlsx",
+          "s": "Edited by you",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Three versions of the truth",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: an *admin panel* shaped around how you work, with *one* source of truth.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "cobaltevents.in",
+        "t": "Registrations",
+        "s": "Cobalt Events · admin"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Confirmed",
+          "s": "Paid and verified",
+          "v": "412",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Pending",
+          "s": "Awaiting payment",
+          "v": "18",
+          "ic": "clock",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Refunds",
+          "s": "To process",
+          "v": "3",
+          "ic": "cash",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Export list",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "One place, always current",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Sign two: on event day, you're *calling* people to find out what's *happening*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Cobalt Events",
+        "t": "Event *day*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "How many checked in at gate 2?",
+          "at": "10%"
+         },
+         {
+          "t": "Let me count and call you back",
+          "at": "37%"
+         },
+         {
+          "t": "And gate 3?",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Guessing, live",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: a *real-time* dashboard over WebSockets, so every gate updates *live*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "cobaltevents.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "cobaltevents.in",
+        "t": "Live *check-ins*",
+        "s": "Cobalt Events · today"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Gate 1",
+          "s": "Updating live",
+          "v": "214",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Gate 2",
+          "s": "Updating live",
+          "v": "167",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Gate 3",
+          "s": "Updating live",
+          "v": "98",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "No refresh needed",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Sign three: off-the-shelf tools make you work *their* way, and you never *own* them.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Cobalt Events",
+        "t": "Off-the-*shelf*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Custom field",
+          "s": "Upgrade your plan",
+          "v": "!",
+          "ic": "tag",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Your workflow",
+          "s": "Not supported",
+          "ic": "arrow",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Export data",
+          "s": "Locked",
+          "ic": "cash",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Renting your own process",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: a *written scope*, builds you review as they grow, and code *you own*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "cobaltevents.in",
+        "t": "Handover",
+        "s": "Cobalt Events · system"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Scope",
+          "s": "In and out, in writing",
+          "v": "Agreed",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Source code",
+          "s": "Your repository",
+          "v": "Yours",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Documentation",
+          "s": "For your team",
+          "v": "Done",
+          "ic": "menu",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Open repository",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Everything handed over",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*One* admin panel, *live* dashboards, and software that's *yours*.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · business system",
+     "items": [
+      {
+       "t": "Admin panel",
+       "s": "one source of truth",
+       "at": "2%"
+      },
+      {
+       "t": "Live dashboard",
+       "s": "real-time over WebSockets",
+       "at": "26%"
+      },
+      {
+       "t": "Ownership",
+       "s": "code + docs handed over",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · SYSTEM",
+   "say": "Outgrown your spreadsheets? Comment *SYSTEM* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "SYSTEM",
+     "label": "Comment *SYSTEM*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

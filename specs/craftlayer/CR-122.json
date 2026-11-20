@@ -1,0 +1,503 @@
+{
+ "title": "Photographers: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-122",
+  "brand": "craftlayer",
+  "topic": "Photographers: 3 problems",
+  "schedule": {
+   "en": "2026-12-07 19:30"
+  },
+  "yt_title": {
+   "en": "Your best shoot? Buried. #shorts"
+  },
+  "yt_tags": [
+   "photographer website",
+   "photography portfolio",
+   "client gallery",
+   "wedding photographer india",
+   "booking calendar",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Your best wedding shoot is buried deep in your grid. No couple scrolls that far. 📸"
+  },
+  "ig_caption": {
+   "en": "Your best wedding shoot is buried deep in your grid. No couple scrolls that far. 📸\n\n1️⃣ All your work is mixed in one grid\n✅ Fix: a portfolio site by category\n\n2️⃣ \"Are you free on the 14th?\" every single time\n✅ Fix: an availability calendar with booking requests\n\n3️⃣ Final photos sent as Drive links that expire\n✅ Fix: private client galleries with download\n\nFrame & Field Studio is a concept demo.\nSend this to a photographer who needs it.\nWant this for your studio? Comment SHOOT 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#weddingphotographer",
+   "#photographer",
+   "#indianphotographer",
+   "#photographybusiness",
+   "#portfolio",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industries/weddings/",
+   "https://craftlayer-studio.github.io/services/web-development/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Your best *wedding shoot* is buried three hundred posts deep. No couple *scrolls* that far.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Your best shoot?\n*Buried*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "search",
+       "size": 170,
+       "label": "Lost in the grid",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "star",
+       "size": 170,
+       "label": "Portfolio site",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: weddings, pre-weddings and babies are all *mixed* in one grid. Clients can't find *their* style.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Frame & Field Studio",
+        "t": "Your *grid*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Baby shoot",
+          "s": "Posted Monday",
+          "ic": "star"
+         },
+         {
+          "t": "Behind the scenes reel",
+          "s": "Posted Tuesday",
+          "ic": "star"
+         },
+         {
+          "t": "Wedding · Udaipur",
+          "s": "Three months down",
+          "ic": "star",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Couple closes the app",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: a *portfolio site* by category. Weddings, pre-wedding, maternity, each with its own *gallery*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "frameandfield.in",
+        "t": "Frame & *Field*",
+        "s": "Portfolio"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Weddings",
+          "s": "Full stories",
+          "ic": "star",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Pre-wedding",
+          "s": "Outdoor and studio",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Maternity & baby",
+          "s": "Home and studio",
+          "ic": "gift",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "View weddings",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Right style, first click",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: “Are you free on the fourteenth?” Check calendar, reply, *repeat*, every *single* time.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Frame & Field Studio",
+        "t": "Direct *messages*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Are you free on 14 Feb?",
+          "at": "10%"
+         },
+         {
+          "t": "And 15th? Rates for both days?",
+          "at": "37%"
+         },
+         {
+          "t": "Let me check and get back",
+          "me": true,
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Asked again tomorrow",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: an *availability calendar*. Clients see free dates and *request* a booking themselves.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "frameandfield.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "frameandfield.in",
+        "t": "Check *dates*",
+        "s": "February"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "14 Feb",
+          "s": "Booked",
+          "ic": "cal",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "15 Feb",
+          "s": "Available",
+          "v": "Request",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "16 Feb",
+          "s": "Available",
+          "v": "Request",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Request this date",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Request with date and package",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: final photos go out as a *Drive link* that *expires*, and the client asks again.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Frame & Field Studio",
+        "t": "Client *chat*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "The link isn't opening",
+          "at": "10%"
+         },
+         {
+          "t": "Can you resend all the photos?",
+          "at": "37%"
+         },
+         {
+          "t": "My mom wants them too",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Uploading again, third time",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: *private client galleries* with a password, *favourites* and one-click download.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "frameandfield.in",
+        "t": "Riya & *Kabir*",
+        "s": "Private gallery"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Haldi",
+          "s": "Ready",
+          "ic": "star",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Wedding day",
+          "s": "Ready",
+          "ic": "star",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Favourites",
+          "s": "Picked for the album",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Download all",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Password protected",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Portfolio*, *availability* and *client galleries*, all on your own site.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · photo studio system",
+     "items": [
+      {
+       "t": "Portfolio",
+       "s": "by category",
+       "at": "2%"
+      },
+      {
+       "t": "Availability",
+       "s": "free dates, self-request",
+       "at": "26%"
+      },
+      {
+       "t": "Client galleries",
+       "s": "private, one-click download",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · SHOOT",
+   "say": "Want this for your *studio*? Comment *SHOOT* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "SHOOT",
+     "label": "Comment *SHOOT*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

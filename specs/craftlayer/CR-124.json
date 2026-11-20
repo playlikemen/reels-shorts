@@ -1,0 +1,509 @@
+{
+ "title": "NGOs: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-124",
+  "brand": "craftlayer",
+  "topic": "NGOs: 3 problems",
+  "schedule": {
+   "en": "2026-12-09 19:30"
+  },
+  "yt_title": {
+   "en": "\"Where does my money go?\" #shorts"
+  },
+  "yt_tags": [
+   "ngo website",
+   "online donation page",
+   "upi donation",
+   "volunteer sign up",
+   "nonprofit india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "\"How do I know my money reaches someone?\" Every donor thinks it. 🤝"
+  },
+  "ig_caption": {
+   "en": "\"How do I know my money reaches someone?\" Every donor thinks it. 🤝\n\n1️⃣ Proof of your work is scattered in WhatsApp photos\n✅ Fix: an impact page with photos, updates and reports\n\n2️⃣ Donating means copying a bank account number\n✅ Fix: one-tap UPI donation with an automatic receipt\n\n3️⃣ Volunteers say yes, then nobody knows who's coming\n✅ Fix: volunteer sign-up by shift\n\nCommon Table is a concept demo.\nSend this to someone who runs an NGO.\nWant this for your NGO? Comment HELP 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#ngo",
+   "#nonprofit",
+   "#ngoindia",
+   "#charity",
+   "#volunteer",
+   "#socialimpact",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/nonprofit/",
+   "https://craftlayer-studio.github.io/industries/nonprofit/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "“How do I know my money *reaches* someone?” Every donor *thinks* it. Very few ask you.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "\"Where does my\nmoney *go*?\""
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "wallet",
+       "size": 170,
+       "label": "Donor's doubt",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "users",
+       "size": 170,
+       "label": "Your proof",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: your work happens every day, but your *proof* lives in scattered *WhatsApp* photos.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Common Table",
+        "t": "Our *work*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "IMG_4402.jpg",
+          "s": "Volunteer's phone",
+          "ic": "star",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Food drive video",
+          "s": "In a group, 2 years ago",
+          "ic": "star",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Annual report",
+          "s": "Never published",
+          "ic": "check",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Donor can't see the work",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: an *impact page* with photos, updates and yearly *reports* anyone can open.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "commontable.org.in",
+        "t": "Our *impact*",
+        "s": "Common Table"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Saturday food drive",
+          "s": "Photos and update",
+          "ic": "leaf",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Monthly update",
+          "s": "Where the money went",
+          "ic": "wallet",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Annual report",
+          "s": "Open to everyone",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Read the report",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Proof in one link",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: someone wants to give *five hundred rupees*, and you send a *bank account* number.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Common Table",
+        "t": "Instagram *DM*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "I want to donate, how?",
+          "at": "10%"
+         },
+         {
+          "t": "Account no. 3920... IFSC ...",
+          "me": true,
+          "at": "37%"
+         },
+         {
+          "t": "Will I get a receipt?",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Donation never happened",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: *UPI donation* in one tap, with an automatic *receipt* in their inbox.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "commontable.org.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "commontable.org.in",
+        "t": "Give *today*",
+        "s": "Common Table"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "₹500",
+          "s": "One-time",
+          "v": "Give",
+          "ic": "gift",
+          "c": "#465FFF"
+         },
+         {
+          "t": "₹1,000",
+          "s": "One-time",
+          "v": "Give",
+          "ic": "gift",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Monthly",
+          "s": "Choose amount",
+          "v": "Give",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Donate by UPI",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Receipt emailed",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: volunteers say yes in the group chat, then nobody knows who's *coming* on *Sunday*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Common Table",
+        "t": "Volunteers *group*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "I'll try to come 👍",
+          "at": "10%"
+         },
+         {
+          "t": "Maybe, will confirm",
+          "at": "37%"
+         },
+         {
+          "t": "Which time was it again?",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Kitchen short on hands",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: a *volunteer sign-up* with shifts, so every slot has a *name*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "commontable.org.in",
+        "t": "Sunday *shifts*",
+        "s": "Community kitchen"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "8 to 11 AM",
+          "s": "Cooking · open",
+          "v": "Join",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "11 AM to 1 PM",
+          "s": "Serving · open",
+          "v": "Join",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "1 to 3 PM",
+          "s": "Clean-up · open",
+          "v": "Join",
+          "ic": "users",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Sign up for a shift",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Reminder sent Saturday night",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Impact page*, *UPI donations* and *volunteer shifts*, all in one place.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · NGO system",
+     "items": [
+      {
+       "t": "Impact page",
+       "s": "photos, updates, reports",
+       "at": "2%"
+      },
+      {
+       "t": "UPI donations",
+       "s": "one tap, auto receipt",
+       "at": "26%"
+      },
+      {
+       "t": "Volunteer shifts",
+       "s": "every slot has a name",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · HELP",
+   "say": "Want this for your *NGO*? Comment *HELP* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "HELP",
+     "label": "Comment *HELP*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

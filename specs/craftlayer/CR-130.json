@@ -1,0 +1,521 @@
+{
+ "title": "E-commerce: 3 signs you need this",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-130",
+  "brand": "craftlayer",
+  "topic": "E-commerce: 3 signs you need this",
+  "schedule": {
+   "en": "2026-12-14 19:30"
+  },
+  "yt_title": {
+   "en": "DMs aren't a store. They're a queue. #shorts"
+  },
+  "yt_tags": [
+   "ecommerce website",
+   "online store",
+   "sell online india",
+   "checkout",
+   "d2c brand website",
+   "instagram seller",
+   "ecommerce development",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Selling in DMs isn't a store. It's a queue your customers give up on. 🛒"
+  },
+  "ig_caption": {
+   "en": "Selling in DMs isn't a store. It's a queue your customers give up on. 🛒\n\n1️⃣ Every order starts with 'price?' in your DMs\n✅ Fix: a catalogue with prices and filters, so customers browse without asking\n\n2️⃣ Checkout takes too many steps and people leave\n✅ Fix: map the purchase path and cut every step that doesn't earn its place\n\n3️⃣ Your store is stuck on a slow template\n✅ Fix: fast product pages built for search, measured on real mobile connections\n\nBrightwater Coffee is a concept demo.\nSend this to a shop owner who needs it.\nWant your own store? Comment STORE 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#ecommerce",
+   "#onlinestore",
+   "#d2cbrand",
+   "#smallbusinessindia",
+   "#instagramseller",
+   "#ecommercewebsite",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/services/e-commerce/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Selling in *DMs* isn't a store. It's a *queue* your customers give up on.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "DMs aren't a store.\nThey're a *queue*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "chat",
+       "size": 170,
+       "label": "DM orders",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "tag",
+       "size": 170,
+       "label": "Your store",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Sign one: every order starts with '*price?*' in your DMs, and ends in *silence*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Brightwater Coffee",
+        "t": "Direct *messages*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "price?",
+          "at": "10%"
+         },
+         {
+          "t": "is the 250g bag in stock?",
+          "at": "37%"
+         },
+         {
+          "t": "hello??",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Replied at midnight",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: a *catalogue* with prices and filters, so customers *browse* without asking.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "brightwatercoffee.in",
+        "t": "Shop *coffee*",
+        "s": "Brightwater Coffee · beans"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "House Blend",
+          "s": "250g · medium roast",
+          "v": "₹450",
+          "ic": "coffee",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Single Origin",
+          "s": "250g · light roast",
+          "v": "₹620",
+          "ic": "coffee",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Cold Brew Pack",
+          "s": "4 pouches",
+          "v": "₹380",
+          "ic": "coffee",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Add to cart",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Prices on every product",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Sign two: buying takes *seven steps*, and people *leave* halfway.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Brightwater Coffee",
+        "t": "Checkout"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Step 1",
+          "s": "Create an account",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Step 2",
+          "s": "Verify your email",
+          "ic": "chat",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Step 3",
+          "s": "Re-enter address",
+          "ic": "pin",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Step 4",
+          "s": "Payment failed",
+          "v": "!",
+          "ic": "card",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Cart abandoned",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: map the *purchase path*, cut every step that doesn't earn its place, then *pay*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "brightwatercoffee.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "brightwatercoffee.in",
+        "t": "Checkout",
+        "s": "Brightwater Coffee · 2 items"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Cart",
+          "s": "House Blend + Single Origin",
+          "v": "₹1,070",
+          "ic": "tag",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Address",
+          "s": "Saved",
+          "v": "Edit",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Pay",
+          "s": "UPI or card",
+          "v": "Choose",
+          "ic": "card",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Pay ₹1,070",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Your payment provider",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Sign three: your store sits on a *slow template* you can't *change*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Brightwater Coffee",
+        "t": "Store *template*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Theme",
+          "s": "Locked layout",
+          "v": "!",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Product page",
+          "s": "Heavy, slow on mobile data",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Search",
+          "s": "Same title on every page",
+          "ic": "search",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Stuck with it",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: fast product pages built for *search*, measured on real *mobile* connections.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "brightwatercoffee.in",
+        "t": "Product *page*",
+        "s": "Brightwater Coffee · House Blend"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Title + description",
+          "s": "Unique per product",
+          "v": "OK",
+          "ic": "search",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Images",
+          "s": "Sized for phones",
+          "v": "OK",
+          "ic": "phone",
+          "c": "#465FFF"
+         },
+         {
+          "t": "New order",
+          "s": "Alert sent to you",
+          "v": "On",
+          "ic": "bell",
+          "c": "#465FFF"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Order notifications on",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Browse* fast, *check out* fast, and get *notified* for every order.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · shop system",
+     "items": [
+      {
+       "t": "Catalogue",
+       "s": "prices + filters",
+       "at": "2%"
+      },
+      {
+       "t": "Checkout",
+       "s": "fewer steps, your payment provider",
+       "at": "26%"
+      },
+      {
+       "t": "Orders",
+       "s": "instant notifications",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · STORE",
+   "say": "Want your own store? Comment *STORE* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "STORE",
+     "label": "Comment *STORE*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

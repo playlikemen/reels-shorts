@@ -1,0 +1,526 @@
+{
+ "title": "D2C brands: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-125",
+  "brand": "craftlayer",
+  "topic": "D2C brands: 3 problems",
+  "schedule": {
+   "en": "2026-12-10 19:30"
+  },
+  "yt_title": {
+   "en": "You don't own them. You rent them. #shorts"
+  },
+  "yt_tags": [
+   "d2c website",
+   "own online store",
+   "ecommerce website india",
+   "shopify alternative",
+   "upi checkout",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "You don't own customers on a marketplace. You rent them. 🛍️"
+  },
+  "ig_caption": {
+   "en": "You don't own customers on a marketplace. You rent them. 🛍️\n\n1️⃣ Commission and fees on every single sale\n✅ Fix: your own store on your own domain\n\n2️⃣ You never get the customer's name or number\n✅ Fix: your own customer list for restock and repeat orders\n\n3️⃣ Slow pages and long checkouts lose carts\n✅ Fix: a fast store with a short UPI checkout\n\nKesar & Clay is a concept demo.\nSend this to a D2C brand owner who needs it.\nWant this for your brand? Comment STORE 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#d2cbrand",
+   "#d2c",
+   "#ecommerceindia",
+   "#onlinestore",
+   "#handmadeinindia",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/services/e-commerce/",
+   "https://craftlayer-studio.github.io/industries/ecommerce-retail/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "You don't own customers on a *marketplace*. You *rent* them, and pay rent on every *order*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "You don't own them.\nYou *rent* them."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "tag",
+       "size": 170,
+       "label": "Marketplace",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "globe",
+       "size": 170,
+       "label": "Your store",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: a cut on every sale, plus *ad fees*, plus *returns*. Your margin shrinks quietly.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Kesar & Clay",
+        "t": "Order *payout*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Soy candle · order",
+          "s": "Selling price",
+          "v": "₹999",
+          "ic": "tag"
+         },
+         {
+          "t": "Commission",
+          "s": "Deducted",
+          "v": "−₹•••",
+          "ic": "cash",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Ads + shipping fee",
+          "s": "Deducted",
+          "v": "−₹•••",
+          "ic": "cash",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Return charge",
+          "s": "Deducted",
+          "v": "−₹•••",
+          "ic": "cash",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "What's left for you?",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: *your own store* on your own domain. You set the prices and keep the *relationship*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "kesarandclay.in",
+        "t": "Kesar & *Clay*",
+        "s": "Handmade candles and pottery"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Soy candle · sandalwood",
+          "s": "In stock",
+          "v": "₹999",
+          "ic": "leaf",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Clay diya set",
+          "s": "Festive pack",
+          "v": "₹649",
+          "ic": "gift",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Gift box",
+          "s": "Add a note",
+          "v": "₹1,499",
+          "ic": "gift",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Shop now",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Your brand, your domain",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: a customer loved your candle, but you don't even have her *name* or *number*.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Kesar & Clay",
+        "t": "Marketplace *orders*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Order #A-4471",
+          "s": "Buyer details hidden",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Order #A-4472",
+          "s": "Buyer details hidden",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Order #A-4473",
+          "s": "Buyer details hidden",
+          "ic": "users",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "No way to sell to her again",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: your own *customer list*, so you can send a *restock* message she actually wants.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "kesarandclay.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "kesarandclay.in",
+        "t": "Your *customers*",
+        "s": "Opted in to updates"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Meera S.",
+          "s": "Bought sandalwood candle",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Arjun T.",
+          "s": "Bought clay diya set",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Restock alert",
+          "s": "Sandalwood is back",
+          "ic": "bell",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Send restock alert",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Repeat order from the alert",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: the page loads slowly, checkout asks for *six* things, and the cart is *abandoned*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Kesar & Clay",
+        "t": "Checkout"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Create account",
+          "s": "Required",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Verify email",
+          "s": "Check your inbox",
+          "ic": "chat",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Page loading...",
+          "s": "Still loading",
+          "ic": "clock",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Cart abandoned",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: a *fast store* with a short checkout. UPI, address, *done*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "kesarandclay.in",
+        "t": "Quick *checkout*",
+        "s": "Soy candle · ₹999"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Phone number",
+          "s": "OTP, no account needed",
+          "ic": "phone",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Address",
+          "s": "Saved for next time",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Pay by UPI",
+          "s": "One tap",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Pay ₹999",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Order placed",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Your store*, *your customers* and a *fast checkout*.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · D2C brand system",
+     "items": [
+      {
+       "t": "Your store",
+       "s": "your domain, your prices",
+       "at": "2%"
+      },
+      {
+       "t": "Your customers",
+       "s": "a list you can message",
+       "at": "26%"
+      },
+      {
+       "t": "Fast checkout",
+       "s": "UPI in one tap",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · STORE",
+   "say": "Want this for your *brand*? Comment *STORE* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "STORE",
+     "label": "Comment *STORE*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,505 @@
+{
+ "title": "Clinics: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-106",
+  "brand": "craftlayer",
+  "topic": "Clinics: 3 problems",
+  "schedule": {
+   "en": "2026-11-20 09:32"
+  },
+  "yt_title": {
+   "en": "Better doctor? Or easier booking? #shorts"
+  },
+  "yt_tags": [
+   "clinic website",
+   "doctor appointment booking",
+   "clinic management software",
+   "online appointment",
+   "patient queue system",
+   "clinic india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Patients aren't choosing the better doctor. They're choosing the one they can book. 🩺"
+  },
+  "ig_caption": {
+   "en": "Patients aren't choosing the better doctor. They're choosing the one they can book. 🩺\n\n1️⃣ A patient calls at 9 PM and nobody picks up\n✅ Fix: online booking with free slots, day and night\n\n2️⃣ Nobody in the waiting room knows whose turn is next\n✅ Fix: a live token queue on the patient's phone\n\n3️⃣ Patients come back just to collect a report\n✅ Fix: reports and prescriptions on WhatsApp, saved to their record\n\nNorthstar Clinic is a concept demo.\nSend this to a clinic owner who needs it.\nWant this for your clinic? Comment CLINIC 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#clinic",
+   "#doctorsofindia",
+   "#clinicmanagement",
+   "#healthcareindia",
+   "#doctorlife",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/clinic/",
+   "https://craftlayer-studio.github.io/industries/healthcare/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Patients aren't choosing the *better* doctor. They're choosing the one they can *book*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Better doctor?\nOr *easier booking*?"
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "users",
+       "size": 170,
+       "label": "Your clinic",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "cal",
+       "size": 170,
+       "label": "Next door",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: a patient calls at *9 PM* to book, and the phone just *rings out*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Northstar Clinic",
+        "t": "Missed *calls*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Unknown number",
+          "s": "9:12 PM · missed",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Unknown number",
+          "s": "9:40 PM · missed",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Mrs Kapoor",
+          "s": "10:05 PM · missed",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "No reply till morning",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: *online booking* that shows the doctor's free slots, *day and night*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "northstarclinic.in",
+        "t": "Book a *slot*",
+        "s": "Dr Mehta · General physician"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Tomorrow 10:30",
+          "s": "Available",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Tomorrow 11:00",
+          "s": "Available",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Tomorrow 5:30",
+          "s": "Available",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Confirm booking",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Confirmed on WhatsApp",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: forty minutes in the waiting room, and nobody knows *whose turn* is next.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Northstar Clinic",
+        "t": "Front *desk*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "I came at 10. How long more?",
+          "at": "10%"
+         },
+         {
+          "t": "My token is 18. Which number is running?",
+          "at": "65%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Crowded waiting room",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: a *live queue* on their phone, so patients arrive *just in time*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "northstarclinic.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "northstarclinic.in",
+        "t": "Your *token*",
+        "s": "Northstar Clinic · Today"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Your token",
+          "s": "",
+          "v": "18",
+          "ic": "tag",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Now seeing",
+          "s": "",
+          "v": "14",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Leave home in",
+          "s": "",
+          "v": "20 min",
+          "ic": "clock",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Get directions",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Alert when token 16 is in",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: patients drive back to the clinic just to *collect a report*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Northstar Clinic",
+        "t": "Reports *waiting*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Blood test · R. Sharma",
+          "s": "Ready since Monday",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "X-ray · A. Khan",
+          "s": "Not collected",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Thyroid · S. Iyer",
+          "s": "Called twice",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "A second trip for paper",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: reports and prescriptions sent on *WhatsApp*, saved in each patient's *record*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "northstarclinic.in",
+        "t": "Report *ready*",
+        "s": "R. Sharma · Blood test"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Report PDF",
+          "s": "Sent on WhatsApp",
+          "ic": "chat",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Prescription",
+          "s": "Saved to record",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Open patient record",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "No second visit",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Bookings*, *live queue* and *reports*, all in one clinic system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · clinic system",
+     "items": [
+      {
+       "t": "Bookings",
+       "s": "free slots 24x7",
+       "at": "2%"
+      },
+      {
+       "t": "Live queue",
+       "s": "token on the phone",
+       "at": "26%"
+      },
+      {
+       "t": "Reports",
+       "s": "on WhatsApp",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · CLINIC",
+   "say": "Want this for your *clinic*? Comment *CLINIC* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "CLINIC",
+     "label": "Comment *CLINIC*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,72 @@
+1
+00:00:00,400 --> 00:00:02,774
+Six months of pitch decks zero users
+
+2
+00:00:02,824 --> 00:00:04,687
+Your idea doesn't need more thinking It
+
+3
+00:00:04,637 --> 00:00:07,750
+needs a prototype Problem one investors and
+
+4
+00:00:07,700 --> 00:00:09,875
+users can't click a slide They nod
+
+5
+00:00:09,862 --> 00:00:12,324
+then forget it The fix a clickable
+
+6
+00:00:12,274 --> 00:00:14,400
+prototype in weeks so people can tap
+
+7
+00:00:14,349 --> 00:00:17,125
+through the real flow Problem two your
+
+8
+00:00:17,074 --> 00:00:19,199
+MVP has forty features on the list
+
+9
+00:00:19,224 --> 00:00:21,036
+and none of them are shipped The
+
+10
+00:00:20,986 --> 00:00:23,536
+fix a scoped MVP The one feature
+
+11
+00:00:23,486 --> 00:00:25,199
+that matters first with a demo every
+
+12
+00:00:25,149 --> 00:00:28,449
+week Problem three the freelancer launches it
+
+13
+00:00:28,449 --> 00:00:31,411
+disappears and nobody understands the code The
+
+14
+00:00:31,361 --> 00:00:33,349
+fix code you own in your repo
+
+15
+00:00:33,399 --> 00:00:35,374
+with handover docs your next developer can
+
+16
+00:00:35,324 --> 00:00:38,324
+read Prototype scoped MVP and code you
+
+17
+00:00:38,274 --> 00:00:41,399
+own start to finish Building something Comment
+
+18
+00:00:41,350 --> 00:00:43,200
+MVP or send us a DM
+

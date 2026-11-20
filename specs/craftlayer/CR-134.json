@@ -1,0 +1,529 @@
+{
+ "title": "Concept demos for 18 industries: 3 signs you need this",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-134",
+  "brand": "craftlayer",
+  "topic": "Concept demos for 18 industries: 3 signs you need this",
+  "schedule": {
+   "en": "2026-12-18 19:30"
+  },
+  "yt_title": {
+   "en": "18 websites. Zero real businesses. #shorts"
+  },
+  "yt_tags": [
+   "website examples",
+   "industry website demos",
+   "business website design",
+   "website templates",
+   "concept websites",
+   "open source website",
+   "web design india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "We built 18 websites for businesses that don't exist. On purpose. 🧪"
+  },
+  "ig_caption": {
+   "en": "We built 18 websites for businesses that don't exist. On purpose. 🧪\n\n1️⃣ You can't picture what your website should look like\n✅ Fix: click a working demo for your industry, from gyms and clinics to vets\n\n2️⃣ Agencies show mockups, nothing you can click\n✅ Fix: working calculators, filters and forms that validate (and send nothing)\n\n3️⃣ You can't tell if a studio can handle your kind of business\n✅ Fix: 18 industries, from dental to garages, with the source code public on GitHub\n\nMeadowlark Vets is a concept demo.\nSend this to a business owner who needs it.\nWant to see yours? Comment DEMOS 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#websitedesign",
+   "#webdesign",
+   "#smallbusinessindia",
+   "#websiteexamples",
+   "#landingpage",
+   "#opensource",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "We built *eighteen* websites for businesses that don't *exist*. On purpose.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "18 websites.\n*Zero* real businesses."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "globe",
+       "size": 170,
+       "label": "Forge Fitness",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "star",
+       "size": 170,
+       "label": "Arbour Dental",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Sign one: you can't *picture* what your website should even *look like*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Meadowlark Vets",
+        "t": "Your *notes*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "I want a website but don't know what goes on it",
+          "at": "10%"
+         },
+         {
+          "t": "Can you show me something like my business?",
+          "at": "65%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "No reference",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: click a working demo for your *industry*, from gyms and clinics to *vets*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "craftlayer-studio.github.io",
+        "t": "Concept *demos*",
+        "s": "craftlayer-studio.github.io"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Forge Fitness",
+          "s": "Gym",
+          "v": "Open",
+          "ic": "bolt",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Northstar Clinic",
+          "s": "Healthcare",
+          "v": "Open",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Brightwater Coffee",
+          "s": "Coffee shop",
+          "v": "Open",
+          "ic": "coffee",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Meadowlark Vets",
+          "s": "Veterinary",
+          "v": "Open",
+          "ic": "leaf",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Browse all 18",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Eighteen industries",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Sign two: agencies show you *pretty mockups*, but nothing you can actually *click*.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Meadowlark Vets",
+        "t": "Agency *pitch*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "homepage_final.png",
+          "s": "Static image",
+          "v": "!",
+          "ic": "globe",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "mockup_v2.pdf",
+          "s": "Can't click",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Booking flow",
+          "s": "Coming later",
+          "ic": "cal",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Looks good, does nothing",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: our demos *work*: calculators, filters and forms that *validate*, though they send nothing.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "craftlayer-studio.github.io",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "craftlayer-studio.github.io",
+        "t": "Health *plan*",
+        "s": "Meadowlark Vets · calculator"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Pet",
+          "s": "Dog, medium",
+          "ic": "leaf",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Plan",
+          "s": "Annual",
+          "v": "Yes",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Monthly",
+          "s": "Fictional price",
+          "v": "₹899",
+          "ic": "cash",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Request appointment",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Concept demo: sends nothing",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Sign three: you can't tell if a studio can handle *your* kind of *business*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Meadowlark Vets",
+        "t": "Can they build *mine*?"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Dental practice",
+          "s": "?",
+          "ic": "star",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Wedding venue",
+          "s": "?",
+          "ic": "gift",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Garage",
+          "s": "?",
+          "ic": "bolt",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Law firm",
+          "s": "?",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "No proof",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: dental, weddings, garages, law firms and more, with the *source code* public on *GitHub*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "craftlayer-studio.github.io",
+        "t": "Industries",
+        "s": "Concept demos · public source"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Arbour Dental",
+          "s": "Dental",
+          "v": "Open",
+          "ic": "star",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Hollin Barn",
+          "s": "Weddings",
+          "v": "Open",
+          "ic": "gift",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Torque & Co. Motors",
+          "s": "Automotive",
+          "v": "Open",
+          "ic": "bolt",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Marlowe & Pike",
+          "s": "Legal",
+          "v": "Open",
+          "ic": "menu",
+          "c": "#465FFF"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Source on GitHub",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Eighteen* industries, *working* demos, and code anyone can *read*.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · business system",
+     "items": [
+      {
+       "t": "18 industries",
+       "s": "gyms to vets",
+       "at": "2%"
+      },
+      {
+       "t": "Working demos",
+       "s": "click, filter, calculate",
+       "at": "26%"
+      },
+      {
+       "t": "Open source",
+       "s": "public on GitHub",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · DEMOS",
+   "say": "Want to see yours? Comment *DEMOS* and we'll send the *link*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "DEMOS",
+     "label": "Comment *DEMOS*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

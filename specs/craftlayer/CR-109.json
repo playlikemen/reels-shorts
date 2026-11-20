@@ -1,0 +1,508 @@
+{
+ "title": "Coaching institutes: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-109",
+  "brand": "craftlayer",
+  "topic": "Coaching institutes: 3 problems",
+  "schedule": {
+   "en": "2026-11-25 19:30"
+  },
+  "yt_title": {
+   "en": "\"Sir, what's the fee?\" #shorts"
+  },
+  "yt_tags": [
+   "coaching institute website",
+   "coaching management software",
+   "tuition class app",
+   "parent app attendance",
+   "demo class booking",
+   "coaching india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "\"Sir, what are the fees, and when's the next batch?\" You've answered that all morning. 📚"
+  },
+  "ig_caption": {
+   "en": "\"Sir, what are the fees, and when's the next batch?\" You've answered that all morning. 📚\n\n1️⃣ Parents want batches and faculty before paying, you have a pamphlet\n✅ Fix: one page with batches, timings and faculty profiles\n\n2️⃣ Every demo class takes five calls to fix\n✅ Fix: online demo class booking\n\n3️⃣ Parents hear about missed classes at result time\n✅ Fix: a parent app with attendance, fee dues and test marks\n\nQuillmark Academy is a concept demo.\nSend this to a coaching institute owner who needs it.\nWant this for your institute? Comment BATCH 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#coachinginstitute",
+   "#coachingclasses",
+   "#tuitionclasses",
+   "#edtechindia",
+   "#teachersofindia",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/academy/",
+   "https://craftlayer-studio.github.io/industries/education/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "\"Sir, what are the fees, and when's the next batch?\" You've answered that *all morning*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "\"Sir, what's\nthe *fee*?\""
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "chat",
+       "size": 170,
+       "label": "Parents asking",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "phone",
+       "size": 170,
+       "label": "Your phone",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: parents want *results* and *faculty* before fees, and you only have a pamphlet.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Quillmark Academy",
+        "t": "What parents *see*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Results",
+          "s": "Not online",
+          "ic": "star",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Faculty",
+          "s": "Not online",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Batch timings",
+          "s": "Photo of a pamphlet",
+          "ic": "clock",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Parent checks elsewhere",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: one page with *batches*, *timings* and *faculty* profiles, ready before they ask.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "quillmarkacademy.in",
+        "t": "Class 10 *batches*",
+        "s": "Quillmark Academy"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Maths + Science",
+          "s": "Mon to Fri · 4 PM",
+          "v": "Seats open",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Weekend batch",
+          "s": "Sat, Sun · 10 AM",
+          "v": "Seats open",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Faculty",
+          "s": "Profiles and subjects",
+          "ic": "users",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "See fee details",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Answers on one page",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: every *demo class* is fixed over five phone calls and a WhatsApp voice note.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Quillmark Academy",
+        "t": "Admissions *chat*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Can my son attend a demo class?",
+          "at": "10%"
+         },
+         {
+          "t": "Which day? He has school till 3.",
+          "at": "37%"
+         },
+         {
+          "t": "Please call back.",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Still not scheduled",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: *demo class booking* online. Parents pick a batch, a date, and they're *in*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "quillmarkacademy.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "quillmarkacademy.in",
+        "t": "Book a *demo class*",
+        "s": "Free · 60 minutes"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Maths · Class 10",
+          "s": "Wed 4 PM",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Science · Class 10",
+          "s": "Thu 4 PM",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Confirm demo class",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Booked, no calls",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: a parent finds out about *missed classes* when the *exam result* comes home.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Quillmark Academy",
+        "t": "Attendance *register*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Aarav P.",
+          "s": "Absent 6 of last 10 classes",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Ishita G.",
+          "s": "Fees due since October",
+          "ic": "cash",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Rahul D.",
+          "s": "Missed unit test",
+          "ic": "users",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Parents never told",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: a *parent app* with attendance, fee dues and *test marks*, updated every day.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "quillmarkacademy.in",
+        "t": "Aarav's *progress*",
+        "s": "Parent app"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Attendance",
+          "s": "Absent today · alert sent",
+          "ic": "bell",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Fees",
+          "s": "Next due 5 Dec",
+          "v": "Pay",
+          "ic": "wallet",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Unit test",
+          "s": "Maths · marks added",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Message the teacher",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Parents in the loop",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Batches*, *demo classes* and a *parent app*, all in one system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · coaching institute system",
+     "items": [
+      {
+       "t": "Batches",
+       "s": "timings and faculty online",
+       "at": "2%"
+      },
+      {
+       "t": "Demo classes",
+       "s": "booked online",
+       "at": "26%"
+      },
+      {
+       "t": "Parent app",
+       "s": "attendance, fees, marks",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · BATCH",
+   "say": "Want this for your *institute*? Comment *BATCH* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "BATCH",
+     "label": "Comment *BATCH*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

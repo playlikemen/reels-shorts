@@ -66,6 +66,16 @@ Voice and pacing (since 2026-11-20, after owner feedback that the edge-tts Hindi
 
 ## Making a reel
 
+Fast path for "3 problems" and service reels (CR-106 to CR-134 were made this way): write the compact script in
+`brands/craftlayer/scripts/*.json` following `reel_schema.md`, then
+
+```bash
+python3.11 ops/gen_reels.py brands/craftlayer/scripts/*.json --start "2026-11-23 19:30"   # specs + one slot a day
+python3.11 ops/make.py specs/craftlayer/CR-1xx.json --lang en                             # render, Drive, sheet row
+```
+
+Hand-made specs (system walkthroughs like CR-101):
+
 ```bash
 # 1. copy the closest spec (CR-104 for "3 problems") and edit say/show/vis
 # 2. preview

@@ -48,6 +48,10 @@ def execute(slug, args, account, timeout=180):
         r = ((res.get("data") or {}).get("results") or [{}])[0]
         resp = r.get("response") or {}
         if not r.get("error") and resp.get("successful", False):
+            if "data" not in resp and "data_preview" in resp:
+                # Composio moved a large response to a remote file and sent only a preview. Never treat that as
+                # empty: callers (sheet.rows) would then overwrite real rows.
+                raise RuntimeError(f"{slug}: response too large, only a preview came back; request a smaller range")
             return resp.get("data") or {}
         err = str(r.get("error") or resp.get("error") or res)
         # per-minute rate limits (shared Google quota) clear on their own; daily quotas do not, so only short waits

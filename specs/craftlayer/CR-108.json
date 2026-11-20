@@ -1,0 +1,515 @@
+{
+ "title": "Salons: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "light": true,
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-108",
+  "brand": "craftlayer",
+  "topic": "Salons: 3 problems",
+  "schedule": {
+   "en": "2026-11-24 19:30"
+  },
+  "yt_title": {
+   "en": "Saturday full. Tuesday empty. #shorts"
+  },
+  "yt_tags": [
+   "salon booking app",
+   "salon website",
+   "salon appointment booking",
+   "salon management software",
+   "spa booking",
+   "salon india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Saturday, every chair is full. Tuesday, your stylists are scrolling their phones. 💇"
+  },
+  "ig_caption": {
+   "en": "Saturday, every chair is full. Tuesday, your stylists are scrolling their phones. 💇\n\n1️⃣ Everyone wants the weekend, weekdays sit empty\n✅ Fix: online booking with weekday offers\n\n2️⃣ Clients book prime slots and don't show up\n✅ Fix: reminders the day before + a small UPI advance\n\n3️⃣ \"Rate for highlights?\" on WhatsApp all day\n✅ Fix: a service menu with prices, durations and stylists\n\nFernlight Salon & Spa is a concept demo.\nSend this to a salon owner who needs it.\nWant this for your salon? Comment SALON 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#salonowner",
+   "#salonbusiness",
+   "#salonindia",
+   "#beautysalon",
+   "#spabusiness",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/salon/",
+   "https://craftlayer-studio.github.io/industries/beauty-wellness/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Saturday, every chair is *full*. Tuesday, your stylists are *scrolling their phones*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Saturday *full*.\nTuesday *empty*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "users",
+       "size": 170,
+       "label": "Saturday",
+       "c": "#465FFF",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "clock",
+       "size": 170,
+       "label": "Tuesday",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: everyone wants *Saturday at five*, and weekday slots sit *empty*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Fernlight Salon & Spa",
+        "t": "Tuesday *bookings*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "11:00 AM",
+          "s": "Empty",
+          "ic": "clock",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "1:00 PM",
+          "s": "Empty",
+          "ic": "clock",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "3:00 PM",
+          "s": "Hair spa · Meera",
+          "ic": "clock"
+         },
+         {
+          "t": "5:00 PM",
+          "s": "Empty",
+          "ic": "clock",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Stylists waiting",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: *online booking* that shows open slots, with a *weekday offer* to fill them.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "fernlightsalon.in",
+        "t": "Book a *slot*",
+        "s": "Fernlight · Tuesday"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "11:00 AM",
+          "s": "Weekday offer",
+          "v": "Book",
+          "ic": "tag",
+          "c": "#465FFF"
+         },
+         {
+          "t": "1:00 PM",
+          "s": "Weekday offer",
+          "v": "Book",
+          "ic": "tag",
+          "c": "#465FFF"
+         },
+         {
+          "t": "5:00 PM",
+          "s": "Available",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Confirm booking",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Tuesday filling up",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: she booked a bridal trial, then *didn't show up*. That slot is *gone*.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Fernlight Salon & Spa",
+        "t": "Today's *no-shows*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Anjali R.",
+          "s": "Bridal trial · 4 PM · no-show",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Kavya M.",
+          "s": "Keratin · 6 PM · no-show",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Pooja S.",
+          "s": "Facial · 2 PM · arrived",
+          "ic": "users"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Prime slots wasted",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: a *reminder* the day before, and a small *UPI advance* to hold the slot.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "fernlightsalon.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "fernlightsalon.in",
+        "t": "Hold your *slot*",
+        "s": "Anjali R. · Bridal trial"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Reminder",
+          "s": "Sent on WhatsApp, day before",
+          "ic": "bell",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Advance",
+          "s": "Adjusted in the final bill",
+          "v": "₹500",
+          "ic": "wallet",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Pay advance by UPI",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Slot held",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: \"Rate for highlights?\" Your front desk answers it on WhatsApp *all day*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Fernlight Salon & Spa",
+        "t": "Fernlight *Salon*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Rate for highlights?",
+          "at": "10%"
+         },
+         {
+          "t": "And keratin? Which stylist is free?",
+          "at": "37%"
+         },
+         {
+          "t": "Hello? Price please",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Same question, again",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: a *service menu* with prices, durations and *which stylist* does what.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "fernlightsalon.in",
+        "t": "Service *menu*",
+        "s": "Sample prices · concept demo"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Highlights",
+          "s": "2 hrs · Meera, Tanvi",
+          "v": "₹3,500",
+          "ic": "star",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Keratin",
+          "s": "3 hrs · Tanvi",
+          "v": "₹4,500",
+          "ic": "star",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Hair spa",
+          "s": "1 hr · all stylists",
+          "v": "₹1,200",
+          "ic": "star",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Book with a stylist",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Answered before they ask",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Bookings*, *reminders* and a *price menu*, all in one salon system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · salon system",
+     "items": [
+      {
+       "t": "Bookings",
+       "s": "weekday offers",
+       "at": "2%"
+      },
+      {
+       "t": "Reminders",
+       "s": "+ UPI advance",
+       "at": "26%"
+      },
+      {
+       "t": "Price menu",
+       "s": "services and stylists",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · SALON",
+   "say": "Want this for your *salon*? Comment *SALON* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "SALON",
+     "label": "Comment *SALON*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

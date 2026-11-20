@@ -1,0 +1,510 @@
+{
+ "title": "Startups: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "light": true,
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-126",
+  "brand": "craftlayer",
+  "topic": "Startups: 3 problems",
+  "schedule": {
+   "en": "2026-12-11 19:30"
+  },
+  "yt_title": {
+   "en": "Six months of slides. Zero users. #shorts"
+  },
+  "yt_tags": [
+   "mvp development",
+   "startup prototype",
+   "saas development india",
+   "clickable prototype",
+   "app development for startups",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Six months of pitch decks, zero users. Your idea needs a prototype. 🚀"
+  },
+  "ig_caption": {
+   "en": "Six months of pitch decks, zero users. Your idea needs a prototype. 🚀\n\n1️⃣ Nobody can click a slide\n✅ Fix: a clickable prototype in weeks\n\n2️⃣ The MVP has too many features and none are shipped\n✅ Fix: a scoped MVP with a demo every week\n\n3️⃣ The freelancer disappears after launch\n✅ Fix: code you own, with handover docs\n\nPulsegrid is a concept demo.\nSend this to a startup founder who needs it.\nBuilding something? Comment MVP 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#startup",
+   "#startupindia",
+   "#founder",
+   "#mvp",
+   "#saas",
+   "#buildinpublic",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/saas/",
+   "https://craftlayer-studio.github.io/industries/startups/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Six months of *pitch decks*, zero users. Your idea doesn't need more thinking. It needs a *prototype*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Six months of slides.\n*Zero* users."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "menu",
+       "size": 170,
+       "label": "Pitch deck v14",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "bolt",
+       "size": 170,
+       "label": "Prototype",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: investors and users can't *click* a slide. They nod, then *forget* it.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Pulsegrid",
+        "t": "Investor *follow-up*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Interesting idea!",
+          "at": "10%"
+         },
+         {
+          "t": "Ping us when there's a product",
+          "at": "37%"
+         },
+         {
+          "t": "Sure, soon!",
+          "me": true,
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Still a slide",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: a *clickable prototype* in weeks, so people can tap through the *real flow*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "pulsegrid.io",
+        "t": "Pulse*grid*",
+        "s": "Clickable prototype"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Sign up",
+          "s": "Working screen",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Dashboard",
+          "s": "Sample data",
+          "ic": "bolt",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Pricing",
+          "s": "Plan calculator",
+          "ic": "tag",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Try the prototype",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Shared as a link",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: your MVP has *forty features* on the list, and none of them are *shipped*.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Pulsegrid",
+        "t": "MVP *backlog*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Dark mode",
+          "s": "Not started",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "AI assistant",
+          "s": "Not started",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Team chat",
+          "s": "Not started",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Core dashboard",
+          "s": "Half done",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Launch date moved again",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: a *scoped MVP*. The one feature that matters first, with a *demo* every week.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "pulsegrid.io",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "pulsegrid.io",
+        "t": "MVP *scope*",
+        "s": "Ship first, add later"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Core dashboard",
+          "s": "Week 1 demo",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Sign up + billing",
+          "s": "Week 2 demo",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Everything else",
+          "s": "After real users",
+          "ic": "clock",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "See this week's demo",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Live with real users",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: the freelancer launches it, *disappears*, and nobody understands the *code*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Pulsegrid",
+        "t": "Freelancer"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Login is broken, can you check?",
+          "at": "10%"
+         },
+         {
+          "t": "Hello? It's urgent",
+          "at": "37%"
+         },
+         {
+          "t": "Where is the source code?",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Last seen 3 weeks ago",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: code *you own*, in your repo, with *handover docs* your next developer can read.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "pulsegrid.io",
+        "t": "Hand*over*",
+        "s": "Your GitHub · your accounts"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Source code",
+          "s": "In your repo",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Setup guide",
+          "s": "Run it in one command",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Handover docs",
+          "s": "How every part works",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Open the repo",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "You own everything",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Prototype*, *scoped MVP* and code *you own*, start to finish.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · startup system",
+     "items": [
+      {
+       "t": "Prototype",
+       "s": "clickable, in weeks",
+       "at": "2%"
+      },
+      {
+       "t": "Scoped MVP",
+       "s": "weekly demos",
+       "at": "26%"
+      },
+      {
+       "t": "Code you own",
+       "s": "repo + handover docs",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · MVP",
+   "say": "Building something? Comment *MVP* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "MVP",
+     "label": "Comment *MVP*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

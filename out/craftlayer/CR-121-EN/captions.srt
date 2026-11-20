@@ -1,0 +1,72 @@
+1
+00:00:00,375 --> 00:00:01,800
+Every hour you take to send the
+
+2
+00:00:01,750 --> 00:00:04,275
+itinerary your customer is booking with someone
+
+3
+00:00:04,225 --> 00:00:07,363
+faster Problem one every package lives in
+
+4
+00:00:07,313 --> 00:00:09,275
+a PDF and every gets the same
+
+5
+00:00:09,224 --> 00:00:12,125
+twenty messages The fix package pages with
+
+6
+00:00:12,074 --> 00:00:14,675
+dates prices hotels and photos Share one
+
+7
+00:00:14,625 --> 00:00:17,475
+link Problem two a family wants a
+
+8
+00:00:17,425 --> 00:00:19,513
+custom trip and the details trickle in
+
+9
+00:00:19,463 --> 00:00:21,788
+over three days The fix a trip
+
+10
+00:00:21,737 --> 00:00:24,524
+request form Dates people budget hotel type
+
+11
+00:00:24,549 --> 00:00:27,336
+all in one go Problem three payments
+
+12
+00:00:27,286 --> 00:00:29,149
+in one app ID copies in another
+
+13
+00:00:29,174 --> 00:00:31,774
+and the hotel voucher nowhere The fix
+
+14
+00:00:31,824 --> 00:00:33,699
+a booking page with UPI payment and
+
+15
+00:00:33,649 --> 00:00:36,824
+document upload in one place Package pages
+
+16
+00:00:36,849 --> 00:00:38,674
+trip requests and bookings all in one
+
+17
+00:00:38,624 --> 00:00:41,299
+system Want this for your travel business
+
+18
+00:00:41,374 --> 00:00:43,299
+Comment TRIP or send us a DM
+

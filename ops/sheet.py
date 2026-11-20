@@ -17,8 +17,17 @@ def col(name):
 
 def rows(tab):
     """All data rows as dicts, each with `_row` = its sheet row number."""
-    data = C.execute("GOOGLESHEETS_VALUES_GET", {"spreadsheet_id": K.SPREADSHEET_ID, "range": f"'{tab}'!A1:{LAST}500"}, K.SHEETS_ACCOUNT)
-    values = data.get("values") or (data.get("valueRanges") or [{}])[0].get("values") or []
+    # read in 10-row pages: Composio replaces responses over ~8k tokens with a preview (see composio.execute)
+    values, start, PAGE = [], 1, 10
+    while start <= 500:
+        data = C.execute("GOOGLESHEETS_VALUES_GET", {"spreadsheet_id": K.SPREADSHEET_ID, "range": f"'{tab}'!A{start}:{LAST}{start + PAGE - 1}",
+                                                      "major_dimension": "ROWS"}, K.SHEETS_ACCOUNT)
+        page = data.get("values") or (data.get("valueRanges") or [{}])[0].get("values") or []
+        page += [[]] * (PAGE - len(page))          # keep row numbers aligned when trailing rows are blank
+        values += page
+        if not any(r and str(r[0]).strip() for r in page):
+            break
+        start += PAGE
     out = []
     for n, r in enumerate(values[1:], start=2):
         if not r or not str(r[0]).strip():

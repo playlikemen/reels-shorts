@@ -1,0 +1,510 @@
+{
+ "title": "Wedding venues: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-115",
+  "brand": "craftlayer",
+  "topic": "Wedding venues: 3 problems",
+  "schedule": {
+   "en": "2026-12-01 19:30"
+  },
+  "yt_title": {
+   "en": "\"Is the 14th free?\" #shorts"
+  },
+  "yt_tags": [
+   "wedding venue website",
+   "banquet hall booking",
+   "venue availability calendar",
+   "wedding venue india",
+   "event venue software",
+   "marriage hall website",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "\"Is the fourteenth free?\" Wedding season starts, and that call never stops. 💍"
+  },
+  "ig_caption": {
+   "en": "\"Is the fourteenth free?\" Wedding season starts, and that call never stops. 💍\n\n1️⃣ Every family calls to check one date in the register\n✅ Fix: a live availability calendar with date holds\n\n2️⃣ Packages, capacity and menu explained on every call\n✅ Fix: a packages page with capacity, menu and what's included\n\n3️⃣ Relatives want venue visits on different days\n✅ Fix: visit slot booking plus a virtual tour\n\nHollin Barn is a concept demo.\nSend this to a wedding venue owner who needs it.\nWant this for your venue? Comment VENUE 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#weddingvenue",
+   "#banquethall",
+   "#weddingindia",
+   "#marriagehall",
+   "#eventvenue",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/weddings/",
+   "https://craftlayer-studio.github.io/industries/weddings/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "\"Is the *fourteenth* free?\" Wedding season starts, and that call *never stops*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "\"Is the 14th\n*free*?\""
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "phone",
+       "size": 170,
+       "label": "9 AM",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "phone",
+       "size": 170,
+       "label": "11 PM",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: every family calls to check *one date*, and someone flips through the *register*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Hollin Barn",
+        "t": "Booking *register*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "14 Feb",
+          "s": "Pencilled in? Check with sir",
+          "ic": "cal",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "15 Feb",
+          "s": "On hold till Friday?",
+          "ic": "cal",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "16 Feb",
+          "s": "Booked · Sharma family",
+          "ic": "cal"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Double booking risk",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: a *live availability calendar*. Families see free dates and *request a hold*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "hollinbarn.in",
+        "t": "February *dates*",
+        "s": "Hollin Barn · live calendar"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "14 Feb",
+          "s": "On hold",
+          "v": "Hold",
+          "ic": "clock",
+          "c": "#465FFF"
+         },
+         {
+          "t": "15 Feb",
+          "s": "Available",
+          "v": "Request",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "16 Feb",
+          "s": "Booked",
+          "v": "Booked",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Request a hold",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "No register, no clash",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: you explain packages, guest capacity and the menu *again*, on every *call*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Hollin Barn",
+        "t": "Venue *enquiries*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "How many guests can the lawn take?",
+          "at": "10%"
+         },
+         {
+          "t": "Is the veg menu part of the package?",
+          "at": "37%"
+         },
+         {
+          "t": "Decoration is extra?",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Same answers, every day",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: a *packages page* with capacity, menu options and what's *included*, clearly priced.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "hollinbarn.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "hollinbarn.in",
+        "t": "Wedding *packages*",
+        "s": "Sample prices · concept demo"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Lawn",
+          "s": "Up to 500 guests · veg menu",
+          "v": "₹2.5 L",
+          "ic": "leaf",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Banquet hall",
+          "s": "Up to 250 guests · decor included",
+          "v": "₹1.8 L",
+          "ic": "star",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Lawn + hall",
+          "s": "Two-day functions",
+          "v": "₹4 L",
+          "ic": "gift",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Compare packages",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Read before they call",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: six relatives want to *see the venue*, all on *different days*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Hollin Barn",
+        "t": "Visit *requests*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Mehra family",
+          "s": "Sat? Sun? Not sure",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Rao family",
+          "s": "Wants evening, no slot",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Gill family",
+          "s": "Abroad, can't visit",
+          "ic": "users",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Manager stuck on calls",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: *visit slot booking*, plus a *virtual tour* for family who can't come.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "hollinbarn.in",
+        "t": "Visit *Hollin Barn*",
+        "s": "Pick a slot"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Sat 5:00 PM",
+          "s": "Evening, lights on",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Virtual tour",
+          "s": "Lawn, hall, rooms",
+          "v": "Watch",
+          "ic": "globe",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Confirm visit",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Whole family sees it",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Dates*, *packages* and *visits*, all in one venue system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · wedding venue system",
+     "items": [
+      {
+       "t": "Dates",
+       "s": "live calendar",
+       "at": "2%"
+      },
+      {
+       "t": "Packages",
+       "s": "capacity, menu, price",
+       "at": "26%"
+      },
+      {
+       "t": "Visits",
+       "s": "slots + virtual tour",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · VENUE",
+   "say": "Want this for your *venue*? Comment *VENUE* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "VENUE",
+     "label": "Comment *VENUE*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

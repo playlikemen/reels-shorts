@@ -1,0 +1,847 @@
+[
+ {
+  "id": "CR-106",
+  "topic": "Clinics: 3 problems",
+  "audience": "clinic",
+  "demo_name": "Northstar Clinic",
+  "domain": "northstarclinic.in",
+  "keyword": "CLINIC",
+  "sources": ["https://craftlayer-studio.github.io/industry-demos/clinic/", "https://craftlayer-studio.github.io/industries/healthcare/"],
+  "hook": {
+   "say": "Patients aren't choosing the *better* doctor. They're choosing the one they can *book*.",
+   "title": "Better doctor?\nOr *easier booking*?",
+   "tiles": [{"ic": "users", "label": "Your clinic"}, {"ic": "cal", "label": "Next door", "hot": true}]
+  },
+  "problems": [
+   {
+    "say": "Problem one: a patient calls at *9 PM* to book, and the phone just *rings out*.",
+    "screen": "rows",
+    "head": "Missed *calls*",
+    "rows": [
+     {"t": "Unknown number", "s": "9:12 PM · missed", "ic": "phone", "bad": true},
+     {"t": "Unknown number", "s": "9:40 PM · missed", "ic": "phone", "bad": true},
+     {"t": "Mrs Kapoor", "s": "10:05 PM · missed", "ic": "phone", "bad": true}
+    ],
+    "chip": "No reply till morning",
+    "fix": {
+     "say": "The fix: *online booking* that shows the doctor's free slots, *day and night*.",
+     "head": "Book a *slot*",
+     "sub": "Dr Mehta · General physician",
+     "rows": [
+      {"t": "Tomorrow 10:30", "s": "Available", "v": "Book", "ic": "cal"},
+      {"t": "Tomorrow 11:00", "s": "Available", "v": "Book", "ic": "cal"},
+      {"t": "Tomorrow 5:30", "s": "Available", "v": "Book", "ic": "cal"}
+     ],
+     "btn": "Confirm booking",
+     "chip": "Confirmed on WhatsApp"
+    }
+   },
+   {
+    "say": "Problem two: forty minutes in the waiting room, and nobody knows *whose turn* is next.",
+    "screen": "chat",
+    "head": "Front *desk*",
+    "chat": [{"t": "I came at 10. How long more?"}, {"t": "My token is 18. Which number is running?"}],
+    "chip": "Crowded waiting room",
+    "fix": {
+     "say": "The fix: a *live queue* on their phone, so patients arrive *just in time*.",
+     "head": "Your *token*",
+     "sub": "Northstar Clinic · Today",
+     "rows": [
+      {"t": "Your token", "v": "18", "ic": "tag"},
+      {"t": "Now seeing", "v": "14", "ic": "users"},
+      {"t": "Leave home in", "v": "20 min", "ic": "clock"}
+     ],
+     "btn": "Get directions",
+     "chip": "Alert when token 16 is in"
+    }
+   },
+   {
+    "say": "Problem three: patients drive back to the clinic just to *collect a report*.",
+    "screen": "rows",
+    "head": "Reports *waiting*",
+    "rows": [
+     {"t": "Blood test · R. Sharma", "s": "Ready since Monday", "ic": "menu", "bad": true},
+     {"t": "X-ray · A. Khan", "s": "Not collected", "ic": "menu", "bad": true},
+     {"t": "Thyroid · S. Iyer", "s": "Called twice", "ic": "menu", "bad": true}
+    ],
+    "chip": "A second trip for paper",
+    "fix": {
+     "say": "The fix: reports and prescriptions sent on *WhatsApp*, saved in each patient's *record*.",
+     "head": "Report *ready*",
+     "sub": "R. Sharma · Blood test",
+     "rows": [
+      {"t": "Report PDF", "s": "Sent on WhatsApp", "ic": "chat"},
+      {"t": "Prescription", "s": "Saved to record", "ic": "check"}
+     ],
+     "btn": "Open patient record",
+     "chip": "No second visit"
+    }
+   }
+  ],
+  "recap_say": "*Bookings*, *live queue* and *reports*, all in one clinic system.",
+  "recap": [{"t": "Bookings", "s": "free slots 24x7"}, {"t": "Live queue", "s": "token on the phone"}, {"t": "Reports", "s": "on WhatsApp"}],
+  "cta_say": "Want this for your *clinic*? Comment *CLINIC* or send us a *DM*.",
+  "caption": "Patients aren't choosing the better doctor. They're choosing the one they can book. 🩺\n\n1️⃣ A patient calls at 9 PM and nobody picks up\n✅ Fix: online booking with free slots, day and night\n\n2️⃣ Nobody in the waiting room knows whose turn is next\n✅ Fix: a live token queue on the patient's phone\n\n3️⃣ Patients come back just to collect a report\n✅ Fix: reports and prescriptions on WhatsApp, saved to their record\n\nNorthstar Clinic is a concept demo.\nSend this to a clinic owner who needs it.\nWant this for your clinic? Comment CLINIC 👇\n\nVoiceover is AI-generated.",
+  "hashtags": ["#clinic", "#doctorsofindia", "#clinicmanagement", "#healthcareindia", "#doctorlife", "#smallbusinessindia", "#craftlayer"],
+  "tags": ["clinic website", "doctor appointment booking", "clinic management software", "online appointment", "patient queue system", "clinic india", "craftlayer studio"]
+ },
+ {
+  "id": "CR-107",
+  "topic": "Dental practices: 3 problems",
+  "audience": "dental clinic",
+  "demo_name": "Arbour Dental",
+  "domain": "arbourdental.in",
+  "keyword": "SMILE",
+  "sources": ["https://craftlayer-studio.github.io/industry-demos/dental/", "https://craftlayer-studio.github.io/industries/dental/"],
+  "hook": {
+   "say": "Patients aren't scared of your *chair*. They're scared of the *bill* nobody told them about.",
+   "title": "Not the *chair*.\nThe *bill*.",
+   "tiles": [{"ic": "cash", "label": "Unknown cost"}, {"ic": "check", "label": "Clear price", "hot": true}]
+  },
+  "problems": [
+   {
+    "say": "Problem one: \"How much for a root canal?\" gets a *come and see* reply on WhatsApp.",
+    "screen": "chat",
+    "head": "Arbour *Dental*",
+    "chat": [{"t": "Hi, how much for a root canal?"}, {"me": true, "t": "Come to the clinic, doctor will check."}, {"t": "Okay, I'll think about it."}],
+    "chip": "Patient never came",
+    "fix": {
+     "say": "The fix: every treatment on your website with an *honest price range*, before they walk in.",
+     "head": "Treatments and *prices*",
+     "sub": "Sample prices · concept demo",
+     "rows": [
+      {"t": "Cleaning", "s": "30 to 45 min", "v": "₹800–1,500", "ic": "star"},
+      {"t": "Filling", "s": "per tooth", "v": "₹1,000–2,500", "ic": "star"},
+      {"t": "Root canal", "s": "2 to 3 visits", "v": "₹5,000–9,000", "ic": "star"}
+     ],
+     "btn": "Book a check-up",
+     "chip": "Price known before visit"
+    }
+   },
+   {
+    "say": "Problem two: the second sitting was due in *two weeks*. The patient simply *forgot*.",
+    "screen": "rows",
+    "head": "Follow-ups *missed*",
+    "rows": [
+     {"t": "Ritu S.", "s": "Crown fitting · overdue 9 days", "ic": "users", "bad": true},
+     {"t": "Imran K.", "s": "RCT sitting 2 · overdue", "ic": "users", "bad": true},
+     {"t": "Deepa N.", "s": "Braces check · overdue", "ic": "users", "bad": true}
+    ],
+    "chip": "Treatment left half done",
+    "fix": {
+     "say": "The fix: *automatic recall reminders* on WhatsApp, with a one-tap *reschedule*.",
+     "head": "Recall *reminders*",
+     "sub": "Sent two days before",
+     "rows": [
+      {"t": "Ritu S.", "s": "Crown fitting · Thu 11:00", "v": "Sent", "ic": "bell"},
+      {"t": "Imran K.", "s": "RCT sitting 2 · Fri 4:30", "v": "Sent", "ic": "bell"},
+      {"t": "Deepa N.", "s": "Moved to Sat 10:00", "v": "Moved", "ic": "cal"}
+     ],
+     "btn": "Pick a new time",
+     "chip": "Rescheduled in one tap"
+    }
+   },
+   {
+    "say": "Problem three: a first-time patient wants to see *who's treating them* before they book.",
+    "screen": "chat",
+    "head": "New *patient*",
+    "chat": [{"t": "First time here. Who is the doctor?"}, {"t": "Can I see the clinic before booking?"}],
+    "chip": "No photos, no profile",
+    "fix": {
+     "say": "The fix: a *clinic tour*, a short *doctor intro* and Google reviews, all on one page.",
+     "head": "Meet the *team*",
+     "sub": "Arbour Dental",
+     "rows": [
+      {"t": "Clinic tour", "s": "Photos and a short video", "ic": "pin"},
+      {"t": "Doctor intro", "s": "Qualifications and approach", "ic": "users"},
+      {"t": "Google reviews", "s": "Linked from your profile", "ic": "star"}
+     ],
+     "btn": "Book first visit",
+     "chip": "Trust before the visit"
+    }
+   }
+  ],
+  "recap_say": "*Prices*, *recalls* and *trust*, all in one dental system.",
+  "recap": [{"t": "Prices", "s": "treatment ranges online"}, {"t": "Recalls", "s": "WhatsApp, automatic"}, {"t": "Trust", "s": "tour, team, reviews"}],
+  "cta_say": "Want this for your *dental clinic*? Comment *SMILE* or send us a *DM*.",
+  "caption": "Patients aren't scared of your chair. They're scared of the bill nobody told them about. 🦷\n\n1️⃣ \"How much for a root canal?\" gets a \"come and see\" reply\n✅ Fix: treatments and honest price ranges on your website\n\n2️⃣ Patients forget the second sitting\n✅ Fix: automatic recall reminders with one-tap reschedule\n\n3️⃣ First-time patients can't see who will treat them\n✅ Fix: clinic tour, doctor intro and reviews on one page\n\nArbour Dental is a concept demo.\nSend this to a dental clinic owner who needs it.\nWant this for your clinic? Comment SMILE 👇\n\nVoiceover is AI-generated.",
+  "hashtags": ["#dentist", "#dentalclinic", "#dentistindia", "#dentalpractice", "#dentalmarketing", "#smallbusinessindia", "#craftlayer"],
+  "tags": ["dental clinic website", "dentist website", "dental recall reminders", "dental appointment booking", "dental practice software", "dentist india", "craftlayer studio"]
+ },
+ {
+  "id": "CR-108",
+  "topic": "Salons: 3 problems",
+  "audience": "salon",
+  "demo_name": "Fernlight Salon & Spa",
+  "domain": "fernlightsalon.in",
+  "keyword": "SALON",
+  "sources": ["https://craftlayer-studio.github.io/industry-demos/salon/", "https://craftlayer-studio.github.io/industries/beauty-wellness/"],
+  "hook": {
+   "say": "Saturday, every chair is *full*. Tuesday, your stylists are *scrolling their phones*.",
+   "title": "Saturday *full*.\nTuesday *empty*.",
+   "tiles": [{"ic": "users", "label": "Saturday", "hot": true}, {"ic": "clock", "label": "Tuesday"}]
+  },
+  "problems": [
+   {
+    "say": "Problem one: everyone wants *Saturday at five*, and weekday slots sit *empty*.",
+    "screen": "rows",
+    "head": "Tuesday *bookings*",
+    "rows": [
+     {"t": "11:00 AM", "s": "Empty", "ic": "clock", "bad": true},
+     {"t": "1:00 PM", "s": "Empty", "ic": "clock", "bad": true},
+     {"t": "3:00 PM", "s": "Hair spa · Meera", "ic": "clock"},
+     {"t": "5:00 PM", "s": "Empty", "ic": "clock", "bad": true}
+    ],
+    "chip": "Stylists waiting",
+    "fix": {
+     "say": "The fix: *online booking* that shows open slots, with a *weekday offer* to fill them.",
+     "head": "Book a *slot*",
+     "sub": "Fernlight · Tuesday",
+     "rows": [
+      {"t": "11:00 AM", "s": "Weekday offer", "v": "Book", "ic": "tag"},
+      {"t": "1:00 PM", "s": "Weekday offer", "v": "Book", "ic": "tag"},
+      {"t": "5:00 PM", "s": "Available", "v": "Book", "ic": "cal"}
+     ],
+     "btn": "Confirm booking",
+     "chip": "Tuesday filling up"
+    }
+   },
+   {
+    "say": "Problem two: she booked a bridal trial, then *didn't show up*. That slot is *gone*.",
+    "screen": "rows",
+    "head": "Today's *no-shows*",
+    "rows": [
+     {"t": "Anjali R.", "s": "Bridal trial · 4 PM · no-show", "ic": "users", "bad": true},
+     {"t": "Kavya M.", "s": "Keratin · 6 PM · no-show", "ic": "users", "bad": true},
+     {"t": "Pooja S.", "s": "Facial · 2 PM · arrived", "ic": "users"}
+    ],
+    "chip": "Prime slots wasted",
+    "fix": {
+     "say": "The fix: a *reminder* the day before, and a small *UPI advance* to hold the slot.",
+     "head": "Hold your *slot*",
+     "sub": "Anjali R. · Bridal trial",
+     "rows": [
+      {"t": "Reminder", "s": "Sent on WhatsApp, day before", "ic": "bell"},
+      {"t": "Advance", "s": "Adjusted in the final bill", "v": "₹500", "ic": "wallet"}
+     ],
+     "btn": "Pay advance by UPI",
+     "chip": "Slot held"
+    }
+   },
+   {
+    "say": "Problem three: \"Rate for highlights?\" Your front desk answers it on WhatsApp *all day*.",
+    "screen": "chat",
+    "head": "Fernlight *Salon*",
+    "chat": [{"t": "Rate for highlights?"}, {"t": "And keratin? Which stylist is free?"}, {"t": "Hello? Price please"}],
+    "chip": "Same question, again",
+    "fix": {
+     "say": "The fix: a *service menu* with prices, durations and *which stylist* does what.",
+     "head": "Service *menu*",
+     "sub": "Sample prices · concept demo",
+     "rows": [
+      {"t": "Highlights", "s": "2 hrs · Meera, Tanvi", "v": "₹3,500", "ic": "star"},
+      {"t": "Keratin", "s": "3 hrs · Tanvi", "v": "₹4,500", "ic": "star"},
+      {"t": "Hair spa", "s": "1 hr · all stylists", "v": "₹1,200", "ic": "star"}
+     ],
+     "btn": "Book with a stylist",
+     "chip": "Answered before they ask"
+    }
+   }
+  ],
+  "recap_say": "*Bookings*, *reminders* and a *price menu*, all in one salon system.",
+  "recap": [{"t": "Bookings", "s": "weekday offers"}, {"t": "Reminders", "s": "+ UPI advance"}, {"t": "Price menu", "s": "services and stylists"}],
+  "cta_say": "Want this for your *salon*? Comment *SALON* or send us a *DM*.",
+  "caption": "Saturday, every chair is full. Tuesday, your stylists are scrolling their phones. 💇\n\n1️⃣ Everyone wants the weekend, weekdays sit empty\n✅ Fix: online booking with weekday offers\n\n2️⃣ Clients book prime slots and don't show up\n✅ Fix: reminders the day before + a small UPI advance\n\n3️⃣ \"Rate for highlights?\" on WhatsApp all day\n✅ Fix: a service menu with prices, durations and stylists\n\nFernlight Salon & Spa is a concept demo.\nSend this to a salon owner who needs it.\nWant this for your salon? Comment SALON 👇\n\nVoiceover is AI-generated.",
+  "hashtags": ["#salonowner", "#salonbusiness", "#salonindia", "#beautysalon", "#spabusiness", "#smallbusinessindia", "#craftlayer"],
+  "tags": ["salon booking app", "salon website", "salon appointment booking", "salon management software", "spa booking", "salon india", "craftlayer studio"]
+ },
+ {
+  "id": "CR-109",
+  "topic": "Coaching institutes: 3 problems",
+  "audience": "coaching institute",
+  "demo_name": "Quillmark Academy",
+  "domain": "quillmarkacademy.in",
+  "keyword": "BATCH",
+  "sources": ["https://craftlayer-studio.github.io/industry-demos/academy/", "https://craftlayer-studio.github.io/industries/education/"],
+  "hook": {
+   "say": "\"Sir, what are the fees, and when's the next batch?\" You've answered that *all morning*.",
+   "title": "\"Sir, what's\nthe *fee*?\"",
+   "tiles": [{"ic": "chat", "label": "Parents asking"}, {"ic": "phone", "label": "Your phone", "hot": true}]
+  },
+  "problems": [
+   {
+    "say": "Problem one: parents want *results* and *faculty* before fees, and you only have a pamphlet.",
+    "screen": "rows",
+    "head": "What parents *see*",
+    "rows": [
+     {"t": "Results", "s": "Not online", "ic": "star", "bad": true},
+     {"t": "Faculty", "s": "Not online", "ic": "users", "bad": true},
+     {"t": "Batch timings", "s": "Photo of a pamphlet", "ic": "clock", "bad": true}
+    ],
+    "chip": "Parent checks elsewhere",
+    "fix": {
+     "say": "The fix: one page with *batches*, *timings* and *faculty* profiles, ready before they ask.",
+     "head": "Class 10 *batches*",
+     "sub": "Quillmark Academy",
+     "rows": [
+      {"t": "Maths + Science", "s": "Mon to Fri · 4 PM", "v": "Seats open", "ic": "cal"},
+      {"t": "Weekend batch", "s": "Sat, Sun · 10 AM", "v": "Seats open", "ic": "cal"},
+      {"t": "Faculty", "s": "Profiles and subjects", "ic": "users"}
+     ],
+     "btn": "See fee details",
+     "chip": "Answers on one page"
+    }
+   },
+   {
+    "say": "Problem two: every *demo class* is fixed over five phone calls and a WhatsApp voice note.",
+    "screen": "chat",
+    "head": "Admissions *chat*",
+    "chat": [{"t": "Can my son attend a demo class?"}, {"t": "Which day? He has school till 3."}, {"t": "Please call back."}],
+    "chip": "Still not scheduled",
+    "fix": {
+     "say": "The fix: *demo class booking* online. Parents pick a batch, a date, and they're *in*.",
+     "head": "Book a *demo class*",
+     "sub": "Free · 60 minutes",
+     "rows": [
+      {"t": "Maths · Class 10", "s": "Wed 4 PM", "v": "Book", "ic": "cal"},
+      {"t": "Science · Class 10", "s": "Thu 4 PM", "v": "Book", "ic": "cal"}
+     ],
+     "btn": "Confirm demo class",
+     "chip": "Booked, no calls"
+    }
+   },
+   {
+    "say": "Problem three: a parent finds out about *missed classes* when the *exam result* comes home.",
+    "screen": "rows",
+    "head": "Attendance *register*",
+    "rows": [
+     {"t": "Aarav P.", "s": "Absent 6 of last 10 classes", "ic": "users", "bad": true},
+     {"t": "Ishita G.", "s": "Fees due since October", "ic": "cash", "bad": true},
+     {"t": "Rahul D.", "s": "Missed unit test", "ic": "users", "bad": true}
+    ],
+    "chip": "Parents never told",
+    "fix": {
+     "say": "The fix: a *parent app* with attendance, fee dues and *test marks*, updated every day.",
+     "head": "Aarav's *progress*",
+     "sub": "Parent app",
+     "rows": [
+      {"t": "Attendance", "s": "Absent today · alert sent", "ic": "bell"},
+      {"t": "Fees", "s": "Next due 5 Dec", "v": "Pay", "ic": "wallet"},
+      {"t": "Unit test", "s": "Maths · marks added", "ic": "check"}
+     ],
+     "btn": "Message the teacher",
+     "chip": "Parents in the loop"
+    }
+   }
+  ],
+  "recap_say": "*Batches*, *demo classes* and a *parent app*, all in one system.",
+  "recap": [{"t": "Batches", "s": "timings and faculty online"}, {"t": "Demo classes", "s": "booked online"}, {"t": "Parent app", "s": "attendance, fees, marks"}],
+  "cta_say": "Want this for your *institute*? Comment *BATCH* or send us a *DM*.",
+  "caption": "\"Sir, what are the fees, and when's the next batch?\" You've answered that all morning. 📚\n\n1️⃣ Parents want batches and faculty before paying, you have a pamphlet\n✅ Fix: one page with batches, timings and faculty profiles\n\n2️⃣ Every demo class takes five calls to fix\n✅ Fix: online demo class booking\n\n3️⃣ Parents hear about missed classes at result time\n✅ Fix: a parent app with attendance, fee dues and test marks\n\nQuillmark Academy is a concept demo.\nSend this to a coaching institute owner who needs it.\nWant this for your institute? Comment BATCH 👇\n\nVoiceover is AI-generated.",
+  "hashtags": ["#coachinginstitute", "#coachingclasses", "#tuitionclasses", "#edtechindia", "#teachersofindia", "#smallbusinessindia", "#craftlayer"],
+  "tags": ["coaching institute website", "coaching management software", "tuition class app", "parent app attendance", "demo class booking", "coaching india", "craftlayer studio"]
+ },
+ {
+  "id": "CR-110",
+  "topic": "Real estate agents: 3 problems",
+  "audience": "real estate agency",
+  "demo_name": "Ashgrove Property",
+  "domain": "ashgroveproperty.in",
+  "keyword": "PROPERTY",
+  "sources": ["https://craftlayer-studio.github.io/industry-demos/real-estate/", "https://craftlayer-studio.github.io/industries/real-estate/"],
+  "hook": {
+   "say": "Stop sending *thirty photos* on WhatsApp to buyers who only ask: *what's the price?*",
+   "title": "Stop the\n*photo dump*.",
+   "tiles": [{"ic": "phone", "label": "30 photos"}, {"ic": "tag", "label": "Price?", "hot": true}]
+  },
+  "problems": [
+   {
+    "say": "Problem one: every new lead means forwarding the *same photos* and location pin, *again*.",
+    "screen": "chat",
+    "head": "New *lead*",
+    "chat": [{"t": "Send pics of the 2BHK in Baner"}, {"t": "Also location and price?"}, {"me": true, "t": "Sending, one minute..."}],
+    "chip": "Same photos, every lead",
+    "fix": {
+     "say": "The fix: a *listing page* for every flat, with photos, price, map and *video walkthrough*.",
+     "head": "2BHK, *Baner*",
+     "sub": "Sample listing · concept demo",
+     "rows": [
+      {"t": "Price", "s": "Sample price", "v": "₹78 L", "ic": "tag"},
+      {"t": "Location", "s": "Map and nearby schools", "ic": "pin"},
+      {"t": "Walkthrough", "s": "2 min video", "ic": "bolt"}
+     ],
+     "btn": "Share listing link",
+     "chip": "One link, everything"
+    }
+   },
+   {
+    "say": "Problem two: you spend the evening on calls with people who are *just browsing*.",
+    "screen": "rows",
+    "head": "Today's *calls*",
+    "rows": [
+     {"t": "Lead · 7:10 PM", "s": "Just looking", "ic": "phone", "bad": true},
+     {"t": "Lead · 7:35 PM", "s": "No budget yet", "ic": "phone", "bad": true},
+     {"t": "Lead · 8:05 PM", "s": "Buying next year", "ic": "phone", "bad": true}
+    ],
+    "chip": "Evening gone",
+    "fix": {
+     "say": "The fix: an *enquiry form* that asks *budget*, area and move-in date before you call.",
+     "head": "Find your *home*",
+     "sub": "Takes 30 seconds",
+     "rows": [
+      {"t": "Budget", "s": "₹70 L to ₹90 L", "ic": "wallet"},
+      {"t": "Area", "s": "Baner, Aundh", "ic": "pin"},
+      {"t": "Move-in", "s": "Within 3 months", "ic": "cal"}
+     ],
+     "btn": "Send enquiry",
+     "chip": "Serious buyers first"
+    }
+   },
+   {
+    "say": "Problem three: fixing one *site visit* takes ten messages, and the buyer still comes *late*.",
+    "screen": "chat",
+    "head": "Site *visit*",
+    "chat": [{"t": "Can we see it Sunday?"}, {"me": true, "t": "Sunday 11 okay?"}, {"t": "Make it 4. Actually, Monday?"}],
+    "chip": "Visit still not fixed",
+    "fix": {
+     "say": "The fix: buyers pick a *visit slot* themselves, and get the *location pin* automatically.",
+     "head": "Book a *visit*",
+     "sub": "2BHK, Baner",
+     "rows": [
+      {"t": "Sat 11:00 AM", "s": "Available", "v": "Book", "ic": "cal"},
+      {"t": "Sun 4:00 PM", "s": "Available", "v": "Book", "ic": "cal"}
+     ],
+     "btn": "Confirm visit",
+     "chip": "Pin sent on WhatsApp"
+    }
+   }
+  ],
+  "recap_say": "*Listings*, *qualified leads* and *site visits*, all in one system.",
+  "recap": [{"t": "Listings", "s": "photos, price, video"}, {"t": "Qualified leads", "s": "budget and timeline"}, {"t": "Site visits", "s": "self-booked slots"}],
+  "cta_say": "Want this for your *agency*? Comment *PROPERTY* or send us a *DM*.",
+  "caption": "Stop sending thirty photos on WhatsApp to buyers who only ask: what's the price? 🏠\n\n1️⃣ Every lead means forwarding the same photos again\n✅ Fix: a listing page per flat with photos, price, map and video\n\n2️⃣ Evenings lost on calls with people just browsing\n✅ Fix: an enquiry form that asks budget, area and move-in date\n\n3️⃣ Fixing one site visit takes ten messages\n✅ Fix: buyers book a visit slot and get the location pin\n\nAshgrove Property is a concept demo.\nSend this to a real estate agency owner who needs it.\nWant this for your agency? Comment PROPERTY 👇\n\nVoiceover is AI-generated.",
+  "hashtags": ["#realestateagent", "#realestateindia", "#propertydealer", "#realtorlife", "#propertyforsale", "#smallbusinessindia", "#craftlayer"],
+  "tags": ["real estate website", "property listing website", "real estate lead form", "site visit booking", "real estate crm", "real estate india", "craftlayer studio"]
+ },
+ {
+  "id": "CR-111",
+  "topic": "CAs and consultants: 3 problems",
+  "audience": "consultancy",
+  "demo_name": "Halden & Rowe",
+  "domain": "haldenrowe.in",
+  "keyword": "CONSULT",
+  "sources": ["https://craftlayer-studio.github.io/industry-demos/legal/", "https://craftlayer-studio.github.io/industries/professional-services/"],
+  "hook": {
+   "say": "Your next client *Googled you* last night. They found nothing, so they *called someone else*.",
+   "title": "They *Googled* you.\nFound *nothing*.",
+   "tiles": [{"ic": "search", "label": "Your name"}, {"ic": "users", "label": "Someone else", "hot": true}]
+  },
+  "problems": [
+   {
+    "say": "Problem one: all you have online is a *visiting card* photo and an old *phone number*.",
+    "screen": "rows",
+    "head": "Search *results*",
+    "rows": [
+     {"t": "Website", "s": "None found", "ic": "globe", "bad": true},
+     {"t": "Phone number", "s": "Old, not reachable", "ic": "phone", "bad": true},
+     {"t": "Services", "s": "Not listed anywhere", "ic": "menu", "bad": true}
+    ],
+    "chip": "Client moves on",
+    "fix": {
+     "say": "The fix: a clean website with your *services*, *qualifications* and how you *work*.",
+     "head": "Halden *& Rowe*",
+     "sub": "Tax · Audit · Advisory",
+     "rows": [
+      {"t": "GST filing", "s": "Monthly and quarterly returns", "ic": "check"},
+      {"t": "Income tax", "s": "Individuals and firms", "ic": "check"},
+      {"t": "Company setup", "s": "Registration to compliance", "ic": "check"}
+     ],
+     "btn": "Book a consultation",
+     "chip": "Found on Google"
+    }
+   },
+   {
+    "say": "Problem two: Form 16, PAN, bank statements, all *scattered* across WhatsApp chats at *tax time*.",
+    "screen": "chat",
+    "head": "Client *documents*",
+    "chat": [{"t": "Sending Form 16 now"}, {"t": "Which PAN photo did you need?"}, {"t": "Resent the bank statement"}],
+    "chip": "Lost in chats",
+    "fix": {
+     "say": "The fix: a *secure upload* page, with a checklist of every document each client *still owes*.",
+     "head": "Upload *documents*",
+     "sub": "A. Verma · ITR",
+     "rows": [
+      {"t": "Form 16", "s": "Uploaded", "ic": "check"},
+      {"t": "PAN card", "s": "Uploaded", "ic": "check"},
+      {"t": "Bank statement", "s": "Still pending", "v": "Upload", "ic": "bell", "c": "#FF6B4A"}
+     ],
+     "btn": "Upload securely",
+     "chip": "Everything in one place"
+    }
+   },
+   {
+    "say": "Problem three: a first consultation takes *days of back and forth*, and it's often *unpaid*.",
+    "screen": "chat",
+    "head": "New *enquiry*",
+    "chat": [{"t": "Can we talk Thursday?"}, {"me": true, "t": "Thursday is full. Friday?"}, {"t": "Friday I'm travelling..."}],
+    "chip": "Still no meeting",
+    "fix": {
+     "say": "The fix: *paid consultation booking*. Clients pick a slot and pay by *UPI* upfront.",
+     "head": "Book a *consultation*",
+     "sub": "30 min · video or office",
+     "rows": [
+      {"t": "Mon 11:00 AM", "s": "Available", "v": "Book", "ic": "cal"},
+      {"t": "Tue 5:00 PM", "s": "Available", "v": "Book", "ic": "cal"},
+      {"t": "Consultation fee", "s": "Sample fee", "v": "₹1,000", "ic": "wallet"}
+     ],
+     "btn": "Pay by UPI",
+     "chip": "Booked and paid"
+    }
+   }
+  ],
+  "recap_say": "*Website*, *documents* and *consultations*, all in one system.",
+  "recap": [{"t": "Website", "s": "services, credentials"}, {"t": "Documents", "s": "secure upload + checklist"}, {"t": "Consultations", "s": "paid booking"}],
+  "cta_say": "Want this for your *practice*? Comment *CONSULT* or send us a *DM*.",
+  "caption": "Your next client Googled you last night. They found nothing, so they called someone else. 💼\n\n1️⃣ All you have online is a visiting card photo\n✅ Fix: a clean website with your services and how you work\n\n2️⃣ Form 16, PAN and bank statements scattered across WhatsApp\n✅ Fix: a secure upload page with a per-client checklist\n\n3️⃣ First consultations take days of back and forth\n✅ Fix: paid consultation booking with UPI upfront\n\nHalden & Rowe is a concept demo.\nSend this to a consultancy owner who needs it.\nWant this for your practice? Comment CONSULT 👇\n\nVoiceover is AI-generated.",
+  "hashtags": ["#charteredaccountant", "#cafirm", "#lawyersofindia", "#taxconsultant", "#consultant", "#smallbusinessindia", "#craftlayer"],
+  "tags": ["ca firm website", "chartered accountant website", "lawyer website", "client document upload", "consultation booking", "consultant india", "craftlayer studio"]
+ },
+ {
+  "id": "CR-112",
+  "topic": "Hotels and homestays: 3 problems",
+  "audience": "hotel",
+  "demo_name": "The Saltmarsh",
+  "domain": "thesaltmarsh.in",
+  "keyword": "STAY",
+  "sources": ["https://craftlayer-studio.github.io/industry-demos/hotel/", "https://craftlayer-studio.github.io/industries/hospitality/"],
+  "hook": {
+   "say": "You cleaned the room and cooked the breakfast. The *booking app* still took its *cut*.",
+   "title": "Your work.\n*Their commission*.",
+   "tiles": [{"ic": "star", "label": "Your stay"}, {"ic": "cash", "label": "Their cut", "hot": true}]
+  },
+  "problems": [
+   {
+    "say": "Problem one: guests find you on an app, and *every booking* pays a *commission*.",
+    "screen": "rows",
+    "head": "This month's *bookings*",
+    "rows": [
+     {"t": "Garden room · 2 nights", "s": "via booking app", "v": "− cut", "ic": "cash", "bad": true},
+     {"t": "Sea view · 3 nights", "s": "via booking app", "v": "− cut", "ic": "cash", "bad": true},
+     {"t": "Family suite · 1 night", "s": "via booking app", "v": "− cut", "ic": "cash", "bad": true}
+    ],
+    "chip": "Commission on every stay",
+    "fix": {
+     "say": "The fix: a *direct booking* engine on your own site, with UPI and *instant confirmation*.",
+     "head": "Book *direct*",
+     "sub": "The Saltmarsh · sample rates",
+     "rows": [
+      {"t": "Garden room", "s": "Fri to Sun", "v": "₹4,200", "ic": "leaf"},
+      {"t": "Sea view room", "s": "Fri to Sun", "v": "₹5,800", "ic": "star"}
+     ],
+     "btn": "Pay by UPI",
+     "chip": "Booking confirmed"
+    }
+   },
+   {
+    "say": "Problem two: your listing still shows *last year's photos* and the old *room rates*.",
+    "screen": "rows",
+    "head": "Your *listing*",
+    "rows": [
+     {"t": "Garden room", "s": "Photos from last year", "ic": "leaf", "bad": true},
+     {"t": "Room rates", "s": "Old season prices", "ic": "tag", "bad": true},
+     {"t": "New rooftop cafe", "s": "Not shown anywhere", "ic": "coffee", "bad": true}
+    ],
+    "chip": "Guests see the old you",
+    "fix": {
+     "say": "The fix: rooms, photos and rates on your site that *you update* from your *phone*.",
+     "head": "Edit *rooms*",
+     "sub": "Admin · The Saltmarsh",
+     "rows": [
+      {"t": "Garden room", "s": "6 new photos", "v": "Saved", "ic": "check"},
+      {"t": "Weekend rate", "s": "Updated today", "v": "Saved", "ic": "tag"},
+      {"t": "Rooftop cafe", "s": "Added to site", "v": "Live", "ic": "coffee"}
+     ],
+     "btn": "Publish changes",
+     "chip": "Live in seconds"
+    }
+   },
+   {
+    "say": "Problem three: the night before check-in, your phone fills with \"*How do we reach*?\"",
+    "screen": "chat",
+    "head": "Guest *messages*",
+    "chat": [{"t": "How do we reach from the station?"}, {"t": "Is parking available?"}, {"t": "What time is breakfast?"}],
+    "chip": "11 PM, still replying",
+    "fix": {
+     "say": "The fix: an *automatic WhatsApp* the day before, with *directions*, check-in time and parking.",
+     "head": "See you *tomorrow*",
+     "sub": "Sent automatically",
+     "rows": [
+      {"t": "Directions", "s": "Map pin from the station", "ic": "pin"},
+      {"t": "Check-in", "s": "From 1 PM", "ic": "clock"},
+      {"t": "Parking", "s": "Free, inside the gate", "ic": "check"}
+     ],
+     "btn": "Open in Maps",
+     "chip": "No late-night calls"
+    }
+   }
+  ],
+  "recap_say": "*Direct bookings*, *fresh listings* and *guest info*, all in one system.",
+  "recap": [{"t": "Direct bookings", "s": "no commission"}, {"t": "Fresh listings", "s": "you update"}, {"t": "Guest info", "s": "WhatsApp, automatic"}],
+  "cta_say": "Want this for your *hotel or homestay*? Comment *STAY* or send us a *DM*.",
+  "caption": "You cleaned the room and cooked the breakfast. The booking app still took its cut. 🏨\n\n1️⃣ Every booking through an app pays a commission\n✅ Fix: a direct booking engine on your own site, with UPI\n\n2️⃣ Your listing shows last year's photos and rates\n✅ Fix: rooms, photos and rates you update from your phone\n\n3️⃣ \"How do we reach?\" messages the night before check-in\n✅ Fix: an automatic WhatsApp with directions, check-in time and parking\n\nThe Saltmarsh is a concept demo.\nSend this to a hotel owner who needs it.\nWant this for your property? Comment STAY 👇\n\nVoiceover is AI-generated.",
+  "hashtags": ["#hotelowner", "#homestay", "#homestayindia", "#boutiquehotel", "#directbooking", "#smallbusinessindia", "#craftlayer"],
+  "tags": ["hotel booking engine", "homestay website", "direct booking website", "hotel website india", "guest whatsapp automation", "boutique hotel website", "craftlayer studio"]
+ },
+ {
+  "id": "CR-113",
+  "topic": "Interior designers: 3 problems",
+  "audience": "design studio",
+  "demo_name": "Ostrander Studio",
+  "domain": "ostranderstudio.in",
+  "keyword": "DESIGN",
+  "sources": ["https://craftlayer-studio.github.io/industry-demos/architecture/", "https://craftlayer-studio.github.io/industries/architecture/"],
+  "hook": {
+   "say": "Your best kitchen is *buried* in your phone gallery, between site photos and *family selfies*.",
+   "title": "Best work.\n*Buried in gallery*.",
+   "tiles": [{"ic": "phone", "label": "Gallery"}, {"ic": "globe", "label": "Portfolio", "hot": true}]
+  },
+  "problems": [
+   {
+    "say": "Problem one: a client asks for *past work*, and you send *fifty pictures* on WhatsApp.",
+    "screen": "chat",
+    "head": "New *client*",
+    "chat": [{"t": "Can you share some of your past work?"}, {"me": true, "t": "Sending, 50 photos coming"}, {"t": "Which one was the 3BHK?"}],
+    "chip": "Client confused",
+    "fix": {
+     "say": "The fix: *project pages* with before and after photos, budget range and *timeline*.",
+     "head": "3BHK, *Koramangala*",
+     "sub": "Sample project · concept demo",
+     "rows": [
+      {"t": "Before and after", "s": "Kitchen, living, bedrooms", "ic": "star"},
+      {"t": "Budget range", "s": "Sample range", "v": "₹12–15 L", "ic": "wallet"},
+      {"t": "Timeline", "s": "14 weeks, design to handover", "ic": "clock"}
+     ],
+     "btn": "See more projects",
+     "chip": "One link per project"
+    }
+   },
+   {
+    "say": "Problem two: two meetings in, you find out the *budget* was never *realistic*.",
+    "screen": "rows",
+    "head": "Leads this *week*",
+    "rows": [
+     {"t": "Modular kitchen", "s": "Budget never asked", "ic": "users", "bad": true},
+     {"t": "Full 3BHK", "s": "Budget far too low", "ic": "users", "bad": true},
+     {"t": "Bedroom refresh", "s": "Just collecting ideas", "ic": "users", "bad": true}
+    ],
+    "chip": "Meetings wasted",
+    "fix": {
+     "say": "The fix: an *enquiry form* with room type, *budget range* and start date, before any meeting.",
+     "head": "Start a *project*",
+     "sub": "Ostrander Studio",
+     "rows": [
+      {"t": "Space", "s": "Full 3BHK", "ic": "menu"},
+      {"t": "Budget range", "s": "₹10 L to ₹15 L", "ic": "wallet"},
+      {"t": "Start", "s": "Next month", "ic": "cal"}
+     ],
+     "btn": "Send brief",
+     "chip": "Right clients first"
+    }
+   },
+   {
+    "say": "Problem three: clients call daily asking *what's done*, while you're stuck on *site*.",
+    "screen": "chat",
+    "head": "Client *calls*",
+    "chat": [{"t": "Has the wardrobe been fitted?"}, {"t": "Can you send kitchen photos today?"}, {"t": "When is the painter coming?"}],
+    "chip": "Calls during site work",
+    "fix": {
+     "say": "The fix: a *progress page* for each client, with photos, stages and the *next step*.",
+     "head": "Your *project*",
+     "sub": "Mehta residence",
+     "rows": [
+      {"t": "Wardrobes", "s": "Fitted · photos added", "ic": "check"},
+      {"t": "Kitchen", "s": "Countertop this week", "ic": "clock"},
+      {"t": "Painting", "s": "Starts Monday", "ic": "cal"}
+     ],
+     "btn": "View site photos",
+     "chip": "Fewer calls, happier client"
+    }
+   }
+  ],
+  "recap_say": "*Portfolio*, *serious leads* and *client updates*, all in one system.",
+  "recap": [{"t": "Portfolio", "s": "project pages"}, {"t": "Serious leads", "s": "budget upfront"}, {"t": "Client updates", "s": "progress page"}],
+  "cta_say": "Want this for your *studio*? Comment *DESIGN* or send us a *DM*.",
+  "caption": "Your best kitchen is buried in your phone gallery, between site photos and family selfies. 🛋️\n\n1️⃣ Clients ask for past work and get fifty WhatsApp photos\n✅ Fix: project pages with before/after, budget range and timeline\n\n2️⃣ Two meetings in, the budget was never realistic\n✅ Fix: an enquiry form with room type, budget range and start date\n\n3️⃣ Clients call daily asking what's done\n✅ Fix: a progress page per client with photos and next steps\n\nOstrander Studio is a concept demo.\nSend this to a design studio owner who needs it.\nWant this for your studio? Comment DESIGN 👇\n\nVoiceover is AI-generated.",
+  "hashtags": ["#interiordesigner", "#interiordesignindia", "#architectsofindia", "#interiorstudio", "#homeinteriors", "#smallbusinessindia", "#craftlayer"],
+  "tags": ["interior designer website", "architect portfolio website", "interior design enquiry form", "client progress portal", "interior design india", "design studio website", "craftlayer studio"]
+ },
+ {
+  "id": "CR-114",
+  "topic": "Builders and contractors: 3 problems",
+  "audience": "construction business",
+  "demo_name": "Keystone Build Co.",
+  "domain": "keystonebuild.in",
+  "keyword": "BUILD",
+  "sources": ["https://craftlayer-studio.github.io/industry-demos/builders/", "https://craftlayer-studio.github.io/industries/construction/"],
+  "hook": {
+   "say": "You've built homes across the city. Online, your company *doesn't exist*.",
+   "title": "Built *everywhere*.\nOnline: *nowhere*.",
+   "tiles": [{"ic": "pin", "label": "On the street"}, {"ic": "search", "label": "On Google", "hot": true}]
+  },
+  "problems": [
+   {
+    "say": "Problem one: clients ask for *past projects*, and all you can offer is \"come, I'll *drive you*.\"",
+    "screen": "chat",
+    "head": "New *enquiry*",
+    "chat": [{"t": "Can I see a house you've built?"}, {"me": true, "t": "Come Sunday, I'll take you around"}, {"t": "Don't you have photos online?"}],
+    "chip": "No proof online",
+    "fix": {
+     "say": "The fix: a *project gallery* with photos, location, size and *handover date* for each build.",
+     "head": "Our *projects*",
+     "sub": "Sample projects · concept demo",
+     "rows": [
+      {"t": "G+2 house, Wakad", "s": "2,400 sq ft · handed over", "ic": "pin"},
+      {"t": "Duplex, Baner", "s": "3,100 sq ft · handed over", "ic": "pin"},
+      {"t": "Extension, Aundh", "s": "In progress", "ic": "clock"}
+     ],
+     "btn": "Request a quote",
+     "chip": "Proof in one link"
+    }
+   },
+   {
+    "say": "Problem two: you drive across town for a *rough estimate*, and they *never call* back.",
+    "screen": "rows",
+    "head": "Site visits this *week*",
+    "rows": [
+     {"t": "Wakad · extension", "s": "Estimate given · no reply", "ic": "pin", "bad": true},
+     {"t": "Hinjewadi · new floor", "s": "Estimate given · no reply", "ic": "pin", "bad": true},
+     {"t": "Pimple Saudagar · repair", "s": "Just comparing rates", "ic": "pin", "bad": true}
+    ],
+    "chip": "Mornings and fuel lost",
+    "fix": {
+     "say": "The fix: an *estimate request* where clients upload site *photos* and measurements first.",
+     "head": "Get an *estimate*",
+     "sub": "Keystone Build Co.",
+     "rows": [
+      {"t": "Work type", "s": "Extension, one floor", "ic": "menu"},
+      {"t": "Site photos", "s": "4 uploaded", "ic": "check"},
+      {"t": "Plot size", "s": "1,200 sq ft", "ic": "pin"}
+     ],
+     "btn": "Send request",
+     "chip": "Visit only when serious"
+    }
+   },
+   {
+    "say": "Problem three: \"How much have I paid so far?\" ends in an *argument* over a *diary*.",
+    "screen": "chat",
+    "head": "Client *chat*",
+    "chat": [{"t": "How much have I paid till now?"}, {"t": "Your diary says something different from mine"}],
+    "chip": "Payment dispute",
+    "fix": {
+     "say": "The fix: a *client portal* with every milestone, payment received and *what's due next*.",
+     "head": "Payment *milestones*",
+     "sub": "Sample project · Wakad",
+     "rows": [
+      {"t": "Foundation", "s": "Paid · 12 Sep", "v": "Done", "ic": "check"},
+      {"t": "First slab", "s": "Paid · 20 Oct", "v": "Done", "ic": "check"},
+      {"t": "Brickwork", "s": "Due on completion", "v": "Next", "ic": "clock"}
+     ],
+     "btn": "Download statement",
+     "chip": "Same numbers for both"
+    }
+   }
+  ],
+  "recap_say": "*Gallery*, *estimates* and *payments*, all in one system.",
+  "recap": [{"t": "Gallery", "s": "every project online"}, {"t": "Estimates", "s": "photos first"}, {"t": "Payments", "s": "milestones portal"}],
+  "cta_say": "Want this for your *company*? Comment *BUILD* or send us a *DM*.",
+  "caption": "You've built homes across the city. Online, your company doesn't exist. 🏗️\n\n1️⃣ Clients ask for past projects, you offer to drive them around\n✅ Fix: a project gallery with photos, location and handover date\n\n2️⃣ Site visits for rough estimates that never call back\n✅ Fix: an estimate request with site photos and measurements first\n\n3️⃣ \"How much have I paid?\" ends in an argument over a diary\n✅ Fix: a client portal with milestones and payments\n\nKeystone Build Co. is a concept demo.\nSend this to a construction business owner who needs it.\nWant this for your company? Comment BUILD 👇\n\nVoiceover is AI-generated.",
+  "hashtags": ["#builder", "#contractor", "#constructionindia", "#civilcontractor", "#homeconstruction", "#smallbusinessindia", "#craftlayer"],
+  "tags": ["builder website", "contractor website", "construction estimate form", "client payment portal", "construction business india", "construction project gallery", "craftlayer studio"]
+ },
+ {
+  "id": "CR-115",
+  "topic": "Wedding venues: 3 problems",
+  "audience": "wedding venue",
+  "demo_name": "Hollin Barn",
+  "domain": "hollinbarn.in",
+  "keyword": "VENUE",
+  "sources": ["https://craftlayer-studio.github.io/industry-demos/weddings/", "https://craftlayer-studio.github.io/industries/weddings/"],
+  "hook": {
+   "say": "\"Is the *fourteenth* free?\" Wedding season starts, and that call *never stops*.",
+   "title": "\"Is the 14th\n*free*?\"",
+   "tiles": [{"ic": "phone", "label": "9 AM"}, {"ic": "phone", "label": "11 PM", "hot": true}]
+  },
+  "problems": [
+   {
+    "say": "Problem one: every family calls to check *one date*, and someone flips through the *register*.",
+    "screen": "rows",
+    "head": "Booking *register*",
+    "rows": [
+     {"t": "14 Feb", "s": "Pencilled in? Check with sir", "ic": "cal", "bad": true},
+     {"t": "15 Feb", "s": "On hold till Friday?", "ic": "cal", "bad": true},
+     {"t": "16 Feb", "s": "Booked · Sharma family", "ic": "cal"}
+    ],
+    "chip": "Double booking risk",
+    "fix": {
+     "say": "The fix: a *live availability calendar*. Families see free dates and *request a hold*.",
+     "head": "February *dates*",
+     "sub": "Hollin Barn · live calendar",
+     "rows": [
+      {"t": "14 Feb", "s": "On hold", "v": "Hold", "ic": "clock"},
+      {"t": "15 Feb", "s": "Available", "v": "Request", "ic": "cal"},
+      {"t": "16 Feb", "s": "Booked", "v": "Booked", "ic": "check"}
+     ],
+     "btn": "Request a hold",
+     "chip": "No register, no clash"
+    }
+   },
+   {
+    "say": "Problem two: you explain packages, guest capacity and the menu *again*, on every *call*.",
+    "screen": "chat",
+    "head": "Venue *enquiries*",
+    "chat": [{"t": "How many guests can the lawn take?"}, {"t": "Is the veg menu part of the package?"}, {"t": "Decoration is extra?"}],
+    "chip": "Same answers, every day",
+    "fix": {
+     "say": "The fix: a *packages page* with capacity, menu options and what's *included*, clearly priced.",
+     "head": "Wedding *packages*",
+     "sub": "Sample prices · concept demo",
+     "rows": [
+      {"t": "Lawn", "s": "Up to 500 guests · veg menu", "v": "₹2.5 L", "ic": "leaf"},
+      {"t": "Banquet hall", "s": "Up to 250 guests · decor included", "v": "₹1.8 L", "ic": "star"},
+      {"t": "Lawn + hall", "s": "Two-day functions", "v": "₹4 L", "ic": "gift"}
+     ],
+     "btn": "Compare packages",
+     "chip": "Read before they call"
+    }
+   },
+   {
+    "say": "Problem three: six relatives want to *see the venue*, all on *different days*.",
+    "screen": "rows",
+    "head": "Visit *requests*",
+    "rows": [
+     {"t": "Mehra family", "s": "Sat? Sun? Not sure", "ic": "users", "bad": true},
+     {"t": "Rao family", "s": "Wants evening, no slot", "ic": "users", "bad": true},
+     {"t": "Gill family", "s": "Abroad, can't visit", "ic": "users", "bad": true}
+    ],
+    "chip": "Manager stuck on calls",
+    "fix": {
+     "say": "The fix: *visit slot booking*, plus a *virtual tour* for family who can't come.",
+     "head": "Visit *Hollin Barn*",
+     "sub": "Pick a slot",
+     "rows": [
+      {"t": "Sat 5:00 PM", "s": "Evening, lights on", "v": "Book", "ic": "cal"},
+      {"t": "Virtual tour", "s": "Lawn, hall, rooms", "v": "Watch", "ic": "globe"}
+     ],
+     "btn": "Confirm visit",
+     "chip": "Whole family sees it"
+    }
+   }
+  ],
+  "recap_say": "*Dates*, *packages* and *visits*, all in one venue system.",
+  "recap": [{"t": "Dates", "s": "live calendar"}, {"t": "Packages", "s": "capacity, menu, price"}, {"t": "Visits", "s": "slots + virtual tour"}],
+  "cta_say": "Want this for your *venue*? Comment *VENUE* or send us a *DM*.",
+  "caption": "\"Is the fourteenth free?\" Wedding season starts, and that call never stops. 💍\n\n1️⃣ Every family calls to check one date in the register\n✅ Fix: a live availability calendar with date holds\n\n2️⃣ Packages, capacity and menu explained on every call\n✅ Fix: a packages page with capacity, menu and what's included\n\n3️⃣ Relatives want venue visits on different days\n✅ Fix: visit slot booking plus a virtual tour\n\nHollin Barn is a concept demo.\nSend this to a wedding venue owner who needs it.\nWant this for your venue? Comment VENUE 👇\n\nVoiceover is AI-generated.",
+  "hashtags": ["#weddingvenue", "#banquethall", "#weddingindia", "#marriagehall", "#eventvenue", "#smallbusinessindia", "#craftlayer"],
+  "tags": ["wedding venue website", "banquet hall booking", "venue availability calendar", "wedding venue india", "event venue software", "marriage hall website", "craftlayer studio"]
+ }
+]

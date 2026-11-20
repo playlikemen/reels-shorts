@@ -1,0 +1,506 @@
+{
+ "title": "Dental practices: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-107",
+  "brand": "craftlayer",
+  "topic": "Dental practices: 3 problems",
+  "schedule": {
+   "en": "2026-11-23 19:30"
+  },
+  "yt_title": {
+   "en": "Not the chair. The bill. #shorts"
+  },
+  "yt_tags": [
+   "dental clinic website",
+   "dentist website",
+   "dental recall reminders",
+   "dental appointment booking",
+   "dental practice software",
+   "dentist india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Patients aren't scared of your chair. They're scared of the bill nobody told them about. 🦷"
+  },
+  "ig_caption": {
+   "en": "Patients aren't scared of your chair. They're scared of the bill nobody told them about. 🦷\n\n1️⃣ \"How much for a root canal?\" gets a \"come and see\" reply\n✅ Fix: treatments and honest price ranges on your website\n\n2️⃣ Patients forget the second sitting\n✅ Fix: automatic recall reminders with one-tap reschedule\n\n3️⃣ First-time patients can't see who will treat them\n✅ Fix: clinic tour, doctor intro and reviews on one page\n\nArbour Dental is a concept demo.\nSend this to a dental clinic owner who needs it.\nWant this for your clinic? Comment SMILE 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#dentist",
+   "#dentalclinic",
+   "#dentistindia",
+   "#dentalpractice",
+   "#dentalmarketing",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/dental/",
+   "https://craftlayer-studio.github.io/industries/dental/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Patients aren't scared of your *chair*. They're scared of the *bill* nobody told them about.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Not the *chair*.\nThe *bill*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "cash",
+       "size": 170,
+       "label": "Unknown cost",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "check",
+       "size": 170,
+       "label": "Clear price",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: \"How much for a root canal?\" gets a *come and see* reply on WhatsApp.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Arbour Dental",
+        "t": "Arbour *Dental*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Hi, how much for a root canal?",
+          "at": "10%"
+         },
+         {
+          "t": "Come to the clinic, doctor will check.",
+          "me": true,
+          "at": "37%"
+         },
+         {
+          "t": "Okay, I'll think about it.",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Patient never came",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: every treatment on your website with an *honest price range*, before they walk in.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "arbourdental.in",
+        "t": "Treatments and *prices*",
+        "s": "Sample prices · concept demo"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Cleaning",
+          "s": "30 to 45 min",
+          "v": "₹800–1,500",
+          "ic": "star",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Filling",
+          "s": "per tooth",
+          "v": "₹1,000–2,500",
+          "ic": "star",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Root canal",
+          "s": "2 to 3 visits",
+          "v": "₹5,000–9,000",
+          "ic": "star",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Book a check-up",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Price known before visit",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: the second sitting was due in *two weeks*. The patient simply *forgot*.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Arbour Dental",
+        "t": "Follow-ups *missed*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Ritu S.",
+          "s": "Crown fitting · overdue 9 days",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Imran K.",
+          "s": "RCT sitting 2 · overdue",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Deepa N.",
+          "s": "Braces check · overdue",
+          "ic": "users",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Treatment left half done",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: *automatic recall reminders* on WhatsApp, with a one-tap *reschedule*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "arbourdental.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "arbourdental.in",
+        "t": "Recall *reminders*",
+        "s": "Sent two days before"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Ritu S.",
+          "s": "Crown fitting · Thu 11:00",
+          "v": "Sent",
+          "ic": "bell",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Imran K.",
+          "s": "RCT sitting 2 · Fri 4:30",
+          "v": "Sent",
+          "ic": "bell",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Deepa N.",
+          "s": "Moved to Sat 10:00",
+          "v": "Moved",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Pick a new time",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Rescheduled in one tap",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: a first-time patient wants to see *who's treating them* before they book.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Arbour Dental",
+        "t": "New *patient*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "First time here. Who is the doctor?",
+          "at": "10%"
+         },
+         {
+          "t": "Can I see the clinic before booking?",
+          "at": "65%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "No photos, no profile",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: a *clinic tour*, a short *doctor intro* and Google reviews, all on one page.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "arbourdental.in",
+        "t": "Meet the *team*",
+        "s": "Arbour Dental"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Clinic tour",
+          "s": "Photos and a short video",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Doctor intro",
+          "s": "Qualifications and approach",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Google reviews",
+          "s": "Linked from your profile",
+          "ic": "star",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Book first visit",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Trust before the visit",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Prices*, *recalls* and *trust*, all in one dental system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · dental clinic system",
+     "items": [
+      {
+       "t": "Prices",
+       "s": "treatment ranges online",
+       "at": "2%"
+      },
+      {
+       "t": "Recalls",
+       "s": "WhatsApp, automatic",
+       "at": "26%"
+      },
+      {
+       "t": "Trust",
+       "s": "tour, team, reviews",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · SMILE",
+   "say": "Want this for your *dental clinic*? Comment *SMILE* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "SMILE",
+     "label": "Comment *SMILE*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,512 @@
+{
+ "title": "Travel agents: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-121",
+  "brand": "craftlayer",
+  "topic": "Travel agents: 3 problems",
+  "schedule": {
+   "en": "2026-12-06 19:30"
+  },
+  "yt_title": {
+   "en": "Slow itinerary. Lost booking. #shorts"
+  },
+  "yt_tags": [
+   "travel agency website",
+   "tour package page",
+   "trip request form",
+   "travel booking system",
+   "travel agent india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Every hour you take to send the itinerary, your customer books with someone faster. ✈️"
+  },
+  "ig_caption": {
+   "en": "Every hour you take to send the itinerary, your customer books with someone faster. ✈️\n\n1️⃣ Packages live in PDFs and every enquiry gets the same messages\n✅ Fix: package pages with dates, prices, hotels and photos\n\n2️⃣ Custom trip details trickle in over days\n✅ Fix: a trip request form that asks everything once\n\n3️⃣ Payments and documents scattered everywhere\n✅ Fix: a booking page with UPI and document upload\n\nWanderwise Holidays is a concept demo.\nSend this to a travel agency owner who needs it.\nWant this for your travel business? Comment TRIP 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#travelagent",
+   "#travelagency",
+   "#tourpackages",
+   "#travelbusiness",
+   "#indiatravel",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industries/hospitality/",
+   "https://craftlayer-studio.github.io/services/web-development/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Every hour you take to send the *itinerary*, your customer is *booking* with someone faster.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Slow itinerary.\n*Lost booking*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "clock",
+       "size": 170,
+       "label": "Still typing...",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "globe",
+       "size": 170,
+       "label": "Package link",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: every *package* lives in a PDF, and every enquiry gets the *same twenty messages*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Wanderwise Holidays",
+        "t": "New *enquiry*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Manali package details?",
+          "at": "10%"
+         },
+         {
+          "t": "Price for 4 people?",
+          "at": "37%"
+         },
+         {
+          "t": "Hotel photos pls",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Same PDF, sent again",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: *package pages* with dates, prices, hotels and photos. Share *one link*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "wanderwise.in",
+        "t": "Winter *packages*",
+        "s": "Wanderwise Holidays"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Manali · 5N/6D",
+          "s": "Dec & Jan dates",
+          "v": "₹18,500",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Goa · 3N/4D",
+          "s": "Beach resort",
+          "v": "₹12,900",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Kerala · 4N/5D",
+          "s": "Houseboat stay",
+          "v": "₹21,000",
+          "ic": "pin",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Share package link",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "One link answers everything",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: a family wants a *custom trip*, and the details trickle in over *three days*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Wanderwise Holidays",
+        "t": "Custom *trip*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "We're 2 adults, 2 kids",
+          "at": "10%"
+         },
+         {
+          "t": "Oh, budget around 80k",
+          "at": "37%"
+         },
+         {
+          "t": "Dates? Maybe end of Dec",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Day three, still no quote",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: a *trip request form*. Dates, people, budget, hotel type, all in *one go*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "wanderwise.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "wanderwise.in",
+        "t": "Plan my *trip*",
+        "s": "Takes a minute"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Travellers",
+          "s": "2 adults, 2 kids",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Dates",
+          "s": "24 to 29 Dec",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Budget",
+          "s": "₹80,000",
+          "ic": "wallet",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Stay",
+          "s": "4-star, family room",
+          "ic": "star",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Send trip request",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Quote ready the same day",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: payments in one app, *ID copies* in another, and the hotel *voucher* nowhere.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Wanderwise Holidays",
+        "t": "Booking *#118*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Advance",
+          "s": "Paid? check bank app",
+          "ic": "bank",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "ID proofs",
+          "s": "2 of 4 received",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Hotel voucher",
+          "s": "Not sent",
+          "ic": "check",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Customer calls the night before",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: a *booking page* with *UPI* payment and document upload in one place.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "wanderwise.in",
+        "t": "Your *booking*",
+        "s": "Kerala · 24 to 29 Dec"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Advance",
+          "s": "Paid by UPI",
+          "v": "₹20,000",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "ID proofs",
+          "s": "4 of 4 uploaded",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Hotel voucher",
+          "s": "Ready to download",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Pay advance",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Everything in one link",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Package pages*, *trip requests* and *bookings*, all in one system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · travel agency system",
+     "items": [
+      {
+       "t": "Package pages",
+       "s": "dates, prices, photos",
+       "at": "2%"
+      },
+      {
+       "t": "Trip requests",
+       "s": "every detail in one form",
+       "at": "26%"
+      },
+      {
+       "t": "Bookings",
+       "s": "UPI + documents",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · TRIP",
+   "say": "Want this for your *travel* business? Comment *TRIP* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "TRIP",
+     "label": "Comment *TRIP*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

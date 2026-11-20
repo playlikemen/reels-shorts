@@ -1,0 +1,513 @@
+{
+ "title": "Garages: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-116",
+  "brand": "craftlayer",
+  "topic": "Garages: 3 problems",
+  "schedule": {
+   "en": "2026-12-02 19:30"
+  },
+  "yt_title": {
+   "en": "\"Is my car ready?\" #shorts"
+  },
+  "yt_tags": [
+   "garage software",
+   "car service centre",
+   "job card app",
+   "service reminder",
+   "auto workshop india",
+   "garage website",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "\"Is my car ready?\" If you hear that all day, your garage has a status problem. 🔧"
+  },
+  "ig_caption": {
+   "en": "\"Is my car ready?\" If you hear that all day, your garage has a status problem. 🔧\n\n1️⃣ Customers call again and again for updates\n✅ Fix: a live job status link on WhatsApp\n\n2️⃣ The bill is higher than the estimate\n✅ Fix: extra work approved on WhatsApp before you start\n\n3️⃣ Customers forget the next service\n✅ Fix: service due reminders with one-tap booking\n\nTorque & Co. Motors is a concept demo.\nSend this to a garage owner who needs it.\nWant this for your garage? Comment SERVICE 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#garageowner",
+   "#carservice",
+   "#autoworkshop",
+   "#carrepair",
+   "#smallbusinessindia",
+   "#garagesoftware",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/automotive/",
+   "https://craftlayer-studio.github.io/industries/automotive/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "“Is my car *ready*?” If you hear that ten times a day, your garage has a *status* problem.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "\"Is my car\n*ready*?\""
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "phone",
+       "size": 170,
+       "label": "Calls all day",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "check",
+       "size": 170,
+       "label": "Status link",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: the same customer *calls* three times before lunch, asking for an *update*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Torque & Co. Motors",
+        "t": "Missed *calls*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Mr Khanna",
+          "s": "10:05 AM · \"ready?\"",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Mr Khanna",
+          "s": "11:20 AM · \"any update?\"",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Mr Khanna",
+          "s": "12:40 PM · \"hello??\"",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Mechanic stops work to answer",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: a *live status link* on WhatsApp. Received, repairing, washing, *ready*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "torqueandco.in",
+        "t": "Job *status*",
+        "s": "Swift · MH 12 AB 4521"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Received",
+          "s": "9:10 AM",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Repairing",
+          "s": "Brake pads, oil change",
+          "ic": "bolt",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Washing",
+          "s": "In progress",
+          "ic": "clock",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Ready for pickup",
+          "s": "Pay at counter or UPI",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Share on WhatsApp",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Customer checks it himself",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: you quoted *four thousand*, the bill says *seven*, and now he's *angry*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Torque & Co. Motors",
+        "t": "Bill *dispute*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Bill is ₹7,200? You said ₹4,000 only!",
+          "at": "10%"
+         },
+         {
+          "t": "Who approved the extra work?",
+          "at": "37%"
+         },
+         {
+          "t": "Sir, the clutch also needed...",
+          "me": true,
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Trust gone at the counter",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: every extra part goes to WhatsApp first. He taps *approve* before you *touch* it.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "torqueandco.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "torqueandco.in",
+        "t": "Approve *estimate*",
+        "s": "Swift · MH 12 AB 4521"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Brake pads",
+          "s": "As quoted",
+          "v": "₹2,400",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Oil change",
+          "s": "As quoted",
+          "v": "₹1,600",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Clutch plate",
+          "s": "Extra · needs approval",
+          "v": "₹3,200",
+          "ic": "bell",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Approve ₹7,200",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Approved on WhatsApp",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: he never comes back for the *next service*, because nobody *reminded* him.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Torque & Co. Motors",
+        "t": "Service *overdue*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "City · DL 3C 8812",
+          "s": "Last service 8 months ago",
+          "ic": "clock",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Creta · MH 14 KJ 2201",
+          "s": "Last service 7 months ago",
+          "ic": "clock",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "i20 · MH 12 PQ 0934",
+          "s": "Due next week",
+          "ic": "clock"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Serviced at another garage",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: *service due* reminders by date or kilometres, with a *one-tap* booking link.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "torqueandco.in",
+        "t": "Service *due*",
+        "s": "City · DL 3C 8812"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Reminder sent",
+          "s": "WhatsApp · 10,000 km due",
+          "ic": "bell",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Saturday 10:00 AM",
+          "s": "Slot available",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Book service",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Booked from the reminder",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Live status*, *approved bills* and *service reminders*, all in one system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · garage system",
+     "items": [
+      {
+       "t": "Live status",
+       "s": "one link, no calls",
+       "at": "2%"
+      },
+      {
+       "t": "Approved bills",
+       "s": "estimate on WhatsApp first",
+       "at": "26%"
+      },
+      {
+       "t": "Service reminders",
+       "s": "by date or km",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · SERVICE",
+   "say": "Want this for your *garage*? Comment *SERVICE* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "SERVICE",
+     "label": "Comment *SERVICE*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,72 @@
+1
+00:00:00,375 --> 00:00:02,274
+You're not busy You're doing a computer's
+
+2
+00:00:02,225 --> 00:00:05,125
+job by hand every single day Sign
+
+3
+00:00:05,075 --> 00:00:08,075
+one every morning someone copies yesterday's orders
+
+4
+00:00:08,025 --> 00:00:10,650
+from one sheet into another The fix
+
+5
+00:00:10,675 --> 00:00:12,550
+an integration between the tools you already
+
+6
+00:00:12,500 --> 00:00:15,400
+use running on a schedule Sign two
+
+7
+00:00:15,450 --> 00:00:17,237
+the work only happens if one person
+
+8
+00:00:17,187 --> 00:00:19,637
+remembers to do it The fix a
+
+9
+00:00:19,586 --> 00:00:21,725
+scheduled job that runs itself with a
+
+10
+00:00:21,675 --> 00:00:25,050
+manual override for anything critical Sign three
+
+11
+00:00:25,138 --> 00:00:27,225
+duplicate entries and mistakes show up weeks
+
+12
+00:00:27,175 --> 00:00:29,750
+later when it's too late The fix
+
+13
+00:00:29,800 --> 00:00:32,612
+validation and deduplication on every run and
+
+14
+00:00:32,562 --> 00:00:35,200
+an alert when something needs attention Synced
+
+15
+00:00:35,150 --> 00:00:37,475
+tools jobs that run themselves and alerts
+
+16
+00:00:37,425 --> 00:00:40,000
+before mistakes spread Doing the same task
+
+17
+00:00:39,950 --> 00:00:42,100
+by hand every day Comment AUTOMATE or
+
+18
+00:00:42,050 --> 00:00:42,800
+DM us
+

@@ -1,0 +1,504 @@
+{
+ "title": "Builders and contractors: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "light": true,
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-114",
+  "brand": "craftlayer",
+  "topic": "Builders and contractors: 3 problems",
+  "schedule": {
+   "en": "2026-11-30 19:30"
+  },
+  "yt_title": {
+   "en": "Built everywhere. Online: nowhere. #shorts"
+  },
+  "yt_tags": [
+   "builder website",
+   "contractor website",
+   "construction estimate form",
+   "client payment portal",
+   "construction business india",
+   "construction project gallery",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "You've built homes across the city. Online, your company doesn't exist. 🏗️"
+  },
+  "ig_caption": {
+   "en": "You've built homes across the city. Online, your company doesn't exist. 🏗️\n\n1️⃣ Clients ask for past projects, you offer to drive them around\n✅ Fix: a project gallery with photos, location and handover date\n\n2️⃣ Site visits for rough estimates that never call back\n✅ Fix: an estimate request with site photos and measurements first\n\n3️⃣ \"How much have I paid?\" ends in an argument over a diary\n✅ Fix: a client portal with milestones and payments\n\nKeystone Build Co. is a concept demo.\nSend this to a construction business owner who needs it.\nWant this for your company? Comment BUILD 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#builder",
+   "#contractor",
+   "#constructionindia",
+   "#civilcontractor",
+   "#homeconstruction",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/builders/",
+   "https://craftlayer-studio.github.io/industries/construction/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "You've built homes across the city. Online, your company *doesn't exist*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Built *everywhere*.\nOnline: *nowhere*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "pin",
+       "size": 170,
+       "label": "On the street",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "search",
+       "size": 170,
+       "label": "On Google",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: clients ask for *past projects*, and all you can offer is \"come, I'll *drive you*.\"",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Keystone Build Co.",
+        "t": "New *enquiry*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Can I see a house you've built?",
+          "at": "10%"
+         },
+         {
+          "t": "Come Sunday, I'll take you around",
+          "me": true,
+          "at": "37%"
+         },
+         {
+          "t": "Don't you have photos online?",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "No proof online",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: a *project gallery* with photos, location, size and *handover date* for each build.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "keystonebuild.in",
+        "t": "Our *projects*",
+        "s": "Sample projects · concept demo"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "G+2 house, Wakad",
+          "s": "2,400 sq ft · handed over",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Duplex, Baner",
+          "s": "3,100 sq ft · handed over",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Extension, Aundh",
+          "s": "In progress",
+          "ic": "clock",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Request a quote",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Proof in one link",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: you drive across town for a *rough estimate*, and they *never call* back.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Keystone Build Co.",
+        "t": "Site visits this *week*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Wakad · extension",
+          "s": "Estimate given · no reply",
+          "ic": "pin",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Hinjewadi · new floor",
+          "s": "Estimate given · no reply",
+          "ic": "pin",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Pimple Saudagar · repair",
+          "s": "Just comparing rates",
+          "ic": "pin",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Mornings and fuel lost",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: an *estimate request* where clients upload site *photos* and measurements first.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "keystonebuild.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "keystonebuild.in",
+        "t": "Get an *estimate*",
+        "s": "Keystone Build Co."
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Work type",
+          "s": "Extension, one floor",
+          "ic": "menu",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Site photos",
+          "s": "4 uploaded",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Plot size",
+          "s": "1,200 sq ft",
+          "ic": "pin",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Send request",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Visit only when serious",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: \"How much have I paid so far?\" ends in an *argument* over a *diary*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Keystone Build Co.",
+        "t": "Client *chat*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "How much have I paid till now?",
+          "at": "10%"
+         },
+         {
+          "t": "Your diary says something different from mine",
+          "at": "65%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Payment dispute",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: a *client portal* with every milestone, payment received and *what's due next*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "keystonebuild.in",
+        "t": "Payment *milestones*",
+        "s": "Sample project · Wakad"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Foundation",
+          "s": "Paid · 12 Sep",
+          "v": "Done",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "First slab",
+          "s": "Paid · 20 Oct",
+          "v": "Done",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Brickwork",
+          "s": "Due on completion",
+          "v": "Next",
+          "ic": "clock",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Download statement",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Same numbers for both",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Gallery*, *estimates* and *payments*, all in one system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · construction business system",
+     "items": [
+      {
+       "t": "Gallery",
+       "s": "every project online",
+       "at": "2%"
+      },
+      {
+       "t": "Estimates",
+       "s": "photos first",
+       "at": "26%"
+      },
+      {
+       "t": "Payments",
+       "s": "milestones portal",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · BUILD",
+   "say": "Want this for your *company*? Comment *BUILD* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "BUILD",
+     "label": "Comment *BUILD*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

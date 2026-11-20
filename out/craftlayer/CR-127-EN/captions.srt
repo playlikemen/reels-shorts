@@ -1,0 +1,68 @@
+1
+00:00:00,375 --> 00:00:02,574
+Your website isn't slow It's losing you
+
+2
+00:00:02,524 --> 00:00:05,549
+customers every second it loads Sign one
+
+3
+00:00:05,575 --> 00:00:07,088
+your site takes forever to load on
+
+4
+00:00:07,038 --> 00:00:09,475
+a phone The fix a lean build
+
+5
+00:00:09,525 --> 00:00:11,700
+static where possible checked on small screens
+
+6
+00:00:11,650 --> 00:00:14,550
+first Sign two customers can't find your
+
+7
+00:00:14,500 --> 00:00:17,400
+prices without sending a DM The fix
+
+8
+00:00:17,425 --> 00:00:19,586
+page structure built from your content so
+
+9
+00:00:19,536 --> 00:00:21,449
+menu and prices sit one tap from
+
+10
+00:00:21,399 --> 00:00:23,838
+home Sign three you can't change a
+
+11
+00:00:23,788 --> 00:00:26,600
+single line without calling someone The fix
+
+12
+00:00:26,625 --> 00:00:28,200
+clean code in a repo you own
+
+13
+00:00:28,250 --> 00:00:30,550
+plus a handover so changes stay simple
+
+14
+00:00:30,925 --> 00:00:32,974
+Fast on phones prices in plain sight
+
+15
+00:00:32,963 --> 00:00:35,036
+and code that's yours Need a site
+
+16
+00:00:34,987 --> 00:00:36,987
+like this Comment WEBSITE or send us
+
+17
+00:00:36,937 --> 00:00:37,725
+a DM
+

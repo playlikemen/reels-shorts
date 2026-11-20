@@ -1,0 +1,517 @@
+{
+ "title": "SaaS development: 3 signs you need this",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-128",
+  "brand": "craftlayer",
+  "topic": "SaaS development: 3 signs you need this",
+  "schedule": {
+   "en": "2026-12-12 19:30"
+  },
+  "yt_title": {
+   "en": "Fewer features. More users. #shorts"
+  },
+  "yt_tags": [
+   "saas development",
+   "mvp development",
+   "startup product",
+   "saas founder",
+   "no-code to code",
+   "postgresql",
+   "product development india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Stop adding features. Your SaaS needs users before it needs a roadmap. 🚀"
+  },
+  "ig_caption": {
+   "en": "Stop adding features. Your SaaS needs users before it needs a roadmap. 🚀\n\n1️⃣ Months of building, nobody has logged in\n✅ Fix: scope the smallest version worth launching and agree what it must prove\n\n2️⃣ Your no-code prototype breaks with every new customer\n✅ Fix: a real data model on PostgreSQL, typed end to end\n\n3️⃣ The whole team shares one login\n✅ Fix: proper accounts and roles, plus docs for the next engineer\n\nPulsegrid is a concept demo.\nSend this to a founder who needs it.\nBuilding a product? Comment SAAS 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#saas",
+   "#startupindia",
+   "#founders",
+   "#mvp",
+   "#productdevelopment",
+   "#buildinpublic",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/services/saas-development/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Stop adding *features*. Your SaaS needs *users* before it needs a roadmap.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Fewer features.\n*More users*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "bolt",
+       "size": 170,
+       "label": "Feature #47",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "users",
+       "size": 170,
+       "label": "First users",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Sign one: you've been building for *months* and nobody has *logged in* yet.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Pulsegrid",
+        "t": "Roadmap *v0*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Dark mode",
+          "s": "In progress",
+          "ic": "bolt"
+         },
+         {
+          "t": "Integrations",
+          "s": "Planned",
+          "ic": "arrow"
+         },
+         {
+          "t": "Admin reports",
+          "s": "Planned",
+          "ic": "menu"
+         },
+         {
+          "t": "Launch",
+          "s": "Not scheduled",
+          "v": "!",
+          "ic": "cal",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Zero sign-ups",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: scope the *smallest version* worth launching, and agree what it must *prove*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "pulsegrid.app",
+        "t": "Release *one*",
+        "s": "Pulsegrid · written scope"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "In",
+          "s": "Sign-up, core dashboard",
+          "v": "Yes",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Out",
+          "s": "Integrations, dark mode",
+          "v": "Later",
+          "ic": "arrow",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Must prove",
+          "s": "Teams come back weekly",
+          "v": "Goal",
+          "ic": "star",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Ship to staging",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Scope agreed in writing",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Sign two: your *no-code* prototype breaks every time you add a *customer*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Pulsegrid",
+        "t": "Support *inbox*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Dashboard won't load again",
+          "at": "10%"
+         },
+         {
+          "t": "Why can I see another team's projects??",
+          "at": "65%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Prototype at its limit",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: a real *data model* on PostgreSQL, typed *end to end*, so changes stay safe.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "pulsegrid.app",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "pulsegrid.app",
+        "t": "Data *model*",
+        "s": "Pulsegrid · PostgreSQL"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Accounts",
+          "s": "one per company",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Teams",
+          "s": "belong to an account",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Projects",
+          "s": "belong to a team",
+          "ic": "menu",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Events",
+          "s": "logged per project",
+          "ic": "clock",
+          "c": "#465FFF"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Typed end to end",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Sign three: the whole team *shares one login*, and nobody knows who changed *what*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Pulsegrid",
+        "t": "Team *access*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "admin@pulsegrid.app",
+          "s": "Used by six people",
+          "v": "!",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Last change",
+          "s": "By 'admin'",
+          "ic": "clock",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Password",
+          "s": "In a group chat",
+          "ic": "chat",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Who deleted that?",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: proper *accounts* and *roles*, with docs ready for the next engineer who joins.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "pulsegrid.app",
+        "t": "Team *roles*",
+        "s": "Pulsegrid · settings"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Owner",
+          "s": "Billing and settings",
+          "v": "1",
+          "ic": "star",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Admin",
+          "s": "Manage the team",
+          "v": "2",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Member",
+          "s": "Own projects",
+          "v": "5",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Invite teammate",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Docs for the next hire",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Scope* first, a solid *data model*, and *accounts* that grow with you.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · founder system",
+     "items": [
+      {
+       "t": "Scope",
+       "s": "smallest version worth launching",
+       "at": "2%"
+      },
+      {
+       "t": "Data model",
+       "s": "PostgreSQL, typed",
+       "at": "26%"
+      },
+      {
+       "t": "Accounts",
+       "s": "roles + docs",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · SAAS",
+   "say": "Building a product? Comment *SAAS* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "SAAS",
+     "label": "Comment *SAAS*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,506 @@
+{
+ "title": "Kirana stores: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "light": true,
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-120",
+  "brand": "craftlayer",
+  "topic": "Kirana stores: 3 problems",
+  "schedule": {
+   "en": "2026-12-05 19:30"
+  },
+  "yt_title": {
+   "en": "Two lanes away. Ordering elsewhere. #shorts"
+  },
+  "yt_tags": [
+   "kirana store app",
+   "whatsapp order page",
+   "digital khata",
+   "grocery delivery india",
+   "local store website",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Your regulars live two lanes away. Why do they order from apps? 🛒"
+  },
+  "ig_caption": {
+   "en": "Your regulars live two lanes away. Why do they order from apps? 🛒\n\n1️⃣ Calling the store means waiting, so they use an app\n✅ Fix: your own order page on WhatsApp\n\n2️⃣ Udhaar lives in a register that tears and smudges\n✅ Fix: a digital khata with WhatsApp reminders\n\n3️⃣ \"Will you deliver by 7?\" gets a \"maybe\"\n✅ Fix: delivery slots by area\n\nAnnapurna Stores is a concept demo.\nSend this to a kirana store owner who needs it.\nWant this for your store? Comment ORDER 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#kirana",
+   "#kiranastore",
+   "#grocerystore",
+   "#localbusiness",
+   "#digitalkhata",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industries/ecommerce-retail/",
+   "https://craftlayer-studio.github.io/services/business-automation/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Stop losing your regulars to *apps*. They live two lanes away, and they still order *elsewhere*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Two lanes away.\nOrdering *elsewhere*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "phone",
+       "size": 170,
+       "label": "Delivery app",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "pin",
+       "size": 170,
+       "label": "Your store",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: your regular orders atta and milk from an *app*, because calling you means *waiting*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Annapurna Stores",
+        "t": "Mrs *Gupta*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Called twice, line was busy",
+          "at": "10%"
+         },
+         {
+          "t": "Ordered from the app, sorry bhaiya!",
+          "at": "65%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Regular customer, lost order",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: your own *order page* on WhatsApp. Tap items, send the list, *done*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "annapurnastores.in",
+        "t": "Annapurna *Stores*",
+        "s": "Order on WhatsApp"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Wheat atta · 5 kg",
+          "s": "In stock",
+          "v": "₹265",
+          "ic": "leaf",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Toned milk · 1 L",
+          "s": "In stock",
+          "v": "₹56",
+          "ic": "leaf",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Brown bread",
+          "s": "Fresh today",
+          "v": "₹45",
+          "ic": "leaf",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Send order on WhatsApp",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "List arrives, ready to pack",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: *udhaar* lives in a register. Pages tear, names smudge, and money *disappears*.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Annapurna Stores",
+        "t": "Udhaar *register*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Verma ji",
+          "s": "₹1,240? page torn",
+          "ic": "wallet",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Pinky (B-block)",
+          "s": "₹380 or ₹830?",
+          "ic": "wallet",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Raju",
+          "s": "Since August",
+          "ic": "wallet",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Nobody remembers the total",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: a *digital khata*, with a polite WhatsApp reminder when dues *pile up*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "annapurnastores.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "annapurnastores.in",
+        "t": "Digital *khata*",
+        "s": "Dues this month"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Verma ji",
+          "s": "Reminder sent",
+          "v": "₹1,240",
+          "ic": "bell",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Pinky (B-block)",
+          "s": "Paid by UPI",
+          "v": "₹380",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Raju",
+          "s": "Reminder scheduled",
+          "v": "₹910",
+          "ic": "clock",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Send reminder",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Paid by UPI from the reminder",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: “Will you deliver to Sector nine by seven?” You don't know, so you say *maybe*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Annapurna Stores",
+        "t": "WhatsApp"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Will you deliver to Sector 9 by 7?",
+          "at": "10%"
+         },
+         {
+          "t": "Maybe, depends on the boy",
+          "me": true,
+          "at": "37%"
+         },
+         {
+          "t": "Okay, I'll order from somewhere else",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Maybe means no",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: *delivery slots* by area, so customers pick a time you can *keep*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "annapurnastores.in",
+        "t": "Delivery *slots*",
+        "s": "Choose your area"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Sector 9",
+          "s": "6 to 7 PM · available",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Sector 12",
+          "s": "7 to 8 PM · available",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Sector 15",
+          "s": "Tomorrow morning",
+          "ic": "pin",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Confirm slot",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Delivered on time",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Order page*, *digital khata* and *delivery slots*, all for your store.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · kirana store system",
+     "items": [
+      {
+       "t": "Order page",
+       "s": "WhatsApp, tap and send",
+       "at": "2%"
+      },
+      {
+       "t": "Digital khata",
+       "s": "udhaar with reminders",
+       "at": "26%"
+      },
+      {
+       "t": "Delivery slots",
+       "s": "by area and time",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · ORDER",
+   "say": "Want this for your *store*? Comment *ORDER* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "ORDER",
+     "label": "Comment *ORDER*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

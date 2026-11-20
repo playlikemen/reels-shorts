@@ -1,0 +1,68 @@
+1
+00:00:00,400 --> 00:00:02,187
+Almost done for the third month isn't
+
+2
+00:00:02,137 --> 00:00:04,974
+a delay It's a process problem Sign
+
+3
+00:00:04,924 --> 00:00:06,812
+one you've paid but you haven't seen
+
+4
+00:00:06,762 --> 00:00:09,662
+working software yet The fix we build
+
+5
+00:00:09,612 --> 00:00:11,575
+in small increments on a staging URL
+
+6
+00:00:11,525 --> 00:00:13,850
+you can click through Sign two the
+
+7
+00:00:13,800 --> 00:00:15,425
+scope keeps changing and so does the
+
+8
+00:00:15,375 --> 00:00:17,774
+price The fix a written scope before
+
+9
+00:00:17,724 --> 00:00:20,211
+any work what's in what's out milestones
+
+10
+00:00:20,161 --> 00:00:23,125
+and estimate Sign three the project launched
+
+11
+00:00:23,149 --> 00:00:24,500
+and you don't even have the code
+
+12
+00:00:24,924 --> 00:00:26,562
+The fix source in a repo you
+
+13
+00:00:26,512 --> 00:00:28,712
+can access throughout a rollback path and
+
+14
+00:00:28,662 --> 00:00:32,149
+a handover Discover plan design build validate
+
+15
+00:00:32,137 --> 00:00:35,587
+deploy improve Seven steps nothing hidden Want
+
+16
+00:00:35,537 --> 00:00:37,474
+a project that runs like this Comment
+
+17
+00:00:37,424 --> 00:00:39,274
+PROCESS or send us a DM
+

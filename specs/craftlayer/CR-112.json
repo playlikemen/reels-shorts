@@ -1,0 +1,511 @@
+{
+ "title": "Hotels and homestays: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-112",
+  "brand": "craftlayer",
+  "topic": "Hotels and homestays: 3 problems",
+  "schedule": {
+   "en": "2026-11-28 19:30"
+  },
+  "yt_title": {
+   "en": "Your work. Their commission. #shorts"
+  },
+  "yt_tags": [
+   "hotel booking engine",
+   "homestay website",
+   "direct booking website",
+   "hotel website india",
+   "guest whatsapp automation",
+   "boutique hotel website",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "You cleaned the room and cooked the breakfast. The booking app still took its cut. 🏨"
+  },
+  "ig_caption": {
+   "en": "You cleaned the room and cooked the breakfast. The booking app still took its cut. 🏨\n\n1️⃣ Every booking through an app pays a commission\n✅ Fix: a direct booking engine on your own site, with UPI\n\n2️⃣ Your listing shows last year's photos and rates\n✅ Fix: rooms, photos and rates you update from your phone\n\n3️⃣ \"How do we reach?\" messages the night before check-in\n✅ Fix: an automatic WhatsApp with directions, check-in time and parking\n\nThe Saltmarsh is a concept demo.\nSend this to a hotel owner who needs it.\nWant this for your property? Comment STAY 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#hotelowner",
+   "#homestay",
+   "#homestayindia",
+   "#boutiquehotel",
+   "#directbooking",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/hotel/",
+   "https://craftlayer-studio.github.io/industries/hospitality/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "You cleaned the room and cooked the breakfast. The *booking app* still took its *cut*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Your work.\n*Their commission*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "star",
+       "size": 170,
+       "label": "Your stay",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "cash",
+       "size": 170,
+       "label": "Their cut",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: guests find you on an app, and *every booking* pays a *commission*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "The Saltmarsh",
+        "t": "This month's *bookings*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Garden room · 2 nights",
+          "s": "via booking app",
+          "v": "− cut",
+          "ic": "cash",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Sea view · 3 nights",
+          "s": "via booking app",
+          "v": "− cut",
+          "ic": "cash",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Family suite · 1 night",
+          "s": "via booking app",
+          "v": "− cut",
+          "ic": "cash",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Commission on every stay",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: a *direct booking* engine on your own site, with UPI and *instant confirmation*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "thesaltmarsh.in",
+        "t": "Book *direct*",
+        "s": "The Saltmarsh · sample rates"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Garden room",
+          "s": "Fri to Sun",
+          "v": "₹4,200",
+          "ic": "leaf",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Sea view room",
+          "s": "Fri to Sun",
+          "v": "₹5,800",
+          "ic": "star",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Pay by UPI",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Booking confirmed",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: your listing still shows *last year's photos* and the old *room rates*.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "The Saltmarsh",
+        "t": "Your *listing*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Garden room",
+          "s": "Photos from last year",
+          "ic": "leaf",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Room rates",
+          "s": "Old season prices",
+          "ic": "tag",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "New rooftop cafe",
+          "s": "Not shown anywhere",
+          "ic": "coffee",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Guests see the old you",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: rooms, photos and rates on your site that *you update* from your *phone*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "thesaltmarsh.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "thesaltmarsh.in",
+        "t": "Edit *rooms*",
+        "s": "Admin · The Saltmarsh"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Garden room",
+          "s": "6 new photos",
+          "v": "Saved",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Weekend rate",
+          "s": "Updated today",
+          "v": "Saved",
+          "ic": "tag",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Rooftop cafe",
+          "s": "Added to site",
+          "v": "Live",
+          "ic": "coffee",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Publish changes",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Live in seconds",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: the night before check-in, your phone fills with \"*How do we reach*?\"",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "The Saltmarsh",
+        "t": "Guest *messages*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "How do we reach from the station?",
+          "at": "10%"
+         },
+         {
+          "t": "Is parking available?",
+          "at": "37%"
+         },
+         {
+          "t": "What time is breakfast?",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "11 PM, still replying",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: an *automatic WhatsApp* the day before, with *directions*, check-in time and parking.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "thesaltmarsh.in",
+        "t": "See you *tomorrow*",
+        "s": "Sent automatically"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Directions",
+          "s": "Map pin from the station",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Check-in",
+          "s": "From 1 PM",
+          "ic": "clock",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Parking",
+          "s": "Free, inside the gate",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Open in Maps",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "No late-night calls",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Direct bookings*, *fresh listings* and *guest info*, all in one system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · hotel system",
+     "items": [
+      {
+       "t": "Direct bookings",
+       "s": "no commission",
+       "at": "2%"
+      },
+      {
+       "t": "Fresh listings",
+       "s": "you update",
+       "at": "26%"
+      },
+      {
+       "t": "Guest info",
+       "s": "WhatsApp, automatic",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · STAY",
+   "say": "Want this for your *hotel or homestay*? Comment *STAY* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "STAY",
+     "label": "Comment *STAY*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

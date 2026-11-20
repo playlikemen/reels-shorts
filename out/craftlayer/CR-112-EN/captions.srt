@@ -1,0 +1,72 @@
+1
+00:00:00,375 --> 00:00:01,599
+You cleaned the room and cooked the
+
+2
+00:00:01,549 --> 00:00:03,674
+breakfast The booking app still took its
+
+3
+00:00:03,625 --> 00:00:06,287
+cut Problem one guests find you on
+
+4
+00:00:06,237 --> 00:00:07,774
+an app and every booking pays a
+
+5
+00:00:07,724 --> 00:00:10,787
+commission The fix a direct booking engine
+
+6
+00:00:10,737 --> 00:00:12,725
+on your own site with UPI and
+
+7
+00:00:12,675 --> 00:00:16,074
+instant confirmation Problem two your listing still
+
+8
+00:00:16,024 --> 00:00:17,850
+shows last year's photos and the old
+
+9
+00:00:17,800 --> 00:00:21,050
+room rates The fix rooms photos and
+
+10
+00:00:21,000 --> 00:00:22,338
+rates on your site that you update
+
+11
+00:00:22,288 --> 00:00:24,813
+from your phone Problem three the night
+
+12
+00:00:24,763 --> 00:00:26,538
+before check-in your phone fills with How
+
+13
+00:00:26,488 --> 00:00:29,087
+do we reach The fix an automatic
+
+14
+00:00:29,037 --> 00:00:31,500
+WhatsApp the day before with directions check-in
+
+15
+00:00:31,450 --> 00:00:34,763
+time and parking Direct bookings fresh listings
+
+16
+00:00:34,713 --> 00:00:36,700
+and guest info all in one system
+
+17
+00:00:37,150 --> 00:00:38,899
+Want this for your hotel or homestay
+
+18
+00:00:39,000 --> 00:00:40,975
+Comment STAY or send us a DM
+

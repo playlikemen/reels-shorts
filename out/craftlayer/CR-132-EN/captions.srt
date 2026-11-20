@@ -1,0 +1,68 @@
+1
+00:00:00,350 --> 00:00:02,499
+If your business runs on five spreadsheets
+
+2
+00:00:02,549 --> 00:00:03,949
+at least one of them is wrong
+
+3
+00:00:04,425 --> 00:00:06,286
+Sign one nobody knows which sheet is
+
+4
+00:00:06,237 --> 00:00:08,500
+the latest so everyone keeps their own
+
+5
+00:00:08,925 --> 00:00:11,087
+The fix an admin panel shaped around
+
+6
+00:00:11,037 --> 00:00:12,600
+how you work with one source of
+
+7
+00:00:12,550 --> 00:00:15,350
+truth Sign two on event day you're
+
+8
+00:00:15,300 --> 00:00:17,275
+calling people to find out what's happening
+
+9
+00:00:17,699 --> 00:00:20,449
+The fix a real-time dashboard over WebSockets
+
+10
+00:00:20,475 --> 00:00:23,400
+so every gate updates live Sign three
+
+11
+00:00:23,475 --> 00:00:25,425
+off-the-shelf tools make you work their way
+
+12
+00:00:25,449 --> 00:00:27,550
+and you never own them The fix
+
+13
+00:00:27,574 --> 00:00:29,336
+a written scope builds you review as
+
+14
+00:00:29,286 --> 00:00:31,475
+they grow and code you own One
+
+15
+00:00:31,425 --> 00:00:34,000
+admin panel live dashboards and software that's
+
+16
+00:00:33,950 --> 00:00:37,062
+yours your spreadsheets Comment SYSTEM or send
+
+17
+00:00:37,012 --> 00:00:37,274
+us a
+

@@ -1,0 +1,1007 @@
+[
+  {
+    "id": "CR-116",
+    "topic": "Garages: 3 problems",
+    "audience": "garage",
+    "demo_name": "Torque & Co. Motors",
+    "domain": "torqueandco.in",
+    "keyword": "SERVICE",
+    "sources": ["https://craftlayer-studio.github.io/industry-demos/automotive/", "https://craftlayer-studio.github.io/industries/automotive/"],
+    "hook": {
+      "say": "“Is my car *ready*?” If you hear that ten times a day, your garage has a *status* problem.",
+      "title": "\"Is my car\n*ready*?\"",
+      "tiles": [{"ic": "phone", "label": "Calls all day"}, {"ic": "check", "label": "Status link", "hot": true}]
+    },
+    "problems": [
+      {
+        "say": "Problem one: the same customer *calls* three times before lunch, asking for an *update*.",
+        "screen": "rows",
+        "head": "Missed *calls*",
+        "rows": [
+          {"t": "Mr Khanna", "s": "10:05 AM · \"ready?\"", "ic": "phone", "bad": true},
+          {"t": "Mr Khanna", "s": "11:20 AM · \"any update?\"", "ic": "phone", "bad": true},
+          {"t": "Mr Khanna", "s": "12:40 PM · \"hello??\"", "ic": "phone", "bad": true}
+        ],
+        "chip": "Mechanic stops work to answer",
+        "fix": {
+          "say": "The fix: a *live status link* on WhatsApp. Received, repairing, washing, *ready*.",
+          "head": "Job *status*",
+          "sub": "Swift · MH 12 AB 4521",
+          "rows": [
+            {"t": "Received", "s": "9:10 AM", "ic": "check"},
+            {"t": "Repairing", "s": "Brake pads, oil change", "ic": "bolt"},
+            {"t": "Washing", "s": "In progress", "ic": "clock"},
+            {"t": "Ready for pickup", "s": "Pay at counter or UPI", "ic": "check"}
+          ],
+          "btn": "Share on WhatsApp",
+          "chip": "Customer checks it himself"
+        }
+      },
+      {
+        "say": "Problem two: you quoted *four thousand*, the bill says *seven*, and now he's *angry*.",
+        "screen": "chat",
+        "head": "Bill *dispute*",
+        "chat": [
+          {"t": "Bill is ₹7,200? You said ₹4,000 only!"},
+          {"t": "Who approved the extra work?"},
+          {"me": true, "t": "Sir, the clutch also needed..."}
+        ],
+        "chip": "Trust gone at the counter",
+        "fix": {
+          "say": "The fix: every extra part goes to WhatsApp first. He taps *approve* before you *touch* it.",
+          "head": "Approve *estimate*",
+          "sub": "Swift · MH 12 AB 4521",
+          "rows": [
+            {"t": "Brake pads", "s": "As quoted", "v": "₹2,400", "ic": "check"},
+            {"t": "Oil change", "s": "As quoted", "v": "₹1,600", "ic": "check"},
+            {"t": "Clutch plate", "s": "Extra · needs approval", "v": "₹3,200", "ic": "bell"}
+          ],
+          "btn": "Approve ₹7,200",
+          "chip": "Approved on WhatsApp"
+        }
+      },
+      {
+        "say": "Problem three: he never comes back for the *next service*, because nobody *reminded* him.",
+        "screen": "rows",
+        "head": "Service *overdue*",
+        "rows": [
+          {"t": "City · DL 3C 8812", "s": "Last service 8 months ago", "ic": "clock", "bad": true},
+          {"t": "Creta · MH 14 KJ 2201", "s": "Last service 7 months ago", "ic": "clock", "bad": true},
+          {"t": "i20 · MH 12 PQ 0934", "s": "Due next week", "ic": "clock"}
+        ],
+        "chip": "Serviced at another garage",
+        "fix": {
+          "say": "The fix: *service due* reminders by date or kilometres, with a *one-tap* booking link.",
+          "head": "Service *due*",
+          "sub": "City · DL 3C 8812",
+          "rows": [
+            {"t": "Reminder sent", "s": "WhatsApp · 10,000 km due", "ic": "bell"},
+            {"t": "Saturday 10:00 AM", "s": "Slot available", "v": "Book", "ic": "cal"}
+          ],
+          "btn": "Book service",
+          "chip": "Booked from the reminder"
+        }
+      }
+    ],
+    "recap_say": "*Live status*, *approved bills* and *service reminders*, all in one system.",
+    "recap": [{"t": "Live status", "s": "one link, no calls"}, {"t": "Approved bills", "s": "estimate on WhatsApp first"}, {"t": "Service reminders", "s": "by date or km"}],
+    "cta_say": "Want this for your *garage*? Comment *SERVICE* or send us a *DM*.",
+    "caption": "\"Is my car ready?\" If you hear that all day, your garage has a status problem. 🔧\n\n1️⃣ Customers call again and again for updates\n✅ Fix: a live job status link on WhatsApp\n\n2️⃣ The bill is higher than the estimate\n✅ Fix: extra work approved on WhatsApp before you start\n\n3️⃣ Customers forget the next service\n✅ Fix: service due reminders with one-tap booking\n\nTorque & Co. Motors is a concept demo.\nSend this to a garage owner who needs it.\nWant this for your garage? Comment SERVICE 👇\n\nVoiceover is AI-generated.",
+    "hashtags": ["#garageowner", "#carservice", "#autoworkshop", "#carrepair", "#smallbusinessindia", "#garagesoftware", "#craftlayer"],
+    "tags": ["garage software", "car service centre", "job card app", "service reminder", "auto workshop india", "garage website", "craftlayer studio"]
+  },
+  {
+    "id": "CR-117",
+    "topic": "Vets: 3 problems",
+    "audience": "pet clinic",
+    "demo_name": "Meadowlark Vets",
+    "domain": "meadowlarkvets.in",
+    "keyword": "PET",
+    "sources": ["https://craftlayer-studio.github.io/industry-demos/vet/", "https://craftlayer-studio.github.io/industries/veterinary/"],
+    "hook": {
+      "say": "It's *midnight*. A dog is sick, and the owner is searching for a vet. Your number *isn't there*.",
+      "title": "Midnight.\nYour number *missing*.",
+      "tiles": [{"ic": "search", "label": "\"vet near me\""}, {"ic": "phone", "label": "One-tap call", "hot": true}]
+    },
+    "problems": [
+      {
+        "say": "Problem one: a dog ate *chocolate*, and the owner can't find your *number* on Google.",
+        "screen": "rows",
+        "head": "Search *results*",
+        "rows": [
+          {"t": "Meadowlark Vets", "s": "No phone number listed", "ic": "search", "bad": true},
+          {"t": "Hours", "s": "Not listed · open?", "ic": "clock", "bad": true},
+          {"t": "Directions", "s": "Pin in the wrong lane", "ic": "pin", "bad": true}
+        ],
+        "chip": "Owner drives somewhere else",
+        "fix": {
+          "say": "The fix: a website with *open now*, *one-tap call* and directions to your door.",
+          "head": "Meadowlark *Vets*",
+          "sub": "Emergency line",
+          "rows": [
+            {"t": "Open now", "s": "Till 11 PM tonight", "ic": "clock"},
+            {"t": "Call emergency line", "s": "One tap", "ic": "phone"},
+            {"t": "Directions", "s": "Opens in Maps", "ic": "pin"}
+          ],
+          "btn": "Call now",
+          "chip": "Found in one tap"
+        }
+      },
+      {
+        "say": "Problem two: the *rabies booster* was due in March. Nobody remembered, not even the *owner*.",
+        "screen": "rows",
+        "head": "Vaccines *overdue*",
+        "rows": [
+          {"t": "Bruno · Labrador", "s": "Rabies booster · overdue", "ic": "cal", "bad": true},
+          {"t": "Coco · Persian cat", "s": "Deworming · overdue", "ic": "cal", "bad": true},
+          {"t": "Sheru · Indie", "s": "Annual shots · due soon", "ic": "cal"}
+        ],
+        "chip": "No reminder sent",
+        "fix": {
+          "say": "The fix: *vaccine reminders* for every pet, on WhatsApp, a week before the *date*.",
+          "head": "Pet *reminders*",
+          "sub": "Sent automatically on WhatsApp",
+          "rows": [
+            {"t": "Bruno · Rabies booster", "s": "Reminder sent · 7 days before", "ic": "bell"},
+            {"t": "Coco · Deworming", "s": "Reminder sent · 7 days before", "ic": "bell"},
+            {"t": "Sheru · Annual shots", "s": "Scheduled", "ic": "cal"}
+          ],
+          "btn": "Book vaccine slot",
+          "chip": "Reminder sent on WhatsApp"
+        }
+      },
+      {
+        "say": "Problem three: a full waiting room, a nervous cat, and an owner told to *wait an hour*.",
+        "screen": "chat",
+        "head": "Front *desk*",
+        "chat": [
+          {"t": "How long will it take? She's shaking"},
+          {"me": true, "t": "Six pets ahead of you, sorry"},
+          {"t": "Okay, we'll come back another day"}
+        ],
+        "chip": "Walked out",
+        "fix": {
+          "say": "The fix: *online slots*, so every pet walks in at its own *time*.",
+          "head": "Book a *slot*",
+          "sub": "Dr Iyer · General check-up",
+          "rows": [
+            {"t": "Today 5:30 PM", "s": "Available", "v": "Book", "ic": "cal"},
+            {"t": "Today 6:00 PM", "s": "Available", "v": "Book", "ic": "cal"},
+            {"t": "Tomorrow 10:00 AM", "s": "Available", "v": "Book", "ic": "cal"}
+          ],
+          "btn": "Confirm slot",
+          "chip": "Confirmed on WhatsApp"
+        }
+      }
+    ],
+    "recap_say": "*One-tap calls*, *vaccine reminders* and *online slots*, all in one system.",
+    "recap": [{"t": "One-tap calls", "s": "open now + directions"}, {"t": "Vaccine reminders", "s": "per pet, on WhatsApp"}, {"t": "Online slots", "s": "no waiting room crowd"}],
+    "cta_say": "Want this for your *pet clinic*? Comment *PET* or send us a *DM*.",
+    "caption": "It's midnight. A dog is sick. Can the owner find your number? 🐾\n\n1️⃣ Pet owners can't find your number in an emergency\n✅ Fix: a website with open now, one-tap call and directions\n\n2️⃣ Vaccine dates get forgotten\n✅ Fix: vaccine reminders per pet on WhatsApp\n\n3️⃣ Long waits in a crowded waiting room\n✅ Fix: online appointment slots\n\nMeadowlark Vets is a concept demo.\nSend this to a pet clinic owner who needs it.\nWant this for your clinic? Comment PET 👇\n\nVoiceover is AI-generated.",
+    "hashtags": ["#vetclinic", "#petclinic", "#veterinarian", "#petcare", "#petsofindia", "#smallbusinessindia", "#craftlayer"],
+    "tags": ["vet clinic website", "pet clinic software", "vaccine reminder", "vet appointment booking", "veterinary india", "craftlayer studio"]
+  },
+  {
+    "id": "CR-118",
+    "topic": "Boutiques: 3 problems",
+    "audience": "boutique",
+    "demo_name": "Saanjh Boutique",
+    "domain": "saanjhboutique.in",
+    "keyword": "SHOP",
+    "sources": ["https://craftlayer-studio.github.io/industries/ecommerce-retail/", "https://craftlayer-studio.github.io/services/e-commerce/"],
+    "hook": {
+      "say": "Every *“price?”* comment on your reel is a sale that's about to *die*.",
+      "title": "\"Price?\"\nis where sales *die*",
+      "tiles": [{"ic": "chat", "label": "\"Price?\""}, {"ic": "tag", "label": "Price on screen", "hot": true}]
+    },
+    "problems": [
+      {
+        "say": "Problem one: forty people comment *“price pls”*, and you *DM* each one by hand.",
+        "screen": "chat",
+        "head": "Reel *comments*",
+        "chat": [
+          {"t": "Price pls"},
+          {"t": "Price?? 🙏"},
+          {"t": "DM price and sizes"}
+        ],
+        "chip": "Replied six hours later",
+        "fix": {
+          "say": "The fix: a *catalogue* link with every price, colour and size, open *24x7*.",
+          "head": "New *arrivals*",
+          "sub": "Saanjh Boutique · Festive edit",
+          "rows": [
+            {"t": "Chanderi kurta set", "s": "3 colours · S to XL", "v": "₹2,450", "ic": "tag"},
+            {"t": "Mul cotton saree", "s": "5 colours", "v": "₹1,890", "ic": "tag"},
+            {"t": "Silk lehenga", "s": "Made to measure", "v": "₹6,200", "ic": "tag"}
+          ],
+          "btn": "View catalogue",
+          "chip": "Price seen, no DM needed"
+        }
+      },
+      {
+        "say": "Problem two: “Is medium available?” You check the rack, reply late, and she's *already gone*.",
+        "screen": "chat",
+        "head": "Direct *messages*",
+        "chat": [
+          {"t": "Is M available in the green one?"},
+          {"t": "Hello??"},
+          {"me": true, "t": "Yes! Sorry, just saw this"}
+        ],
+        "chip": "Left on seen, she bought elsewhere",
+        "fix": {
+          "say": "The fix: *live sizes* and stock on every product. Sold out shows *sold out*.",
+          "head": "Chanderi *kurta set*",
+          "sub": "Green · ₹2,450",
+          "rows": [
+            {"t": "S", "s": "In stock", "ic": "check"},
+            {"t": "M", "s": "Only 1 left", "ic": "bell"},
+            {"t": "L", "s": "Sold out", "ic": "tag", "c": "#FF6B4A"}
+          ],
+          "btn": "Add to cart",
+          "chip": "Size picked in seconds"
+        }
+      },
+      {
+        "say": "Problem three: orders sit in chats, screenshots and a *notebook*, and one always goes *missing*.",
+        "screen": "rows",
+        "head": "Today's *orders*",
+        "rows": [
+          {"t": "Screenshot_2231.jpg", "s": "Paid? not sure", "ic": "wallet", "bad": true},
+          {"t": "Notebook page 14", "s": "Address missing", "ic": "pin", "bad": true},
+          {"t": "Voice note", "s": "Which colour?", "ic": "chat", "bad": true}
+        ],
+        "chip": "Wrong parcel shipped",
+        "fix": {
+          "say": "The fix: a *cart* that sends the order to WhatsApp, with *UPI* checkout.",
+          "head": "Order *placed*",
+          "sub": "Order #1042",
+          "rows": [
+            {"t": "Chanderi kurta set · M", "s": "Green", "v": "₹2,450", "ic": "tag"},
+            {"t": "Paid by UPI", "s": "Confirmed", "ic": "check"},
+            {"t": "Address saved", "s": "Ships tomorrow", "ic": "pin"}
+          ],
+          "btn": "Pay by UPI",
+          "chip": "Order on WhatsApp, already paid"
+        }
+      }
+    ],
+    "recap_say": "*Catalogue*, *live sizes* and *UPI checkout*, all in one store.",
+    "recap": [{"t": "Catalogue", "s": "prices, colours, sizes"}, {"t": "Live sizes", "s": "stock on every product"}, {"t": "UPI checkout", "s": "order lands on WhatsApp"}],
+    "cta_say": "Want this for your *boutique*? Comment *SHOP* or send us a *DM*.",
+    "caption": "Every \"price?\" comment is a sale that's about to die. 👗\n\n1️⃣ You DM prices to every commenter by hand\n✅ Fix: a catalogue link with prices, colours and sizes\n\n2️⃣ \"Is medium available?\" gets answered too late\n✅ Fix: live sizes and stock on every product\n\n3️⃣ Orders scattered across chats, screenshots and a notebook\n✅ Fix: a cart that sends the order to WhatsApp, with UPI checkout\n\nSaanjh Boutique is a concept demo.\nSend this to a boutique owner who needs it.\nWant this for your boutique? Comment SHOP 👇\n\nVoiceover is AI-generated.",
+    "hashtags": ["#boutique", "#boutiqueowner", "#indianfashion", "#clothingstore", "#instagramshop", "#smallbusinessindia", "#craftlayer"],
+    "tags": ["boutique website", "online catalogue", "whatsapp order", "clothing store india", "instagram shop", "craftlayer studio"]
+  },
+  {
+    "id": "CR-119",
+    "topic": "Bakeries: 3 problems",
+    "audience": "bakery",
+    "demo_name": "Butterleaf Bakery",
+    "domain": "butterleaf.in",
+    "keyword": "CAKE",
+    "sources": ["https://craftlayer-studio.github.io/industries/restaurants-hospitality/", "https://craftlayer-studio.github.io/industries/ecommerce-retail/"],
+    "hook": {
+      "say": "Your cakes sell out on *Instagram*. Your *orders* get lost in *DMs*.",
+      "title": "Cakes sell out.\nOrders get *lost*.",
+      "tiles": [{"ic": "chat", "label": "Lost in DMs"}, {"ic": "gift", "label": "Order page", "hot": true}]
+    },
+    "problems": [
+      {
+        "say": "Problem one: one custom cake takes *forty messages*. Size, flavour, photo, name, *again*.",
+        "screen": "chat",
+        "head": "Cake *enquiry*",
+        "chat": [
+          {"t": "Can you do 1 kg truffle with a unicorn?"},
+          {"t": "Name on top: Aarohi"},
+          {"t": "Wait, make it pineapple instead"}
+        ],
+        "chip": "Still no final order",
+        "fix": {
+          "say": "The fix: a *cake builder*. Pick size, flavour, design and the *name on top*.",
+          "head": "Build your *cake*",
+          "sub": "Butterleaf Bakery",
+          "rows": [
+            {"t": "Size", "s": "1 kg", "ic": "gift"},
+            {"t": "Flavour", "s": "Belgian truffle", "ic": "star"},
+            {"t": "Message", "s": "Happy 6th, Aarohi", "ic": "chat"},
+            {"t": "Total", "s": "Unicorn topper", "v": "₹1,350", "ic": "tag"}
+          ],
+          "btn": "Place order",
+          "chip": "Order complete, one screen"
+        }
+      },
+      {
+        "say": "Problem two: you bake a two-kilo cake, and the customer *never shows up*, *unpaid*.",
+        "screen": "rows",
+        "head": "Pickups *today*",
+        "rows": [
+          {"t": "2 kg black forest", "s": "Not picked up", "ic": "gift", "bad": true},
+          {"t": "Advance", "s": "₹0 received", "ic": "wallet", "bad": true},
+          {"t": "Customer phone", "s": "Switched off", "ic": "phone", "bad": true}
+        ],
+        "chip": "Cake wasted, money gone",
+        "fix": {
+          "say": "The fix: a *UPI advance* at the time of order. No advance, no *baking*.",
+          "head": "Confirm *order*",
+          "sub": "2 kg black forest",
+          "rows": [
+            {"t": "Total", "s": "Pickup Saturday", "v": "₹1,800", "ic": "tag"},
+            {"t": "Advance paid", "s": "UPI", "v": "₹600", "ic": "check"},
+            {"t": "Balance at pickup", "s": "Cash or UPI", "v": "₹1,200", "ic": "wallet"}
+          ],
+          "btn": "Pay ₹600 advance",
+          "chip": "Advance received"
+        }
+      },
+      {
+        "say": "Problem three: “Is my cake ready?” Five customers arrive at *six PM*, all at *once*.",
+        "screen": "chat",
+        "head": "WhatsApp *orders*",
+        "chat": [
+          {"t": "Is my cake ready? I'm outside"},
+          {"t": "We're also here for pickup"},
+          {"me": true, "t": "Two minutes please!"}
+        ],
+        "chip": "Counter chaos at 6 PM",
+        "fix": {
+          "say": "The fix: *pickup slots*, and a WhatsApp *reminder* the moment the cake is boxed and ready.",
+          "head": "Pickup *slot*",
+          "sub": "Saturday",
+          "rows": [
+            {"t": "5:30 PM", "s": "Available", "v": "Pick", "ic": "clock"},
+            {"t": "6:00 PM", "s": "Full", "ic": "clock", "c": "#FF6B4A"},
+            {"t": "6:30 PM", "s": "Available", "v": "Pick", "ic": "clock"}
+          ],
+          "btn": "Choose pickup slot",
+          "chip": "\"Your cake is ready\" sent"
+        }
+      }
+    ],
+    "recap_say": "*Cake builder*, *UPI advance* and *pickup slots*, all in one system.",
+    "recap": [{"t": "Cake builder", "s": "size, flavour, message"}, {"t": "UPI advance", "s": "paid before you bake"}, {"t": "Pickup slots", "s": "with a ready reminder"}],
+    "cta_say": "Want this for your *bakery*? Comment *CAKE* or send us a *DM*.",
+    "caption": "Your cakes sell out on Instagram. Your orders get lost in DMs. 🎂\n\n1️⃣ One custom cake takes a long chat\n✅ Fix: a cake builder for size, flavour, design and message\n\n2️⃣ Customers don't show up and never paid\n✅ Fix: UPI advance at the time of order\n\n3️⃣ Everyone arrives for pickup at once\n✅ Fix: pickup slots and a \"cake is ready\" reminder\n\nButterleaf Bakery is a concept demo.\nSend this to a bakery owner who needs it.\nWant this for your bakery? Comment CAKE 👇\n\nVoiceover is AI-generated.",
+    "hashtags": ["#bakery", "#homebaker", "#cakeshop", "#customcakes", "#bakersofindia", "#smallbusinessindia", "#craftlayer"],
+    "tags": ["bakery website", "cake order form", "custom cake builder", "home baker india", "bakery online orders", "craftlayer studio"]
+  },
+  {
+    "id": "CR-120",
+    "topic": "Kirana stores: 3 problems",
+    "audience": "kirana store",
+    "demo_name": "Annapurna Stores",
+    "domain": "annapurnastores.in",
+    "keyword": "ORDER",
+    "sources": ["https://craftlayer-studio.github.io/industries/ecommerce-retail/", "https://craftlayer-studio.github.io/services/business-automation/"],
+    "hook": {
+      "say": "Stop losing your regulars to *apps*. They live two lanes away, and they still order *elsewhere*.",
+      "title": "Two lanes away.\nOrdering *elsewhere*.",
+      "tiles": [{"ic": "phone", "label": "Delivery app"}, {"ic": "pin", "label": "Your store", "hot": true}]
+    },
+    "problems": [
+      {
+        "say": "Problem one: your regular orders atta and milk from an *app*, because calling you means *waiting*.",
+        "screen": "chat",
+        "head": "Mrs *Gupta*",
+        "chat": [
+          {"t": "Called twice, line was busy"},
+          {"t": "Ordered from the app, sorry bhaiya!"}
+        ],
+        "chip": "Regular customer, lost order",
+        "fix": {
+          "say": "The fix: your own *order page* on WhatsApp. Tap items, send the list, *done*.",
+          "head": "Annapurna *Stores*",
+          "sub": "Order on WhatsApp",
+          "rows": [
+            {"t": "Wheat atta · 5 kg", "s": "In stock", "v": "₹265", "ic": "leaf"},
+            {"t": "Toned milk · 1 L", "s": "In stock", "v": "₹56", "ic": "leaf"},
+            {"t": "Brown bread", "s": "Fresh today", "v": "₹45", "ic": "leaf"}
+          ],
+          "btn": "Send order on WhatsApp",
+          "chip": "List arrives, ready to pack"
+        }
+      },
+      {
+        "say": "Problem two: *udhaar* lives in a register. Pages tear, names smudge, and money *disappears*.",
+        "screen": "rows",
+        "head": "Udhaar *register*",
+        "rows": [
+          {"t": "Verma ji", "s": "₹1,240? page torn", "ic": "wallet", "bad": true},
+          {"t": "Pinky (B-block)", "s": "₹380 or ₹830?", "ic": "wallet", "bad": true},
+          {"t": "Raju", "s": "Since August", "ic": "wallet", "bad": true}
+        ],
+        "chip": "Nobody remembers the total",
+        "fix": {
+          "say": "The fix: a *digital khata*, with a polite WhatsApp reminder when dues *pile up*.",
+          "head": "Digital *khata*",
+          "sub": "Dues this month",
+          "rows": [
+            {"t": "Verma ji", "s": "Reminder sent", "v": "₹1,240", "ic": "bell"},
+            {"t": "Pinky (B-block)", "s": "Paid by UPI", "v": "₹380", "ic": "check"},
+            {"t": "Raju", "s": "Reminder scheduled", "v": "₹910", "ic": "clock"}
+          ],
+          "btn": "Send reminder",
+          "chip": "Paid by UPI from the reminder"
+        }
+      },
+      {
+        "say": "Problem three: “Will you deliver to Sector nine by seven?” You don't know, so you say *maybe*.",
+        "screen": "chat",
+        "head": "WhatsApp",
+        "chat": [
+          {"t": "Will you deliver to Sector 9 by 7?"},
+          {"me": true, "t": "Maybe, depends on the boy"},
+          {"t": "Okay, I'll order from somewhere else"}
+        ],
+        "chip": "Maybe means no",
+        "fix": {
+          "say": "The fix: *delivery slots* by area, so customers pick a time you can *keep*.",
+          "head": "Delivery *slots*",
+          "sub": "Choose your area",
+          "rows": [
+            {"t": "Sector 9", "s": "6 to 7 PM · available", "ic": "pin"},
+            {"t": "Sector 12", "s": "7 to 8 PM · available", "ic": "pin"},
+            {"t": "Sector 15", "s": "Tomorrow morning", "ic": "pin"}
+          ],
+          "btn": "Confirm slot",
+          "chip": "Delivered on time"
+        }
+      }
+    ],
+    "recap_say": "*Order page*, *digital khata* and *delivery slots*, all for your store.",
+    "recap": [{"t": "Order page", "s": "WhatsApp, tap and send"}, {"t": "Digital khata", "s": "udhaar with reminders"}, {"t": "Delivery slots", "s": "by area and time"}],
+    "cta_say": "Want this for your *store*? Comment *ORDER* or send us a *DM*.",
+    "caption": "Your regulars live two lanes away. Why do they order from apps? 🛒\n\n1️⃣ Calling the store means waiting, so they use an app\n✅ Fix: your own order page on WhatsApp\n\n2️⃣ Udhaar lives in a register that tears and smudges\n✅ Fix: a digital khata with WhatsApp reminders\n\n3️⃣ \"Will you deliver by 7?\" gets a \"maybe\"\n✅ Fix: delivery slots by area\n\nAnnapurna Stores is a concept demo.\nSend this to a kirana store owner who needs it.\nWant this for your store? Comment ORDER 👇\n\nVoiceover is AI-generated.",
+    "hashtags": ["#kirana", "#kiranastore", "#grocerystore", "#localbusiness", "#digitalkhata", "#smallbusinessindia", "#craftlayer"],
+    "tags": ["kirana store app", "whatsapp order page", "digital khata", "grocery delivery india", "local store website", "craftlayer studio"]
+  },
+  {
+    "id": "CR-121",
+    "topic": "Travel agents: 3 problems",
+    "audience": "travel agency",
+    "demo_name": "Wanderwise Holidays",
+    "domain": "wanderwise.in",
+    "keyword": "TRIP",
+    "sources": ["https://craftlayer-studio.github.io/industries/hospitality/", "https://craftlayer-studio.github.io/services/web-development/"],
+    "hook": {
+      "say": "Every hour you take to send the *itinerary*, your customer is *booking* with someone faster.",
+      "title": "Slow itinerary.\n*Lost booking*.",
+      "tiles": [{"ic": "clock", "label": "Still typing..."}, {"ic": "globe", "label": "Package link", "hot": true}]
+    },
+    "problems": [
+      {
+        "say": "Problem one: every *package* lives in a PDF, and every enquiry gets the *same twenty messages*.",
+        "screen": "chat",
+        "head": "New *enquiry*",
+        "chat": [
+          {"t": "Manali package details?"},
+          {"t": "Price for 4 people?"},
+          {"t": "Hotel photos pls"}
+        ],
+        "chip": "Same PDF, sent again",
+        "fix": {
+          "say": "The fix: *package pages* with dates, prices, hotels and photos. Share *one link*.",
+          "head": "Winter *packages*",
+          "sub": "Wanderwise Holidays",
+          "rows": [
+            {"t": "Manali · 5N/6D", "s": "Dec & Jan dates", "v": "₹18,500", "ic": "pin"},
+            {"t": "Goa · 3N/4D", "s": "Beach resort", "v": "₹12,900", "ic": "pin"},
+            {"t": "Kerala · 4N/5D", "s": "Houseboat stay", "v": "₹21,000", "ic": "pin"}
+          ],
+          "btn": "Share package link",
+          "chip": "One link answers everything"
+        }
+      },
+      {
+        "say": "Problem two: a family wants a *custom trip*, and the details trickle in over *three days*.",
+        "screen": "chat",
+        "head": "Custom *trip*",
+        "chat": [
+          {"t": "We're 2 adults, 2 kids"},
+          {"t": "Oh, budget around 80k"},
+          {"t": "Dates? Maybe end of Dec"}
+        ],
+        "chip": "Day three, still no quote",
+        "fix": {
+          "say": "The fix: a *trip request form*. Dates, people, budget, hotel type, all in *one go*.",
+          "head": "Plan my *trip*",
+          "sub": "Takes a minute",
+          "rows": [
+            {"t": "Travellers", "s": "2 adults, 2 kids", "ic": "users"},
+            {"t": "Dates", "s": "24 to 29 Dec", "ic": "cal"},
+            {"t": "Budget", "s": "₹80,000", "ic": "wallet"},
+            {"t": "Stay", "s": "4-star, family room", "ic": "star"}
+          ],
+          "btn": "Send trip request",
+          "chip": "Quote ready the same day"
+        }
+      },
+      {
+        "say": "Problem three: payments in one app, *ID copies* in another, and the hotel *voucher* nowhere.",
+        "screen": "rows",
+        "head": "Booking *#118*",
+        "rows": [
+          {"t": "Advance", "s": "Paid? check bank app", "ic": "bank", "bad": true},
+          {"t": "ID proofs", "s": "2 of 4 received", "ic": "users", "bad": true},
+          {"t": "Hotel voucher", "s": "Not sent", "ic": "check", "bad": true}
+        ],
+        "chip": "Customer calls the night before",
+        "fix": {
+          "say": "The fix: a *booking page* with *UPI* payment and document upload in one place.",
+          "head": "Your *booking*",
+          "sub": "Kerala · 24 to 29 Dec",
+          "rows": [
+            {"t": "Advance", "s": "Paid by UPI", "v": "₹20,000", "ic": "check"},
+            {"t": "ID proofs", "s": "4 of 4 uploaded", "ic": "check"},
+            {"t": "Hotel voucher", "s": "Ready to download", "ic": "check"}
+          ],
+          "btn": "Pay advance",
+          "chip": "Everything in one link"
+        }
+      }
+    ],
+    "recap_say": "*Package pages*, *trip requests* and *bookings*, all in one system.",
+    "recap": [{"t": "Package pages", "s": "dates, prices, photos"}, {"t": "Trip requests", "s": "every detail in one form"}, {"t": "Bookings", "s": "UPI + documents"}],
+    "cta_say": "Want this for your *travel* business? Comment *TRIP* or send us a *DM*.",
+    "caption": "Every hour you take to send the itinerary, your customer books with someone faster. ✈️\n\n1️⃣ Packages live in PDFs and every enquiry gets the same messages\n✅ Fix: package pages with dates, prices, hotels and photos\n\n2️⃣ Custom trip details trickle in over days\n✅ Fix: a trip request form that asks everything once\n\n3️⃣ Payments and documents scattered everywhere\n✅ Fix: a booking page with UPI and document upload\n\nWanderwise Holidays is a concept demo.\nSend this to a travel agency owner who needs it.\nWant this for your travel business? Comment TRIP 👇\n\nVoiceover is AI-generated.",
+    "hashtags": ["#travelagent", "#travelagency", "#tourpackages", "#travelbusiness", "#indiatravel", "#smallbusinessindia", "#craftlayer"],
+    "tags": ["travel agency website", "tour package page", "trip request form", "travel booking system", "travel agent india", "craftlayer studio"]
+  },
+  {
+    "id": "CR-122",
+    "topic": "Photographers: 3 problems",
+    "audience": "photo studio",
+    "demo_name": "Frame & Field Studio",
+    "domain": "frameandfield.in",
+    "keyword": "SHOOT",
+    "sources": ["https://craftlayer-studio.github.io/industries/weddings/", "https://craftlayer-studio.github.io/services/web-development/"],
+    "hook": {
+      "say": "Your best *wedding shoot* is buried three hundred posts deep. No couple *scrolls* that far.",
+      "title": "Your best shoot?\n*Buried*.",
+      "tiles": [{"ic": "search", "label": "Lost in the grid"}, {"ic": "star", "label": "Portfolio site", "hot": true}]
+    },
+    "problems": [
+      {
+        "say": "Problem one: weddings, pre-weddings and babies are all *mixed* in one grid. Clients can't find *their* style.",
+        "screen": "rows",
+        "head": "Your *grid*",
+        "rows": [
+          {"t": "Baby shoot", "s": "Posted Monday", "ic": "star"},
+          {"t": "Behind the scenes reel", "s": "Posted Tuesday", "ic": "star"},
+          {"t": "Wedding · Udaipur", "s": "Three months down", "ic": "star", "bad": true}
+        ],
+        "chip": "Couple closes the app",
+        "fix": {
+          "say": "The fix: a *portfolio site* by category. Weddings, pre-wedding, maternity, each with its own *gallery*.",
+          "head": "Frame & *Field*",
+          "sub": "Portfolio",
+          "rows": [
+            {"t": "Weddings", "s": "Full stories", "ic": "star"},
+            {"t": "Pre-wedding", "s": "Outdoor and studio", "ic": "pin"},
+            {"t": "Maternity & baby", "s": "Home and studio", "ic": "gift"}
+          ],
+          "btn": "View weddings",
+          "chip": "Right style, first click"
+        }
+      },
+      {
+        "say": "Problem two: “Are you free on the fourteenth?” Check calendar, reply, *repeat*, every *single* time.",
+        "screen": "chat",
+        "head": "Direct *messages*",
+        "chat": [
+          {"t": "Are you free on 14 Feb?"},
+          {"t": "And 15th? Rates for both days?"},
+          {"me": true, "t": "Let me check and get back"}
+        ],
+        "chip": "Asked again tomorrow",
+        "fix": {
+          "say": "The fix: an *availability calendar*. Clients see free dates and *request* a booking themselves.",
+          "head": "Check *dates*",
+          "sub": "February",
+          "rows": [
+            {"t": "14 Feb", "s": "Booked", "ic": "cal", "c": "#FF6B4A"},
+            {"t": "15 Feb", "s": "Available", "v": "Request", "ic": "cal"},
+            {"t": "16 Feb", "s": "Available", "v": "Request", "ic": "cal"}
+          ],
+          "btn": "Request this date",
+          "chip": "Request with date and package"
+        }
+      },
+      {
+        "say": "Problem three: final photos go out as a *Drive link* that *expires*, and the client asks again.",
+        "screen": "chat",
+        "head": "Client *chat*",
+        "chat": [
+          {"t": "The link isn't opening"},
+          {"t": "Can you resend all the photos?"},
+          {"t": "My mom wants them too"}
+        ],
+        "chip": "Uploading again, third time",
+        "fix": {
+          "say": "The fix: *private client galleries* with a password, *favourites* and one-click download.",
+          "head": "Riya & *Kabir*",
+          "sub": "Private gallery",
+          "rows": [
+            {"t": "Haldi", "s": "Ready", "ic": "star"},
+            {"t": "Wedding day", "s": "Ready", "ic": "star"},
+            {"t": "Favourites", "s": "Picked for the album", "ic": "check"}
+          ],
+          "btn": "Download all",
+          "chip": "Password protected"
+        }
+      }
+    ],
+    "recap_say": "*Portfolio*, *availability* and *client galleries*, all on your own site.",
+    "recap": [{"t": "Portfolio", "s": "by category"}, {"t": "Availability", "s": "free dates, self-request"}, {"t": "Client galleries", "s": "private, one-click download"}],
+    "cta_say": "Want this for your *studio*? Comment *SHOOT* or send us a *DM*.",
+    "caption": "Your best wedding shoot is buried deep in your grid. No couple scrolls that far. 📸\n\n1️⃣ All your work is mixed in one grid\n✅ Fix: a portfolio site by category\n\n2️⃣ \"Are you free on the 14th?\" every single time\n✅ Fix: an availability calendar with booking requests\n\n3️⃣ Final photos sent as Drive links that expire\n✅ Fix: private client galleries with download\n\nFrame & Field Studio is a concept demo.\nSend this to a photographer who needs it.\nWant this for your studio? Comment SHOOT 👇\n\nVoiceover is AI-generated.",
+    "hashtags": ["#weddingphotographer", "#photographer", "#indianphotographer", "#photographybusiness", "#portfolio", "#smallbusinessindia", "#craftlayer"],
+    "tags": ["photographer website", "photography portfolio", "client gallery", "wedding photographer india", "booking calendar", "craftlayer studio"]
+  },
+  {
+    "id": "CR-123",
+    "topic": "Schools: 3 problems",
+    "audience": "school",
+    "demo_name": "Little Banyan School",
+    "domain": "littlebanyanschool.in",
+    "keyword": "SCHOOL",
+    "sources": ["https://craftlayer-studio.github.io/industries/education/", "https://craftlayer-studio.github.io/services/web-development/"],
+    "hook": {
+      "say": "Before: parents *queue* at your gate for an admission form. After: they apply from *home*.",
+      "title": "Queue at the gate?\nOr *apply from home*?",
+      "tiles": [{"ic": "users", "label": "Before: the queue"}, {"ic": "globe", "label": "After: online", "hot": true}]
+    },
+    "problems": [
+      {
+        "say": "Problem one: admission dates and fees sit in a *blurry PDF* forwarded on *WhatsApp*.",
+        "screen": "chat",
+        "head": "Parents *group*",
+        "chat": [
+          {"t": "Last date for nursery admission?"},
+          {"t": "Fee structure pls?"},
+          {"t": "Is this PDF the latest one?"}
+        ],
+        "chip": "Office phone rings all day",
+        "fix": {
+          "say": "The fix: an *admissions page* with dates, fees, documents and an *online form*.",
+          "head": "Admissions *open*",
+          "sub": "Little Banyan School · Nursery to Class 5",
+          "rows": [
+            {"t": "Last date", "s": "Nursery to Class 5", "v": "15 Jan", "ic": "cal"},
+            {"t": "Fee structure", "s": "Per term, all classes", "ic": "wallet"},
+            {"t": "Documents", "s": "Birth certificate, photos", "ic": "check"}
+          ],
+          "btn": "Apply online",
+          "chip": "Form submitted from home"
+        }
+      },
+      {
+        "say": "Problem two: the holiday *circular* gets buried under two hundred *good morning* messages.",
+        "screen": "rows",
+        "head": "Class 3 *parents*",
+        "rows": [
+          {"t": "Good morning 🌸", "s": "7:02 AM", "ic": "chat"},
+          {"t": "Good morning 🙏", "s": "7:05 AM", "ic": "chat"},
+          {"t": "Holiday circular.pdf", "s": "Scrolled past", "ic": "bell", "bad": true},
+          {"t": "Is school open tomorrow?", "s": "9:40 PM", "ic": "chat", "bad": true}
+        ],
+        "chip": "Half the class shows up",
+        "fix": {
+          "say": "The fix: a *notice board* page. Every circular, dated and searchable, in *one place*.",
+          "head": "Notice *board*",
+          "sub": "Latest first",
+          "rows": [
+            {"t": "School closed Friday", "s": "Posted today", "ic": "bell"},
+            {"t": "PTM schedule", "s": "Class-wise times", "ic": "cal"},
+            {"t": "Annual day rehearsal", "s": "Classes 3 to 5", "ic": "star"}
+          ],
+          "btn": "Open notice board",
+          "chip": "One link in the group bio"
+        }
+      },
+      {
+        "say": "Problem three: on fee day, parents *take leave* from work to stand in a *line*.",
+        "screen": "rows",
+        "head": "Fee *counter*",
+        "rows": [
+          {"t": "Counter open", "s": "9 AM to 12 PM only", "ic": "clock", "bad": true},
+          {"t": "Cash or cheque", "s": "No UPI", "ic": "cash", "bad": true},
+          {"t": "Receipt", "s": "Handwritten", "ic": "check", "bad": true}
+        ],
+        "chip": "A half-day leave for a receipt",
+        "fix": {
+          "say": "The fix: *online fee payment* by UPI or card, with an instant *receipt* on WhatsApp.",
+          "head": "Pay *fees*",
+          "sub": "Aanya · Class 3 · Term 2",
+          "rows": [
+            {"t": "Term 2 fee", "s": "Due 10 Dec", "v": "₹18,000", "ic": "wallet"},
+            {"t": "UPI or card", "s": "Pay from anywhere", "ic": "card"},
+            {"t": "Receipt", "s": "Sent on WhatsApp", "ic": "check"}
+          ],
+          "btn": "Pay ₹18,000",
+          "chip": "Receipt on WhatsApp"
+        }
+      }
+    ],
+    "recap_say": "*Admissions*, *notices* and *fee payments*, all in one system.",
+    "recap": [{"t": "Admissions", "s": "dates, fees, online form"}, {"t": "Notices", "s": "one board, never buried"}, {"t": "Fee payments", "s": "UPI, card, instant receipt"}],
+    "cta_say": "Want this for your *school*? Comment *SCHOOL* or send us a *DM*.",
+    "caption": "Before: parents queue at your gate for a form. After: they apply from home. 🏫\n\n1️⃣ Admission dates and fees in a blurry WhatsApp PDF\n✅ Fix: an admissions page with dates, fees and an online form\n\n2️⃣ Circulars buried in parent groups\n✅ Fix: a notice board page, dated and searchable\n\n3️⃣ Parents take leave to stand in the fee line\n✅ Fix: online fee payment with an instant receipt\n\nLittle Banyan School is a concept demo.\nSend this to a school owner who needs it.\nWant this for your school? Comment SCHOOL 👇\n\nVoiceover is AI-generated.",
+    "hashtags": ["#school", "#schoolowner", "#admissions", "#education", "#schoolmanagement", "#indianschools", "#craftlayer"],
+    "tags": ["school website", "online admission form", "school fee payment", "school notice board", "school management india", "craftlayer studio"]
+  },
+  {
+    "id": "CR-124",
+    "topic": "NGOs: 3 problems",
+    "audience": "NGO",
+    "demo_name": "Common Table",
+    "domain": "commontable.org.in",
+    "keyword": "HELP",
+    "sources": ["https://craftlayer-studio.github.io/industry-demos/nonprofit/", "https://craftlayer-studio.github.io/industries/nonprofit/"],
+    "hook": {
+      "say": "“How do I know my money *reaches* someone?” Every donor *thinks* it. Very few ask you.",
+      "title": "\"Where does my\nmoney *go*?\"",
+      "tiles": [{"ic": "wallet", "label": "Donor's doubt"}, {"ic": "users", "label": "Your proof", "hot": true}]
+    },
+    "problems": [
+      {
+        "say": "Problem one: your work happens every day, but your *proof* lives in scattered *WhatsApp* photos.",
+        "screen": "rows",
+        "head": "Our *work*",
+        "rows": [
+          {"t": "IMG_4402.jpg", "s": "Volunteer's phone", "ic": "star", "bad": true},
+          {"t": "Food drive video", "s": "In a group, 2 years ago", "ic": "star", "bad": true},
+          {"t": "Annual report", "s": "Never published", "ic": "check", "bad": true}
+        ],
+        "chip": "Donor can't see the work",
+        "fix": {
+          "say": "The fix: an *impact page* with photos, updates and yearly *reports* anyone can open.",
+          "head": "Our *impact*",
+          "sub": "Common Table",
+          "rows": [
+            {"t": "Saturday food drive", "s": "Photos and update", "ic": "leaf"},
+            {"t": "Monthly update", "s": "Where the money went", "ic": "wallet"},
+            {"t": "Annual report", "s": "Open to everyone", "ic": "check"}
+          ],
+          "btn": "Read the report",
+          "chip": "Proof in one link"
+        }
+      },
+      {
+        "say": "Problem two: someone wants to give *five hundred rupees*, and you send a *bank account* number.",
+        "screen": "chat",
+        "head": "Instagram *DM*",
+        "chat": [
+          {"t": "I want to donate, how?"},
+          {"me": true, "t": "Account no. 3920... IFSC ..."},
+          {"t": "Will I get a receipt?"}
+        ],
+        "chip": "Donation never happened",
+        "fix": {
+          "say": "The fix: *UPI donation* in one tap, with an automatic *receipt* in their inbox.",
+          "head": "Give *today*",
+          "sub": "Common Table",
+          "rows": [
+            {"t": "₹500", "s": "One-time", "v": "Give", "ic": "gift"},
+            {"t": "₹1,000", "s": "One-time", "v": "Give", "ic": "gift"},
+            {"t": "Monthly", "s": "Choose amount", "v": "Give", "ic": "cal"}
+          ],
+          "btn": "Donate by UPI",
+          "chip": "Receipt emailed"
+        }
+      },
+      {
+        "say": "Problem three: volunteers say yes in the group chat, then nobody knows who's *coming* on *Sunday*.",
+        "screen": "chat",
+        "head": "Volunteers *group*",
+        "chat": [
+          {"t": "I'll try to come 👍"},
+          {"t": "Maybe, will confirm"},
+          {"t": "Which time was it again?"}
+        ],
+        "chip": "Kitchen short on hands",
+        "fix": {
+          "say": "The fix: a *volunteer sign-up* with shifts, so every slot has a *name*.",
+          "head": "Sunday *shifts*",
+          "sub": "Community kitchen",
+          "rows": [
+            {"t": "8 to 11 AM", "s": "Cooking · open", "v": "Join", "ic": "users"},
+            {"t": "11 AM to 1 PM", "s": "Serving · open", "v": "Join", "ic": "users"},
+            {"t": "1 to 3 PM", "s": "Clean-up · open", "v": "Join", "ic": "users"}
+          ],
+          "btn": "Sign up for a shift",
+          "chip": "Reminder sent Saturday night"
+        }
+      }
+    ],
+    "recap_say": "*Impact page*, *UPI donations* and *volunteer shifts*, all in one place.",
+    "recap": [{"t": "Impact page", "s": "photos, updates, reports"}, {"t": "UPI donations", "s": "one tap, auto receipt"}, {"t": "Volunteer shifts", "s": "every slot has a name"}],
+    "cta_say": "Want this for your *NGO*? Comment *HELP* or send us a *DM*.",
+    "caption": "\"How do I know my money reaches someone?\" Every donor thinks it. 🤝\n\n1️⃣ Proof of your work is scattered in WhatsApp photos\n✅ Fix: an impact page with photos, updates and reports\n\n2️⃣ Donating means copying a bank account number\n✅ Fix: one-tap UPI donation with an automatic receipt\n\n3️⃣ Volunteers say yes, then nobody knows who's coming\n✅ Fix: volunteer sign-up by shift\n\nCommon Table is a concept demo.\nSend this to someone who runs an NGO.\nWant this for your NGO? Comment HELP 👇\n\nVoiceover is AI-generated.",
+    "hashtags": ["#ngo", "#nonprofit", "#ngoindia", "#charity", "#volunteer", "#socialimpact", "#craftlayer"],
+    "tags": ["ngo website", "online donation page", "upi donation", "volunteer sign up", "nonprofit india", "craftlayer studio"]
+  },
+  {
+    "id": "CR-125",
+    "topic": "D2C brands: 3 problems",
+    "audience": "D2C brand",
+    "demo_name": "Kesar & Clay",
+    "domain": "kesarandclay.in",
+    "keyword": "STORE",
+    "sources": ["https://craftlayer-studio.github.io/services/e-commerce/", "https://craftlayer-studio.github.io/industries/ecommerce-retail/"],
+    "hook": {
+      "say": "You don't own customers on a *marketplace*. You *rent* them, and pay rent on every *order*.",
+      "title": "You don't own them.\nYou *rent* them.",
+      "tiles": [{"ic": "tag", "label": "Marketplace"}, {"ic": "globe", "label": "Your store", "hot": true}]
+    },
+    "problems": [
+      {
+        "say": "Problem one: a cut on every sale, plus *ad fees*, plus *returns*. Your margin shrinks quietly.",
+        "screen": "rows",
+        "head": "Order *payout*",
+        "rows": [
+          {"t": "Soy candle · order", "s": "Selling price", "v": "₹999", "ic": "tag"},
+          {"t": "Commission", "s": "Deducted", "v": "−₹•••", "ic": "cash", "bad": true},
+          {"t": "Ads + shipping fee", "s": "Deducted", "v": "−₹•••", "ic": "cash", "bad": true},
+          {"t": "Return charge", "s": "Deducted", "v": "−₹•••", "ic": "cash", "bad": true}
+        ],
+        "chip": "What's left for you?",
+        "fix": {
+          "say": "The fix: *your own store* on your own domain. You set the prices and keep the *relationship*.",
+          "head": "Kesar & *Clay*",
+          "sub": "Handmade candles and pottery",
+          "rows": [
+            {"t": "Soy candle · sandalwood", "s": "In stock", "v": "₹999", "ic": "leaf"},
+            {"t": "Clay diya set", "s": "Festive pack", "v": "₹649", "ic": "gift"},
+            {"t": "Gift box", "s": "Add a note", "v": "₹1,499", "ic": "gift"}
+          ],
+          "btn": "Shop now",
+          "chip": "Your brand, your domain"
+        }
+      },
+      {
+        "say": "Problem two: a customer loved your candle, but you don't even have her *name* or *number*.",
+        "screen": "rows",
+        "head": "Marketplace *orders*",
+        "rows": [
+          {"t": "Order #A-4471", "s": "Buyer details hidden", "ic": "users", "bad": true},
+          {"t": "Order #A-4472", "s": "Buyer details hidden", "ic": "users", "bad": true},
+          {"t": "Order #A-4473", "s": "Buyer details hidden", "ic": "users", "bad": true}
+        ],
+        "chip": "No way to sell to her again",
+        "fix": {
+          "say": "The fix: your own *customer list*, so you can send a *restock* message she actually wants.",
+          "head": "Your *customers*",
+          "sub": "Opted in to updates",
+          "rows": [
+            {"t": "Meera S.", "s": "Bought sandalwood candle", "ic": "users"},
+            {"t": "Arjun T.", "s": "Bought clay diya set", "ic": "users"},
+            {"t": "Restock alert", "s": "Sandalwood is back", "ic": "bell"}
+          ],
+          "btn": "Send restock alert",
+          "chip": "Repeat order from the alert"
+        }
+      },
+      {
+        "say": "Problem three: the page loads slowly, checkout asks for *six* things, and the cart is *abandoned*.",
+        "screen": "rows",
+        "head": "Checkout",
+        "rows": [
+          {"t": "Create account", "s": "Required", "ic": "users", "bad": true},
+          {"t": "Verify email", "s": "Check your inbox", "ic": "chat", "bad": true},
+          {"t": "Page loading...", "s": "Still loading", "ic": "clock", "bad": true}
+        ],
+        "chip": "Cart abandoned",
+        "fix": {
+          "say": "The fix: a *fast store* with a short checkout. UPI, address, *done*.",
+          "head": "Quick *checkout*",
+          "sub": "Soy candle · ₹999",
+          "rows": [
+            {"t": "Phone number", "s": "OTP, no account needed", "ic": "phone"},
+            {"t": "Address", "s": "Saved for next time", "ic": "pin"},
+            {"t": "Pay by UPI", "s": "One tap", "ic": "check"}
+          ],
+          "btn": "Pay ₹999",
+          "chip": "Order placed"
+        }
+      }
+    ],
+    "recap_say": "*Your store*, *your customers* and a *fast checkout*.",
+    "recap": [{"t": "Your store", "s": "your domain, your prices"}, {"t": "Your customers", "s": "a list you can message"}, {"t": "Fast checkout", "s": "UPI in one tap"}],
+    "cta_say": "Want this for your *brand*? Comment *STORE* or send us a *DM*.",
+    "caption": "You don't own customers on a marketplace. You rent them. 🛍️\n\n1️⃣ Commission and fees on every single sale\n✅ Fix: your own store on your own domain\n\n2️⃣ You never get the customer's name or number\n✅ Fix: your own customer list for restock and repeat orders\n\n3️⃣ Slow pages and long checkouts lose carts\n✅ Fix: a fast store with a short UPI checkout\n\nKesar & Clay is a concept demo.\nSend this to a D2C brand owner who needs it.\nWant this for your brand? Comment STORE 👇\n\nVoiceover is AI-generated.",
+    "hashtags": ["#d2cbrand", "#d2c", "#ecommerceindia", "#onlinestore", "#handmadeinindia", "#smallbusinessindia", "#craftlayer"],
+    "tags": ["d2c website", "own online store", "ecommerce website india", "shopify alternative", "upi checkout", "craftlayer studio"]
+  },
+  {
+    "id": "CR-126",
+    "topic": "Startups: 3 problems",
+    "audience": "startup",
+    "demo_name": "Pulsegrid",
+    "domain": "pulsegrid.io",
+    "keyword": "MVP",
+    "sources": ["https://craftlayer-studio.github.io/industry-demos/saas/", "https://craftlayer-studio.github.io/industries/startups/"],
+    "hook": {
+      "say": "Six months of *pitch decks*, zero users. Your idea doesn't need more thinking. It needs a *prototype*.",
+      "title": "Six months of slides.\n*Zero* users.",
+      "tiles": [{"ic": "menu", "label": "Pitch deck v14"}, {"ic": "bolt", "label": "Prototype", "hot": true}]
+    },
+    "problems": [
+      {
+        "say": "Problem one: investors and users can't *click* a slide. They nod, then *forget* it.",
+        "screen": "chat",
+        "head": "Investor *follow-up*",
+        "chat": [
+          {"t": "Interesting idea!"},
+          {"t": "Ping us when there's a product"},
+          {"me": true, "t": "Sure, soon!"}
+        ],
+        "chip": "Still a slide",
+        "fix": {
+          "say": "The fix: a *clickable prototype* in weeks, so people can tap through the *real flow*.",
+          "head": "Pulse*grid*",
+          "sub": "Clickable prototype",
+          "rows": [
+            {"t": "Sign up", "s": "Working screen", "ic": "check"},
+            {"t": "Dashboard", "s": "Sample data", "ic": "bolt"},
+            {"t": "Pricing", "s": "Plan calculator", "ic": "tag"}
+          ],
+          "btn": "Try the prototype",
+          "chip": "Shared as a link"
+        }
+      },
+      {
+        "say": "Problem two: your MVP has *forty features* on the list, and none of them are *shipped*.",
+        "screen": "rows",
+        "head": "MVP *backlog*",
+        "rows": [
+          {"t": "Dark mode", "s": "Not started", "ic": "menu", "bad": true},
+          {"t": "AI assistant", "s": "Not started", "ic": "menu", "bad": true},
+          {"t": "Team chat", "s": "Not started", "ic": "menu", "bad": true},
+          {"t": "Core dashboard", "s": "Half done", "ic": "menu", "bad": true}
+        ],
+        "chip": "Launch date moved again",
+        "fix": {
+          "say": "The fix: a *scoped MVP*. The one feature that matters first, with a *demo* every week.",
+          "head": "MVP *scope*",
+          "sub": "Ship first, add later",
+          "rows": [
+            {"t": "Core dashboard", "s": "Week 1 demo", "ic": "check"},
+            {"t": "Sign up + billing", "s": "Week 2 demo", "ic": "check"},
+            {"t": "Everything else", "s": "After real users", "ic": "clock"}
+          ],
+          "btn": "See this week's demo",
+          "chip": "Live with real users"
+        }
+      },
+      {
+        "say": "Problem three: the freelancer launches it, *disappears*, and nobody understands the *code*.",
+        "screen": "chat",
+        "head": "Freelancer",
+        "chat": [
+          {"t": "Login is broken, can you check?"},
+          {"t": "Hello? It's urgent"},
+          {"t": "Where is the source code?"}
+        ],
+        "chip": "Last seen 3 weeks ago",
+        "fix": {
+          "say": "The fix: code *you own*, in your repo, with *handover docs* your next developer can read.",
+          "head": "Hand*over*",
+          "sub": "Your GitHub · your accounts",
+          "rows": [
+            {"t": "Source code", "s": "In your repo", "ic": "check"},
+            {"t": "Setup guide", "s": "Run it in one command", "ic": "check"},
+            {"t": "Handover docs", "s": "How every part works", "ic": "check"}
+          ],
+          "btn": "Open the repo",
+          "chip": "You own everything"
+        }
+      }
+    ],
+    "recap_say": "*Prototype*, *scoped MVP* and code *you own*, start to finish.",
+    "recap": [{"t": "Prototype", "s": "clickable, in weeks"}, {"t": "Scoped MVP", "s": "weekly demos"}, {"t": "Code you own", "s": "repo + handover docs"}],
+    "cta_say": "Building something? Comment *MVP* or send us a *DM*.",
+    "caption": "Six months of pitch decks, zero users. Your idea needs a prototype. 🚀\n\n1️⃣ Nobody can click a slide\n✅ Fix: a clickable prototype in weeks\n\n2️⃣ The MVP has too many features and none are shipped\n✅ Fix: a scoped MVP with a demo every week\n\n3️⃣ The freelancer disappears after launch\n✅ Fix: code you own, with handover docs\n\nPulsegrid is a concept demo.\nSend this to a startup founder who needs it.\nBuilding something? Comment MVP 👇\n\nVoiceover is AI-generated.",
+    "hashtags": ["#startup", "#startupindia", "#founder", "#mvp", "#saas", "#buildinpublic", "#craftlayer"],
+    "tags": ["mvp development", "startup prototype", "saas development india", "clickable prototype", "app development for startups", "craftlayer studio"]
+  }
+]

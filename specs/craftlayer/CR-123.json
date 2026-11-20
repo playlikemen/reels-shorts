@@ -1,0 +1,515 @@
+{
+ "title": "Schools: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "light": true,
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-123",
+  "brand": "craftlayer",
+  "topic": "Schools: 3 problems",
+  "schedule": {
+   "en": "2026-12-08 19:30"
+  },
+  "yt_title": {
+   "en": "Queue at the gate? Or apply from home? #shorts"
+  },
+  "yt_tags": [
+   "school website",
+   "online admission form",
+   "school fee payment",
+   "school notice board",
+   "school management india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Before: parents queue at your gate for a form. After: they apply from home. 🏫"
+  },
+  "ig_caption": {
+   "en": "Before: parents queue at your gate for a form. After: they apply from home. 🏫\n\n1️⃣ Admission dates and fees in a blurry WhatsApp PDF\n✅ Fix: an admissions page with dates, fees and an online form\n\n2️⃣ Circulars buried in parent groups\n✅ Fix: a notice board page, dated and searchable\n\n3️⃣ Parents take leave to stand in the fee line\n✅ Fix: online fee payment with an instant receipt\n\nLittle Banyan School is a concept demo.\nSend this to a school owner who needs it.\nWant this for your school? Comment SCHOOL 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#school",
+   "#schoolowner",
+   "#admissions",
+   "#education",
+   "#schoolmanagement",
+   "#indianschools",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industries/education/",
+   "https://craftlayer-studio.github.io/services/web-development/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Before: parents *queue* at your gate for an admission form. After: they apply from *home*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Queue at the gate?\nOr *apply from home*?"
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "users",
+       "size": 170,
+       "label": "Before: the queue",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "globe",
+       "size": 170,
+       "label": "After: online",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: admission dates and fees sit in a *blurry PDF* forwarded on *WhatsApp*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Little Banyan School",
+        "t": "Parents *group*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Last date for nursery admission?",
+          "at": "10%"
+         },
+         {
+          "t": "Fee structure pls?",
+          "at": "37%"
+         },
+         {
+          "t": "Is this PDF the latest one?",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Office phone rings all day",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: an *admissions page* with dates, fees, documents and an *online form*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "littlebanyanschool.in",
+        "t": "Admissions *open*",
+        "s": "Little Banyan School · Nursery to Class 5"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Last date",
+          "s": "Nursery to Class 5",
+          "v": "15 Jan",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Fee structure",
+          "s": "Per term, all classes",
+          "ic": "wallet",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Documents",
+          "s": "Birth certificate, photos",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Apply online",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Form submitted from home",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: the holiday *circular* gets buried under two hundred *good morning* messages.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Little Banyan School",
+        "t": "Class 3 *parents*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Good morning 🌸",
+          "s": "7:02 AM",
+          "ic": "chat"
+         },
+         {
+          "t": "Good morning 🙏",
+          "s": "7:05 AM",
+          "ic": "chat"
+         },
+         {
+          "t": "Holiday circular.pdf",
+          "s": "Scrolled past",
+          "ic": "bell",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Is school open tomorrow?",
+          "s": "9:40 PM",
+          "ic": "chat",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Half the class shows up",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: a *notice board* page. Every circular, dated and searchable, in *one place*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "littlebanyanschool.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "littlebanyanschool.in",
+        "t": "Notice *board*",
+        "s": "Latest first"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "School closed Friday",
+          "s": "Posted today",
+          "ic": "bell",
+          "c": "#465FFF"
+         },
+         {
+          "t": "PTM schedule",
+          "s": "Class-wise times",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Annual day rehearsal",
+          "s": "Classes 3 to 5",
+          "ic": "star",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Open notice board",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "One link in the group bio",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: on fee day, parents *take leave* from work to stand in a *line*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Little Banyan School",
+        "t": "Fee *counter*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Counter open",
+          "s": "9 AM to 12 PM only",
+          "ic": "clock",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Cash or cheque",
+          "s": "No UPI",
+          "ic": "cash",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Receipt",
+          "s": "Handwritten",
+          "ic": "check",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "A half-day leave for a receipt",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: *online fee payment* by UPI or card, with an instant *receipt* on WhatsApp.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "littlebanyanschool.in",
+        "t": "Pay *fees*",
+        "s": "Aanya · Class 3 · Term 2"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Term 2 fee",
+          "s": "Due 10 Dec",
+          "v": "₹18,000",
+          "ic": "wallet",
+          "c": "#465FFF"
+         },
+         {
+          "t": "UPI or card",
+          "s": "Pay from anywhere",
+          "ic": "card",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Receipt",
+          "s": "Sent on WhatsApp",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Pay ₹18,000",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Receipt on WhatsApp",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Admissions*, *notices* and *fee payments*, all in one system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · school system",
+     "items": [
+      {
+       "t": "Admissions",
+       "s": "dates, fees, online form",
+       "at": "2%"
+      },
+      {
+       "t": "Notices",
+       "s": "one board, never buried",
+       "at": "26%"
+      },
+      {
+       "t": "Fee payments",
+       "s": "UPI, card, instant receipt",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · SCHOOL",
+   "say": "Want this for your *school*? Comment *SCHOOL* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "SCHOOL",
+     "label": "Comment *SCHOOL*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,510 @@
+{
+ "title": "Business automation: 3 signs you need this",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-131",
+  "brand": "craftlayer",
+  "topic": "Business automation: 3 signs you need this",
+  "schedule": {
+   "en": "2026-12-15 19:30"
+  },
+  "yt_title": {
+   "en": "Not busy. Doing a computer's job. #shorts"
+  },
+  "yt_tags": [
+   "business automation",
+   "workflow automation",
+   "excel automation",
+   "google sheets automation",
+   "integrations",
+   "scheduled jobs",
+   "small business automation india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "You're not busy. You're doing a computer's job by hand, every single day. ⚙️"
+  },
+  "ig_caption": {
+   "en": "You're not busy. You're doing a computer's job by hand, every single day. ⚙️\n\n1️⃣ Someone copies orders from one sheet to another every morning\n✅ Fix: an integration between the tools you already use, on a schedule\n\n2️⃣ The work only happens if one person remembers\n✅ Fix: a scheduled job that runs itself, with a manual override\n\n3️⃣ Duplicates and mistakes show up weeks later\n✅ Fix: validation and deduplication on every run, plus an alert when something needs attention\n\nTidewell Traders is a concept demo.\nSend this to a business owner who needs it.\nDoing the same task by hand every day? Comment AUTOMATE 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#businessautomation",
+   "#automation",
+   "#productivity",
+   "#smallbusinessindia",
+   "#excel",
+   "#workflow",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/services/business-automation/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "You're not *busy*. You're doing a *computer's job* by hand, every single day.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Not busy.\nDoing a *computer's job*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "clock",
+       "size": 170,
+       "label": "By hand",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "bolt",
+       "size": 170,
+       "label": "Automatic",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Sign one: every morning, someone *copies* yesterday's orders from one sheet into *another*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Tidewell Traders",
+        "t": "Morning *routine*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Orders to stock sheet",
+          "s": "Copied by hand",
+          "v": "!",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Stock to accounts",
+          "s": "Copied by hand",
+          "ic": "cash",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Daily report",
+          "s": "Typed out again",
+          "ic": "chat",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Before any real work",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: an *integration* between the tools you already use, running on a *schedule*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "tidewelltraders.in",
+        "t": "Scheduled *jobs*",
+        "s": "Tidewell Traders · daily"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Sync orders",
+          "s": "Daily 6:00 AM",
+          "v": "Done",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Update stock",
+          "s": "After sync",
+          "v": "Done",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Morning report",
+          "s": "Emailed to you",
+          "v": "Sent",
+          "ic": "bell",
+          "c": "#465FFF"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Runs before you wake up",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Sign two: the work only happens if *one person* remembers to *do it*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Tidewell Traders",
+        "t": "Team *chat*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Did anyone send the supplier list?",
+          "at": "10%"
+         },
+         {
+          "t": "Ravi's on leave this week",
+          "at": "37%"
+         },
+         {
+          "t": "So... nobody?",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Nobody sent it",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: a scheduled job that *runs itself*, with a *manual override* for anything critical.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "tidewelltraders.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "tidewelltraders.in",
+        "t": "Supplier *job*",
+        "s": "Tidewell Traders · weekly"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Supplier list",
+          "s": "Every Monday 9 AM",
+          "v": "Sent",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Override",
+          "s": "Run it now",
+          "v": "Ready",
+          "ic": "bolt",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Runbook",
+          "s": "How it works",
+          "v": "Docs",
+          "ic": "menu",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Run now",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Safe to rerun",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Sign three: *duplicate* entries and mistakes show up weeks later, when it's *too late*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Tidewell Traders",
+        "t": "Accounts *sheet*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Invoice 1042",
+          "s": "Entered twice",
+          "v": "!",
+          "ic": "cash",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Customer name",
+          "s": "Spelled three ways",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "GST number",
+          "s": "Missing",
+          "ic": "tag",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Found at month end",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: *validation* and deduplication on every run, and an *alert* when something needs attention.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "tidewelltraders.in",
+        "t": "Run *report*",
+        "s": "Tidewell Traders · today"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Duplicates",
+          "s": "Removed automatically",
+          "v": "2",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Needs attention",
+          "s": "Missing GST number",
+          "v": "1",
+          "ic": "bell",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Everything else",
+          "s": "Synced",
+          "v": "OK",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Alert sent to you",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Synced* tools, jobs that run *themselves*, and alerts before *mistakes* spread.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · business system",
+     "items": [
+      {
+       "t": "Integrations",
+       "s": "tools talk to each other",
+       "at": "2%"
+      },
+      {
+       "t": "Scheduled jobs",
+       "s": "no one has to remember",
+       "at": "26%"
+      },
+      {
+       "t": "Validation",
+       "s": "alerts, no duplicates",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · AUTOMATE",
+   "say": "Doing the same task by hand every day? Comment *AUTOMATE* or *DM* us.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "AUTOMATE",
+     "label": "Comment *AUTOMATE*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

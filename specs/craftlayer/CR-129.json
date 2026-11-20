@@ -1,0 +1,499 @@
+{
+ "title": "AI applications: 3 signs you need this",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "light": true,
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-129",
+  "brand": "craftlayer",
+  "topic": "AI applications: 3 signs you need this",
+  "schedule": {
+   "en": "2026-12-13 19:30"
+  },
+  "yt_title": {
+   "en": "Not a chatbot. One job, done. #shorts"
+  },
+  "yt_tags": [
+   "ai for business",
+   "ai chatbot",
+   "mcp server",
+   "model context protocol",
+   "ai agent development",
+   "ai application development",
+   "business ai india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Nobody needs another chatbot. You need AI that does one job, properly. 🤖"
+  },
+  "ig_caption": {
+   "en": "Nobody needs another chatbot. You need AI that does one job, properly. 🤖\n\n1️⃣ Your chatbot can't answer a single real question\n✅ Fix: start with one workflow, with clear inputs and predictable answers\n\n2️⃣ The AI makes things up in front of customers\n✅ Fix: validate every answer and add a human review step where accuracy matters\n\n3️⃣ Your assistant can talk but can't touch your tools\n✅ Fix: an MCP server so it can act inside your existing systems\n\nKestrel Freight is a concept demo.\nSend this to a business owner who needs it.\nWant AI that does a real job? Comment AI 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#aiforbusiness",
+   "#aitools",
+   "#mcp",
+   "#automation",
+   "#smallbusinessindia",
+   "#aiagents",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/services/ai-applications/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Nobody needs another *chatbot*. You need AI that does *one job*, properly.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Not a chatbot.\n*One job, done*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "chat",
+       "size": 170,
+       "label": "Chatbot",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "check",
+       "size": 170,
+       "label": "One job",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Sign one: you added a *chatbot*, and it can't answer a *single* real question.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Kestrel Freight",
+        "t": "Website *chat*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Where is my shipment KF-2291?",
+          "at": "10%"
+         },
+         {
+          "t": "I'm here to help! Could you rephrase?",
+          "me": true,
+          "at": "37%"
+         },
+         {
+          "t": "...forget it",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Customer gives up",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: start with *one workflow*, like shipment status, with clear inputs and *predictable* answers.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "kestrelfreight.in",
+        "t": "Shipment *status*",
+        "s": "Kestrel Freight · assistant"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "KF-2291",
+          "s": "Out for delivery",
+          "v": "Today",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Source",
+          "s": "Your tracking system",
+          "v": "Live",
+          "ic": "search",
+          "c": "#465FFF"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Answers from your data",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Sign two: the AI *makes things up*, and it goes straight to your *customers*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Kestrel Freight",
+        "t": "Website *chat*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "What's your refund policy?",
+          "at": "10%"
+         },
+         {
+          "t": "Full refund any time, no questions!",
+          "me": true,
+          "at": "37%"
+         },
+         {
+          "t": "Great, claiming it now",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "That policy doesn't exist",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: *validate* every answer, and add a *human review* step where accuracy matters.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "kestrelfreight.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "kestrelfreight.in",
+        "t": "Review *queue*",
+        "s": "Kestrel Freight · replies"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Draft reply",
+          "s": "Checked against policy",
+          "v": "OK",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Refund question",
+          "s": "Sent to a human",
+          "v": "Hold",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "If AI fails",
+          "s": "Normal form still works",
+          "v": "Safe",
+          "ic": "arrow",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Approve reply",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Wrong answers stop here",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Sign three: your assistant can *talk*, but it can't touch the tools you *use*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Kestrel Freight",
+        "t": "Assistant *tools*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Orders",
+          "s": "No access",
+          "v": "!",
+          "ic": "tag",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Invoices",
+          "s": "No access",
+          "ic": "cash",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Pickups",
+          "s": "No access",
+          "ic": "cal",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Copy-paste between tabs",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: an *MCP server*, so the assistant can act inside your *existing* systems.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "kestrelfreight.in",
+        "t": "Connected *tools*",
+        "s": "Kestrel Freight · MCP"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "get_order",
+          "s": "Orders",
+          "v": "On",
+          "ic": "tag",
+          "c": "#465FFF"
+         },
+         {
+          "t": "create_invoice",
+          "s": "Invoices",
+          "v": "On",
+          "ic": "cash",
+          "c": "#465FFF"
+         },
+         {
+          "t": "book_pickup",
+          "s": "Pickups",
+          "v": "On",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Built on MCP",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*One workflow*, *checked* answers, and real access to your *tools*.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · business system",
+     "items": [
+      {
+       "t": "One workflow",
+       "s": "not a general chatbot",
+       "at": "2%"
+      },
+      {
+       "t": "Checked answers",
+       "s": "validation + human review",
+       "at": "26%"
+      },
+      {
+       "t": "Real tools",
+       "s": "MCP servers",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · AI",
+   "say": "Want AI that does a real job? Comment *AI* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "AI",
+     "label": "Comment *AI*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

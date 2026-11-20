@@ -1,0 +1,520 @@
+{
+ "title": "Web development: 3 signs you need this",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-127",
+  "brand": "craftlayer",
+  "topic": "Web development: 3 signs you need this",
+  "schedule": {
+   "en": "2026-11-20 09:32"
+  },
+  "yt_title": {
+   "en": "Not slow. Losing customers. #shorts"
+  },
+  "yt_tags": [
+   "website development",
+   "fast website",
+   "mobile website",
+   "next.js website",
+   "small business website",
+   "website redesign",
+   "restaurant website",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Your website isn't slow. It's losing you customers every second it loads. 🌐"
+  },
+  "ig_caption": {
+   "en": "Your website isn't slow. It's losing you customers every second it loads. 🌐\n\n1️⃣ Your site takes forever to load on a phone\n✅ Fix: a lean build, static where possible, checked on small screens first\n\n2️⃣ Customers can't find your prices without a DM\n✅ Fix: page structure built from your content, menu and prices one tap from home\n\n3️⃣ You can't change a line without calling someone\n✅ Fix: clean code in a repo you own, plus a handover walkthrough\n\nJuniper Kitchen is a concept demo.\nSend this to a business owner who needs it.\nWant a site like this? Comment WEBSITE 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#webdevelopment",
+   "#websitedesign",
+   "#smallbusinessindia",
+   "#nextjs",
+   "#restaurantwebsite",
+   "#websitetips",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/services/web-development/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Your website isn't *slow*. It's losing you customers every second it *loads*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Not slow.\n*Losing customers*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "globe",
+       "size": 170,
+       "label": "Your site",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "clock",
+       "size": 170,
+       "label": "Still loading",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Sign one: your site takes *forever* to load on a *phone*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Juniper Kitchen",
+        "t": "Loading *menu*..."
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Hero image",
+          "s": "Still loading",
+          "v": "!",
+          "ic": "globe",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Menu",
+          "s": "Blank page",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Book a table",
+          "s": "Not loaded yet",
+          "ic": "cal",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Customer hits back",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: a *lean* build, static where possible, checked on *small screens* first.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "juniperkitchen.in",
+        "t": "Loads *first*",
+        "s": "juniperkitchen.in · mobile"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Menu",
+          "s": "Static page",
+          "v": "Ready",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Book a table",
+          "s": "One tap",
+          "v": "Open",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Directions",
+          "s": "Map link",
+          "v": "Go",
+          "ic": "pin",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Book a table",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Checked at 320px wide",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Sign two: customers can't find your *prices* without sending a *DM*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Juniper Kitchen",
+        "t": "Direct *messages*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Hi, do you have a menu with prices?",
+          "at": "10%"
+         },
+         {
+          "t": "How much for a table of six?",
+          "at": "37%"
+         },
+         {
+          "t": "Hello??",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Asked again and again",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: page structure built from your *content*, so menu and *prices* sit one tap from home.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "juniperkitchen.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "juniperkitchen.in",
+        "t": "Menu and *prices*",
+        "s": "Juniper Kitchen · lunch"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Lunch thali",
+          "s": "Veg, daily special",
+          "v": "₹280",
+          "ic": "plate",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Paneer tikka",
+          "s": "Starter",
+          "v": "₹320",
+          "ic": "fire",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Mango lassi",
+          "s": "Drink",
+          "v": "₹120",
+          "ic": "coffee",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "See full menu",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "One tap from home",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Sign three: you can't change a *single line* without calling *someone*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Juniper Kitchen",
+        "t": "Change *requests*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Sunday hours",
+          "s": "Waiting on developer",
+          "v": "!",
+          "ic": "clock",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "New dish",
+          "s": "Quote pending",
+          "ic": "plate",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Phone number",
+          "s": "No reply yet",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Two weeks for one typo",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: clean code in a repo *you own*, plus a *handover* walkthrough so changes stay simple.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "juniperkitchen.in",
+        "t": "Handover *done*",
+        "s": "Juniper Kitchen · website"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Source code",
+          "s": "Your repository",
+          "v": "Yours",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Walkthrough",
+          "s": "How to make changes",
+          "v": "Done",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Hosting",
+          "s": "Your account",
+          "v": "Live",
+          "ic": "globe",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Open repository",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "No lock-in",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Fast* on phones, *prices* in plain sight, and code that's *yours*.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · business system",
+     "items": [
+      {
+       "t": "Speed",
+       "s": "static, mobile-first",
+       "at": "2%"
+      },
+      {
+       "t": "Structure",
+       "s": "prices one tap away",
+       "at": "26%"
+      },
+      {
+       "t": "Ownership",
+       "s": "your repo + handover",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · WEBSITE",
+   "say": "Need a site like this? Comment *WEBSITE* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "WEBSITE",
+     "label": "Comment *WEBSITE*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

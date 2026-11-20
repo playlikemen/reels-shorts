@@ -1,0 +1,509 @@
+{
+ "title": "CAs and consultants: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "light": true,
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-111",
+  "brand": "craftlayer",
+  "topic": "CAs and consultants: 3 problems",
+  "schedule": {
+   "en": "2026-11-27 19:30"
+  },
+  "yt_title": {
+   "en": "They Googled you. Found nothing. #shorts"
+  },
+  "yt_tags": [
+   "ca firm website",
+   "chartered accountant website",
+   "lawyer website",
+   "client document upload",
+   "consultation booking",
+   "consultant india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Your next client Googled you last night. They found nothing, so they called someone else. 💼"
+  },
+  "ig_caption": {
+   "en": "Your next client Googled you last night. They found nothing, so they called someone else. 💼\n\n1️⃣ All you have online is a visiting card photo\n✅ Fix: a clean website with your services and how you work\n\n2️⃣ Form 16, PAN and bank statements scattered across WhatsApp\n✅ Fix: a secure upload page with a per-client checklist\n\n3️⃣ First consultations take days of back and forth\n✅ Fix: paid consultation booking with UPI upfront\n\nHalden & Rowe is a concept demo.\nSend this to a consultancy owner who needs it.\nWant this for your practice? Comment CONSULT 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#charteredaccountant",
+   "#cafirm",
+   "#lawyersofindia",
+   "#taxconsultant",
+   "#consultant",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/legal/",
+   "https://craftlayer-studio.github.io/industries/professional-services/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Your next client *Googled you* last night. They found nothing, so they *called someone else*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "They *Googled* you.\nFound *nothing*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "search",
+       "size": 170,
+       "label": "Your name",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "users",
+       "size": 170,
+       "label": "Someone else",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: all you have online is a *visiting card* photo and an old *phone number*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Halden & Rowe",
+        "t": "Search *results*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Website",
+          "s": "None found",
+          "ic": "globe",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Phone number",
+          "s": "Old, not reachable",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Services",
+          "s": "Not listed anywhere",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Client moves on",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: a clean website with your *services*, *qualifications* and how you *work*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "haldenrowe.in",
+        "t": "Halden *& Rowe*",
+        "s": "Tax · Audit · Advisory"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "GST filing",
+          "s": "Monthly and quarterly returns",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Income tax",
+          "s": "Individuals and firms",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Company setup",
+          "s": "Registration to compliance",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Book a consultation",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Found on Google",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: Form 16, PAN, bank statements, all *scattered* across WhatsApp chats at *tax time*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Halden & Rowe",
+        "t": "Client *documents*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Sending Form 16 now",
+          "at": "10%"
+         },
+         {
+          "t": "Which PAN photo did you need?",
+          "at": "37%"
+         },
+         {
+          "t": "Resent the bank statement",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Lost in chats",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: a *secure upload* page, with a checklist of every document each client *still owes*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "haldenrowe.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "haldenrowe.in",
+        "t": "Upload *documents*",
+        "s": "A. Verma · ITR"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Form 16",
+          "s": "Uploaded",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "PAN card",
+          "s": "Uploaded",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Bank statement",
+          "s": "Still pending",
+          "v": "Upload",
+          "ic": "bell",
+          "c": "#FF6B4A"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Upload securely",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Everything in one place",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: a first consultation takes *days of back and forth*, and it's often *unpaid*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Halden & Rowe",
+        "t": "New *enquiry*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Can we talk Thursday?",
+          "at": "10%"
+         },
+         {
+          "t": "Thursday is full. Friday?",
+          "me": true,
+          "at": "37%"
+         },
+         {
+          "t": "Friday I'm travelling...",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Still no meeting",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: *paid consultation booking*. Clients pick a slot and pay by *UPI* upfront.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "haldenrowe.in",
+        "t": "Book a *consultation*",
+        "s": "30 min · video or office"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Mon 11:00 AM",
+          "s": "Available",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Tue 5:00 PM",
+          "s": "Available",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Consultation fee",
+          "s": "Sample fee",
+          "v": "₹1,000",
+          "ic": "wallet",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Pay by UPI",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Booked and paid",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Website*, *documents* and *consultations*, all in one system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · consultancy system",
+     "items": [
+      {
+       "t": "Website",
+       "s": "services, credentials",
+       "at": "2%"
+      },
+      {
+       "t": "Documents",
+       "s": "secure upload + checklist",
+       "at": "26%"
+      },
+      {
+       "t": "Consultations",
+       "s": "paid booking",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · CONSULT",
+   "say": "Want this for your *practice*? Comment *CONSULT* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "CONSULT",
+     "label": "Comment *CONSULT*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

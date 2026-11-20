@@ -1,0 +1,1735 @@
+[
+ {
+  "id": "CR-127",
+  "topic": "Web development: 3 signs you need this",
+  "audience": "business",
+  "demo_name": "Juniper Kitchen",
+  "domain": "juniperkitchen.in",
+  "keyword": "WEBSITE",
+  "sources": [
+   "https://craftlayer-studio.github.io/services/web-development/"
+  ],
+  "hook": {
+   "say": "Your website isn't *slow*. It's losing you customers every second it *loads*.",
+   "title": "Not slow.\n*Losing customers*.",
+   "tiles": [
+    {
+     "ic": "globe",
+     "label": "Your site"
+    },
+    {
+     "ic": "clock",
+     "label": "Still loading",
+     "hot": true
+    }
+   ]
+  },
+  "problems": [
+   {
+    "say": "Sign one: your site takes *forever* to load on a *phone*.",
+    "screen": "rows",
+    "head": "Loading *menu*...",
+    "rows": [
+     {
+      "t": "Hero image",
+      "s": "Still loading",
+      "v": "!",
+      "ic": "globe",
+      "bad": true
+     },
+     {
+      "t": "Menu",
+      "s": "Blank page",
+      "ic": "menu",
+      "bad": true
+     },
+     {
+      "t": "Book a table",
+      "s": "Not loaded yet",
+      "ic": "cal",
+      "bad": true
+     }
+    ],
+    "chip": "Customer hits back",
+    "fix": {
+     "say": "The fix: a *lean* build, static where possible, checked on *small screens* first.",
+     "head": "Loads *first*",
+     "sub": "juniperkitchen.in · mobile",
+     "rows": [
+      {
+       "t": "Menu",
+       "s": "Static page",
+       "v": "Ready",
+       "ic": "check"
+      },
+      {
+       "t": "Book a table",
+       "s": "One tap",
+       "v": "Open",
+       "ic": "cal"
+      },
+      {
+       "t": "Directions",
+       "s": "Map link",
+       "v": "Go",
+       "ic": "pin"
+      }
+     ],
+     "btn": "Book a table",
+     "chip": "Checked at 320px wide"
+    }
+   },
+   {
+    "say": "Sign two: customers can't find your *prices* without sending a *DM*.",
+    "screen": "chat",
+    "head": "Direct *messages*",
+    "chat": [
+     {
+      "t": "Hi, do you have a menu with prices?"
+     },
+     {
+      "t": "How much for a table of six?"
+     },
+     {
+      "t": "Hello??"
+     }
+    ],
+    "chip": "Asked again and again",
+    "fix": {
+     "say": "The fix: page structure built from your *content*, so menu and *prices* sit one tap from home.",
+     "head": "Menu and *prices*",
+     "sub": "Juniper Kitchen · lunch",
+     "rows": [
+      {
+       "t": "Lunch thali",
+       "s": "Veg, daily special",
+       "v": "₹280",
+       "ic": "plate"
+      },
+      {
+       "t": "Paneer tikka",
+       "s": "Starter",
+       "v": "₹320",
+       "ic": "fire"
+      },
+      {
+       "t": "Mango lassi",
+       "s": "Drink",
+       "v": "₹120",
+       "ic": "coffee"
+      }
+     ],
+     "btn": "See full menu",
+     "chip": "One tap from home"
+    }
+   },
+   {
+    "say": "Sign three: you can't change a *single line* without calling *someone*.",
+    "screen": "rows",
+    "head": "Change *requests*",
+    "rows": [
+     {
+      "t": "Sunday hours",
+      "s": "Waiting on developer",
+      "v": "!",
+      "ic": "clock",
+      "bad": true
+     },
+     {
+      "t": "New dish",
+      "s": "Quote pending",
+      "ic": "plate",
+      "bad": true
+     },
+     {
+      "t": "Phone number",
+      "s": "No reply yet",
+      "ic": "phone",
+      "bad": true
+     }
+    ],
+    "chip": "Two weeks for one typo",
+    "fix": {
+     "say": "The fix: clean code in a repo *you own*, plus a *handover* walkthrough so changes stay simple.",
+     "head": "Handover *done*",
+     "sub": "Juniper Kitchen · website",
+     "rows": [
+      {
+       "t": "Source code",
+       "s": "Your repository",
+       "v": "Yours",
+       "ic": "check"
+      },
+      {
+       "t": "Walkthrough",
+       "s": "How to make changes",
+       "v": "Done",
+       "ic": "users"
+      },
+      {
+       "t": "Hosting",
+       "s": "Your account",
+       "v": "Live",
+       "ic": "globe"
+      }
+     ],
+     "btn": "Open repository",
+     "chip": "No lock-in"
+    }
+   }
+  ],
+  "recap_say": "*Fast* on phones, *prices* in plain sight, and code that's *yours*.",
+  "recap": [
+   {
+    "t": "Speed",
+    "s": "static, mobile-first"
+   },
+   {
+    "t": "Structure",
+    "s": "prices one tap away"
+   },
+   {
+    "t": "Ownership",
+    "s": "your repo + handover"
+   }
+  ],
+  "cta_say": "Need a site like this? Comment *WEBSITE* or send us a *DM*.",
+  "hashtags": [
+   "#webdevelopment",
+   "#websitedesign",
+   "#smallbusinessindia",
+   "#nextjs",
+   "#restaurantwebsite",
+   "#websitetips",
+   "#craftlayer"
+  ],
+  "tags": [
+   "website development",
+   "fast website",
+   "mobile website",
+   "next.js website",
+   "small business website",
+   "website redesign",
+   "restaurant website",
+   "craftlayer studio"
+  ],
+  "caption": "Your website isn't slow. It's losing you customers every second it loads. 🌐\n\n1️⃣ Your site takes forever to load on a phone\n✅ Fix: a lean build, static where possible, checked on small screens first\n\n2️⃣ Customers can't find your prices without a DM\n✅ Fix: page structure built from your content, menu and prices one tap from home\n\n3️⃣ You can't change a line without calling someone\n✅ Fix: clean code in a repo you own, plus a handover walkthrough\n\nJuniper Kitchen is a concept demo.\nSend this to a business owner who needs it.\nWant a site like this? Comment WEBSITE 👇\n\nVoiceover is AI-generated."
+ },
+ {
+  "id": "CR-128",
+  "topic": "SaaS development: 3 signs you need this",
+  "audience": "founder",
+  "demo_name": "Pulsegrid",
+  "domain": "pulsegrid.app",
+  "keyword": "SAAS",
+  "sources": [
+   "https://craftlayer-studio.github.io/services/saas-development/"
+  ],
+  "hook": {
+   "say": "Stop adding *features*. Your SaaS needs *users* before it needs a roadmap.",
+   "title": "Fewer features.\n*More users*.",
+   "tiles": [
+    {
+     "ic": "bolt",
+     "label": "Feature #47"
+    },
+    {
+     "ic": "users",
+     "label": "First users",
+     "hot": true
+    }
+   ]
+  },
+  "problems": [
+   {
+    "say": "Sign one: you've been building for *months* and nobody has *logged in* yet.",
+    "screen": "rows",
+    "head": "Roadmap *v0*",
+    "rows": [
+     {
+      "t": "Dark mode",
+      "s": "In progress",
+      "ic": "bolt"
+     },
+     {
+      "t": "Integrations",
+      "s": "Planned",
+      "ic": "arrow"
+     },
+     {
+      "t": "Admin reports",
+      "s": "Planned",
+      "ic": "menu"
+     },
+     {
+      "t": "Launch",
+      "s": "Not scheduled",
+      "v": "!",
+      "ic": "cal",
+      "bad": true
+     }
+    ],
+    "chip": "Zero sign-ups",
+    "fix": {
+     "say": "The fix: scope the *smallest version* worth launching, and agree what it must *prove*.",
+     "head": "Release *one*",
+     "sub": "Pulsegrid · written scope",
+     "rows": [
+      {
+       "t": "In",
+       "s": "Sign-up, core dashboard",
+       "v": "Yes",
+       "ic": "check"
+      },
+      {
+       "t": "Out",
+       "s": "Integrations, dark mode",
+       "v": "Later",
+       "ic": "arrow"
+      },
+      {
+       "t": "Must prove",
+       "s": "Teams come back weekly",
+       "v": "Goal",
+       "ic": "star"
+      }
+     ],
+     "btn": "Ship to staging",
+     "chip": "Scope agreed in writing"
+    }
+   },
+   {
+    "say": "Sign two: your *no-code* prototype breaks every time you add a *customer*.",
+    "screen": "chat",
+    "head": "Support *inbox*",
+    "chat": [
+     {
+      "t": "Dashboard won't load again"
+     },
+     {
+      "t": "Why can I see another team's projects??"
+     }
+    ],
+    "chip": "Prototype at its limit",
+    "fix": {
+     "say": "The fix: a real *data model* on PostgreSQL, typed *end to end*, so changes stay safe.",
+     "head": "Data *model*",
+     "sub": "Pulsegrid · PostgreSQL",
+     "rows": [
+      {
+       "t": "Accounts",
+       "s": "one per company",
+       "ic": "users"
+      },
+      {
+       "t": "Teams",
+       "s": "belong to an account",
+       "ic": "users"
+      },
+      {
+       "t": "Projects",
+       "s": "belong to a team",
+       "ic": "menu"
+      },
+      {
+       "t": "Events",
+       "s": "logged per project",
+       "ic": "clock"
+      }
+     ],
+     "chip": "Typed end to end"
+    }
+   },
+   {
+    "say": "Sign three: the whole team *shares one login*, and nobody knows who changed *what*.",
+    "screen": "rows",
+    "head": "Team *access*",
+    "rows": [
+     {
+      "t": "admin@pulsegrid.app",
+      "s": "Used by six people",
+      "v": "!",
+      "ic": "users",
+      "bad": true
+     },
+     {
+      "t": "Last change",
+      "s": "By 'admin'",
+      "ic": "clock",
+      "bad": true
+     },
+     {
+      "t": "Password",
+      "s": "In a group chat",
+      "ic": "chat",
+      "bad": true
+     }
+    ],
+    "chip": "Who deleted that?",
+    "fix": {
+     "say": "The fix: proper *accounts* and *roles*, with docs ready for the next engineer who joins.",
+     "head": "Team *roles*",
+     "sub": "Pulsegrid · settings",
+     "rows": [
+      {
+       "t": "Owner",
+       "s": "Billing and settings",
+       "v": "1",
+       "ic": "star"
+      },
+      {
+       "t": "Admin",
+       "s": "Manage the team",
+       "v": "2",
+       "ic": "users"
+      },
+      {
+       "t": "Member",
+       "s": "Own projects",
+       "v": "5",
+       "ic": "check"
+      }
+     ],
+     "btn": "Invite teammate",
+     "chip": "Docs for the next hire"
+    }
+   }
+  ],
+  "recap_say": "*Scope* first, a solid *data model*, and *accounts* that grow with you.",
+  "recap": [
+   {
+    "t": "Scope",
+    "s": "smallest version worth launching"
+   },
+   {
+    "t": "Data model",
+    "s": "PostgreSQL, typed"
+   },
+   {
+    "t": "Accounts",
+    "s": "roles + docs"
+   }
+  ],
+  "cta_say": "Building a product? Comment *SAAS* or send us a *DM*.",
+  "hashtags": [
+   "#saas",
+   "#startupindia",
+   "#founders",
+   "#mvp",
+   "#productdevelopment",
+   "#buildinpublic",
+   "#craftlayer"
+  ],
+  "tags": [
+   "saas development",
+   "mvp development",
+   "startup product",
+   "saas founder",
+   "no-code to code",
+   "postgresql",
+   "product development india",
+   "craftlayer studio"
+  ],
+  "caption": "Stop adding features. Your SaaS needs users before it needs a roadmap. 🚀\n\n1️⃣ Months of building, nobody has logged in\n✅ Fix: scope the smallest version worth launching and agree what it must prove\n\n2️⃣ Your no-code prototype breaks with every new customer\n✅ Fix: a real data model on PostgreSQL, typed end to end\n\n3️⃣ The whole team shares one login\n✅ Fix: proper accounts and roles, plus docs for the next engineer\n\nPulsegrid is a concept demo.\nSend this to a founder who needs it.\nBuilding a product? Comment SAAS 👇\n\nVoiceover is AI-generated."
+ },
+ {
+  "id": "CR-129",
+  "topic": "AI applications: 3 signs you need this",
+  "audience": "business",
+  "demo_name": "Kestrel Freight",
+  "domain": "kestrelfreight.in",
+  "keyword": "AI",
+  "sources": [
+   "https://craftlayer-studio.github.io/services/ai-applications/"
+  ],
+  "hook": {
+   "say": "Nobody needs another *chatbot*. You need AI that does *one job*, properly.",
+   "title": "Not a chatbot.\n*One job, done*.",
+   "tiles": [
+    {
+     "ic": "chat",
+     "label": "Chatbot"
+    },
+    {
+     "ic": "check",
+     "label": "One job",
+     "hot": true
+    }
+   ]
+  },
+  "problems": [
+   {
+    "say": "Sign one: you added a *chatbot*, and it can't answer a *single* real question.",
+    "screen": "chat",
+    "head": "Website *chat*",
+    "chat": [
+     {
+      "t": "Where is my shipment KF-2291?"
+     },
+     {
+      "t": "I'm here to help! Could you rephrase?",
+      "me": true
+     },
+     {
+      "t": "...forget it"
+     }
+    ],
+    "chip": "Customer gives up",
+    "fix": {
+     "say": "The fix: start with *one workflow*, like shipment status, with clear inputs and *predictable* answers.",
+     "head": "Shipment *status*",
+     "sub": "Kestrel Freight · assistant",
+     "rows": [
+      {
+       "t": "KF-2291",
+       "s": "Out for delivery",
+       "v": "Today",
+       "ic": "pin"
+      },
+      {
+       "t": "Source",
+       "s": "Your tracking system",
+       "v": "Live",
+       "ic": "search"
+      }
+     ],
+     "chip": "Answers from your data"
+    }
+   },
+   {
+    "say": "Sign two: the AI *makes things up*, and it goes straight to your *customers*.",
+    "screen": "chat",
+    "head": "Website *chat*",
+    "chat": [
+     {
+      "t": "What's your refund policy?"
+     },
+     {
+      "t": "Full refund any time, no questions!",
+      "me": true
+     },
+     {
+      "t": "Great, claiming it now"
+     }
+    ],
+    "chip": "That policy doesn't exist",
+    "fix": {
+     "say": "The fix: *validate* every answer, and add a *human review* step where accuracy matters.",
+     "head": "Review *queue*",
+     "sub": "Kestrel Freight · replies",
+     "rows": [
+      {
+       "t": "Draft reply",
+       "s": "Checked against policy",
+       "v": "OK",
+       "ic": "check"
+      },
+      {
+       "t": "Refund question",
+       "s": "Sent to a human",
+       "v": "Hold",
+       "ic": "users"
+      },
+      {
+       "t": "If AI fails",
+       "s": "Normal form still works",
+       "v": "Safe",
+       "ic": "arrow"
+      }
+     ],
+     "btn": "Approve reply",
+     "chip": "Wrong answers stop here"
+    }
+   },
+   {
+    "say": "Sign three: your assistant can *talk*, but it can't touch the tools you *use*.",
+    "screen": "rows",
+    "head": "Assistant *tools*",
+    "rows": [
+     {
+      "t": "Orders",
+      "s": "No access",
+      "v": "!",
+      "ic": "tag",
+      "bad": true
+     },
+     {
+      "t": "Invoices",
+      "s": "No access",
+      "ic": "cash",
+      "bad": true
+     },
+     {
+      "t": "Pickups",
+      "s": "No access",
+      "ic": "cal",
+      "bad": true
+     }
+    ],
+    "chip": "Copy-paste between tabs",
+    "fix": {
+     "say": "The fix: an *MCP server*, so the assistant can act inside your *existing* systems.",
+     "head": "Connected *tools*",
+     "sub": "Kestrel Freight · MCP",
+     "rows": [
+      {
+       "t": "get_order",
+       "s": "Orders",
+       "v": "On",
+       "ic": "tag"
+      },
+      {
+       "t": "create_invoice",
+       "s": "Invoices",
+       "v": "On",
+       "ic": "cash"
+      },
+      {
+       "t": "book_pickup",
+       "s": "Pickups",
+       "v": "On",
+       "ic": "cal"
+      }
+     ],
+     "chip": "Built on MCP"
+    }
+   }
+  ],
+  "recap_say": "*One workflow*, *checked* answers, and real access to your *tools*.",
+  "recap": [
+   {
+    "t": "One workflow",
+    "s": "not a general chatbot"
+   },
+   {
+    "t": "Checked answers",
+    "s": "validation + human review"
+   },
+   {
+    "t": "Real tools",
+    "s": "MCP servers"
+   }
+  ],
+  "cta_say": "Want AI that does a real job? Comment *AI* or send us a *DM*.",
+  "hashtags": [
+   "#aiforbusiness",
+   "#aitools",
+   "#mcp",
+   "#automation",
+   "#smallbusinessindia",
+   "#aiagents",
+   "#craftlayer"
+  ],
+  "tags": [
+   "ai for business",
+   "ai chatbot",
+   "mcp server",
+   "model context protocol",
+   "ai agent development",
+   "ai application development",
+   "business ai india",
+   "craftlayer studio"
+  ],
+  "caption": "Nobody needs another chatbot. You need AI that does one job, properly. 🤖\n\n1️⃣ Your chatbot can't answer a single real question\n✅ Fix: start with one workflow, with clear inputs and predictable answers\n\n2️⃣ The AI makes things up in front of customers\n✅ Fix: validate every answer and add a human review step where accuracy matters\n\n3️⃣ Your assistant can talk but can't touch your tools\n✅ Fix: an MCP server so it can act inside your existing systems\n\nKestrel Freight is a concept demo.\nSend this to a business owner who needs it.\nWant AI that does a real job? Comment AI 👇\n\nVoiceover is AI-generated."
+ },
+ {
+  "id": "CR-130",
+  "topic": "E-commerce: 3 signs you need this",
+  "audience": "shop",
+  "demo_name": "Brightwater Coffee",
+  "domain": "brightwatercoffee.in",
+  "keyword": "STORE",
+  "sources": [
+   "https://craftlayer-studio.github.io/services/e-commerce/"
+  ],
+  "hook": {
+   "say": "Selling in *DMs* isn't a store. It's a *queue* your customers give up on.",
+   "title": "DMs aren't a store.\nThey're a *queue*.",
+   "tiles": [
+    {
+     "ic": "chat",
+     "label": "DM orders"
+    },
+    {
+     "ic": "tag",
+     "label": "Your store",
+     "hot": true
+    }
+   ]
+  },
+  "problems": [
+   {
+    "say": "Sign one: every order starts with '*price?*' in your DMs, and ends in *silence*.",
+    "screen": "chat",
+    "head": "Direct *messages*",
+    "chat": [
+     {
+      "t": "price?"
+     },
+     {
+      "t": "is the 250g bag in stock?"
+     },
+     {
+      "t": "hello??"
+     }
+    ],
+    "chip": "Replied at midnight",
+    "fix": {
+     "say": "The fix: a *catalogue* with prices and filters, so customers *browse* without asking.",
+     "head": "Shop *coffee*",
+     "sub": "Brightwater Coffee · beans",
+     "rows": [
+      {
+       "t": "House Blend",
+       "s": "250g · medium roast",
+       "v": "₹450",
+       "ic": "coffee"
+      },
+      {
+       "t": "Single Origin",
+       "s": "250g · light roast",
+       "v": "₹620",
+       "ic": "coffee"
+      },
+      {
+       "t": "Cold Brew Pack",
+       "s": "4 pouches",
+       "v": "₹380",
+       "ic": "coffee"
+      }
+     ],
+     "btn": "Add to cart",
+     "chip": "Prices on every product"
+    }
+   },
+   {
+    "say": "Sign two: buying takes *seven steps*, and people *leave* halfway.",
+    "screen": "rows",
+    "head": "Checkout",
+    "rows": [
+     {
+      "t": "Step 1",
+      "s": "Create an account",
+      "ic": "users",
+      "bad": true
+     },
+     {
+      "t": "Step 2",
+      "s": "Verify your email",
+      "ic": "chat",
+      "bad": true
+     },
+     {
+      "t": "Step 3",
+      "s": "Re-enter address",
+      "ic": "pin",
+      "bad": true
+     },
+     {
+      "t": "Step 4",
+      "s": "Payment failed",
+      "v": "!",
+      "ic": "card",
+      "bad": true
+     }
+    ],
+    "chip": "Cart abandoned",
+    "fix": {
+     "say": "The fix: map the *purchase path*, cut every step that doesn't earn its place, then *pay*.",
+     "head": "Checkout",
+     "sub": "Brightwater Coffee · 2 items",
+     "rows": [
+      {
+       "t": "Cart",
+       "s": "House Blend + Single Origin",
+       "v": "₹1,070",
+       "ic": "tag"
+      },
+      {
+       "t": "Address",
+       "s": "Saved",
+       "v": "Edit",
+       "ic": "pin"
+      },
+      {
+       "t": "Pay",
+       "s": "UPI or card",
+       "v": "Choose",
+       "ic": "card"
+      }
+     ],
+     "btn": "Pay ₹1,070",
+     "chip": "Your payment provider"
+    }
+   },
+   {
+    "say": "Sign three: your store sits on a *slow template* you can't *change*.",
+    "screen": "rows",
+    "head": "Store *template*",
+    "rows": [
+     {
+      "t": "Theme",
+      "s": "Locked layout",
+      "v": "!",
+      "ic": "menu",
+      "bad": true
+     },
+     {
+      "t": "Product page",
+      "s": "Heavy, slow on mobile data",
+      "ic": "phone",
+      "bad": true
+     },
+     {
+      "t": "Search",
+      "s": "Same title on every page",
+      "ic": "search",
+      "bad": true
+     }
+    ],
+    "chip": "Stuck with it",
+    "fix": {
+     "say": "The fix: fast product pages built for *search*, measured on real *mobile* connections.",
+     "head": "Product *page*",
+     "sub": "Brightwater Coffee · House Blend",
+     "rows": [
+      {
+       "t": "Title + description",
+       "s": "Unique per product",
+       "v": "OK",
+       "ic": "search"
+      },
+      {
+       "t": "Images",
+       "s": "Sized for phones",
+       "v": "OK",
+       "ic": "phone"
+      },
+      {
+       "t": "New order",
+       "s": "Alert sent to you",
+       "v": "On",
+       "ic": "bell"
+      }
+     ],
+     "chip": "Order notifications on"
+    }
+   }
+  ],
+  "recap_say": "*Browse* fast, *check out* fast, and get *notified* for every order.",
+  "recap": [
+   {
+    "t": "Catalogue",
+    "s": "prices + filters"
+   },
+   {
+    "t": "Checkout",
+    "s": "fewer steps, your payment provider"
+   },
+   {
+    "t": "Orders",
+    "s": "instant notifications"
+   }
+  ],
+  "cta_say": "Want your own store? Comment *STORE* or send us a *DM*.",
+  "hashtags": [
+   "#ecommerce",
+   "#onlinestore",
+   "#d2cbrand",
+   "#smallbusinessindia",
+   "#instagramseller",
+   "#ecommercewebsite",
+   "#craftlayer"
+  ],
+  "tags": [
+   "ecommerce website",
+   "online store",
+   "sell online india",
+   "checkout",
+   "d2c brand website",
+   "instagram seller",
+   "ecommerce development",
+   "craftlayer studio"
+  ],
+  "caption": "Selling in DMs isn't a store. It's a queue your customers give up on. 🛒\n\n1️⃣ Every order starts with 'price?' in your DMs\n✅ Fix: a catalogue with prices and filters, so customers browse without asking\n\n2️⃣ Checkout takes too many steps and people leave\n✅ Fix: map the purchase path and cut every step that doesn't earn its place\n\n3️⃣ Your store is stuck on a slow template\n✅ Fix: fast product pages built for search, measured on real mobile connections\n\nBrightwater Coffee is a concept demo.\nSend this to a shop owner who needs it.\nWant your own store? Comment STORE 👇\n\nVoiceover is AI-generated."
+ },
+ {
+  "id": "CR-131",
+  "topic": "Business automation: 3 signs you need this",
+  "audience": "business",
+  "demo_name": "Tidewell Traders",
+  "domain": "tidewelltraders.in",
+  "keyword": "AUTOMATE",
+  "sources": [
+   "https://craftlayer-studio.github.io/services/business-automation/"
+  ],
+  "hook": {
+   "say": "You're not *busy*. You're doing a *computer's job* by hand, every single day.",
+   "title": "Not busy.\nDoing a *computer's job*.",
+   "tiles": [
+    {
+     "ic": "clock",
+     "label": "By hand"
+    },
+    {
+     "ic": "bolt",
+     "label": "Automatic",
+     "hot": true
+    }
+   ]
+  },
+  "problems": [
+   {
+    "say": "Sign one: every morning, someone *copies* yesterday's orders from one sheet into *another*.",
+    "screen": "rows",
+    "head": "Morning *routine*",
+    "rows": [
+     {
+      "t": "Orders to stock sheet",
+      "s": "Copied by hand",
+      "v": "!",
+      "ic": "menu",
+      "bad": true
+     },
+     {
+      "t": "Stock to accounts",
+      "s": "Copied by hand",
+      "ic": "cash",
+      "bad": true
+     },
+     {
+      "t": "Daily report",
+      "s": "Typed out again",
+      "ic": "chat",
+      "bad": true
+     }
+    ],
+    "chip": "Before any real work",
+    "fix": {
+     "say": "The fix: an *integration* between the tools you already use, running on a *schedule*.",
+     "head": "Scheduled *jobs*",
+     "sub": "Tidewell Traders · daily",
+     "rows": [
+      {
+       "t": "Sync orders",
+       "s": "Daily 6:00 AM",
+       "v": "Done",
+       "ic": "check"
+      },
+      {
+       "t": "Update stock",
+       "s": "After sync",
+       "v": "Done",
+       "ic": "check"
+      },
+      {
+       "t": "Morning report",
+       "s": "Emailed to you",
+       "v": "Sent",
+       "ic": "bell"
+      }
+     ],
+     "chip": "Runs before you wake up"
+    }
+   },
+   {
+    "say": "Sign two: the work only happens if *one person* remembers to *do it*.",
+    "screen": "chat",
+    "head": "Team *chat*",
+    "chat": [
+     {
+      "t": "Did anyone send the supplier list?"
+     },
+     {
+      "t": "Ravi's on leave this week"
+     },
+     {
+      "t": "So... nobody?"
+     }
+    ],
+    "chip": "Nobody sent it",
+    "fix": {
+     "say": "The fix: a scheduled job that *runs itself*, with a *manual override* for anything critical.",
+     "head": "Supplier *job*",
+     "sub": "Tidewell Traders · weekly",
+     "rows": [
+      {
+       "t": "Supplier list",
+       "s": "Every Monday 9 AM",
+       "v": "Sent",
+       "ic": "cal"
+      },
+      {
+       "t": "Override",
+       "s": "Run it now",
+       "v": "Ready",
+       "ic": "bolt"
+      },
+      {
+       "t": "Runbook",
+       "s": "How it works",
+       "v": "Docs",
+       "ic": "menu"
+      }
+     ],
+     "btn": "Run now",
+     "chip": "Safe to rerun"
+    }
+   },
+   {
+    "say": "Sign three: *duplicate* entries and mistakes show up weeks later, when it's *too late*.",
+    "screen": "rows",
+    "head": "Accounts *sheet*",
+    "rows": [
+     {
+      "t": "Invoice 1042",
+      "s": "Entered twice",
+      "v": "!",
+      "ic": "cash",
+      "bad": true
+     },
+     {
+      "t": "Customer name",
+      "s": "Spelled three ways",
+      "ic": "users",
+      "bad": true
+     },
+     {
+      "t": "GST number",
+      "s": "Missing",
+      "ic": "tag",
+      "bad": true
+     }
+    ],
+    "chip": "Found at month end",
+    "fix": {
+     "say": "The fix: *validation* and deduplication on every run, and an *alert* when something needs attention.",
+     "head": "Run *report*",
+     "sub": "Tidewell Traders · today",
+     "rows": [
+      {
+       "t": "Duplicates",
+       "s": "Removed automatically",
+       "v": "2",
+       "ic": "check"
+      },
+      {
+       "t": "Needs attention",
+       "s": "Missing GST number",
+       "v": "1",
+       "ic": "bell"
+      },
+      {
+       "t": "Everything else",
+       "s": "Synced",
+       "v": "OK",
+       "ic": "check"
+      }
+     ],
+     "chip": "Alert sent to you"
+    }
+   }
+  ],
+  "recap_say": "*Synced* tools, jobs that run *themselves*, and alerts before *mistakes* spread.",
+  "recap": [
+   {
+    "t": "Integrations",
+    "s": "tools talk to each other"
+   },
+   {
+    "t": "Scheduled jobs",
+    "s": "no one has to remember"
+   },
+   {
+    "t": "Validation",
+    "s": "alerts, no duplicates"
+   }
+  ],
+  "cta_say": "Doing the same task by hand every day? Comment *AUTOMATE* or *DM* us.",
+  "hashtags": [
+   "#businessautomation",
+   "#automation",
+   "#productivity",
+   "#smallbusinessindia",
+   "#excel",
+   "#workflow",
+   "#craftlayer"
+  ],
+  "tags": [
+   "business automation",
+   "workflow automation",
+   "excel automation",
+   "google sheets automation",
+   "integrations",
+   "scheduled jobs",
+   "small business automation india",
+   "craftlayer studio"
+  ],
+  "caption": "You're not busy. You're doing a computer's job by hand, every single day. ⚙️\n\n1️⃣ Someone copies orders from one sheet to another every morning\n✅ Fix: an integration between the tools you already use, on a schedule\n\n2️⃣ The work only happens if one person remembers\n✅ Fix: a scheduled job that runs itself, with a manual override\n\n3️⃣ Duplicates and mistakes show up weeks later\n✅ Fix: validation and deduplication on every run, plus an alert when something needs attention\n\nTidewell Traders is a concept demo.\nSend this to a business owner who needs it.\nDoing the same task by hand every day? Comment AUTOMATE 👇\n\nVoiceover is AI-generated."
+ },
+ {
+  "id": "CR-132",
+  "topic": "Custom software: 3 signs you need this",
+  "audience": "business",
+  "demo_name": "Cobalt Events",
+  "domain": "cobaltevents.in",
+  "keyword": "SYSTEM",
+  "sources": [
+   "https://craftlayer-studio.github.io/services/custom-software/"
+  ],
+  "hook": {
+   "say": "If your business runs on *five spreadsheets*, at least one of them is *wrong*.",
+   "title": "Five spreadsheets.\nOne is *wrong*.",
+   "tiles": [
+    {
+     "ic": "menu",
+     "label": "final_v3.xlsx"
+    },
+    {
+     "ic": "check",
+     "label": "One system",
+     "hot": true
+    }
+   ]
+  },
+  "problems": [
+   {
+    "say": "Sign one: nobody knows which *sheet* is the latest, so everyone keeps their *own*.",
+    "screen": "rows",
+    "head": "Shared *drive*",
+    "rows": [
+     {
+      "t": "registrations_final.xlsx",
+      "s": "Edited by Neha",
+      "ic": "menu"
+     },
+     {
+      "t": "registrations_final_v2.xlsx",
+      "s": "Edited by Arjun",
+      "v": "!",
+      "ic": "menu",
+      "bad": true
+     },
+     {
+      "t": "registrations_REAL.xlsx",
+      "s": "Edited by you",
+      "ic": "menu",
+      "bad": true
+     }
+    ],
+    "chip": "Three versions of the truth",
+    "fix": {
+     "say": "The fix: an *admin panel* shaped around how you work, with *one* source of truth.",
+     "head": "Registrations",
+     "sub": "Cobalt Events · admin",
+     "rows": [
+      {
+       "t": "Confirmed",
+       "s": "Paid and verified",
+       "v": "412",
+       "ic": "users"
+      },
+      {
+       "t": "Pending",
+       "s": "Awaiting payment",
+       "v": "18",
+       "ic": "clock"
+      },
+      {
+       "t": "Refunds",
+       "s": "To process",
+       "v": "3",
+       "ic": "cash"
+      }
+     ],
+     "btn": "Export list",
+     "chip": "One place, always current"
+    }
+   },
+   {
+    "say": "Sign two: on event day, you're *calling* people to find out what's *happening*.",
+    "screen": "chat",
+    "head": "Event *day*",
+    "chat": [
+     {
+      "t": "How many checked in at gate 2?"
+     },
+     {
+      "t": "Let me count and call you back"
+     },
+     {
+      "t": "And gate 3?"
+     }
+    ],
+    "chip": "Guessing, live",
+    "fix": {
+     "say": "The fix: a *real-time* dashboard over WebSockets, so every gate updates *live*.",
+     "head": "Live *check-ins*",
+     "sub": "Cobalt Events · today",
+     "rows": [
+      {
+       "t": "Gate 1",
+       "s": "Updating live",
+       "v": "214",
+       "ic": "check"
+      },
+      {
+       "t": "Gate 2",
+       "s": "Updating live",
+       "v": "167",
+       "ic": "check"
+      },
+      {
+       "t": "Gate 3",
+       "s": "Updating live",
+       "v": "98",
+       "ic": "check"
+      }
+     ],
+     "chip": "No refresh needed"
+    }
+   },
+   {
+    "say": "Sign three: off-the-shelf tools make you work *their* way, and you never *own* them.",
+    "screen": "rows",
+    "head": "Off-the-*shelf*",
+    "rows": [
+     {
+      "t": "Custom field",
+      "s": "Upgrade your plan",
+      "v": "!",
+      "ic": "tag",
+      "bad": true
+     },
+     {
+      "t": "Your workflow",
+      "s": "Not supported",
+      "ic": "arrow",
+      "bad": true
+     },
+     {
+      "t": "Export data",
+      "s": "Locked",
+      "ic": "cash",
+      "bad": true
+     }
+    ],
+    "chip": "Renting your own process",
+    "fix": {
+     "say": "The fix: a *written scope*, builds you review as they grow, and code *you own*.",
+     "head": "Handover",
+     "sub": "Cobalt Events · system",
+     "rows": [
+      {
+       "t": "Scope",
+       "s": "In and out, in writing",
+       "v": "Agreed",
+       "ic": "check"
+      },
+      {
+       "t": "Source code",
+       "s": "Your repository",
+       "v": "Yours",
+       "ic": "check"
+      },
+      {
+       "t": "Documentation",
+       "s": "For your team",
+       "v": "Done",
+       "ic": "menu"
+      }
+     ],
+     "btn": "Open repository",
+     "chip": "Everything handed over"
+    }
+   }
+  ],
+  "recap_say": "*One* admin panel, *live* dashboards, and software that's *yours*.",
+  "recap": [
+   {
+    "t": "Admin panel",
+    "s": "one source of truth"
+   },
+   {
+    "t": "Live dashboard",
+    "s": "real-time over WebSockets"
+   },
+   {
+    "t": "Ownership",
+    "s": "code + docs handed over"
+   }
+  ],
+  "cta_say": "Outgrown your spreadsheets? Comment *SYSTEM* or send us a *DM*.",
+  "hashtags": [
+   "#customsoftware",
+   "#softwaredevelopment",
+   "#dashboard",
+   "#eventmanagement",
+   "#smallbusinessindia",
+   "#excel",
+   "#craftlayer"
+  ],
+  "tags": [
+   "custom software development",
+   "admin panel",
+   "real-time dashboard",
+   "replace excel",
+   "event management system",
+   "business software india",
+   "software you own",
+   "craftlayer studio"
+  ],
+  "caption": "If your business runs on five spreadsheets, at least one of them is wrong. 📊\n\n1️⃣ Nobody knows which sheet is the latest\n✅ Fix: an admin panel shaped around how you work, with one source of truth\n\n2️⃣ On event day you're calling people to find out what's happening\n✅ Fix: a real-time dashboard where every gate updates live\n\n3️⃣ Off-the-shelf tools make you work their way\n✅ Fix: a written scope, builds you review as they grow, and code you own\n\nCobalt Events is a concept demo.\nSend this to a business owner who needs it.\nOutgrown your spreadsheets? Comment SYSTEM 👇\n\nVoiceover is AI-generated."
+ },
+ {
+  "id": "CR-133",
+  "topic": "How we work: 3 signs you need this process",
+  "audience": "business",
+  "demo_name": "Marigold Bakery",
+  "domain": "marigoldbakery.in",
+  "keyword": "PROCESS",
+  "sources": [
+   "https://craftlayer-studio.github.io/process/"
+  ],
+  "hook": {
+   "say": "'*Almost done*' for the third month isn't a delay. It's a *process* problem.",
+   "title": "\"Almost done.\"\n*Month three*.",
+   "tiles": [
+    {
+     "ic": "clock",
+     "label": "Month three"
+    },
+    {
+     "ic": "check",
+     "label": "Live staging",
+     "hot": true
+    }
+   ]
+  },
+  "problems": [
+   {
+    "say": "Sign one: you've *paid*, but you haven't seen *working software* yet.",
+    "screen": "rows",
+    "head": "Project *status*",
+    "rows": [
+     {
+      "t": "Invoice 1",
+      "s": "Paid",
+      "ic": "cash"
+     },
+     {
+      "t": "Invoice 2",
+      "s": "Paid",
+      "ic": "cash"
+     },
+     {
+      "t": "Working preview",
+      "s": "Not yet",
+      "v": "!",
+      "ic": "globe",
+      "bad": true
+     }
+    ],
+    "chip": "Only screenshots so far",
+    "fix": {
+     "say": "The fix: we build in *small increments* on a *staging URL* you can click through.",
+     "head": "Staging",
+     "sub": "staging.marigoldbakery.in",
+     "rows": [
+      {
+       "t": "Home page",
+       "s": "Live on staging",
+       "v": "Review",
+       "ic": "check"
+      },
+      {
+       "t": "Menu",
+       "s": "Live on staging",
+       "v": "Review",
+       "ic": "check"
+      },
+      {
+       "t": "Order form",
+       "s": "Building now",
+       "v": "Next",
+       "ic": "clock"
+      }
+     ],
+     "btn": "Open staging",
+     "chip": "Real software, as it grows"
+    }
+   },
+   {
+    "say": "Sign two: the scope keeps *changing*, and so does the *price*.",
+    "screen": "chat",
+    "head": "Project *chat*",
+    "chat": [
+     {
+      "t": "That wasn't in the quote."
+     },
+     {
+      "t": "Wait, I thought it was included?",
+      "me": true
+     },
+     {
+      "t": "We'll need a new estimate."
+     }
+    ],
+    "chip": "Nothing in writing",
+    "fix": {
+     "say": "The fix: a *written scope* before any work: what's in, what's *out*, milestones and estimate.",
+     "head": "Written *scope*",
+     "sub": "Marigold Bakery · website",
+     "rows": [
+      {
+       "t": "In",
+       "s": "Menu, ordering, contact",
+       "v": "Yes",
+       "ic": "check"
+      },
+      {
+       "t": "Out",
+       "s": "Loyalty app",
+       "v": "Later",
+       "ic": "arrow"
+      },
+      {
+       "t": "Milestones",
+       "s": "Agreed up front",
+       "v": "Set",
+       "ic": "cal"
+      },
+      {
+       "t": "Estimate",
+       "s": "Before work starts",
+       "v": "Set",
+       "ic": "cash"
+      }
+     ],
+     "chip": "Agreed before we start"
+    }
+   },
+   {
+    "say": "Sign three: the project *launched*, and you don't even have the *code*.",
+    "screen": "rows",
+    "head": "What you *own*",
+    "rows": [
+     {
+      "t": "Repository",
+      "s": "Agency's account",
+      "v": "!",
+      "ic": "globe",
+      "bad": true
+     },
+     {
+      "t": "Hosting login",
+      "s": "Ask the agency",
+      "ic": "users",
+      "bad": true
+     },
+     {
+      "t": "Docs",
+      "s": "None",
+      "ic": "menu",
+      "bad": true
+     }
+    ],
+    "chip": "Locked out",
+    "fix": {
+     "say": "The fix: source in a repo you can *access* throughout, a *rollback* path, and a handover walkthrough.",
+     "head": "Launch *day*",
+     "sub": "Marigold Bakery · production",
+     "rows": [
+      {
+       "t": "Deploy",
+       "s": "With a rollback path",
+       "v": "Live",
+       "ic": "check"
+      },
+      {
+       "t": "Repository",
+       "s": "Yours from day one",
+       "v": "Yours",
+       "ic": "check"
+      },
+      {
+       "t": "Walkthrough",
+       "s": "How to run it",
+       "v": "Done",
+       "ic": "users"
+      }
+     ],
+     "chip": "Then: improve what's used"
+    }
+   }
+  ],
+  "recap_say": "*Discover*, plan, design, *build*, validate, deploy, *improve*. Seven steps, nothing hidden.",
+  "recap": [
+   {
+    "t": "Discover + Plan",
+    "s": "written scope"
+   },
+   {
+    "t": "Design + Build",
+    "s": "staging URL"
+   },
+   {
+    "t": "Validate + Deploy",
+    "s": "checks, rollback"
+   },
+   {
+    "t": "Improve",
+    "s": "next most valuable change"
+   }
+  ],
+  "cta_say": "Want a project that runs like this? Comment *PROCESS* or send us a *DM*.",
+  "hashtags": [
+   "#webagency",
+   "#softwaredevelopment",
+   "#projectmanagement",
+   "#smallbusinessindia",
+   "#startupindia",
+   "#freelancedeveloper",
+   "#craftlayer"
+  ],
+  "tags": [
+   "how a web agency works",
+   "software development process",
+   "project scope",
+   "staging site",
+   "code ownership",
+   "hire a developer",
+   "website project india",
+   "craftlayer studio"
+  ],
+  "caption": "'Almost done' for the third month isn't a delay. It's a process problem. 🧭\n\n1️⃣ You've paid but haven't seen working software\n✅ Fix: we build in small increments on a staging URL you can click through\n\n2️⃣ The scope keeps changing, and so does the price\n✅ Fix: a written scope before any work: what's in, what's out, milestones and estimate\n\n3️⃣ The project launched and you don't have the code\n✅ Fix: source in a repo you can access throughout, a rollback path and a handover walkthrough\n\nMarigold Bakery is a concept demo.\nSend this to a business owner who needs it.\nWant a project that runs like this? Comment PROCESS 👇\n\nVoiceover is AI-generated."
+ },
+ {
+  "id": "CR-134",
+  "topic": "Concept demos for 18 industries: 3 signs you need this",
+  "audience": "business",
+  "demo_name": "Meadowlark Vets",
+  "domain": "craftlayer-studio.github.io",
+  "keyword": "DEMOS",
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/"
+  ],
+  "hook": {
+   "say": "We built *eighteen* websites for businesses that don't *exist*. On purpose.",
+   "title": "18 websites.\n*Zero* real businesses.",
+   "tiles": [
+    {
+     "ic": "globe",
+     "label": "Forge Fitness"
+    },
+    {
+     "ic": "star",
+     "label": "Arbour Dental",
+     "hot": true
+    }
+   ]
+  },
+  "problems": [
+   {
+    "say": "Sign one: you can't *picture* what your website should even *look like*.",
+    "screen": "chat",
+    "head": "Your *notes*",
+    "chat": [
+     {
+      "t": "I want a website but don't know what goes on it"
+     },
+     {
+      "t": "Can you show me something like my business?"
+     }
+    ],
+    "chip": "No reference",
+    "fix": {
+     "say": "The fix: click a working demo for your *industry*, from gyms and clinics to *vets*.",
+     "head": "Concept *demos*",
+     "sub": "craftlayer-studio.github.io",
+     "rows": [
+      {
+       "t": "Forge Fitness",
+       "s": "Gym",
+       "v": "Open",
+       "ic": "bolt"
+      },
+      {
+       "t": "Northstar Clinic",
+       "s": "Healthcare",
+       "v": "Open",
+       "ic": "users"
+      },
+      {
+       "t": "Brightwater Coffee",
+       "s": "Coffee shop",
+       "v": "Open",
+       "ic": "coffee"
+      },
+      {
+       "t": "Meadowlark Vets",
+       "s": "Veterinary",
+       "v": "Open",
+       "ic": "leaf"
+      }
+     ],
+     "btn": "Browse all 18",
+     "chip": "Eighteen industries"
+    }
+   },
+   {
+    "say": "Sign two: agencies show you *pretty mockups*, but nothing you can actually *click*.",
+    "screen": "rows",
+    "head": "Agency *pitch*",
+    "rows": [
+     {
+      "t": "homepage_final.png",
+      "s": "Static image",
+      "v": "!",
+      "ic": "globe",
+      "bad": true
+     },
+     {
+      "t": "mockup_v2.pdf",
+      "s": "Can't click",
+      "ic": "menu",
+      "bad": true
+     },
+     {
+      "t": "Booking flow",
+      "s": "Coming later",
+      "ic": "cal",
+      "bad": true
+     }
+    ],
+    "chip": "Looks good, does nothing",
+    "fix": {
+     "say": "The fix: our demos *work*: calculators, filters and forms that *validate*, though they send nothing.",
+     "head": "Health *plan*",
+     "sub": "Meadowlark Vets · calculator",
+     "rows": [
+      {
+       "t": "Pet",
+       "s": "Dog, medium",
+       "ic": "leaf"
+      },
+      {
+       "t": "Plan",
+       "s": "Annual",
+       "v": "Yes",
+       "ic": "check"
+      },
+      {
+       "t": "Monthly",
+       "s": "Fictional price",
+       "v": "₹899",
+       "ic": "cash"
+      }
+     ],
+     "btn": "Request appointment",
+     "chip": "Concept demo: sends nothing"
+    }
+   },
+   {
+    "say": "Sign three: you can't tell if a studio can handle *your* kind of *business*.",
+    "screen": "rows",
+    "head": "Can they build *mine*?",
+    "rows": [
+     {
+      "t": "Dental practice",
+      "s": "?",
+      "ic": "star",
+      "bad": true
+     },
+     {
+      "t": "Wedding venue",
+      "s": "?",
+      "ic": "gift",
+      "bad": true
+     },
+     {
+      "t": "Garage",
+      "s": "?",
+      "ic": "bolt",
+      "bad": true
+     },
+     {
+      "t": "Law firm",
+      "s": "?",
+      "ic": "menu",
+      "bad": true
+     }
+    ],
+    "chip": "No proof",
+    "fix": {
+     "say": "The fix: dental, weddings, garages, law firms and more, with the *source code* public on *GitHub*.",
+     "head": "Industries",
+     "sub": "Concept demos · public source",
+     "rows": [
+      {
+       "t": "Arbour Dental",
+       "s": "Dental",
+       "v": "Open",
+       "ic": "star"
+      },
+      {
+       "t": "Hollin Barn",
+       "s": "Weddings",
+       "v": "Open",
+       "ic": "gift"
+      },
+      {
+       "t": "Torque & Co. Motors",
+       "s": "Automotive",
+       "v": "Open",
+       "ic": "bolt"
+      },
+      {
+       "t": "Marlowe & Pike",
+       "s": "Legal",
+       "v": "Open",
+       "ic": "menu"
+      }
+     ],
+     "chip": "Source on GitHub"
+    }
+   }
+  ],
+  "recap_say": "*Eighteen* industries, *working* demos, and code anyone can *read*.",
+  "recap": [
+   {
+    "t": "18 industries",
+    "s": "gyms to vets"
+   },
+   {
+    "t": "Working demos",
+    "s": "click, filter, calculate"
+   },
+   {
+    "t": "Open source",
+    "s": "public on GitHub"
+   }
+  ],
+  "cta_say": "Want to see yours? Comment *DEMOS* and we'll send the *link*.",
+  "hashtags": [
+   "#websitedesign",
+   "#webdesign",
+   "#smallbusinessindia",
+   "#websiteexamples",
+   "#landingpage",
+   "#opensource",
+   "#craftlayer"
+  ],
+  "tags": [
+   "website examples",
+   "industry website demos",
+   "business website design",
+   "website templates",
+   "concept websites",
+   "open source website",
+   "web design india",
+   "craftlayer studio"
+  ],
+  "caption": "We built 18 websites for businesses that don't exist. On purpose. 🧪\n\n1️⃣ You can't picture what your website should look like\n✅ Fix: click a working demo for your industry, from gyms and clinics to vets\n\n2️⃣ Agencies show mockups, nothing you can click\n✅ Fix: working calculators, filters and forms that validate (and send nothing)\n\n3️⃣ You can't tell if a studio can handle your kind of business\n✅ Fix: 18 industries, from dental to garages, with the source code public on GitHub\n\nMeadowlark Vets is a concept demo.\nSend this to a business owner who needs it.\nWant to see yours? Comment DEMOS 👇\n\nVoiceover is AI-generated."
+ }
+]

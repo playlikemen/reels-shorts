@@ -1,0 +1,515 @@
+{
+ "title": "Bakeries: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-119",
+  "brand": "craftlayer",
+  "topic": "Bakeries: 3 problems",
+  "schedule": {
+   "en": "2026-11-20 09:32"
+  },
+  "yt_title": {
+   "en": "Cakes sell out. Orders get lost. #shorts"
+  },
+  "yt_tags": [
+   "bakery website",
+   "cake order form",
+   "custom cake builder",
+   "home baker india",
+   "bakery online orders",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Your cakes sell out on Instagram. Your orders get lost in DMs. 🎂"
+  },
+  "ig_caption": {
+   "en": "Your cakes sell out on Instagram. Your orders get lost in DMs. 🎂\n\n1️⃣ One custom cake takes a long chat\n✅ Fix: a cake builder for size, flavour, design and message\n\n2️⃣ Customers don't show up and never paid\n✅ Fix: UPI advance at the time of order\n\n3️⃣ Everyone arrives for pickup at once\n✅ Fix: pickup slots and a \"cake is ready\" reminder\n\nButterleaf Bakery is a concept demo.\nSend this to a bakery owner who needs it.\nWant this for your bakery? Comment CAKE 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#bakery",
+   "#homebaker",
+   "#cakeshop",
+   "#customcakes",
+   "#bakersofindia",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industries/restaurants-hospitality/",
+   "https://craftlayer-studio.github.io/industries/ecommerce-retail/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Your cakes sell out on *Instagram*. Your *orders* get lost in *DMs*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Cakes sell out.\nOrders get *lost*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "chat",
+       "size": 170,
+       "label": "Lost in DMs",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "gift",
+       "size": 170,
+       "label": "Order page",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: one custom cake takes *forty messages*. Size, flavour, photo, name, *again*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Butterleaf Bakery",
+        "t": "Cake *enquiry*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Can you do 1 kg truffle with a unicorn?",
+          "at": "10%"
+         },
+         {
+          "t": "Name on top: Aarohi",
+          "at": "37%"
+         },
+         {
+          "t": "Wait, make it pineapple instead",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Still no final order",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: a *cake builder*. Pick size, flavour, design and the *name on top*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "butterleaf.in",
+        "t": "Build your *cake*",
+        "s": "Butterleaf Bakery"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Size",
+          "s": "1 kg",
+          "ic": "gift",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Flavour",
+          "s": "Belgian truffle",
+          "ic": "star",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Message",
+          "s": "Happy 6th, Aarohi",
+          "ic": "chat",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Total",
+          "s": "Unicorn topper",
+          "v": "₹1,350",
+          "ic": "tag",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Place order",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Order complete, one screen",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: you bake a two-kilo cake, and the customer *never shows up*, *unpaid*.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Butterleaf Bakery",
+        "t": "Pickups *today*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "2 kg black forest",
+          "s": "Not picked up",
+          "ic": "gift",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Advance",
+          "s": "₹0 received",
+          "ic": "wallet",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Customer phone",
+          "s": "Switched off",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Cake wasted, money gone",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: a *UPI advance* at the time of order. No advance, no *baking*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "butterleaf.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "butterleaf.in",
+        "t": "Confirm *order*",
+        "s": "2 kg black forest"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Total",
+          "s": "Pickup Saturday",
+          "v": "₹1,800",
+          "ic": "tag",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Advance paid",
+          "s": "UPI",
+          "v": "₹600",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Balance at pickup",
+          "s": "Cash or UPI",
+          "v": "₹1,200",
+          "ic": "wallet",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Pay ₹600 advance",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Advance received",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: “Is my cake ready?” Five customers arrive at *six PM*, all at *once*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Butterleaf Bakery",
+        "t": "WhatsApp *orders*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Is my cake ready? I'm outside",
+          "at": "10%"
+         },
+         {
+          "t": "We're also here for pickup",
+          "at": "37%"
+         },
+         {
+          "t": "Two minutes please!",
+          "me": true,
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Counter chaos at 6 PM",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: *pickup slots*, and a WhatsApp *reminder* the moment the cake is boxed and ready.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "butterleaf.in",
+        "t": "Pickup *slot*",
+        "s": "Saturday"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "5:30 PM",
+          "s": "Available",
+          "v": "Pick",
+          "ic": "clock",
+          "c": "#465FFF"
+         },
+         {
+          "t": "6:00 PM",
+          "s": "Full",
+          "ic": "clock",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "6:30 PM",
+          "s": "Available",
+          "v": "Pick",
+          "ic": "clock",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Choose pickup slot",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "\"Your cake is ready\" sent",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Cake builder*, *UPI advance* and *pickup slots*, all in one system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · bakery system",
+     "items": [
+      {
+       "t": "Cake builder",
+       "s": "size, flavour, message",
+       "at": "2%"
+      },
+      {
+       "t": "UPI advance",
+       "s": "paid before you bake",
+       "at": "26%"
+      },
+      {
+       "t": "Pickup slots",
+       "s": "with a ready reminder",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · CAKE",
+   "say": "Want this for your *bakery*? Comment *CAKE* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "CAKE",
+     "label": "Comment *CAKE*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

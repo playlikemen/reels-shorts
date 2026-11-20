@@ -22,3 +22,6 @@ out/**/cut.mp4
 out/**/captions.ass
 inbox/
 reference/
+
+# rendered MP4s live on Drive (sheet column "Google Drive Folder"); 29 reels = 560 MB, too big for git
+out/craftlayer/**/*.mp4

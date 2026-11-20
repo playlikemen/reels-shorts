@@ -1,0 +1,502 @@
+{
+ "title": "Real estate agents: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-110",
+  "brand": "craftlayer",
+  "topic": "Real estate agents: 3 problems",
+  "schedule": {
+   "en": "2026-11-26 19:30"
+  },
+  "yt_title": {
+   "en": "Stop the photo dump. #shorts"
+  },
+  "yt_tags": [
+   "real estate website",
+   "property listing website",
+   "real estate lead form",
+   "site visit booking",
+   "real estate crm",
+   "real estate india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Stop sending thirty photos on WhatsApp to buyers who only ask: what's the price? 🏠"
+  },
+  "ig_caption": {
+   "en": "Stop sending thirty photos on WhatsApp to buyers who only ask: what's the price? 🏠\n\n1️⃣ Every lead means forwarding the same photos again\n✅ Fix: a listing page per flat with photos, price, map and video\n\n2️⃣ Evenings lost on calls with people just browsing\n✅ Fix: an enquiry form that asks budget, area and move-in date\n\n3️⃣ Fixing one site visit takes ten messages\n✅ Fix: buyers book a visit slot and get the location pin\n\nAshgrove Property is a concept demo.\nSend this to a real estate agency owner who needs it.\nWant this for your agency? Comment PROPERTY 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#realestateagent",
+   "#realestateindia",
+   "#propertydealer",
+   "#realtorlife",
+   "#propertyforsale",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/real-estate/",
+   "https://craftlayer-studio.github.io/industries/real-estate/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Stop sending *thirty photos* on WhatsApp to buyers who only ask: *what's the price?*",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Stop the\n*photo dump*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "phone",
+       "size": 170,
+       "label": "30 photos",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "tag",
+       "size": 170,
+       "label": "Price?",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: every new lead means forwarding the *same photos* and location pin, *again*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Ashgrove Property",
+        "t": "New *lead*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Send pics of the 2BHK in Baner",
+          "at": "10%"
+         },
+         {
+          "t": "Also location and price?",
+          "at": "37%"
+         },
+         {
+          "t": "Sending, one minute...",
+          "me": true,
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Same photos, every lead",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: a *listing page* for every flat, with photos, price, map and *video walkthrough*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "ashgroveproperty.in",
+        "t": "2BHK, *Baner*",
+        "s": "Sample listing · concept demo"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Price",
+          "s": "Sample price",
+          "v": "₹78 L",
+          "ic": "tag",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Location",
+          "s": "Map and nearby schools",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Walkthrough",
+          "s": "2 min video",
+          "ic": "bolt",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Share listing link",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "One link, everything",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: you spend the evening on calls with people who are *just browsing*.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Ashgrove Property",
+        "t": "Today's *calls*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Lead · 7:10 PM",
+          "s": "Just looking",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Lead · 7:35 PM",
+          "s": "No budget yet",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Lead · 8:05 PM",
+          "s": "Buying next year",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Evening gone",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: an *enquiry form* that asks *budget*, area and move-in date before you call.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "ashgroveproperty.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "ashgroveproperty.in",
+        "t": "Find your *home*",
+        "s": "Takes 30 seconds"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Budget",
+          "s": "₹70 L to ₹90 L",
+          "ic": "wallet",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Area",
+          "s": "Baner, Aundh",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Move-in",
+          "s": "Within 3 months",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Send enquiry",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Serious buyers first",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: fixing one *site visit* takes ten messages, and the buyer still comes *late*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Ashgrove Property",
+        "t": "Site *visit*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Can we see it Sunday?",
+          "at": "10%"
+         },
+         {
+          "t": "Sunday 11 okay?",
+          "me": true,
+          "at": "37%"
+         },
+         {
+          "t": "Make it 4. Actually, Monday?",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Visit still not fixed",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: buyers pick a *visit slot* themselves, and get the *location pin* automatically.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "ashgroveproperty.in",
+        "t": "Book a *visit*",
+        "s": "2BHK, Baner"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Sat 11:00 AM",
+          "s": "Available",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Sun 4:00 PM",
+          "s": "Available",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Confirm visit",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Pin sent on WhatsApp",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Listings*, *qualified leads* and *site visits*, all in one system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · real estate agency system",
+     "items": [
+      {
+       "t": "Listings",
+       "s": "photos, price, video",
+       "at": "2%"
+      },
+      {
+       "t": "Qualified leads",
+       "s": "budget and timeline",
+       "at": "26%"
+      },
+      {
+       "t": "Site visits",
+       "s": "self-booked slots",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · PROPERTY",
+   "say": "Want this for your *agency*? Comment *PROPERTY* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "PROPERTY",
+     "label": "Comment *PROPERTY*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

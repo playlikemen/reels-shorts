@@ -1,0 +1,516 @@
+{
+ "title": "How we work: 3 signs you need this process",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-133",
+  "brand": "craftlayer",
+  "topic": "How we work: 3 signs you need this process",
+  "schedule": {
+   "en": "2026-12-17 19:30"
+  },
+  "yt_title": {
+   "en": "\"Almost done.\" Month three. #shorts"
+  },
+  "yt_tags": [
+   "how a web agency works",
+   "software development process",
+   "project scope",
+   "staging site",
+   "code ownership",
+   "hire a developer",
+   "website project india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "'Almost done' for the third month isn't a delay. It's a process problem. 🧭"
+  },
+  "ig_caption": {
+   "en": "'Almost done' for the third month isn't a delay. It's a process problem. 🧭\n\n1️⃣ You've paid but haven't seen working software\n✅ Fix: we build in small increments on a staging URL you can click through\n\n2️⃣ The scope keeps changing, and so does the price\n✅ Fix: a written scope before any work: what's in, what's out, milestones and estimate\n\n3️⃣ The project launched and you don't have the code\n✅ Fix: source in a repo you can access throughout, a rollback path and a handover walkthrough\n\nMarigold Bakery is a concept demo.\nSend this to a business owner who needs it.\nWant a project that runs like this? Comment PROCESS 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#webagency",
+   "#softwaredevelopment",
+   "#projectmanagement",
+   "#smallbusinessindia",
+   "#startupindia",
+   "#freelancedeveloper",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/process/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "'*Almost done*' for the third month isn't a delay. It's a *process* problem.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "\"Almost done.\"\n*Month three*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "clock",
+       "size": 170,
+       "label": "Month three",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "check",
+       "size": 170,
+       "label": "Live staging",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Sign one: you've *paid*, but you haven't seen *working software* yet.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Marigold Bakery",
+        "t": "Project *status*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Invoice 1",
+          "s": "Paid",
+          "ic": "cash"
+         },
+         {
+          "t": "Invoice 2",
+          "s": "Paid",
+          "ic": "cash"
+         },
+         {
+          "t": "Working preview",
+          "s": "Not yet",
+          "v": "!",
+          "ic": "globe",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Only screenshots so far",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: we build in *small increments* on a *staging URL* you can click through.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "marigoldbakery.in",
+        "t": "Staging",
+        "s": "staging.marigoldbakery.in"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Home page",
+          "s": "Live on staging",
+          "v": "Review",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Menu",
+          "s": "Live on staging",
+          "v": "Review",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Order form",
+          "s": "Building now",
+          "v": "Next",
+          "ic": "clock",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Open staging",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Real software, as it grows",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Sign two: the scope keeps *changing*, and so does the *price*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Marigold Bakery",
+        "t": "Project *chat*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "That wasn't in the quote.",
+          "at": "10%"
+         },
+         {
+          "t": "Wait, I thought it was included?",
+          "me": true,
+          "at": "37%"
+         },
+         {
+          "t": "We'll need a new estimate.",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Nothing in writing",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: a *written scope* before any work: what's in, what's *out*, milestones and estimate.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "marigoldbakery.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "marigoldbakery.in",
+        "t": "Written *scope*",
+        "s": "Marigold Bakery · website"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "In",
+          "s": "Menu, ordering, contact",
+          "v": "Yes",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Out",
+          "s": "Loyalty app",
+          "v": "Later",
+          "ic": "arrow",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Milestones",
+          "s": "Agreed up front",
+          "v": "Set",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Estimate",
+          "s": "Before work starts",
+          "v": "Set",
+          "ic": "cash",
+          "c": "#465FFF"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Agreed before we start",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Sign three: the project *launched*, and you don't even have the *code*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Marigold Bakery",
+        "t": "What you *own*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Repository",
+          "s": "Agency's account",
+          "v": "!",
+          "ic": "globe",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Hosting login",
+          "s": "Ask the agency",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Docs",
+          "s": "None",
+          "ic": "menu",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Locked out",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: source in a repo you can *access* throughout, a *rollback* path, and a handover walkthrough.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "marigoldbakery.in",
+        "t": "Launch *day*",
+        "s": "Marigold Bakery · production"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Deploy",
+          "s": "With a rollback path",
+          "v": "Live",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Repository",
+          "s": "Yours from day one",
+          "v": "Yours",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Walkthrough",
+          "s": "How to run it",
+          "v": "Done",
+          "ic": "users",
+          "c": "#465FFF"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Then: improve what's used",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Discover*, plan, design, *build*, validate, deploy, *improve*. Seven steps, nothing hidden.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · business system",
+     "items": [
+      {
+       "t": "Discover + Plan",
+       "s": "written scope",
+       "at": "2%"
+      },
+      {
+       "t": "Design + Build",
+       "s": "staging URL",
+       "at": "26%"
+      },
+      {
+       "t": "Validate + Deploy",
+       "s": "checks, rollback",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · PROCESS",
+   "say": "Want a project that runs like this? Comment *PROCESS* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "PROCESS",
+     "label": "Comment *PROCESS*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

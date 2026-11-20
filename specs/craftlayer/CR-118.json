@@ -1,0 +1,507 @@
+{
+ "title": "Boutiques: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-118",
+  "brand": "craftlayer",
+  "topic": "Boutiques: 3 problems",
+  "schedule": {
+   "en": "2026-12-04 19:30"
+  },
+  "yt_title": {
+   "en": "\"Price?\" is where sales die #shorts"
+  },
+  "yt_tags": [
+   "boutique website",
+   "online catalogue",
+   "whatsapp order",
+   "clothing store india",
+   "instagram shop",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Every \"price?\" comment is a sale that's about to die. 👗"
+  },
+  "ig_caption": {
+   "en": "Every \"price?\" comment is a sale that's about to die. 👗\n\n1️⃣ You DM prices to every commenter by hand\n✅ Fix: a catalogue link with prices, colours and sizes\n\n2️⃣ \"Is medium available?\" gets answered too late\n✅ Fix: live sizes and stock on every product\n\n3️⃣ Orders scattered across chats, screenshots and a notebook\n✅ Fix: a cart that sends the order to WhatsApp, with UPI checkout\n\nSaanjh Boutique is a concept demo.\nSend this to a boutique owner who needs it.\nWant this for your boutique? Comment SHOP 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#boutique",
+   "#boutiqueowner",
+   "#indianfashion",
+   "#clothingstore",
+   "#instagramshop",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industries/ecommerce-retail/",
+   "https://craftlayer-studio.github.io/services/e-commerce/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Every *“price?”* comment on your reel is a sale that's about to *die*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "\"Price?\"\nis where sales *die*"
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "chat",
+       "size": 170,
+       "label": "\"Price?\"",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "tag",
+       "size": 170,
+       "label": "Price on screen",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: forty people comment *“price pls”*, and you *DM* each one by hand.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Saanjh Boutique",
+        "t": "Reel *comments*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Price pls",
+          "at": "10%"
+         },
+         {
+          "t": "Price?? 🙏",
+          "at": "37%"
+         },
+         {
+          "t": "DM price and sizes",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Replied six hours later",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: a *catalogue* link with every price, colour and size, open *24x7*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "saanjhboutique.in",
+        "t": "New *arrivals*",
+        "s": "Saanjh Boutique · Festive edit"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Chanderi kurta set",
+          "s": "3 colours · S to XL",
+          "v": "₹2,450",
+          "ic": "tag",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Mul cotton saree",
+          "s": "5 colours",
+          "v": "₹1,890",
+          "ic": "tag",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Silk lehenga",
+          "s": "Made to measure",
+          "v": "₹6,200",
+          "ic": "tag",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "View catalogue",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Price seen, no DM needed",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: “Is medium available?” You check the rack, reply late, and she's *already gone*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Saanjh Boutique",
+        "t": "Direct *messages*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Is M available in the green one?",
+          "at": "10%"
+         },
+         {
+          "t": "Hello??",
+          "at": "37%"
+         },
+         {
+          "t": "Yes! Sorry, just saw this",
+          "me": true,
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Left on seen, she bought elsewhere",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: *live sizes* and stock on every product. Sold out shows *sold out*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "saanjhboutique.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "saanjhboutique.in",
+        "t": "Chanderi *kurta set*",
+        "s": "Green · ₹2,450"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "S",
+          "s": "In stock",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "M",
+          "s": "Only 1 left",
+          "ic": "bell",
+          "c": "#465FFF"
+         },
+         {
+          "t": "L",
+          "s": "Sold out",
+          "ic": "tag",
+          "c": "#FF6B4A"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Add to cart",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Size picked in seconds",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: orders sit in chats, screenshots and a *notebook*, and one always goes *missing*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Saanjh Boutique",
+        "t": "Today's *orders*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Screenshot_2231.jpg",
+          "s": "Paid? not sure",
+          "ic": "wallet",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Notebook page 14",
+          "s": "Address missing",
+          "ic": "pin",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Voice note",
+          "s": "Which colour?",
+          "ic": "chat",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Wrong parcel shipped",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: a *cart* that sends the order to WhatsApp, with *UPI* checkout.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "saanjhboutique.in",
+        "t": "Order *placed*",
+        "s": "Order #1042"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Chanderi kurta set · M",
+          "s": "Green",
+          "v": "₹2,450",
+          "ic": "tag",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Paid by UPI",
+          "s": "Confirmed",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Address saved",
+          "s": "Ships tomorrow",
+          "ic": "pin",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Pay by UPI",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Order on WhatsApp, already paid",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Catalogue*, *live sizes* and *UPI checkout*, all in one store.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · boutique system",
+     "items": [
+      {
+       "t": "Catalogue",
+       "s": "prices, colours, sizes",
+       "at": "2%"
+      },
+      {
+       "t": "Live sizes",
+       "s": "stock on every product",
+       "at": "26%"
+      },
+      {
+       "t": "UPI checkout",
+       "s": "order lands on WhatsApp",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · SHOP",
+   "say": "Want this for your *boutique*? Comment *SHOP* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "SHOP",
+     "label": "Comment *SHOP*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

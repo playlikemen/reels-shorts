@@ -1,0 +1,72 @@
+1
+00:00:00,400 --> 00:00:02,737
+Nobody needs another chatbot You need AI
+
+2
+00:00:02,687 --> 00:00:05,525
+that does one job properly Sign one
+
+3
+00:00:05,575 --> 00:00:07,225
+you added a chatbot and it can't
+
+4
+00:00:07,175 --> 00:00:10,025
+answer a single real question The fix
+
+5
+00:00:10,049 --> 00:00:12,574
+start with one workflow like shipment status
+
+6
+00:00:12,599 --> 00:00:15,474
+with clear inputs and predictable answers Sign
+
+7
+00:00:15,424 --> 00:00:17,263
+two the AI makes things up and
+
+8
+00:00:17,213 --> 00:00:19,411
+it goes straight to your customers The
+
+9
+00:00:19,361 --> 00:00:21,899
+fix validate every answer and add a
+
+10
+00:00:21,849 --> 00:00:24,824
+human review step where accuracy matters Sign
+
+11
+00:00:24,774 --> 00:00:26,649
+three your assistant can talk but it
+
+12
+00:00:26,599 --> 00:00:28,711
+can't touch the tools you use The
+
+13
+00:00:28,661 --> 00:00:31,324
+fix an MCP server so the assistant
+
+14
+00:00:31,274 --> 00:00:34,149
+can act inside your existing systems One
+
+15
+00:00:34,099 --> 00:00:36,387
+workflow checked answers and real access to
+
+16
+00:00:36,337 --> 00:00:38,324
+your tools Want AI that does a
+
+17
+00:00:38,274 --> 00:00:40,436
+real job Comment AI or send us
+
+18
+00:00:40,386 --> 00:00:41,099
+a DM
+

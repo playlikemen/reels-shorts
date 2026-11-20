@@ -1,0 +1,68 @@
+1
+00:00:00,375 --> 00:00:02,874
+Stop adding features Your SaaS needs users
+
+2
+00:00:02,824 --> 00:00:05,275
+before it needs a roadmap Sign one
+
+3
+00:00:05,300 --> 00:00:07,161
+you've been building for months and nobody
+
+4
+00:00:07,112 --> 00:00:09,612
+has logged in yet The fix scope
+
+5
+00:00:09,562 --> 00:00:11,863
+the smallest version worth launching and agree
+
+6
+00:00:11,813 --> 00:00:14,150
+what it must prove Sign two your
+
+7
+00:00:14,099 --> 00:00:16,211
+no-code prototype breaks every time you add
+
+8
+00:00:16,161 --> 00:00:18,625
+a customer The fix a real data
+
+9
+00:00:18,574 --> 00:00:20,500
+model on PostgreSQL typed end to end
+
+10
+00:00:20,549 --> 00:00:23,324
+so changes stay safe Sign three the
+
+11
+00:00:23,274 --> 00:00:25,399
+whole team shares one login and nobody
+
+12
+00:00:25,349 --> 00:00:28,049
+knows who changed what The fix proper
+
+13
+00:00:27,999 --> 00:00:30,062
+accounts and roles with docs ready for
+
+14
+00:00:30,012 --> 00:00:32,774
+the next engineer who joins Scope first
+
+15
+00:00:32,799 --> 00:00:34,624
+a solid data model and accounts that
+
+16
+00:00:34,574 --> 00:00:37,324
+grow with you Building a product Comment
+
+17
+00:00:37,274 --> 00:00:39,174
+SAAS or send us a DM
+

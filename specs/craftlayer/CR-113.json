@@ -1,0 +1,505 @@
+{
+ "title": "Interior designers: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-113",
+  "brand": "craftlayer",
+  "topic": "Interior designers: 3 problems",
+  "schedule": {
+   "en": "2026-11-29 19:30"
+  },
+  "yt_title": {
+   "en": "Best work. Buried in gallery. #shorts"
+  },
+  "yt_tags": [
+   "interior designer website",
+   "architect portfolio website",
+   "interior design enquiry form",
+   "client progress portal",
+   "interior design india",
+   "design studio website",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "Your best kitchen is buried in your phone gallery, between site photos and family selfies. 🛋️"
+  },
+  "ig_caption": {
+   "en": "Your best kitchen is buried in your phone gallery, between site photos and family selfies. 🛋️\n\n1️⃣ Clients ask for past work and get fifty WhatsApp photos\n✅ Fix: project pages with before/after, budget range and timeline\n\n2️⃣ Two meetings in, the budget was never realistic\n✅ Fix: an enquiry form with room type, budget range and start date\n\n3️⃣ Clients call daily asking what's done\n✅ Fix: a progress page per client with photos and next steps\n\nOstrander Studio is a concept demo.\nSend this to a design studio owner who needs it.\nWant this for your studio? Comment DESIGN 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#interiordesigner",
+   "#interiordesignindia",
+   "#architectsofindia",
+   "#interiorstudio",
+   "#homeinteriors",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/architecture/",
+   "https://craftlayer-studio.github.io/industries/architecture/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "Your best kitchen is *buried* in your phone gallery, between site photos and *family selfies*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Best work.\n*Buried in gallery*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "phone",
+       "size": 170,
+       "label": "Gallery",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "globe",
+       "size": 170,
+       "label": "Portfolio",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: a client asks for *past work*, and you send *fifty pictures* on WhatsApp.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Ostrander Studio",
+        "t": "New *client*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Can you share some of your past work?",
+          "at": "10%"
+         },
+         {
+          "t": "Sending, 50 photos coming",
+          "me": true,
+          "at": "37%"
+         },
+         {
+          "t": "Which one was the 3BHK?",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Client confused",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: *project pages* with before and after photos, budget range and *timeline*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "ostranderstudio.in",
+        "t": "3BHK, *Koramangala*",
+        "s": "Sample project · concept demo"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Before and after",
+          "s": "Kitchen, living, bedrooms",
+          "ic": "star",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Budget range",
+          "s": "Sample range",
+          "v": "₹12–15 L",
+          "ic": "wallet",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Timeline",
+          "s": "14 weeks, design to handover",
+          "ic": "clock",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "See more projects",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "One link per project",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: two meetings in, you find out the *budget* was never *realistic*.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Ostrander Studio",
+        "t": "Leads this *week*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Modular kitchen",
+          "s": "Budget never asked",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Full 3BHK",
+          "s": "Budget far too low",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Bedroom refresh",
+          "s": "Just collecting ideas",
+          "ic": "users",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Meetings wasted",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: an *enquiry form* with room type, *budget range* and start date, before any meeting.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "ostranderstudio.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "ostranderstudio.in",
+        "t": "Start a *project*",
+        "s": "Ostrander Studio"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Space",
+          "s": "Full 3BHK",
+          "ic": "menu",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Budget range",
+          "s": "₹10 L to ₹15 L",
+          "ic": "wallet",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Start",
+          "s": "Next month",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Send brief",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Right clients first",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: clients call daily asking *what's done*, while you're stuck on *site*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Ostrander Studio",
+        "t": "Client *calls*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Has the wardrobe been fitted?",
+          "at": "10%"
+         },
+         {
+          "t": "Can you send kitchen photos today?",
+          "at": "37%"
+         },
+         {
+          "t": "When is the painter coming?",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Calls during site work",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: a *progress page* for each client, with photos, stages and the *next step*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "ostranderstudio.in",
+        "t": "Your *project*",
+        "s": "Mehta residence"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Wardrobes",
+          "s": "Fitted · photos added",
+          "ic": "check",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Kitchen",
+          "s": "Countertop this week",
+          "ic": "clock",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Painting",
+          "s": "Starts Monday",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "View site photos",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Fewer calls, happier client",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*Portfolio*, *serious leads* and *client updates*, all in one system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · design studio system",
+     "items": [
+      {
+       "t": "Portfolio",
+       "s": "project pages",
+       "at": "2%"
+      },
+      {
+       "t": "Serious leads",
+       "s": "budget upfront",
+       "at": "26%"
+      },
+      {
+       "t": "Client updates",
+       "s": "progress page",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · DESIGN",
+   "say": "Want this for your *studio*? Comment *DESIGN* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "DESIGN",
+     "label": "Comment *DESIGN*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}

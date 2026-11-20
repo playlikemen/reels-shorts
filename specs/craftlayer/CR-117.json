@@ -1,0 +1,512 @@
+{
+ "title": "Vets: 3 problems",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "light": true,
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-117",
+  "brand": "craftlayer",
+  "topic": "Vets: 3 problems",
+  "schedule": {
+   "en": "2026-12-03 19:30"
+  },
+  "yt_title": {
+   "en": "Midnight. Your number missing. #shorts"
+  },
+  "yt_tags": [
+   "vet clinic website",
+   "pet clinic software",
+   "vaccine reminder",
+   "vet appointment booking",
+   "veterinary india",
+   "craftlayer studio"
+  ],
+  "yt_description": {
+   "en": "It's midnight. A dog is sick. Can the owner find your number? 🐾"
+  },
+  "ig_caption": {
+   "en": "It's midnight. A dog is sick. Can the owner find your number? 🐾\n\n1️⃣ Pet owners can't find your number in an emergency\n✅ Fix: a website with open now, one-tap call and directions\n\n2️⃣ Vaccine dates get forgotten\n✅ Fix: vaccine reminders per pet on WhatsApp\n\n3️⃣ Long waits in a crowded waiting room\n✅ Fix: online appointment slots\n\nMeadowlark Vets is a concept demo.\nSend this to a pet clinic owner who needs it.\nWant this for your clinic? Comment PET 👇\n\nVoiceover is AI-generated."
+  },
+  "ig_hashtags": [
+   "#vetclinic",
+   "#petclinic",
+   "#veterinarian",
+   "#petcare",
+   "#petsofindia",
+   "#smallbusinessindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/vet/",
+   "https://craftlayer-studio.github.io/industries/veterinary/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "say": "It's *midnight*. A dog is sick, and the owner is searching for a vet. Your number *isn't there*.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Midnight.\nYour number *missing*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "search",
+       "size": 170,
+       "label": "\"vet near me\"",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "phone",
+       "size": 170,
+       "label": "One-tap call",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "say": "Problem one: a dog ate *chocolate*, and the owner can't find your *number* on Google.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Meadowlark Vets",
+        "t": "Search *results*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Meadowlark Vets",
+          "s": "No phone number listed",
+          "ic": "search",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Hours",
+          "s": "Not listed · open?",
+          "ic": "clock",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Directions",
+          "s": "Pin in the wrong lane",
+          "ic": "pin",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Owner drives somewhere else",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "say": "The fix: a website with *open now*, *one-tap call* and directions to your door.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "meadowlarkvets.in",
+        "t": "Meadowlark *Vets*",
+        "s": "Emergency line"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Open now",
+          "s": "Till 11 PM tonight",
+          "ic": "clock",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Call emergency line",
+          "s": "One tap",
+          "ic": "phone",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Directions",
+          "s": "Opens in Maps",
+          "ic": "pin",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Call now",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Found in one tap",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "say": "Problem two: the *rabies booster* was due in March. Nobody remembered, not even the *owner*.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Meadowlark Vets",
+        "t": "Vaccines *overdue*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Bruno · Labrador",
+          "s": "Rabies booster · overdue",
+          "ic": "cal",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Coco · Persian cat",
+          "s": "Deworming · overdue",
+          "ic": "cal",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Sheru · Indie",
+          "s": "Annual shots · due soon",
+          "ic": "cal"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "No reminder sent",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "say": "The fix: *vaccine reminders* for every pet, on WhatsApp, a week before the *date*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "meadowlarkvets.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "meadowlarkvets.in",
+        "t": "Pet *reminders*",
+        "s": "Sent automatically on WhatsApp"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Bruno · Rabies booster",
+          "s": "Reminder sent · 7 days before",
+          "ic": "bell",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Coco · Deworming",
+          "s": "Reminder sent · 7 days before",
+          "ic": "bell",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Sheru · Annual shots",
+          "s": "Scheduled",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Book vaccine slot",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Reminder sent on WhatsApp",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "say": "Problem three: a full waiting room, a nervous cat, and an owner told to *wait an hour*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Meadowlark Vets",
+        "t": "Front *desk*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "How long will it take? She's shaking",
+          "at": "10%"
+         },
+         {
+          "t": "Six pets ahead of you, sorry",
+          "me": true,
+          "at": "37%"
+         },
+         {
+          "t": "Okay, we'll come back another day",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Walked out",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "say": "The fix: *online slots*, so every pet walks in at its own *time*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "meadowlarkvets.in",
+        "t": "Book a *slot*",
+        "s": "Dr Iyer · General check-up"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Today 5:30 PM",
+          "s": "Available",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Today 6:00 PM",
+          "s": "Available",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Tomorrow 10:00 AM",
+          "s": "Available",
+          "v": "Book",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Confirm slot",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Confirmed on WhatsApp",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "say": "*One-tap calls*, *vaccine reminders* and *online slots*, all in one system.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · pet clinic system",
+     "items": [
+      {
+       "t": "One-tap calls",
+       "s": "open now + directions",
+       "at": "2%"
+      },
+      {
+       "t": "Vaccine reminders",
+       "s": "per pet, on WhatsApp",
+       "at": "26%"
+      },
+      {
+       "t": "Online slots",
+       "s": "no waiting room crowd",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · PET",
+   "say": "Want this for your *pet clinic*? Comment *PET* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "PET",
+     "label": "Comment *PET*",
+     "mt": 24
+    }
+   ]
+  }
+ ]
+}
