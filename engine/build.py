@@ -123,9 +123,18 @@ def display_words(sc, words, off, warn, i):
         return []
     if len(src) == len(words):
         pairs = list(zip(src, words))
+    elif not sc.get("show"):   # same language, different tokenisation ("can't", "10%"): match words in order
+        W = [T.norm(w["w"]) for w in words]; j = 0; pairs = []
+        for w, acc in src:
+            n, hit = T.norm(w), None
+            for k in range(j, min(len(W), j + 6)):
+                if n and W[k] and (W[k] == n or W[k].startswith(n) or n.startswith(W[k])):
+                    hit = k; break
+            sw = words[hit] if hit is not None else words[min(j, len(words) - 1)]
+            if hit is not None: j = hit + 1
+            pairs.append(((w, acc), sw))
     else:
-        if sc.get("show"):
-            warn.append(f"scene {i}: show has {len(src)} words, voice has {len(words)}; timings spread")
+        warn.append(f"scene {i}: show has {len(src)} words, voice has {len(words)}; timings spread")
         pairs = [(src[j], words[min(len(words) - 1, j * len(words) // len(src))]) for j in range(len(src))]
     return [{"w": w, "acc": acc, "t": round(off + sw["s"], 3), "e": round(off + sw["e"], 3)} for (w, acc), sw in pairs]
 
@@ -204,6 +213,8 @@ def main():
             p, d, words = T.align_file(sc["voice_file"])
         elif v.get("engine", "edge") == "edge":
             p, d, words = T.edge_tts(sc["say"].replace("*", ""), v.get("name", "en-US-AndrewNeural"), v.get("rate", "+0%"), v.get("pitch", "+0Hz"))
+        elif v.get("engine") == "kokoro":
+            p, d, words = T.kokoro_tts(sc["say"].replace("*", ""), v.get("name", "af_heart"), v.get("speed", 1.2), v.get("lang", "a"))
         else:
             raise SystemExit("unknown voice engine")
         clips.append((p, d, words))
@@ -237,7 +248,7 @@ def main():
         ch = sc.get("chapter", prev_ch)
         changed = ch != prev_ch
         prev_ch = ch
-        floor = -1.0 if i == 0 else sc["t0"] + (0.28 if changed else 0.06)   # scene 0 may start mid-animation (hook frame)
+        floor = -1.0 if i == 0 else sc["t0"] + (spec.get("enter_delay", 0.28) if changed else 0.06)   # scene 0 may start mid-animation (hook frame)
         if sc.get("show") and len(marks(sc["show"])) == len(words):   # cues may then use the shown (Roman) words
             words = [{**w, "w": m[0]} for w, m in zip(words, marks(sc["show"]))]
         resolve(sc.get("els", []), words, o, floor, spec.get("lead", 0.06), warns, d)

@@ -1,64 +1,64 @@
 1
-00:00:00,246 --> 00:00:02,411
+00:00:00,350 --> 00:00:02,462
 If I built your cafe's website here's
 
 2
-00:00:02,374 --> 00:00:04,561
+00:00:02,412 --> 00:00:04,574
 what you'd have from day one First
 
 3
-00:00:04,762 --> 00:00:07,001
+00:00:04,574 --> 00:00:06,311
 someone searches cafe near me and your
 
 4
-00:00:06,951 --> 00:00:09,234
+00:00:06,261 --> 00:00:08,462
 name shows up Open the site and
 
 5
-00:00:09,184 --> 00:00:11,265
+00:00:08,412 --> 00:00:10,387
 the menu photos and prices are right
 
 6
-00:00:11,227 --> 00:00:14,710
+00:00:10,337 --> 00:00:13,774
 there No PDF download One button opens
 
 7
-00:00:14,660 --> 00:00:16,585
+00:00:13,724 --> 00:00:15,375
 WhatsApp for an order or a table
 
 8
-00:00:16,535 --> 00:00:20,200
+00:00:15,324 --> 00:00:18,824
 booking Location opening hours and reviews so
 
 9
-00:00:20,162 --> 00:00:22,769
+00:00:18,774 --> 00:00:21,524
 customers never have to ask New weekend
 
 10
-00:00:22,719 --> 00:00:25,280
+00:00:21,474 --> 00:00:23,874
 offer You update it yourself And your
 
 11
-00:00:25,230 --> 00:00:27,648
+00:00:23,824 --> 00:00:25,574
 Instagram bio link goes straight to this
 
 12
-00:00:27,598 --> 00:00:33,115
+00:00:25,524 --> 00:00:28,849
 site Search menu WhatsApp reviews offers all
 
 13
-00:00:33,065 --> 00:00:34,841
+00:00:28,799 --> 00:00:30,774
 ready from day one You make the
 
 14
-00:00:34,791 --> 00:00:37,880
+00:00:30,724 --> 00:00:33,612
 coffee The website handles the rest Need
 
 15
-00:00:37,842 --> 00:00:40,224
+00:00:33,562 --> 00:00:35,524
 a website for your business DM us
 
 16
-00:00:40,318 --> 00:00:41,318
+00:00:35,474 --> 00:00:36,374
 or email us
 

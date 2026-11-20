@@ -1,72 +1,72 @@
 1
-00:00:00,234 --> 00:00:02,807
+00:00:00,375 --> 00:00:02,274
 In January the gym is packed Why
 
 2
-00:00:02,758 --> 00:00:05,293
+00:00:02,225 --> 00:00:04,799
 is it empty by March Problem one
 
 3
-00:00:05,796 --> 00:00:08,346
+00:00:04,849 --> 00:00:06,687
 a membership ran out and nobody asked
 
 4
-00:00:08,296 --> 00:00:11,143
+00:00:06,637 --> 00:00:09,325
 them to renew The fix an automatic
 
 5
-00:00:11,092 --> 00:00:14,111
+00:00:09,275 --> 00:00:11,725
 WhatsApp reminder before expiry and one link
 
 6
-00:00:14,097 --> 00:00:17,422
+00:00:11,675 --> 00:00:14,650
 to renew by UPI Problem two a
 
 7
-00:00:17,371 --> 00:00:19,225
+00:00:14,599 --> 00:00:16,125
 member hasn't come in for two weeks
 
 8
-00:00:19,368 --> 00:00:22,815
+00:00:16,125 --> 00:00:19,350
 and nobody noticed The fix QR check-in
 
 9
-00:00:23,198 --> 00:00:24,738
+00:00:19,375 --> 00:00:20,699
 and a list every morning of who
 
 10
-00:00:24,688 --> 00:00:26,493
+00:00:20,649 --> 00:00:22,574
 stopped coming so you can call them
 
 11
-00:00:27,038 --> 00:00:29,408
+00:00:23,000 --> 00:00:25,275
 Problem three someone asked your price on
 
 12
-00:00:29,358 --> 00:00:31,283
+00:00:25,225 --> 00:00:27,074
 Instagram and the reply went out the
 
 13
-00:00:31,233 --> 00:00:34,908
+00:00:27,024 --> 00:00:30,100
 next day The fix plans prices and
 
 14
-00:00:34,870 --> 00:00:37,287
+00:00:30,050 --> 00:00:32,349
 free trial booking on your website twenty-four
 
 15
-00:00:37,237 --> 00:00:40,887
-hours a day Renewals check-ins and enquiries
+00:00:32,299 --> 00:00:35,112
+hours a day Renewals check-ins and all
 
 16
-00:00:40,945 --> 00:00:42,988
-all in one system Want this for
+00:00:35,063 --> 00:00:37,099
+in one system Want this for your
 
 17
-00:00:42,939 --> 00:00:45,295
-your gym Comment GYM or send us
+00:00:37,049 --> 00:00:38,849
+gym Comment GYM or send us a
 
 18
-00:00:45,245 --> 00:00:45,728
-a DM
+00:00:38,799 --> 00:00:39,449
+DM
 

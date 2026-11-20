@@ -1,96 +1,96 @@
 1
-00:00:00,246 --> 00:00:02,411
+00:00:00,375 --> 00:00:02,012
 Your waiter can't be at every table
 
 2
-00:00:02,374 --> 00:00:05,052
+00:00:01,962 --> 00:00:04,600
 at once But your website can Two
 
 3
-00:00:05,002 --> 00:00:07,276
+00:00:04,550 --> 00:00:06,463
 guests sit at table five and scan
 
 4
-00:00:07,226 --> 00:00:09,319
+00:00:06,413 --> 00:00:08,375
 the table's QR code with their phone
 
 5
-00:00:09,853 --> 00:00:11,575
+00:00:08,800 --> 00:00:10,525
 Your full menu opens on their phone
 
 6
-00:00:11,777 --> 00:00:14,099
+00:00:10,575 --> 00:00:12,550
 with a photo price and detail for
 
 7
-00:00:14,205 --> 00:00:18,120
+00:00:12,500 --> 00:00:15,488
 every dish Allergy info spice level half
 
 8
-00:00:18,225 --> 00:00:20,849
+00:00:15,438 --> 00:00:17,225
 or full and today's offers All in
 
 9
-00:00:20,798 --> 00:00:23,054
+00:00:17,175 --> 00:00:19,675
 one place They order from the phone
 
 10
-00:00:23,411 --> 00:00:24,556
+00:00:19,725 --> 00:00:20,825
 and your staff sends it to the
 
 11
-00:00:24,506 --> 00:00:27,353
+00:00:20,775 --> 00:00:23,287
 kitchen with one tap The kitchen display
 
 12
-00:00:27,303 --> 00:00:29,902
+00:00:23,237 --> 00:00:25,475
 shows live orders and timers so nothing
 
 13
-00:00:29,852 --> 00:00:32,554
+00:00:25,425 --> 00:00:28,075
 gets missed While the food cooks guests
 
 14
-00:00:32,504 --> 00:00:34,272
+00:00:28,025 --> 00:00:29,775
 watch the live status on their phone
 
 15
-00:00:34,834 --> 00:00:37,179
+00:00:30,225 --> 00:00:32,299
 Need something One tap and the waiter
 
 16
-00:00:37,142 --> 00:00:39,676
+00:00:32,250 --> 00:00:34,813
 knows that same second Your staff sees
 
 17
-00:00:39,626 --> 00:00:41,395
+00:00:34,763 --> 00:00:36,462
 on a live floor map which table
 
 18
-00:00:41,357 --> 00:00:43,881
+00:00:36,412 --> 00:00:38,575
 needs help At the end split the
 
 19
-00:00:43,844 --> 00:00:45,708
+00:00:38,525 --> 00:00:39,687
 bill add a tip and pay at
 
 20
-00:00:45,670 --> 00:00:49,043
+00:00:39,637 --> 00:00:42,650
 the table cash card or UPI And
 
 21
-00:00:48,993 --> 00:00:52,072
+00:00:42,600 --> 00:00:45,200
 leaving a review takes one tap Floor
 
 22
-00:00:52,250 --> 00:00:54,404
+00:00:45,200 --> 00:00:47,237
 kitchen and guests in one system We
 
 23
-00:00:54,354 --> 00:00:56,491
+00:00:47,187 --> 00:00:49,412
 can build this for your restaurant Want
 
 24
-00:00:56,442 --> 00:00:58,330
+00:00:49,362 --> 00:00:51,050
 the details Comment DEMO
 

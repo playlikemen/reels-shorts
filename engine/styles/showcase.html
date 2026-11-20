@@ -17,7 +17,8 @@ html,body{margin:0;background:var(--bg);-webkit-font-smoothing:antialiased}
 .brand img{width:30px;height:30px;border-radius:8px}
 .badge{position:absolute;top:84px;left:0;right:0;text-align:center;z-index:20}
 .badge span{display:inline-block;font-family:'JetBrains Mono';font-size:12px;letter-spacing:.2em;color:var(--muted);border:1px solid rgba(255,255,255,.18);padding:5px 12px;border-radius:99px;background:rgba(6,9,19,.5)}
-.capline{position:absolute;left:30px;right:30px;text-align:center;font-weight:800;font-size:40px;line-height:1.12;letter-spacing:-.015em;z-index:30;text-shadow:0 4px 18px rgba(0,0,0,.6)}
+.capline{position:absolute;left:24px;right:24px;text-align:center;font-family:Archivo,Inter,sans-serif;font-weight:800;font-size:54px;line-height:1.05;letter-spacing:-.01em;text-transform:uppercase;z-index:30;text-shadow:0 5px 0 rgba(0,0,0,.55),0 8px 26px rgba(0,0,0,.6)}
+.capline .w{transform-origin:50% 70%}
 .capline .w{display:inline-block;white-space:pre}
 .vis{position:absolute;left:0;right:0;top:130px;height:820px}
 .vin{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;transform-origin:50% 50%}
@@ -174,7 +175,8 @@ body.light #stage{background:var(--bg);color:var(--text)}
 body.light .glow{background:radial-gradient(closest-side,rgba(255,255,255,.9),rgba(255,255,255,0))}
 body.light .vign{background:radial-gradient(120% 75% at 50% 45%,transparent 50%,rgba(16,24,40,.12) 100%)}
 body.light .bokeh{opacity:0!important}
-body.light .capline{text-shadow:none;-webkit-text-stroke:7px #fff;paint-order:stroke fill}
+body.light .capline{text-shadow:none}
+body.light .capline .w{background:#fff;border-radius:10px;padding:2px 10px 0;margin:0 4px 8px;box-shadow:0 6px 18px rgba(16,24,40,.18)}
 body.light .badge span{background:rgba(255,255,255,.6);border-color:rgba(16,24,40,.15)}
 body.light .phone{box-shadow:0 0 0 2px #2b3040,0 40px 80px rgba(16,24,40,.3)}
 </style>

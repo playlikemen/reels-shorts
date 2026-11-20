@@ -44,7 +44,11 @@ Manual steps that the API cannot do:
 3. **Recap checklist.** Three to five ticks.
 4. **CTA.** A comment keyword, a DM, or email `sh20raj@gmail.com`. Optionally add "send this to a ___ owner".
 
-Language: post Hindi (Hinglish) first. Post the English version of the same reel 2 to 5 days later. Captions are always in Roman script.
+Voice and pacing (since 2026-11-20, after owner feedback that the edge-tts Hindi voice was slow and flat):
+- English narration with Kokoro-82M, voice `af_heart` at speed 1.2. That is about 3.3 words a second, with no dead air between scenes (gap 0.05 s).
+- Captions show 2 or 3 words at a time, in uppercase. Each word pops in as it is spoken, and the live word is in the accent colour.
+- Every accent word gives the camera a short punch-in. Scenes change with a 0.16 s whip zoom, and nothing takes longer than 0.32 s to enter.
+- Hindi stays possible in the engine. It needs a better voice first: ElevenLabs (needs a key) or Kokoro Hindi (needs espeak-ng, which this host cannot load).
 
 ## Honesty rules (from the studio's brand guidelines)
 

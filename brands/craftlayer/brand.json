@@ -10,9 +10,10 @@
   },
   "youtube": null,
   "voice": {
-    "engine": "edge",
-    "name": "hi-IN-MadhurNeural",
-    "rate": "+8%"
+    "engine": "kokoro",
+    "name": "af_heart",
+    "speed": 1.2,
+    "lang": "a"
   },
   "voices": {
     "hi": {
@@ -21,9 +22,10 @@
       "rate": "+8%"
     },
     "en": {
-      "engine": "edge",
-      "name": "en-US-AndrewMultilingualNeural",
-      "rate": "+4%"
+      "engine": "kokoro",
+      "name": "af_heart",
+      "speed": 1.2,
+      "lang": "a"
     }
   },
   "styles": {
@@ -38,12 +40,16 @@
         "accent2": "#465FFF",
         "text": "#101828"
       },
-      "music": "pulse",
-      "music_db": -23,
-      "sfx_db": -13,
+      "music": "bright",
+      "music_db": -20,
+      "sfx_db": -11,
       "logo": "brands/craftlayer/logo.png",
       "brand": "CraftLayer",
-      "handle": "@craftlayer.studio"
+      "handle": "@craftlayer.studio",
+      "gap": 0.05,
+      "pre": 0.04,
+      "tail": 1.1,
+      "enter_delay": 0.06
     },
     "clean": {
       "theme": {

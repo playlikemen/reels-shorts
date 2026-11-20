@@ -1,72 +1,72 @@
 1
-00:00:00,246 --> 00:00:02,603
+00:00:00,350 --> 00:00:02,074
 We build websites and even we'll say
 
 2
-00:00:02,553 --> 00:00:05,355
+00:00:02,024 --> 00:00:04,475
 it a website alone won't bring customers
 
 3
-00:00:05,913 --> 00:00:08,536
+00:00:04,924 --> 00:00:06,950
 A website is a fishing net However
 
 4
-00:00:08,618 --> 00:00:10,507
+00:00:06,900 --> 00:00:08,250
 good the net is you have to
 
 5
-00:00:10,457 --> 00:00:12,425
+00:00:08,199 --> 00:00:10,150
 put it in the water The water
 
 6
-00:00:12,387 --> 00:00:15,418
+00:00:10,100 --> 00:00:12,287
 is in three places Ads which cost
 
 7
-00:00:15,380 --> 00:00:18,014
+00:00:12,237 --> 00:00:14,775
 money Google which takes time And social
 
 8
-00:00:17,964 --> 00:00:21,057
+00:00:14,725 --> 00:00:17,312
 media which takes effort Whoever just built
 
 9
-00:00:21,019 --> 00:00:22,764
+00:00:17,262 --> 00:00:18,675
 a website and sat back has a
 
 10
-00:00:22,726 --> 00:00:25,765
+00:00:18,625 --> 00:00:21,736
 beautiful net Bone dry People came from
 
 11
-00:00:25,727 --> 00:00:27,820
+00:00:21,686 --> 00:00:23,750
 an ad The website showed the price
 
 12
-00:00:27,831 --> 00:00:30,008
+00:00:23,750 --> 00:00:25,724
 built trust gave them a button Then
 
 13
-00:00:29,958 --> 00:00:33,066
+00:00:25,674 --> 00:00:28,512
 they became customers You need both A
 
 14
-00:00:33,028 --> 00:00:35,746
+00:00:28,462 --> 00:00:30,737
 website alone does nothing and ads without
 
 15
-00:00:35,696 --> 00:00:37,573
+00:00:30,687 --> 00:00:32,499
 a website are money down the drain
 
 16
-00:00:38,142 --> 00:00:39,959
+00:00:32,924 --> 00:00:34,512
 Where do people find your website Don't
 
 17
-00:00:39,909 --> 00:00:42,565
+00:00:34,462 --> 00:00:37,199
 know Comment don't know Need a website
 
 18
-00:00:42,912 --> 00:00:44,440
+00:00:37,262 --> 00:00:38,574
 DM or email us
 

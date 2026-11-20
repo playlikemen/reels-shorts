@@ -1,64 +1,64 @@
 1
-00:00:00,246 --> 00:00:01,943
+00:00:00,350 --> 00:00:02,174
 A customer called to ask today's gold
 
 2
-00:00:01,893 --> 00:00:04,452
+00:00:02,125 --> 00:00:04,749
 rate and never came in Problem one
 
 3
-00:00:04,788 --> 00:00:07,253
+00:00:04,774 --> 00:00:06,774
 the same question every day What's today's
 
 4
-00:00:07,215 --> 00:00:09,847
+00:00:06,724 --> 00:00:09,150
 rate The fix today's rate on your
 
 5
-00:00:09,797 --> 00:00:12,371
+00:00:09,099 --> 00:00:11,449
 website which you update once each morning
 
 6
-00:00:12,917 --> 00:00:15,179
+00:00:11,875 --> 00:00:13,888
 Problem two customers have to come to
 
 7
-00:00:15,129 --> 00:00:17,615
+00:00:13,838 --> 00:00:16,012
 the shop just to see designs The
 
 8
-00:00:17,577 --> 00:00:20,958
+00:00:15,961 --> 00:00:18,675
 fix an online catalogue with weight purity
 
 9
-00:00:20,919 --> 00:00:22,845
+00:00:18,625 --> 00:00:20,375
 and making charges and a button to
 
 10
-00:00:22,795 --> 00:00:25,590
+00:00:20,324 --> 00:00:22,887
 book a visit Problem three why should
 
 11
-00:00:25,540 --> 00:00:28,053
+00:00:22,836 --> 00:00:25,250
 a new customer trust you The fix
 
 12
-00:00:28,375 --> 00:00:32,175
+00:00:25,250 --> 00:00:27,725
 hallmark details reviews photos and your address
 
 13
-00:00:32,509 --> 00:00:35,257
+00:00:27,725 --> 00:00:30,225
 all on one page Rate catalogue and
 
 14
-00:00:35,207 --> 00:00:37,719
+00:00:30,175 --> 00:00:32,549
 trust all on your website Need a
 
 15
-00:00:37,669 --> 00:00:40,207
+00:00:32,500 --> 00:00:34,836
 website for your jewellery shop Comment GOLD
 
 16
-00:00:40,458 --> 00:00:41,433
+00:00:34,786 --> 00:00:36,049
 or send us a DM
 

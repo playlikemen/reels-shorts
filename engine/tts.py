@@ -54,6 +54,36 @@ def edge_tts(text, voice="en-US-AndrewNeural", rate="+0%", pitch="+0Hz"):
     return str(mp3), duration(mp3), json.loads(js.read_text())
 
 
+_KOKORO = {}
+
+
+def kokoro_tts(text, voice="af_heart", speed=1.2, lang="a"):
+    """Kokoro-82M (Apache-2.0, runs on CPU): far more natural and lively than edge voices. English ("a"/"b") works
+    without espeak-ng; Hindi ("h") needs espeak-ng, which this host cannot load (glibc 2.28)."""
+    key = hashlib.sha1(json.dumps(["kokoro", text, voice, speed, lang]).encode()).hexdigest()[:16]
+    wav, js = CACHE / f"{key}.wav", CACHE / f"{key}.json"
+    if not (wav.exists() and js.exists()):
+        import numpy as np, soundfile as sf
+        from kokoro import KPipeline
+        if lang not in _KOKORO:
+            _KOKORO[lang] = KPipeline(lang_code=lang, repo_id="hexgrad/Kokoro-82M")
+        parts, words, off = [], [], 0.0
+        for r in _KOKORO[lang](text, voice=voice, speed=speed):
+            a = r.audio.numpy(); parts.append(a)
+            for tk in (r.tokens or []):
+                if tk.start_ts is None or not re.search(r"\w", tk.text):
+                    continue
+                if words and not words[-1]["ws"] and re.match(r"^['’]?\w", tk.text) and tk.text[0] in "'’":
+                    words[-1]["w"] += tk.text; words[-1]["e"] = round(off + (tk.end_ts or tk.start_ts), 3)   # "ca" + "n't"
+                else:
+                    words.append({"w": tk.text, "s": round(off + tk.start_ts, 3), "e": round(off + (tk.end_ts or tk.start_ts), 3)})
+                words[-1]["ws"] = bool(tk.whitespace)
+            off += len(a) / 24000
+        sf.write(wav, np.concatenate(parts), 24000)
+        js.write_text(json.dumps([{k: w[k] for k in ("w", "s", "e")} for w in words]))
+    return str(wav), duration(wav), json.loads(js.read_text())
+
+
 def align_file(path, model="small.en"):
     """Word timestamps for any voice file (ElevenLabs, a mic recording, ...)."""
     import numpy as np

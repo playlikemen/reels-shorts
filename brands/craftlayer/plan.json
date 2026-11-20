@@ -1,41 +1,41 @@
 {
  "brand": "craftlayer",
- "updated": "2026-11-19",
+ "updated": "2026-11-20",
  "made": [
   {
    "id": "CR-101",
    "series": "System walkthrough",
    "topic": "Restaurant table ordering",
-   "hi": "Published 2026-11-19",
-   "en": "Scheduled 2026-11-21 19:30"
+   "hi": "Published 2026-11-19 (edge voice)",
+   "en": "Published 2026-11-20 (Kokoro voice, new motion)"
   },
   {
    "id": "CR-102",
    "series": "Day one",
    "topic": "Cafe website",
-   "hi": "Published 2026-11-19",
-   "en": "Scheduled 2026-11-22 19:30"
+   "hi": "Published 2026-11-19 (edge voice)",
+   "en": "Published 2026-11-20 (Kokoro voice, new motion)"
   },
   {
    "id": "CR-103",
    "series": "Metaphor truth",
    "topic": "Website is a net, traffic is water",
-   "hi": "Published 2026-11-19",
-   "en": "Scheduled 2026-11-23 19:30"
+   "hi": "Published 2026-11-19 (edge voice)",
+   "en": "Published 2026-11-20 (Kokoro voice, new motion)"
   },
   {
    "id": "CR-104",
    "series": "3 problems",
    "topic": "Gym owners",
-   "hi": "Scheduled 2026-11-20 19:30",
-   "en": "Scheduled 2026-11-25 19:30"
+   "hi": "Hold: Hindi edge voice rejected",
+   "en": "Scheduled 2026-11-21 19:30"
   },
   {
    "id": "CR-105",
    "series": "3 problems",
    "topic": "Jewellery shops",
-   "hi": "Scheduled 2026-11-24 19:30",
-   "en": "Scheduled 2026-11-26 19:30"
+   "hi": "Hold: Hindi edge voice rejected",
+   "en": "Scheduled 2026-11-22 19:30"
   }
  ],
  "formats": [
@@ -696,7 +696,7 @@
    "time": "19:30",
    "series": "3 problems",
    "topic": "Clinics and doctors",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -712,7 +712,7 @@
    "time": "19:30",
    "series": "Feature in 30s",
    "topic": "Web development",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -728,7 +728,7 @@
    "time": "19:30",
    "series": "3 problems",
    "topic": "Coaching institutes",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -744,7 +744,7 @@
    "time": "19:30",
    "series": "3 problems",
    "topic": "Real estate agents",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -760,7 +760,7 @@
    "time": "19:30",
    "series": "Feature in 30s",
    "topic": "AI applications",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -776,7 +776,7 @@
    "time": "19:30",
    "series": "3 problems",
    "topic": "Architects and interior designers",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -792,7 +792,7 @@
    "time": "19:30",
    "series": "3 problems",
    "topic": "Builders and contractors",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -808,7 +808,7 @@
    "time": "19:30",
    "series": "Feature in 30s",
    "topic": "Business automation",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -824,7 +824,7 @@
    "time": "19:30",
    "series": "3 problems",
    "topic": "Vets and pet clinics",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -840,7 +840,7 @@
    "time": "19:30",
    "series": "3 problems",
    "topic": "Boutiques and clothing stores",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -856,7 +856,7 @@
    "time": "19:30",
    "series": "Feature in 30s",
    "topic": "Our process",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -872,7 +872,7 @@
    "time": "19:30",
    "series": "3 problems",
    "topic": "Travel agents",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -888,7 +888,7 @@
    "time": "19:30",
    "series": "3 problems",
    "topic": "Photographers",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -904,7 +904,7 @@
    "time": "19:30",
    "series": "Feature in 30s",
    "topic": "Real work: CampusLoop",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -920,7 +920,7 @@
    "time": "19:30",
    "series": "3 problems",
    "topic": "D2C and e-commerce brands",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   },
   {
@@ -936,7 +936,7 @@
    "time": "19:30",
    "series": "3 problems",
    "topic": "Startups and founders",
-   "lang": "hi",
+   "lang": "en",
    "status": "Planned"
   }
  ]

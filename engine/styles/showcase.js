@@ -39,7 +39,8 @@
   const FOOD = ['#E8B04B', '#D2693C', '#7FB069', '#C94F4F', '#F2C14E', '#9E6B4A', '#E07A5F'];
 
   // anim helper that respects a wrapper: entrance on `n`, extra transform on an inner node stays untouched
-  function enter(ctx, n, kind, tin, dur = 0.45, sfx = null) { ctx.anim(n, kind || 'up', tin, dur, '', sfx); }
+  function enter(ctx, n, kind, tin, dur = 0.3, sfx = null) { ctx.anim(n, kind || 'up', tin, Math.min(dur, SPEED), '', sfx); }
+  let SPEED = 0.32;   // cap on every entrance: snappy, never sluggish
   function selWatch(ctx, node, tin) { if (tin == null) return; ctx.custom(t => node.classList.toggle('sel', t >= tin)); KV.sfx(tin, 'tick'); }
 
   // ---- screen blocks
@@ -149,8 +150,8 @@
     ctx.custom(t => {
       let cur = 0; pages.forEach((p, i) => { if (t >= p.s.tin) cur = i; });
       pages.forEach((p, i) => {
-        if (i === cur) { const k = i === 0 ? 1 : ease.out(clamp((t - p.s.tin) / 0.35)); p.pg.style.opacity = 1; p.pg.style.transform = `translateX(${(1 - k) * 100}%)`; p.pg.style.zIndex = 2; p.pg.style.visibility = 'visible'; }
-        else if (i === cur - 1 && t - pages[cur].s.tin < 0.35) { p.pg.style.visibility = 'visible'; p.pg.style.zIndex = 1; p.pg.style.transform = `translateX(${-ease.out(clamp((t - pages[cur].s.tin) / 0.35)) * 30}%)`; }
+        if (i === cur) { const k = i === 0 ? 1 : ease.out5(clamp((t - p.s.tin) / 0.24)); p.pg.style.opacity = 1; p.pg.style.transform = `translateX(${(1 - k) * 100}%)`; p.pg.style.zIndex = 2; p.pg.style.visibility = 'visible'; }
+        else if (i === cur - 1 && t - pages[cur].s.tin < 0.24) { p.pg.style.visibility = 'visible'; p.pg.style.zIndex = 1; p.pg.style.transform = `translateX(${-ease.out5(clamp((t - pages[cur].s.tin) / 0.24)) * 30}%)`; }
         else p.pg.style.visibility = 'hidden';
       });
     });
@@ -161,7 +162,7 @@
     ctx.custom(t => { const f = Math.sin(t * 1.2 + (e.seed || 0)) * (e.float == null ? 6 : e.float); tilt.style.transform = `perspective(1400px) translateY(${f}px) rotateX(${rx}deg) rotateY(${ry + Math.sin(t * 0.6) * 2}deg) rotateZ(${rz}deg)`; });
     const outer = h('div'); outer.appendChild(tilt);
     if (e.scale) { d.style.transformOrigin = '50% 0'; }
-    enter(ctx, outer, e.anim || 'up', e.tin, 0.6, 'whoosh');
+    enter(ctx, outer, e.anim || 'zoom', e.tin, 0.4, 'whoosh');
     return outer;
   }
 
@@ -348,8 +349,16 @@
       const vin = h('div', 'vin'); vis.appendChild(vin); root.appendChild(vis);
       (sc.vis || []).forEach(e => vin.appendChild(build(e, ctx, spec)));
       // slow camera push for the whole scene
-      const [s0, s1] = sc.push || [1, 1.05];
-      ctx.custom(t => { const p = clamp((t - sc.t0) / Math.max(0.5, end - sc.t0)); vin.style.transform = `scale(${s0 + (s1 - s0) * ease.inout(p)})`; });
+      const [s0, s1] = sc.push || [1, 1.08];
+      const kicks = (sc.words || []).filter(w => w.acc).map(w => w.t);
+      const dir = i % 2 ? 1 : -1;
+      ctx.custom(t => {
+        const p = clamp((t - sc.t0) / Math.max(0.5, end - sc.t0));
+        const inP = ease.out5(clamp((t - sc.t0) / 0.32));
+        let kick = 0; kicks.forEach(kt => { const d = t - kt; if (d >= 0 && d < 0.26) kick = Math.max(kick, (1 - d / 0.26)); });
+        const sc2 = (s0 + (s1 - s0) * ease.inout(p)) * (1.14 - 0.14 * inP) * (1 + 0.045 * ease.out(kick));
+        vin.style.transform = `translate(${dir * (1 - inP) * 40}px,0) rotate(${dir * (1 - inP) * 2 + Math.sin(t * 0.8) * 0.4}deg) scale(${sc2})`;
+      });
     },
     buildGlobal(stage, spec, scenes) {
       SPEC = spec; scenesRef = scenes;
@@ -364,7 +373,7 @@
       stage.appendChild(h('div', 'handle', esc(spec.handle || '@craftlayer.studio')));   // watermark: always on
       if (spec.badge) stage.appendChild(h('div', 'badge', `<span>${esc(spec.badge)}</span>`));
       // captions: lines of <= capChars characters, broken after punctuation
-      const maxC = spec.capChars || 22, top = spec.capTop || 985;
+      const maxC = spec.capChars || 16, top = spec.capTop || 975;
       spec.scenes.forEach((sc, si) => {
         const end = si + 1 < spec.scenes.length ? spec.scenes[si + 1].t0 : spec.duration;
         let line = [];
@@ -396,12 +405,18 @@
       KICK.style.opacity = clamp((t - sc.t0) / 0.3);
       CAP.forEach(L => {
         const on = t >= L.t0 && t < L.t1; L.node.style.display = on ? 'block' : 'none'; if (!on) return;
-        L.ws.forEach((w, j) => { const s = L.spans[j]; const p = clamp((t - w.t + 0.04) / 0.16); s.style.opacity = t < w.t - 0.04 ? 0 : 0.25 + 0.75 * p; s.style.transform = `translateY(${(1 - ease.out(p)) * 10}px)`; s.style.color = w.acc ? C.accent : C.text; });
+        L.ws.forEach((w, j) => {
+          const s = L.spans[j]; const p = clamp((t - w.t + 0.03) / 0.12);
+          const nxt = j + 1 < L.ws.length ? L.ws[j + 1].t : L.t1; const live = t >= w.t - 0.03 && t < nxt;
+          s.style.opacity = t < w.t - 0.03 ? 0 : 1;
+          s.style.transform = `translateY(${(1 - ease.out(p)) * 14}px) scale(${(1.4 - 0.4 * ease.back(p)) * (live ? 1.06 : 1)})`;
+          s.style.color = w.acc || live ? C.accent : C.text;
+        });
       });
     },
     visible(S, cur, t) {
-      const dt = t - S[cur].sc.t0, TR = 0.25;
-      if (cur > 0 && dt < TR) { const p = clamp(dt / TR); return [[cur - 1, { z: 3, o: 1 - p, f: `blur(${p * 10}px)`, tf: `scale(${1 + p * 0.06})` }], [cur, { z: 2 }]]; }
+      const dt = t - S[cur].sc.t0, TR = 0.16;
+      if (cur > 0 && dt < TR) { const p = ease.inout(clamp(dt / TR)); return [[cur - 1, { z: 3, o: 1 - p, f: `blur(${p * 14}px)`, tf: `scale(${1 + p * 0.25})` }], [cur, { z: 2 }]]; }
       return [[cur, { z: 2 }]];
     },
   };
