@@ -3,6 +3,7 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "light": true,
  "langs": {
   "en": {}
@@ -49,13 +50,13 @@
  "scenes": [
   {
    "chapter": "00 · Hook",
+   "mood": "excited",
    "say": "You've built homes across the city. Online, your company *doesn't exist*.",
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
+     "type": "slam",
+     "at": 0,
+     "size": 66,
      "text": "Built *everywhere*.\nOnline: *nowhere*."
     },
     {
@@ -84,11 +85,14 @@
   },
   {
    "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 1",
    "say": "Problem one: clients ask for *past projects*, and all you can offer is \"come, I'll *drive you*.\"",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -141,11 +145,14 @@
   },
   {
    "chapter": "01 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *project gallery* with photos, location, size and *handover date* for each build.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -208,11 +215,14 @@
   },
   {
    "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 2",
    "say": "Problem two: you drive across town for a *rough estimate*, and they *never call* back.",
    "vis": [
     {
      "type": "tablet",
-     "w": 620,
+     "w": 668,
      "tilt": [
       10,
       0,
@@ -270,11 +280,14 @@
   },
   {
    "chapter": "02 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: an *estimate request* where clients upload site *photos* and measurements first.",
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "keystonebuild.in",
      "at": "0%",
      "screen": {
@@ -333,11 +346,14 @@
   },
   {
    "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 3",
    "say": "Problem three: \"How much have I paid so far?\" ends in an *argument* over a *diary*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -385,11 +401,14 @@
   },
   {
    "chapter": "03 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *client portal* with every milestone, payment received and *what's due next*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -455,6 +474,7 @@
   },
   {
    "chapter": "04 · System",
+   "mood": "upbeat",
    "say": "*Gallery*, *estimates* and *payments*, all in one system.",
    "vis": [
     {
@@ -483,6 +503,7 @@
   },
   {
    "chapter": "05 · BUILD",
+   "mood": "warm",
    "say": "Want this for your *company*? Comment *BUILD* or send us a *DM*.",
    "vis": [
     {

@@ -3,18 +3,22 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "langs": {
-  "en": {}
+  "en": {},
+  "hi": {}
  },
  "meta": {
   "id": "CR-136",
   "brand": "craftlayer",
   "topic": "WhatsApp is not a CRM: 3 leaks",
   "schedule": {
-   "en": "2026-11-21 16:16"
+   "en": "2026-11-21 23:01",
+   "hi": "2026-11-22 12:30"
   },
   "yt_title": {
-   "en": "400 unread. One is your biggest order. #shorts"
+   "en": "400 unread. One is your biggest order. #shorts",
+   "hi": "400 unread chats. Ek mein bada order. #shorts"
   },
   "yt_tags": [
    "whatsapp crm",
@@ -23,10 +27,12 @@
    "business automation"
   ],
   "yt_description": {
-   "en": "400 unread chats. One of them is your biggest order. 💬"
+   "en": "400 unread chats. One of them is your biggest order. 💬",
+   "hi": "400 unread chats. Inmein kahin aapka sabse bada order hai. 💬"
   },
   "ig_caption": {
-   "en": "400 unread chats. One of them is your biggest order. 💬\n\n1️⃣ New enquiries get buried under groups and forwards\n✅ Fix: a lead board with a name, a need and a next step\n\n2️⃣ \"I'll follow up Monday\"… it's Thursday\n✅ Fix: automatic follow-up reminders\n\n3️⃣ A staff member leaves, and their customers go too\n✅ Fix: one shared inbox the business owns\n\nBrightline Interiors is a concept demo. Send this to a business owner who runs everything on WhatsApp.\nComment LEADS 👇\n\nVoiceover is AI-generated (ElevenLabs)."
+   "en": "400 unread chats. One of them is your biggest order. 💬\n\n1️⃣ New enquiries get buried under groups and forwards\n✅ Fix: a lead board with a name, a need and a next step\n\n2️⃣ \"I'll follow up Monday\"… it's Thursday\n✅ Fix: automatic follow-up reminders\n\n3️⃣ A staff member leaves, and their customers go too\n✅ Fix: one shared inbox the business owns\n\nBrightline Interiors is a concept demo. Send this to a business owner who runs everything on WhatsApp.\nComment LEADS 👇\n\nVoiceover is AI-generated (ElevenLabs).",
+   "hi": "400 unread chats. Inmein kahin aapka sabse bada order hai. 💬\n\n1️⃣ Nayi enquiry groups aur forwards mein dab jaati hai\n✅ Fix: lead board, naam, zaroorat, next step\n\n2️⃣ \"Monday ko follow up karunga\"… aaj Thursday hai\n✅ Fix: automatic reminders\n\n3️⃣ Staff gaya, customers bhi gaye\n✅ Fix: ek shared inbox jo business ka ho\n\nBrightline Interiors ek concept demo hai.\nComment LEADS.\n\nVoiceover is AI-generated (ElevenLabs)."
   },
   "ig_hashtags": [
    "#whatsappbusiness",
@@ -45,14 +51,19 @@
   {
    "chapter": "00 · Hook",
    "mood": "playful",
-   "say": "*Four hundred* unread chats. Somewhere in there is your *biggest* order.",
+   "say": {
+    "en": "*Four hundred* unread chats. Somewhere in there is your *biggest* order.",
+    "hi": "*चार सौ* unread chats. इनमें कहीं छुपा है आपका *सबसे बड़ा* order।"
+   },
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
-     "text": "400 unread.\nOne is your *biggest order*."
+     "type": "slam",
+     "at": 0,
+     "size": 66,
+     "text": {
+      "en": "400 unread.\nOne is your *biggest order*.",
+      "hi": "400 unread chats.\nEk mein *bada order*."
+     }
     },
     {
      "type": "row",
@@ -76,16 +87,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "*Chaar sau* unread chats. Inmein kahin chhupa hai aapka *sabse bada* order."
+   }
   },
   {
    "chapter": "01 · Problem",
    "mood": "sighs",
-   "say": "Leak one: a new *enquiry* gets buried under family groups and *good morning* messages.",
+   "tone": "bad",
+   "label": "PROBLEM 1",
+   "say": {
+    "en": "Leak one: a new *enquiry* gets buried under family groups and *good morning* messages.",
+    "hi": "Leak एक: नई *enquiry* family groups और *good morning* messages में दब जाती है।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -137,16 +157,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Leak ek: nayi *enquiry* family groups aur *good morning* messages mein dab jaati hai."
+   }
   },
   {
    "chapter": "01 · Fix",
    "mood": "excited",
-   "say": "The fix: every enquiry lands on one *lead board*, with a name, a need and a *next step*.",
+   "tone": "good",
+   "label": "THE FIX",
+   "say": {
+    "en": "The fix: every enquiry lands on one *lead board*, with a name, a need and a *next step*.",
+    "hi": "Fix: हर enquiry एक *lead board* पर, नाम, ज़रूरत और *next step* के साथ।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -208,16 +237,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Fix: har enquiry ek *lead board* par, naam, zaroorat aur *next step* ke saath."
+   }
   },
   {
    "chapter": "02 · Problem",
    "mood": "sighs",
-   "say": "Leak two: you *promised* to follow up on Monday. It's *Thursday*.",
+   "tone": "bad",
+   "label": "PROBLEM 2",
+   "say": {
+    "en": "Leak two: you *promised* to follow up on Monday. It's *Thursday*.",
+    "hi": "Leak दो: आपने Monday को follow up का *वादा* किया। आज *Thursday* है।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -266,16 +304,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Leak do: aapne Monday ko follow up ka *vaada* kiya. Aaj *Thursday* hai."
+   }
   },
   {
    "chapter": "02 · Fix",
    "mood": "excited",
-   "say": "The fix: automatic *reminders*, so the follow-up goes out *before* the customer asks.",
+   "tone": "good",
+   "label": "THE FIX",
+   "say": {
+    "en": "The fix: automatic *reminders*, so the follow-up goes out *before* the customer asks.",
+    "hi": "Fix: automatic *reminders*, ताकि follow up customer के पूछने से *पहले* जाए।"
+   },
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "brightline.in",
      "at": "0%",
      "screen": {
@@ -325,16 +372,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Fix: automatic *reminders*, taaki follow up customer ke poochhne se *pehle* jaaye."
+   }
   },
   {
    "chapter": "03 · Problem",
    "mood": "sighs",
-   "say": "Leak three: when a staff member *leaves*, their phone, and every *customer* on it, leaves too.",
+   "tone": "bad",
+   "label": "PROBLEM 3",
+   "say": {
+    "en": "Leak three: when a staff member *leaves*, their phone, and every *customer* on it, leaves too.",
+    "hi": "Leak तीन: staff *छोड़कर* जाता है, तो उसका phone और हर *customer* भी चला जाता है।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -386,16 +442,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Leak teen: staff *chhodkar* jaata hai, to uska phone aur har *customer* bhi chala jaata hai."
+   }
   },
   {
    "chapter": "03 · Fix",
    "mood": "excited",
-   "say": "The fix: one shared *inbox* the business owns, with every *conversation* saved.",
+   "tone": "good",
+   "label": "THE FIX",
+   "say": {
+    "en": "The fix: one shared *inbox* the business owns, with every *conversation* saved.",
+    "hi": "Fix: एक shared *inbox* जो business का हो, हर *conversation* saved।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -450,12 +515,19 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Fix: ek shared *inbox* jo business ka ho, har *conversation* saved."
+   }
   },
   {
    "chapter": "04 · System",
    "mood": "upbeat",
-   "say": "One *lead board*, automatic *reminders*, and an *inbox* you own.",
+   "say": {
+    "en": "One *lead board*, automatic *reminders*, and an *inbox* you own.",
+    "hi": "एक *lead board*, automatic *reminders*, और अपना *inbox*।"
+   },
    "vis": [
     {
      "type": "steps",
@@ -479,12 +551,19 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Ek *lead board*, automatic *reminders*, aur apna *inbox*."
+   }
   },
   {
    "chapter": "05 · LEADS",
    "mood": "warm",
-   "say": "Losing leads in *WhatsApp*? Comment *LEADS* and we'll show you how this works.",
+   "say": {
+    "en": "Losing leads in *WhatsApp*? Comment *LEADS* and we'll show you how this works.",
+    "hi": "*WhatsApp* में leads खो रहे हैं? Comment करें *LEADS*, हम दिखाएंगे कैसे।"
+   },
    "vis": [
     {
      "type": "logo",
@@ -499,7 +578,11 @@
      "label": "Comment *LEADS*",
      "mt": 24
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "*WhatsApp* mein leads kho rahe hain? Comment karein *LEADS*, hum dikhayenge kaise."
+   }
   }
  ],
  "voice": {

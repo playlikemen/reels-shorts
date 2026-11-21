@@ -3,19 +3,23 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "light": true,
  "langs": {
-  "en": {}
+  "en": {},
+  "hi": {}
  },
  "meta": {
   "id": "CR-137",
   "brand": "craftlayer",
   "topic": "Link in bio vs a real website",
   "schedule": {
-   "en": "2026-11-21 16:16"
+   "en": "2026-11-21 23:01",
+   "hi": "2026-11-23 12:30"
   },
   "yt_title": {
-   "en": "10K clicks. Zero orders. #shorts"
+   "en": "10K clicks. Zero orders. #shorts",
+   "hi": "10K clicks. Zero orders. #shorts"
   },
   "yt_tags": [
    "link in bio website",
@@ -24,10 +28,12 @@
    "d2c website"
   ],
   "yt_description": {
-   "en": "10K clicks. Zero orders. 🔗"
+   "en": "10K clicks. Zero orders. 🔗",
+   "hi": "10K clicks. Zero orders. 🔗"
   },
   "ig_caption": {
-   "en": "10K clicks. Zero orders. 🔗\n\n1️⃣ A link page with eight buttons, and people bounce\n✅ Fix: one page with your best products, prices and a Buy button\n\n2️⃣ \"Price?\" in your DMs, fifty times a day\n✅ Fix: prices and stock on the page, UPI checkout\n\n3️⃣ The algorithm changes and your shop disappears\n✅ Fix: your own site and customer list\n\nKavya Makes is a concept demo. Send this to a creator who sells from their bio.\nComment BIO 👇\n\nVoiceover is AI-generated (ElevenLabs)."
+   "en": "10K clicks. Zero orders. 🔗\n\n1️⃣ A link page with eight buttons, and people bounce\n✅ Fix: one page with your best products, prices and a Buy button\n\n2️⃣ \"Price?\" in your DMs, fifty times a day\n✅ Fix: prices and stock on the page, UPI checkout\n\n3️⃣ The algorithm changes and your shop disappears\n✅ Fix: your own site and customer list\n\nKavya Makes is a concept demo. Send this to a creator who sells from their bio.\nComment BIO 👇\n\nVoiceover is AI-generated (ElevenLabs).",
+   "hi": "10K clicks. Zero orders. 🔗\n\n1️⃣ Link page par aath buttons, log nikal jaate hain\n✅ Fix: ek page, best products, prices, Buy button\n\n2️⃣ DM mein \"price?\" din mein pachaas baar\n✅ Fix: prices aur stock page par\n\n3️⃣ Algorithm badla, shop gaayab\n✅ Fix: apni site aur customer list\n\nKavya Makes ek concept demo hai.\nComment BIO.\n\nVoiceover is AI-generated (ElevenLabs)."
   },
   "ig_hashtags": [
    "#linkinbio",
@@ -46,14 +52,19 @@
   {
    "chapter": "00 · Hook",
    "mood": "curious",
-   "say": "*Ten thousand* followers clicked your bio link. *Nobody* bought anything.",
+   "say": {
+    "en": "*Ten thousand* followers clicked your bio link. *Nobody* bought anything.",
+    "hi": "*दस हज़ार* लोगों ने bio link click किया। खरीदा *किसी ने नहीं*।"
+   },
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
-     "text": "10K clicks.\n*Zero* orders."
+     "type": "slam",
+     "at": 0,
+     "size": 66,
+     "text": {
+      "en": "10K clicks.\n*Zero* orders.",
+      "hi": "10K clicks.\n*Zero* orders."
+     }
     },
     {
      "type": "row",
@@ -77,16 +88,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "*Das hazaar* logon ne bio link click kiya. Khareeda *kisi ne nahi*."
+   }
   },
   {
    "chapter": "01 · Problem",
    "mood": "frustrated",
-   "say": "Problem one: your link page is a list of *eight* buttons, and people *bounce*.",
+   "tone": "bad",
+   "label": "PROBLEM 1",
+   "say": {
+    "en": "Problem one: your link page is a list of *eight* buttons, and people *bounce*.",
+    "hi": "Problem एक: link page पर *आठ* buttons, और लोग *निकल* जाते हैं।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -143,16 +163,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Problem ek: link page par *aath* buttons, aur log *nikal* jaate hain."
+   }
   },
   {
    "chapter": "01 · Fix",
    "mood": "excited",
-   "say": "The fix: one *page* with your best products, *prices* and a Buy button.",
+   "tone": "good",
+   "label": "THE FIX",
+   "say": {
+    "en": "The fix: one *page* with your best products, *prices* and a Buy button.",
+    "hi": "Fix: एक *page*, आपके best products, *prices* और Buy button के साथ।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -207,16 +236,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Fix: ek *page*, aapke best products, *prices* aur Buy button ke saath."
+   }
   },
   {
    "chapter": "02 · Problem",
    "mood": "frustrated",
-   "say": "Problem two: *price* in DM. Same question, *fifty* times a day.",
+   "tone": "bad",
+   "label": "PROBLEM 2",
+   "say": {
+    "en": "Problem two: *price* in DM. Same question, *fifty* times a day.",
+    "hi": "Problem दो: DM में *price*? दिन में *पचास* बार वही सवाल।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -264,16 +302,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Problem do: DM mein *price*? Din mein *pachaas* baar wahi sawaal."
+   }
   },
   {
    "chapter": "02 · Fix",
    "mood": "excited",
-   "say": "The fix: prices and *stock* on the page, so the DM becomes an *order*.",
+   "tone": "good",
+   "label": "THE FIX",
+   "say": {
+    "en": "The fix: prices and *stock* on the page, so the DM becomes an *order*.",
+    "hi": "Fix: prices और *stock* page पर, तो DM सीधा *order* बन जाए।"
+   },
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "kavyamakes.in",
      "at": "0%",
      "screen": {
@@ -324,16 +371,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Fix: prices aur *stock* page par, to DM seedha *order* ban jaaye."
+   }
   },
   {
    "chapter": "03 · Problem",
    "mood": "frustrated",
-   "say": "Problem three: the *algorithm* changes, and your whole shop *disappears* with it.",
+   "tone": "bad",
+   "label": "PROBLEM 3",
+   "say": {
+    "en": "Problem three: the *algorithm* changes, and your whole shop *disappears* with it.",
+    "hi": "Problem तीन: *algorithm* बदला, और पूरी shop *गायब*।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -386,16 +442,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Problem teen: *algorithm* badla, aur poori shop *gaayab*."
+   }
   },
   {
    "chapter": "03 · Fix",
    "mood": "excited",
-   "say": "The fix: your own *site* and customer list, so a bad week is just a *bad week*.",
+   "tone": "good",
+   "label": "THE FIX",
+   "say": {
+    "en": "The fix: your own *site* and customer list, so a bad week is just a *bad week*.",
+    "hi": "Fix: अपनी *site* और customer list, तो बुरा हफ्ता बस *बुरा हफ्ता* रहे।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -450,12 +515,19 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Fix: apni *site* aur customer list, to bura hafta bas *bura hafta* rahe."
+   }
   },
   {
    "chapter": "04 · System",
    "mood": "upbeat",
-   "say": "One *page*, real *prices*, and customers you *own*.",
+   "say": {
+    "en": "One *page*, real *prices*, and customers you *own*.",
+    "hi": "एक *page*, असली *prices*, और अपने *customers*।"
+   },
    "vis": [
     {
      "type": "steps",
@@ -479,12 +551,19 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Ek *page*, asli *prices*, aur apne *customers*."
+   }
   },
   {
    "chapter": "05 · BIO",
    "mood": "cheerfully",
-   "say": "Selling from your *bio*? Comment *BIO* and we'll build the page that *sells*.",
+   "say": {
+    "en": "Selling from your *bio*? Comment *BIO* and we'll build the page that *sells*.",
+    "hi": "*Bio* से बेचते हैं? Comment करें *BIO*, हम बनाएंगे वो page जो *बेचे*।"
+   },
    "vis": [
     {
      "type": "logo",
@@ -499,7 +578,11 @@
      "label": "Comment *BIO*",
      "mt": 24
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "*Bio* se bechte hain? Comment karein *BIO*, hum banayenge vo page jo *beche*."
+   }
   }
  ],
  "voice": {

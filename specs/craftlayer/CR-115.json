@@ -3,6 +3,7 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "langs": {
   "en": {}
  },
@@ -48,13 +49,13 @@
  "scenes": [
   {
    "chapter": "00 · Hook",
+   "mood": "excited",
    "say": "\"Is the *fourteenth* free?\" Wedding season starts, and that call *never stops*.",
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
+     "type": "slam",
+     "at": 0,
+     "size": 66,
      "text": "\"Is the 14th\n*free*?\""
     },
     {
@@ -83,11 +84,14 @@
   },
   {
    "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 1",
    "say": "Problem one: every family calls to check *one date*, and someone flips through the *register*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -144,11 +148,14 @@
   },
   {
    "chapter": "01 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *live availability calendar*. Families see free dates and *request a hold*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -214,11 +221,14 @@
   },
   {
    "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 2",
    "say": "Problem two: you explain packages, guest capacity and the menu *again*, on every *call*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -270,11 +280,14 @@
   },
   {
    "chapter": "02 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *packages page* with capacity, menu options and what's *included*, clearly priced.",
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "hollinbarn.in",
      "at": "0%",
      "screen": {
@@ -336,11 +349,14 @@
   },
   {
    "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 3",
    "say": "Problem three: six relatives want to *see the venue*, all on *different days*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -398,11 +414,14 @@
   },
   {
    "chapter": "03 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: *visit slot booking*, plus a *virtual tour* for family who can't come.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -461,6 +480,7 @@
   },
   {
    "chapter": "04 · System",
+   "mood": "upbeat",
    "say": "*Dates*, *packages* and *visits*, all in one venue system.",
    "vis": [
     {
@@ -489,6 +509,7 @@
   },
   {
    "chapter": "05 · VENUE",
+   "mood": "warm",
    "say": "Want this for your *venue*? Comment *VENUE* or send us a *DM*.",
    "vis": [
     {

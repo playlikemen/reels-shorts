@@ -3,6 +3,7 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "langs": {
   "en": {}
  },
@@ -47,13 +48,13 @@
  "scenes": [
   {
    "chapter": "00 · Hook",
+   "mood": "excited",
    "say": "Every *“price?”* comment on your reel is a sale that's about to *die*.",
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
+     "type": "slam",
+     "at": 0,
+     "size": 66,
      "text": "\"Price?\"\nis where sales *die*"
     },
     {
@@ -82,11 +83,14 @@
   },
   {
    "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 1",
    "say": "Problem one: forty people comment *“price pls”*, and you *DM* each one by hand.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -138,11 +142,14 @@
   },
   {
    "chapter": "01 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *catalogue* link with every price, colour and size, open *24x7*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -208,11 +215,14 @@
   },
   {
    "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 2",
    "say": "Problem two: “Is medium available?” You check the rack, reply late, and she's *already gone*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -265,11 +275,14 @@
   },
   {
    "chapter": "02 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: *live sizes* and stock on every product. Sold out shows *sold out*.",
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "saanjhboutique.in",
      "at": "0%",
      "screen": {
@@ -328,11 +341,14 @@
   },
   {
    "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 3",
    "say": "Problem three: orders sit in chats, screenshots and a *notebook*, and one always goes *missing*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -390,11 +406,14 @@
   },
   {
    "chapter": "03 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *cart* that sends the order to WhatsApp, with *UPI* checkout.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -458,6 +477,7 @@
   },
   {
    "chapter": "04 · System",
+   "mood": "upbeat",
    "say": "*Catalogue*, *live sizes* and *UPI checkout*, all in one store.",
    "vis": [
     {
@@ -486,6 +506,7 @@
   },
   {
    "chapter": "05 · SHOP",
+   "mood": "warm",
    "say": "Want this for your *boutique*? Comment *SHOP* or send us a *DM*.",
    "vis": [
     {

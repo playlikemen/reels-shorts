@@ -3,6 +3,7 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "langs": {
   "en": {}
  },
@@ -48,13 +49,13 @@
  "scenes": [
   {
    "chapter": "00 · Hook",
+   "mood": "excited",
    "say": "Stop sending *thirty photos* on WhatsApp to buyers who only ask: *what's the price?*",
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
+     "type": "slam",
+     "at": 0,
+     "size": 66,
      "text": "Stop the\n*photo dump*."
     },
     {
@@ -83,11 +84,14 @@
   },
   {
    "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 1",
    "say": "Problem one: every new lead means forwarding the *same photos* and location pin, *again*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -140,11 +144,14 @@
   },
   {
    "chapter": "01 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *listing page* for every flat, with photos, price, map and *video walkthrough*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -208,11 +215,14 @@
   },
   {
    "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 2",
    "say": "Problem two: you spend the evening on calls with people who are *just browsing*.",
    "vis": [
     {
      "type": "tablet",
-     "w": 620,
+     "w": 668,
      "tilt": [
       10,
       0,
@@ -270,11 +280,14 @@
   },
   {
    "chapter": "02 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: an *enquiry form* that asks *budget*, area and move-in date before you call.",
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "ashgroveproperty.in",
      "at": "0%",
      "screen": {
@@ -333,11 +346,14 @@
   },
   {
    "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 3",
    "say": "Problem three: fixing one *site visit* takes ten messages, and the buyer still comes *late*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -390,11 +406,14 @@
   },
   {
    "chapter": "03 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: buyers pick a *visit slot* themselves, and get the *location pin* automatically.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -453,6 +472,7 @@
   },
   {
    "chapter": "04 · System",
+   "mood": "upbeat",
    "say": "*Listings*, *qualified leads* and *site visits*, all in one system.",
    "vis": [
     {
@@ -481,6 +501,7 @@
   },
   {
    "chapter": "05 · PROPERTY",
+   "mood": "warm",
    "say": "Want this for your *agency*? Comment *PROPERTY* or send us a *DM*.",
    "vis": [
     {

@@ -3,6 +3,7 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "langs": {
   "en": {}
  },
@@ -48,13 +49,13 @@
  "scenes": [
   {
    "chapter": "00 · Hook",
+   "mood": "excited",
    "say": "\"Sir, what are the fees, and when's the next batch?\" You've answered that *all morning*.",
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
+     "type": "slam",
+     "at": 0,
+     "size": 66,
      "text": "\"Sir, what's\nthe *fee*?\""
     },
     {
@@ -83,11 +84,14 @@
   },
   {
    "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 1",
    "say": "Problem one: parents want *results* and *faculty* before fees, and you only have a pamphlet.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -145,11 +149,14 @@
   },
   {
    "chapter": "01 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: one page with *batches*, *timings* and *faculty* profiles, ready before they ask.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -214,11 +221,14 @@
   },
   {
    "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 2",
    "say": "Problem two: every *demo class* is fixed over five phone calls and a WhatsApp voice note.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -270,11 +280,14 @@
   },
   {
    "chapter": "02 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: *demo class booking* online. Parents pick a batch, a date, and they're *in*.",
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "quillmarkacademy.in",
      "at": "0%",
      "screen": {
@@ -329,11 +342,14 @@
   },
   {
    "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 3",
    "say": "Problem three: a parent finds out about *missed classes* when the *exam result* comes home.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -391,11 +407,14 @@
   },
   {
    "chapter": "03 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *parent app* with attendance, fee dues and *test marks*, updated every day.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -459,6 +478,7 @@
   },
   {
    "chapter": "04 · System",
+   "mood": "upbeat",
    "say": "*Batches*, *demo classes* and a *parent app*, all in one system.",
    "vis": [
     {
@@ -487,6 +507,7 @@
   },
   {
    "chapter": "05 · BATCH",
+   "mood": "warm",
    "say": "Want this for your *institute*? Comment *BATCH* or send us a *DM*.",
    "vis": [
     {

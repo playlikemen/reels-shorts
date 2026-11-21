@@ -3,6 +3,7 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "langs": {
   "en": {}
  },
@@ -48,13 +49,13 @@
  "scenes": [
   {
    "chapter": "00 · Hook",
+   "mood": "excited",
    "say": "You're not *busy*. You're doing a *computer's job* by hand, every single day.",
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
+     "type": "slam",
+     "at": 0,
+     "size": 66,
      "text": "Not busy.\nDoing a *computer's job*."
     },
     {
@@ -83,11 +84,14 @@
   },
   {
    "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 1",
    "say": "Sign one: every morning, someone *copies* yesterday's orders from one sheet into *another*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -146,11 +150,14 @@
   },
   {
    "chapter": "01 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: an *integration* between the tools you already use, running on a *schedule*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -211,11 +218,14 @@
   },
   {
    "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 2",
    "say": "Sign two: the work only happens if *one person* remembers to *do it*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -267,11 +277,14 @@
   },
   {
    "chapter": "02 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a scheduled job that *runs itself*, with a *manual override* for anything critical.",
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "tidewelltraders.in",
      "at": "0%",
      "screen": {
@@ -333,11 +346,14 @@
   },
   {
    "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 3",
    "say": "Sign three: *duplicate* entries and mistakes show up weeks later, when it's *too late*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -396,11 +412,14 @@
   },
   {
    "chapter": "03 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: *validation* and deduplication on every run, and an *alert* when something needs attention.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -461,6 +480,7 @@
   },
   {
    "chapter": "04 · System",
+   "mood": "upbeat",
    "say": "*Synced* tools, jobs that run *themselves*, and alerts before *mistakes* spread.",
    "vis": [
     {
@@ -489,6 +509,7 @@
   },
   {
    "chapter": "05 · AUTOMATE",
+   "mood": "warm",
    "say": "Doing the same task by hand every day? Comment *AUTOMATE* or *DM* us.",
    "vis": [
     {

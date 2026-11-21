@@ -3,6 +3,7 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "langs": {
   "en": {}
  },
@@ -48,13 +49,13 @@
  "scenes": [
   {
    "chapter": "00 · Hook",
+   "mood": "excited",
    "say": "Patients aren't scared of your *chair*. They're scared of the *bill* nobody told them about.",
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
+     "type": "slam",
+     "at": 0,
+     "size": 66,
      "text": "Not the *chair*.\nThe *bill*."
     },
     {
@@ -83,11 +84,14 @@
   },
   {
    "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 1",
    "say": "Problem one: \"How much for a root canal?\" gets a *come and see* reply on WhatsApp.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -140,11 +144,14 @@
   },
   {
    "chapter": "01 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: every treatment on your website with an *honest price range*, before they walk in.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -210,11 +217,14 @@
   },
   {
    "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 2",
    "say": "Problem two: the second sitting was due in *two weeks*. The patient simply *forgot*.",
    "vis": [
     {
      "type": "tablet",
-     "w": 620,
+     "w": 668,
      "tilt": [
       10,
       0,
@@ -272,11 +282,14 @@
   },
   {
    "chapter": "02 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: *automatic recall reminders* on WhatsApp, with a one-tap *reschedule*.",
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "arbourdental.in",
      "at": "0%",
      "screen": {
@@ -338,11 +351,14 @@
   },
   {
    "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 3",
    "say": "Problem three: a first-time patient wants to see *who's treating them* before they book.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -390,11 +406,14 @@
   },
   {
    "chapter": "03 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *clinic tour*, a short *doctor intro* and Google reviews, all on one page.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -457,6 +476,7 @@
   },
   {
    "chapter": "04 · System",
+   "mood": "upbeat",
    "say": "*Prices*, *recalls* and *trust*, all in one dental system.",
    "vis": [
     {
@@ -485,6 +505,7 @@
   },
   {
    "chapter": "05 · SMILE",
+   "mood": "warm",
    "say": "Want this for your *dental clinic*? Comment *SMILE* or send us a *DM*.",
    "vis": [
     {

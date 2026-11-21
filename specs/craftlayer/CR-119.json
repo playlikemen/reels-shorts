@@ -3,6 +3,7 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "langs": {
   "en": {}
  },
@@ -11,7 +12,7 @@
   "brand": "craftlayer",
   "topic": "Bakeries: 3 problems",
   "schedule": {
-   "en": "2026-11-20 09:32"
+   "en": "2026-11-21 23:11"
   },
   "yt_title": {
    "en": "Cakes sell out. Orders get lost. #shorts"
@@ -47,13 +48,13 @@
  "scenes": [
   {
    "chapter": "00 · Hook",
+   "mood": "excited",
    "say": "Your cakes sell out on *Instagram*. Your *orders* get lost in *DMs*.",
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
+     "type": "slam",
+     "at": 0,
+     "size": 66,
      "text": "Cakes sell out.\nOrders get *lost*."
     },
     {
@@ -82,11 +83,14 @@
   },
   {
    "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 1",
    "say": "Problem one: one custom cake takes *forty messages*. Size, flavour, photo, name, *again*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -138,11 +142,14 @@
   },
   {
    "chapter": "01 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *cake builder*. Pick size, flavour, design and the *name on top*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -212,11 +219,14 @@
   },
   {
    "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 2",
    "say": "Problem two: you bake a two-kilo cake, and the customer *never shows up*, *unpaid*.",
    "vis": [
     {
      "type": "tablet",
-     "w": 620,
+     "w": 668,
      "tilt": [
       10,
       0,
@@ -274,11 +284,14 @@
   },
   {
    "chapter": "02 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *UPI advance* at the time of order. No advance, no *baking*.",
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "butterleaf.in",
      "at": "0%",
      "screen": {
@@ -340,11 +353,14 @@
   },
   {
    "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 3",
    "say": "Problem three: “Is my cake ready?” Five customers arrive at *six PM*, all at *once*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -397,11 +413,14 @@
   },
   {
    "chapter": "03 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: *pickup slots*, and a WhatsApp *reminder* the moment the cake is boxed and ready.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -466,6 +485,7 @@
   },
   {
    "chapter": "04 · System",
+   "mood": "upbeat",
    "say": "*Cake builder*, *UPI advance* and *pickup slots*, all in one system.",
    "vis": [
     {
@@ -494,6 +514,7 @@
   },
   {
    "chapter": "05 · CAKE",
+   "mood": "warm",
    "say": "Want this for your *bakery*? Comment *CAKE* or send us a *DM*.",
    "vis": [
     {

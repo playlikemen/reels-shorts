@@ -188,7 +188,49 @@
    "google business profile",
    "local seo",
    "small business website"
-  ]
+  ],
+  "hi": {
+   "title": "Asli mein *khuli*.\nMaps par *band*.",
+   "lines": [
+    [
+     "आपकी *shop* खुली है, पर *Google Maps* पर बंद दिखती है।",
+     "Aapki *shop* khuli hai, par *Google Maps* par band dikhti hai."
+    ],
+    [
+     "Problem एक: ना *timing*, ना photos, ना menu. तो लोग बगल वाली दुकान *चुन* लेते हैं।",
+     "Problem ek: na *timing*, na photos, na menu. To log bagal wali dukaan *chun* lete hain."
+    ],
+    [
+     "Fix: पूरा profile, *timing*, असली *photos*, और menu link जो *आपकी* website पर जाए।",
+     "Fix: poora profile, *timing*, asli *photos*, aur menu link jo *aapki* website par jaaye."
+    ],
+    [
+     "Problem दो: profile का *website* button एक *टूटा* page खोलता है।",
+     "Problem do: profile ka *website* button ek *toota* page kholta hai."
+    ],
+    [
+     "Fix: एक तेज़ site जो हर phone पर *खुले*, और *Maps* वाली same timing दिखाए।",
+     "Fix: ek tez site jo har phone par *khule*, aur *Maps* wali same timing dikhaye."
+    ],
+    [
+     "Problem तीन: *reviews* का कोई जवाब नहीं, और last वाला कहता है *rude staff*।",
+     "Problem teen: *reviews* ka koi jawab nahi, aur last wala kehta hai *rude staff*."
+    ],
+    [
+     "Fix: WhatsApp पर *review* alert, ताकि आप उसी दिन प्यार से *reply* करें।",
+     "Fix: WhatsApp par *review* alert, taaki aap usi din pyaar se *reply* karein."
+    ],
+    [
+     "सही *timing*, चलती हुई *website*, और उसी दिन *reply*।",
+     "Sahi *timing*, chalti hui *website*, aur usi din *reply*."
+    ],
+    [
+     "चाहते हैं आपकी *shop* online भी खुली दिखे? Comment करें *MAPS*, या *DM* करें।",
+     "Chahte hain aapki *shop* online bhi khuli dikhe? Comment karein *MAPS*, ya *DM* karein."
+    ]
+   ],
+   "caption": "Dukaan asli mein khuli, Google Maps par band. 📍\n\n1️⃣ Na timing, na photos, na menu\n✅ Fix: poora profile, link aapki website par\n\n2️⃣ Website button toota page kholta hai\n✅ Fix: tez site, same timing aur menu\n\n3️⃣ Reviews ka jawab nahi\n✅ Fix: WhatsApp par review alert, usi din reply\n\nSaffron Street Cafe ek concept demo hai. Kisi shop owner ko bhejiye.\nComment MAPS.\n\nVoiceover is AI-generated (ElevenLabs)."
+  }
  },
  {
   "id": "CR-136",
@@ -399,7 +441,49 @@
   ],
   "sources": [
    "https://craftlayer-studio.github.io/services/business-automation/"
-  ]
+  ],
+  "hi": {
+   "title": "400 unread chats.\nEk mein *bada order*.",
+   "lines": [
+    [
+     "*चार सौ* unread chats. इनमें कहीं छुपा है आपका *सबसे बड़ा* order।",
+     "*Chaar sau* unread chats. Inmein kahin chhupa hai aapka *sabse bada* order."
+    ],
+    [
+     "Leak एक: नई *enquiry* family groups और *good morning* messages में दब जाती है।",
+     "Leak ek: nayi *enquiry* family groups aur *good morning* messages mein dab jaati hai."
+    ],
+    [
+     "Fix: हर enquiry एक *lead board* पर, नाम, ज़रूरत और *next step* के साथ।",
+     "Fix: har enquiry ek *lead board* par, naam, zaroorat aur *next step* ke saath."
+    ],
+    [
+     "Leak दो: आपने Monday को follow up का *वादा* किया। आज *Thursday* है।",
+     "Leak do: aapne Monday ko follow up ka *vaada* kiya. Aaj *Thursday* hai."
+    ],
+    [
+     "Fix: automatic *reminders*, ताकि follow up customer के पूछने से *पहले* जाए।",
+     "Fix: automatic *reminders*, taaki follow up customer ke poochhne se *pehle* jaaye."
+    ],
+    [
+     "Leak तीन: staff *छोड़कर* जाता है, तो उसका phone और हर *customer* भी चला जाता है।",
+     "Leak teen: staff *chhodkar* jaata hai, to uska phone aur har *customer* bhi chala jaata hai."
+    ],
+    [
+     "Fix: एक shared *inbox* जो business का हो, हर *conversation* saved।",
+     "Fix: ek shared *inbox* jo business ka ho, har *conversation* saved."
+    ],
+    [
+     "एक *lead board*, automatic *reminders*, और अपना *inbox*।",
+     "Ek *lead board*, automatic *reminders*, aur apna *inbox*."
+    ],
+    [
+     "*WhatsApp* में leads खो रहे हैं? Comment करें *LEADS*, हम दिखाएंगे कैसे।",
+     "*WhatsApp* mein leads kho rahe hain? Comment karein *LEADS*, hum dikhayenge kaise."
+    ]
+   ],
+   "caption": "400 unread chats. Inmein kahin aapka sabse bada order hai. 💬\n\n1️⃣ Nayi enquiry groups aur forwards mein dab jaati hai\n✅ Fix: lead board, naam, zaroorat, next step\n\n2️⃣ \"Monday ko follow up karunga\"… aaj Thursday hai\n✅ Fix: automatic reminders\n\n3️⃣ Staff gaya, customers bhi gaye\n✅ Fix: ek shared inbox jo business ka ho\n\nBrightline Interiors ek concept demo hai.\nComment LEADS.\n\nVoiceover is AI-generated (ElevenLabs)."
+  }
  },
  {
   "id": "CR-137",
@@ -607,7 +691,49 @@
   ],
   "sources": [
    "https://craftlayer-studio.github.io/services/e-commerce/"
-  ]
+  ],
+  "hi": {
+   "title": "10K clicks.\n*Zero* orders.",
+   "lines": [
+    [
+     "*दस हज़ार* लोगों ने bio link click किया। खरीदा *किसी ने नहीं*।",
+     "*Das hazaar* logon ne bio link click kiya. Khareeda *kisi ne nahi*."
+    ],
+    [
+     "Problem एक: link page पर *आठ* buttons, और लोग *निकल* जाते हैं।",
+     "Problem ek: link page par *aath* buttons, aur log *nikal* jaate hain."
+    ],
+    [
+     "Fix: एक *page*, आपके best products, *prices* और Buy button के साथ।",
+     "Fix: ek *page*, aapke best products, *prices* aur Buy button ke saath."
+    ],
+    [
+     "Problem दो: DM में *price*? दिन में *पचास* बार वही सवाल।",
+     "Problem do: DM mein *price*? Din mein *pachaas* baar wahi sawaal."
+    ],
+    [
+     "Fix: prices और *stock* page पर, तो DM सीधा *order* बन जाए।",
+     "Fix: prices aur *stock* page par, to DM seedha *order* ban jaaye."
+    ],
+    [
+     "Problem तीन: *algorithm* बदला, और पूरी shop *गायब*।",
+     "Problem teen: *algorithm* badla, aur poori shop *gaayab*."
+    ],
+    [
+     "Fix: अपनी *site* और customer list, तो बुरा हफ्ता बस *बुरा हफ्ता* रहे।",
+     "Fix: apni *site* aur customer list, to bura hafta bas *bura hafta* rahe."
+    ],
+    [
+     "एक *page*, असली *prices*, और अपने *customers*।",
+     "Ek *page*, asli *prices*, aur apne *customers*."
+    ],
+    [
+     "*Bio* से बेचते हैं? Comment करें *BIO*, हम बनाएंगे वो page जो *बेचे*।",
+     "*Bio* se bechte hain? Comment karein *BIO*, hum banayenge vo page jo *beche*."
+    ]
+   ],
+   "caption": "10K clicks. Zero orders. 🔗\n\n1️⃣ Link page par aath buttons, log nikal jaate hain\n✅ Fix: ek page, best products, prices, Buy button\n\n2️⃣ DM mein \"price?\" din mein pachaas baar\n✅ Fix: prices aur stock page par\n\n3️⃣ Algorithm badla, shop gaayab\n✅ Fix: apni site aur customer list\n\nKavya Makes ek concept demo hai.\nComment BIO.\n\nVoiceover is AI-generated (ElevenLabs)."
+  }
  },
  {
   "id": "CR-138",
@@ -797,6 +923,48 @@
   ],
   "sources": [
    "https://craftlayer-studio.github.io/industry-demos/salon/"
-  ]
+  ],
+  "hi": {
+   "title": "Khush customer: *chup*.\nNaraaz wala: *loud*.",
+   "lines": [
+    [
+     "आपके *सबसे खुश* customers review नहीं देते। *गुस्से* वाला हमेशा देता है।",
+     "Aapke *sabse khush* customers review nahi dete. *Gusse* wala hamesha deta hai."
+    ],
+    [
+     "Problem एक: counter पर review *माँगा*, सबने *हाँ* कहा, किसी ने दिया नहीं।",
+     "Problem ek: counter par review *maanga*, sabne *haan* kaha, kisi ne diya nahi."
+    ],
+    [
+     "Fix: एक घंटे बाद *thank-you* message, *one-tap* review link के साथ।",
+     "Fix: ek ghante baad *thank-you* message, *one-tap* review link ke saath."
+    ],
+    [
+     "Problem दो: एक *बुरा* review *महीनों* तक top पर बैठा है।",
+     "Problem do: ek *bura* review *mahinon* tak top par baitha hai."
+    ],
+    [
+     "Fix: *fresh* reviews लगातार, ताकि असली तस्वीर *ऊपर* आए।",
+     "Fix: *fresh* reviews lagaataar, taaki asli tasveer *upar* aaye."
+    ],
+    [
+     "Problem तीन: नाराज़ customer के पास *आपसे* कहने का रास्ता नहीं, तो वो *Google* को कहता है।",
+     "Problem teen: naaraz customer ke paas *aapse* kehne ka raasta nahi, to vo *Google* ko kehta hai."
+    ],
+    [
+     "Fix: हर customer को एक *private* feedback option भी, ताकि problem आप तक *पहले* पहुँचे।",
+     "Fix: har customer ko ek *private* feedback option bhi, taaki problem aap tak *pehle* pahunche."
+    ],
+    [
+     "सही *वक़्त* पर पूछें, reviews *fresh* रखें, और problems *पहले* सुनें।",
+     "Sahi *waqt* par poochhein, reviews *fresh* rakhein, aur problems *pehle* sunein."
+    ],
+    [
+     "*ज़्यादा* five-star reviews चाहिए? Comment करें *STARS*, हम set up कर देंगे।",
+     "*Zyada* five-star reviews chahiye? Comment karein *STARS*, hum set up kar denge."
+    ]
+   ],
+   "caption": "Khush customers review nahi dete. Naraaz wala hamesha deta hai. ⭐\n\n1️⃣ Counter par sab \"haan\" kehte hain, koi deta nahi\n✅ Fix: ek ghante baad thank-you message, one-tap link\n\n2️⃣ Ek bura review mahinon tak top par\n✅ Fix: lagaataar fresh reviews\n\n3️⃣ Naraaz customer seedha Google par likhta hai\n✅ Fix: har customer ke liye private feedback option bhi\n\nFernlight Salon ek concept demo hai.\nComment STARS.\n\nVoiceover is AI-generated (ElevenLabs)."
+  }
  }
 ]

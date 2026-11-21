@@ -3,6 +3,7 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "langs": {
   "en": {}
  },
@@ -11,7 +12,7 @@
   "brand": "craftlayer",
   "topic": "Web development: 3 signs you need this",
   "schedule": {
-   "en": "2026-11-20 09:32"
+   "en": "2026-11-21 23:11"
   },
   "yt_title": {
    "en": "Not slow. Losing customers. #shorts"
@@ -48,13 +49,13 @@
  "scenes": [
   {
    "chapter": "00 · Hook",
+   "mood": "excited",
    "say": "Your website isn't *slow*. It's losing you customers every second it *loads*.",
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
+     "type": "slam",
+     "at": 0,
+     "size": 66,
      "text": "Not slow.\n*Losing customers*."
     },
     {
@@ -83,11 +84,14 @@
   },
   {
    "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 1",
    "say": "Sign one: your site takes *forever* to load on a *phone*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -146,11 +150,14 @@
   },
   {
    "chapter": "01 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *lean* build, static where possible, checked on *small screens* first.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -216,11 +223,14 @@
   },
   {
    "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 2",
    "say": "Sign two: customers can't find your *prices* without sending a *DM*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -272,11 +282,14 @@
   },
   {
    "chapter": "02 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: page structure built from your *content*, so menu and *prices* sit one tap from home.",
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "juniperkitchen.in",
      "at": "0%",
      "screen": {
@@ -338,11 +351,14 @@
   },
   {
    "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 3",
    "say": "Sign three: you can't change a *single line* without calling *someone*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -401,11 +417,14 @@
   },
   {
    "chapter": "03 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: clean code in a repo *you own*, plus a *handover* walkthrough so changes stay simple.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -471,6 +490,7 @@
   },
   {
    "chapter": "04 · System",
+   "mood": "upbeat",
    "say": "*Fast* on phones, *prices* in plain sight, and code that's *yours*.",
    "vis": [
     {
@@ -499,6 +519,7 @@
   },
   {
    "chapter": "05 · WEBSITE",
+   "mood": "warm",
    "say": "Need a site like this? Comment *WEBSITE* or send us a *DM*.",
    "vis": [
     {

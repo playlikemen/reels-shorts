@@ -3,6 +3,7 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "langs": {
   "en": {}
  },
@@ -11,7 +12,7 @@
   "brand": "craftlayer",
   "topic": "Clinics: 3 problems",
   "schedule": {
-   "en": "2026-11-20 09:32"
+   "en": "2026-11-21 23:11"
   },
   "yt_title": {
    "en": "Better doctor? Or easier booking? #shorts"
@@ -48,13 +49,13 @@
  "scenes": [
   {
    "chapter": "00 · Hook",
+   "mood": "excited",
    "say": "Patients aren't choosing the *better* doctor. They're choosing the one they can *book*.",
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
+     "type": "slam",
+     "at": 0,
+     "size": 66,
      "text": "Better doctor?\nOr *easier booking*?"
     },
     {
@@ -83,11 +84,14 @@
   },
   {
    "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 1",
    "say": "Problem one: a patient calls at *9 PM* to book, and the phone just *rings out*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -145,11 +149,14 @@
   },
   {
    "chapter": "01 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: *online booking* that shows the doctor's free slots, *day and night*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -215,11 +222,14 @@
   },
   {
    "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 2",
    "say": "Problem two: forty minutes in the waiting room, and nobody knows *whose turn* is next.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -267,11 +277,14 @@
   },
   {
    "chapter": "02 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *live queue* on their phone, so patients arrive *just in time*.",
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "northstarclinic.in",
      "at": "0%",
      "screen": {
@@ -333,11 +346,14 @@
   },
   {
    "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 3",
    "say": "Problem three: patients drive back to the clinic just to *collect a report*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -395,11 +411,14 @@
   },
   {
    "chapter": "03 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: reports and prescriptions sent on *WhatsApp*, saved in each patient's *record*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -456,6 +475,7 @@
   },
   {
    "chapter": "04 · System",
+   "mood": "upbeat",
    "say": "*Bookings*, *live queue* and *reports*, all in one clinic system.",
    "vis": [
     {
@@ -484,6 +504,7 @@
   },
   {
    "chapter": "05 · CLINIC",
+   "mood": "warm",
    "say": "Want this for your *clinic*? Comment *CLINIC* or send us a *DM*.",
    "vis": [
     {

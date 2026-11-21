@@ -3,18 +3,22 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "langs": {
-  "en": {}
+  "en": {},
+  "hi": {}
  },
  "meta": {
   "id": "CR-138",
   "brand": "craftlayer",
   "topic": "Reviews: the 5-star problem",
   "schedule": {
-   "en": "2026-11-21 16:16"
+   "en": "2026-11-21 23:01",
+   "hi": "2026-11-24 12:30"
   },
   "yt_title": {
-   "en": "Happy customers: silent. Angry one: loud. #shorts"
+   "en": "Happy customers: silent. Angry one: loud. #shorts",
+   "hi": "Khush customer: chup. Naraaz wala: loud. #shorts"
   },
   "yt_tags": [
    "google reviews",
@@ -23,10 +27,12 @@
    "salon marketing"
   ],
   "yt_description": {
-   "en": "Your happiest customers never leave a review. Your angriest one always does. ⭐"
+   "en": "Your happiest customers never leave a review. Your angriest one always does. ⭐",
+   "hi": "Khush customers review nahi dete. Naraaz wala hamesha deta hai. ⭐"
   },
   "ig_caption": {
-   "en": "Your happiest customers never leave a review. Your angriest one always does. ⭐\n\n1️⃣ \"I'll review tonight\"… they never do\n✅ Fix: a thank-you message an hour later with a one-tap review link\n\n2️⃣ One bad review sits on top for months\n✅ Fix: a steady flow of fresh reviews\n\n3️⃣ Unhappy customers have nowhere to tell you\n✅ Fix: low ratings come to you privately first\n\nFernlight Salon is a concept demo. Send this to a salon or clinic owner.\nComment STARS 👇\n\nVoiceover is AI-generated (ElevenLabs)."
+   "en": "Your happiest customers never leave a review. Your angriest one always does. ⭐\n\n1️⃣ \"I'll review tonight\"… they never do\n✅ Fix: a thank-you message an hour later with a one-tap review link\n\n2️⃣ One bad review sits on top for months\n✅ Fix: a steady flow of fresh reviews\n\n3️⃣ Unhappy customers have nowhere to tell you\n✅ Fix: low ratings come to you privately first\n\nFernlight Salon is a concept demo. Send this to a salon or clinic owner.\nComment STARS 👇\n\nVoiceover is AI-generated (ElevenLabs).",
+   "hi": "Khush customers review nahi dete. Naraaz wala hamesha deta hai. ⭐\n\n1️⃣ Counter par sab \"haan\" kehte hain, koi deta nahi\n✅ Fix: ek ghante baad thank-you message, one-tap link\n\n2️⃣ Ek bura review mahinon tak top par\n✅ Fix: lagaataar fresh reviews\n\n3️⃣ Naraaz customer seedha Google par likhta hai\n✅ Fix: har customer ke liye private feedback option bhi\n\nFernlight Salon ek concept demo hai.\nComment STARS.\n\nVoiceover is AI-generated (ElevenLabs)."
   },
   "ig_hashtags": [
    "#googlereviews",
@@ -45,14 +51,19 @@
   {
    "chapter": "00 · Hook",
    "mood": "whispers",
-   "say": "Your *happiest* customers never leave a review. Your *angriest* one always does.",
+   "say": {
+    "en": "Your *happiest* customers never leave a review. Your *angriest* one always does.",
+    "hi": "आपके *सबसे खुश* customers review नहीं देते। *गुस्से* वाला हमेशा देता है।"
+   },
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
-     "text": "Happy customers: *silent*.\nAngry one: *loud*."
+     "type": "slam",
+     "at": 0,
+     "size": 66,
+     "text": {
+      "en": "Happy customers: *silent*.\nAngry one: *loud*.",
+      "hi": "Khush customer: *chup*.\nNaraaz wala: *loud*."
+     }
     },
     {
      "type": "row",
@@ -76,16 +87,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Aapke *sabse khush* customers review nahi dete. *Gusse* wala hamesha deta hai."
+   }
   },
   {
    "chapter": "01 · Problem",
    "mood": "disappointed",
-   "say": "Problem one: you *ask* for reviews at the counter. Everyone says *yes*. Nobody does it.",
+   "tone": "bad",
+   "label": "PROBLEM 1",
+   "say": {
+    "en": "Problem one: you *ask* for reviews at the counter. Everyone says *yes*. Nobody does it.",
+    "hi": "Problem एक: counter पर review *माँगा*, सबने *हाँ* कहा, किसी ने दिया नहीं।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -130,16 +150,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Problem ek: counter par review *maanga*, sabne *haan* kaha, kisi ne diya nahi."
+   }
   },
   {
    "chapter": "01 · Fix",
    "mood": "excited",
-   "say": "The fix: a *thank-you* message one hour later, with a *one-tap* review link.",
+   "tone": "good",
+   "label": "THE FIX",
+   "say": {
+    "en": "The fix: a *thank-you* message one hour later, with a *one-tap* review link.",
+    "hi": "Fix: एक घंटे बाद *thank-you* message, *one-tap* review link के साथ।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -193,16 +222,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Fix: ek ghante baad *thank-you* message, *one-tap* review link ke saath."
+   }
   },
   {
    "chapter": "02 · Problem",
    "mood": "disappointed",
-   "say": "Problem two: one *bad* review sits at the top for *months*.",
+   "tone": "bad",
+   "label": "PROBLEM 2",
+   "say": {
+    "en": "Problem two: one *bad* review sits at the top for *months*.",
+    "hi": "Problem दो: एक *बुरा* review *महीनों* तक top पर बैठा है।"
+   },
    "vis": [
     {
      "type": "tablet",
-     "w": 620,
+     "w": 668,
      "tilt": [
       10,
       0,
@@ -254,16 +292,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Problem do: ek *bura* review *mahinon* tak top par baitha hai."
+   }
   },
   {
    "chapter": "02 · Fix",
    "mood": "excited",
-   "say": "The fix: a steady flow of *fresh* reviews, so the real picture rises to the *top*.",
+   "tone": "good",
+   "label": "THE FIX",
+   "say": {
+    "en": "The fix: a steady flow of *fresh* reviews, so the real picture rises to the *top*.",
+    "hi": "Fix: *fresh* reviews लगातार, ताकि असली तस्वीर *ऊपर* आए।"
+   },
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "fernlightsalon.in",
      "at": "0%",
      "screen": {
@@ -313,16 +360,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Fix: *fresh* reviews lagaataar, taaki asli tasveer *upar* aaye."
+   }
   },
   {
    "chapter": "03 · Problem",
    "mood": "disappointed",
-   "say": "Problem three: an *unhappy* customer has nowhere to tell *you*, so they tell *Google*.",
+   "tone": "bad",
+   "label": "PROBLEM 3",
+   "say": {
+    "en": "Problem three: an *unhappy* customer has nowhere to tell *you*, so they tell *Google*.",
+    "hi": "Problem तीन: नाराज़ customer के पास *आपसे* कहने का रास्ता नहीं, तो वो *Google* को कहता है।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -366,16 +422,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Problem teen: naaraz customer ke paas *aapse* kehne ka raasta nahi, to vo *Google* ko kehta hai."
+   }
   },
   {
    "chapter": "03 · Fix",
    "mood": "excited",
-   "say": "The fix: low ratings come *privately* to you first, so you can make it *right*.",
+   "tone": "good",
+   "label": "THE FIX",
+   "say": {
+    "en": "The fix: low ratings come *privately* to you first, so you can make it *right*.",
+    "hi": "Fix: हर customer को एक *private* feedback option भी, ताकि problem आप तक *पहले* पहुँचे।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -423,12 +488,19 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Fix: har customer ko ek *private* feedback option bhi, taaki problem aap tak *pehle* pahunche."
+   }
   },
   {
    "chapter": "04 · System",
    "mood": "confident",
-   "say": "Ask at the *right* time, keep reviews *fresh*, and hear problems *first*.",
+   "say": {
+    "en": "Ask at the *right* time, keep reviews *fresh*, and hear problems *first*.",
+    "hi": "सही *वक़्त* पर पूछें, reviews *fresh* रखें, और problems *पहले* सुनें।"
+   },
    "vis": [
     {
      "type": "steps",
@@ -452,12 +524,19 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Sahi *waqt* par poochhein, reviews *fresh* rakhein, aur problems *pehle* sunein."
+   }
   },
   {
    "chapter": "05 · STARS",
    "mood": "laughs",
-   "say": "Want *more* five-star reviews? Comment *STARS*. We'll set it up for you.",
+   "say": {
+    "en": "Want *more* five-star reviews? Comment *STARS*. We'll set it up for you.",
+    "hi": "*ज़्यादा* five-star reviews चाहिए? Comment करें *STARS*, हम set up कर देंगे।"
+   },
    "vis": [
     {
      "type": "logo",
@@ -472,7 +551,11 @@
      "label": "Comment *STARS*",
      "mt": 24
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "*Zyada* five-star reviews chahiye? Comment karein *STARS*, hum set up kar denge."
+   }
   }
  ],
  "voice": {

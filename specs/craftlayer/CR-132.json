@@ -3,6 +3,7 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "light": true,
  "langs": {
   "en": {}
@@ -49,13 +50,13 @@
  "scenes": [
   {
    "chapter": "00 · Hook",
+   "mood": "excited",
    "say": "If your business runs on *five spreadsheets*, at least one of them is *wrong*.",
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
+     "type": "slam",
+     "at": 0,
+     "size": 66,
      "text": "Five spreadsheets.\nOne is *wrong*."
     },
     {
@@ -84,11 +85,14 @@
   },
   {
    "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 1",
    "say": "Sign one: nobody knows which *sheet* is the latest, so everyone keeps their *own*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -146,11 +150,14 @@
   },
   {
    "chapter": "01 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: an *admin panel* shaped around how you work, with *one* source of truth.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -216,11 +223,14 @@
   },
   {
    "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 2",
    "say": "Sign two: on event day, you're *calling* people to find out what's *happening*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -272,11 +282,14 @@
   },
   {
    "chapter": "02 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *real-time* dashboard over WebSockets, so every gate updates *live*.",
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "cobaltevents.in",
      "at": "0%",
      "screen": {
@@ -333,11 +346,14 @@
   },
   {
    "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 3",
    "say": "Sign three: off-the-shelf tools make you work *their* way, and you never *own* them.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -396,11 +412,14 @@
   },
   {
    "chapter": "03 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a *written scope*, builds you review as they grow, and code *you own*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -466,6 +485,7 @@
   },
   {
    "chapter": "04 · System",
+   "mood": "upbeat",
    "say": "*One* admin panel, *live* dashboards, and software that's *yours*.",
    "vis": [
     {
@@ -494,6 +514,7 @@
   },
   {
    "chapter": "05 · SYSTEM",
+   "mood": "warm",
    "say": "Outgrown your spreadsheets? Comment *SYSTEM* or send us a *DM*.",
    "vis": [
     {

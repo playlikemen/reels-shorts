@@ -3,6 +3,7 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "light": true,
  "langs": {
   "en": {}
@@ -49,13 +50,13 @@
  "scenes": [
   {
    "chapter": "00 · Hook",
+   "mood": "excited",
    "say": "Nobody needs another *chatbot*. You need AI that does *one job*, properly.",
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
+     "type": "slam",
+     "at": 0,
+     "size": 66,
      "text": "Not a chatbot.\n*One job, done*."
     },
     {
@@ -84,11 +85,14 @@
   },
   {
    "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 1",
    "say": "Sign one: you added a *chatbot*, and it can't answer a *single* real question.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -141,11 +145,14 @@
   },
   {
    "chapter": "01 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: start with *one workflow*, like shipment status, with clear inputs and *predictable* answers.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -199,11 +206,14 @@
   },
   {
    "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 2",
    "say": "Sign two: the AI *makes things up*, and it goes straight to your *customers*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -256,11 +266,14 @@
   },
   {
    "chapter": "02 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: *validate* every answer, and add a *human review* step where accuracy matters.",
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "kestrelfreight.in",
      "at": "0%",
      "screen": {
@@ -322,11 +335,14 @@
   },
   {
    "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 3",
    "say": "Sign three: your assistant can *talk*, but it can't touch the tools you *use*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -385,11 +401,14 @@
   },
   {
    "chapter": "03 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: an *MCP server*, so the assistant can act inside your *existing* systems.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -450,6 +469,7 @@
   },
   {
    "chapter": "04 · System",
+   "mood": "upbeat",
    "say": "*One workflow*, *checked* answers, and real access to your *tools*.",
    "vis": [
     {
@@ -478,6 +498,7 @@
   },
   {
    "chapter": "05 · AI",
+   "mood": "warm",
    "say": "Want AI that does a real job? Comment *AI* or send us a *DM*.",
    "vis": [
     {

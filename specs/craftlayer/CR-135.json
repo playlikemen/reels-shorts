@@ -3,18 +3,22 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "langs": {
-  "en": {}
+  "en": {},
+  "hi": {}
  },
  "meta": {
   "id": "CR-135",
   "brand": "craftlayer",
   "topic": "Google Maps: 3 reasons customers walk past you",
   "schedule": {
-   "en": "2026-11-21 16:16"
+   "en": "2026-11-21 23:01",
+   "hi": "2026-11-21 23:01"
   },
   "yt_title": {
-   "en": "Open in real life. Closed on Maps. #shorts"
+   "en": "Open in real life. Closed on Maps. #shorts",
+   "hi": "Asli mein khuli. Maps par band. #shorts"
   },
   "yt_tags": [
    "google maps business",
@@ -23,10 +27,12 @@
    "small business website"
   ],
   "yt_description": {
-   "en": "Open in real life. Closed on Google Maps. 📍"
+   "en": "Open in real life. Closed on Google Maps. 📍",
+   "hi": "Dukaan asli mein khuli, Google Maps par band. 📍"
   },
   "ig_caption": {
-   "en": "Open in real life. Closed on Google Maps. 📍\n\n1️⃣ No hours, no photos, no menu\n✅ Fix: a complete profile that links to your own website\n\n2️⃣ The website button opens a broken page\n✅ Fix: a fast site with the same hours and menu\n\n3️⃣ Reviews sit there unanswered\n✅ Fix: review alerts on WhatsApp, reply the same day\n\nSaffron Street Cafe is a concept demo. Send this to a shop owner who needs it.\nComment MAPS 👇\n\nVoiceover is AI-generated (ElevenLabs)."
+   "en": "Open in real life. Closed on Google Maps. 📍\n\n1️⃣ No hours, no photos, no menu\n✅ Fix: a complete profile that links to your own website\n\n2️⃣ The website button opens a broken page\n✅ Fix: a fast site with the same hours and menu\n\n3️⃣ Reviews sit there unanswered\n✅ Fix: review alerts on WhatsApp, reply the same day\n\nSaffron Street Cafe is a concept demo. Send this to a shop owner who needs it.\nComment MAPS 👇\n\nVoiceover is AI-generated (ElevenLabs).",
+   "hi": "Dukaan asli mein khuli, Google Maps par band. 📍\n\n1️⃣ Na timing, na photos, na menu\n✅ Fix: poora profile, link aapki website par\n\n2️⃣ Website button toota page kholta hai\n✅ Fix: tez site, same timing aur menu\n\n3️⃣ Reviews ka jawab nahi\n✅ Fix: WhatsApp par review alert, usi din reply\n\nSaffron Street Cafe ek concept demo hai. Kisi shop owner ko bhejiye.\nComment MAPS.\n\nVoiceover is AI-generated (ElevenLabs)."
   },
   "ig_hashtags": [
    "#googlemaps",
@@ -45,14 +51,19 @@
   {
    "chapter": "00 · Hook",
    "mood": "excited",
-   "say": "Your *shop* is open. On *Google Maps*, it looks closed.",
+   "say": {
+    "en": "Your *shop* is open. On *Google Maps*, it looks closed.",
+    "hi": "आपकी *shop* खुली है, पर *Google Maps* पर बंद दिखती है।"
+   },
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
-     "text": "Open in real life.\n*Closed* on Maps."
+     "type": "slam",
+     "at": 0,
+     "size": 66,
+     "text": {
+      "en": "Open in real life.\n*Closed* on Maps.",
+      "hi": "Asli mein *khuli*.\nMaps par *band*."
+     }
     },
     {
      "type": "row",
@@ -76,16 +87,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Aapki *shop* khuli hai, par *Google Maps* par band dikhti hai."
+   }
   },
   {
    "chapter": "01 · Problem",
    "mood": "frustrated",
-   "say": "Problem one: no *hours*, no photos, no menu. So people *pick* the place next door.",
+   "tone": "bad",
+   "label": "PROBLEM 1",
+   "say": {
+    "en": "Problem one: no *hours*, no photos, no menu. So people *pick* the place next door.",
+    "hi": "Problem एक: ना *timing*, ना photos, ना menu. तो लोग बगल वाली दुकान *चुन* लेते हैं।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -137,16 +157,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Problem ek: na *timing*, na photos, na menu. To log bagal wali dukaan *chun* lete hain."
+   }
   },
   {
    "chapter": "01 · Fix",
    "mood": "confident",
-   "say": "The fix: a profile with *hours*, real *photos* and a menu link that goes to *your* website.",
+   "tone": "good",
+   "label": "THE FIX",
+   "say": {
+    "en": "The fix: a profile with *hours*, real *photos* and a menu link that goes to *your* website.",
+    "hi": "Fix: पूरा profile, *timing*, असली *photos*, और menu link जो *आपकी* website पर जाए।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -208,16 +237,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Fix: poora profile, *timing*, asli *photos*, aur menu link jo *aapki* website par jaaye."
+   }
   },
   {
    "chapter": "02 · Problem",
    "mood": "frustrated",
-   "say": "Problem two: the *website* button on your profile opens a *broken* page.",
+   "tone": "bad",
+   "label": "PROBLEM 2",
+   "say": {
+    "en": "Problem two: the *website* button on your profile opens a *broken* page.",
+    "hi": "Problem दो: profile का *website* button एक *टूटा* page खोलता है।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -261,16 +299,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Problem do: profile ka *website* button ek *toota* page kholta hai."
+   }
   },
   {
    "chapter": "02 · Fix",
    "mood": "confident",
-   "say": "The fix: a fast site that *loads* on any phone, with the same hours and menu as *Maps*.",
+   "tone": "good",
+   "label": "THE FIX",
+   "say": {
+    "en": "The fix: a fast site that *loads* on any phone, with the same hours and menu as *Maps*.",
+    "hi": "Fix: एक तेज़ site जो हर phone पर *खुले*, और *Maps* वाली same timing दिखाए।"
+   },
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "saffronstreet.in",
      "at": "0%",
      "screen": {
@@ -319,16 +366,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Fix: ek tez site jo har phone par *khule*, aur *Maps* wali same timing dikhaye."
+   }
   },
   {
    "chapter": "03 · Problem",
    "mood": "frustrated",
-   "say": "Problem three: *reviews* sit there unanswered, and the last one says *rude staff*.",
+   "tone": "bad",
+   "label": "PROBLEM 3",
+   "say": {
+    "en": "Problem three: *reviews* sit there unanswered, and the last one says *rude staff*.",
+    "hi": "Problem तीन: *reviews* का कोई जवाब नहीं, और last वाला कहता है *rude staff*।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -380,16 +436,25 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Problem teen: *reviews* ka koi jawab nahi, aur last wala kehta hai *rude staff*."
+   }
   },
   {
    "chapter": "03 · Fix",
    "mood": "confident",
-   "say": "The fix: a *review* alert on WhatsApp, so you *reply* the same day, kindly.",
+   "tone": "good",
+   "label": "THE FIX",
+   "say": {
+    "en": "The fix: a *review* alert on WhatsApp, so you *reply* the same day, kindly.",
+    "hi": "Fix: WhatsApp पर *review* alert, ताकि आप उसी दिन प्यार से *reply* करें।"
+   },
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -437,12 +502,19 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Fix: WhatsApp par *review* alert, taaki aap usi din pyaar se *reply* karein."
+   }
   },
   {
    "chapter": "04 · System",
    "mood": "upbeat",
-   "say": "*Hours*, a *website* that works, and *replies* the same day.",
+   "say": {
+    "en": "*Hours*, a *website* that works, and *replies* the same day.",
+    "hi": "सही *timing*, चलती हुई *website*, और उसी दिन *reply*।"
+   },
    "vis": [
     {
      "type": "steps",
@@ -466,12 +538,19 @@
       }
      ]
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Sahi *timing*, chalti hui *website*, aur usi din *reply*."
+   }
   },
   {
    "chapter": "05 · MAPS",
    "mood": "warm",
-   "say": "Want your *shop* to look open online? Comment *MAPS* or send us a *DM*.",
+   "say": {
+    "en": "Want your *shop* to look open online? Comment *MAPS* or send us a *DM*.",
+    "hi": "चाहते हैं आपकी *shop* online भी खुली दिखे? Comment करें *MAPS*, या *DM* करें।"
+   },
    "vis": [
     {
      "type": "logo",
@@ -486,7 +565,11 @@
      "label": "Comment *MAPS*",
      "mt": 24
     }
-   ]
+   ],
+   "show": {
+    "en": null,
+    "hi": "Chahte hain aapki *shop* online bhi khuli dikhe? Comment karein *MAPS*, ya *DM* karein."
+   }
   }
  ],
  "voice": {

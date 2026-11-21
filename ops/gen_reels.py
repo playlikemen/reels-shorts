@@ -45,11 +45,11 @@ def screen_fix(f, domain):
     return {"blocks": blocks}
 
 
-def spec_for(r, n, when):
+def spec_for(r, n, when, when_hi=None):
     demo, domain = r["demo_name"], r.get("domain", "")
     M = {**{"hook": "excited", "problem": "frustrated", "fix": "confident", "recap": "upbeat", "cta": "warm"}, **r.get("moods", {})}
     scenes = [{"chapter": "00 · Hook", "mood": M["hook"], "say": r["hook"]["say"], "vis": [
-        {"type": "title", "at": -0.4, "anim": "none", "size": 60, "text": r["hook"]["title"]},
+        {"type": "slam", "at": 0, "size": 66, "text": r["hook"]["title"]},
         {"type": "row", "at": -0.4, "gap": 60, "children": [
             {"type": "tile", "ic": t.get("ic", "users"), "size": 170, "label": t["label"],
              **({"c": GOOD} if t.get("hot") else {}), **({"anim": "none"} if i == 0 else {"at": "55%"})}
@@ -58,18 +58,18 @@ def spec_for(r, n, when):
         side = (i + n) % 2
         tilt = [5, -10, 0] if side else [5, 10, 0]
         if i == 1 and p.get("screen") != "chat":
-            dev = {"type": "tablet", "w": 620, "tilt": [10, 0, 0], "at": "0%", "screen": screen_problem(p, demo)}
+            dev = {"type": "tablet", "w": 668, "tilt": [10, 0, 0], "at": "0%", "screen": screen_problem(p, demo)}
         else:
-            dev = {"type": "phone", "w": 320, "tilt": tilt, "at": "0%", "screen": screen_problem(p, demo)}
+            dev = {"type": "phone", "w": 372, "tilt": tilt, "at": "0%", "screen": screen_problem(p, demo)}
         vis = [dev] + ([chip(p["chip"], "bell", "60%", not side, dark=True)] if p.get("chip") else [])
-        scenes.append({"chapter": f"0{i + 1} · Problem", "mood": M["problem"], "say": p["say"], "vis": vis})
+        scenes.append({"chapter": f"0{i + 1} · Problem", "mood": M["problem"], "tone": "bad", "label": f"PROBLEM {i + 1}", "say": p["say"], "vis": vis})
         f = p["fix"]
         if i == 1:
-            dev = {"type": "browser", "w": 560, "url": domain or "yourbusiness.in", "at": "0%", "screen": screen_fix(f, domain)}
+            dev = {"type": "browser", "w": 640, "url": domain or "yourbusiness.in", "at": "0%", "screen": screen_fix(f, domain)}
         else:
-            dev = {"type": "phone", "w": 320, "tilt": [5, 10, 0] if side else [5, -10, 0], "at": "0%", "screen": screen_fix(f, domain)}
+            dev = {"type": "phone", "w": 372, "tilt": [5, 10, 0] if side else [5, -10, 0], "at": "0%", "screen": screen_fix(f, domain)}
         vis = [dev] + ([chip(f["chip"], "check", "65%", side)] if f.get("chip") else [])
-        scenes.append({"chapter": f"0{i + 1} · Fix", "mood": M["fix"], "say": f["say"], "vis": vis})
+        scenes.append({"chapter": f"0{i + 1} · Fix", "mood": M["fix"], "tone": "good", "label": "THE FIX", "say": f["say"], "vis": vis})
     scenes.append({"chapter": "04 · System", "mood": M["recap"], "say": r["recap_say"], "vis": [
         {"type": "steps", "at": "0%", "title": f"CraftLayer · {r['audience']} system",
          "items": [{"t": x["t"], "s": x.get("s", ""), "at": f"{2 + 24 * j}%"} for j, x in enumerate(r["recap"][:3])]}]})
@@ -80,18 +80,41 @@ def spec_for(r, n, when):
     cap = r["caption"]
     if "AI-generated" not in cap:
         cap += "\n\nVoiceover is AI-generated."
-    spec = {"title": r["topic"], "style": "showcase", "format": "short", "badge": "CONCEPT DEMO",
+    spec = {"title": r["topic"], "style": "showcase", "format": "short", "badge": "CONCEPT DEMO", "bigScreens": True,
             **({"light": True} if n % 3 == 2 else {}), "langs": {"en": {}},
             "meta": {"id": r["id"], "brand": "craftlayer", "topic": r["topic"], "schedule": {"en": when},
                      "yt_title": {"en": r["hook"]["title"].replace("*", "").replace("\n", " ") + " #shorts"},
                      "yt_tags": r.get("tags", []), "yt_description": {"en": cap.split("\n")[0]},
                      "ig_caption": {"en": cap}, "ig_hashtags": r.get("hashtags", []), "sources": r.get("sources", [])},
             "scenes": scenes}
+    if r.get("hi"):
+        add_hindi(spec, r, cap, when_hi or when)
     if r.get("voice"):
         spec["voice"] = r["voice"]
     if r.get("theme"):
         spec["theme"] = r["theme"]
     return spec
+
+
+def add_hindi(spec, r, cap_en, when_hi):
+    """Script "hi": {"title", "lines": [[devanagari, roman], ...] in scene order, "caption", "voice"?}.
+    The voice reads the Devanagari line; captions show the Roman line, which must match it word for word."""
+    hi = r["hi"]
+    if len(hi["lines"]) != len(spec["scenes"]):
+        raise SystemExit(f"{r['id']}: hi has {len(hi['lines'])} lines for {len(spec['scenes'])} scenes")
+    for sc, (dev, rom) in zip(spec["scenes"], hi["lines"]):
+        if len(dev.split()) != len(rom.split()):
+            raise SystemExit(f"{r['id']}: Roman line does not match the Hindi word for word: {rom}")
+        sc["say"] = {"en": sc["say"], "hi": dev}
+        sc["show"] = {"en": None, "hi": rom}
+    slam = spec["scenes"][0]["vis"][0]
+    slam["text"] = {"en": slam["text"], "hi": hi.get("title", slam["text"])}
+    spec["langs"] = {"en": {}, "hi": ({"voice": hi["voice"]} if hi.get("voice") else {})}
+    m = spec["meta"]
+    m["schedule"]["hi"] = when_hi
+    m["yt_title"]["hi"] = hi.get("title", "").replace("*", "").replace("\n", " ") + " #shorts"
+    m["yt_description"]["hi"] = hi["caption"].split("\n")[0]
+    m["ig_caption"]["hi"] = hi["caption"]
 
 
 def check(r):
@@ -112,11 +135,15 @@ def main():
     ap.add_argument("files", nargs="+")
     ap.add_argument("--start", default="2026-11-23 19:30")
     ap.add_argument("--now", default="", help="comma-separated ids posted today; the rest fill one slot a day")
+    ap.add_argument("--hi-start", default="", help="first Hindi slot; Hindi versions then go one a day from it")
+    ap.add_argument("--hi-now", default="", help="comma-separated ids whose Hindi version is posted today")
     a = ap.parse_args()
     reels = [r for f in a.files for r in json.load(open(f))]
     reels.sort(key=lambda r: r["id"])
     t0 = dt.datetime.strptime(a.start, "%Y-%m-%d %H:%M")
     bad, now, k = 0, set(filter(None, a.now.split(","))), 0
+    hnow, kh = set(filter(None, a.hi_now.split(","))), 0
+    th = dt.datetime.strptime(a.hi_start, "%Y-%m-%d %H:%M") if a.hi_start else None
     for n, r in enumerate(reels):
         errs, tot = check(r)
         if r["id"] in now:
@@ -124,7 +151,13 @@ def main():
         else:
             when = (t0 + dt.timedelta(days=k)).strftime("%Y-%m-%d %H:%M"); k += 1
         out = ROOT / "specs" / "craftlayer" / f"{r['id']}.json"
-        out.write_text(json.dumps(spec_for(r, n, when), indent=1, ensure_ascii=False) + "\n")
+        when_hi = None
+        if r.get("hi"):
+            if r["id"] in hnow:
+                when_hi = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
+            elif th:
+                when_hi = (th + dt.timedelta(days=kh)).strftime("%Y-%m-%d %H:%M"); kh += 1
+        out.write_text(json.dumps(spec_for(r, n, when, when_hi), indent=1, ensure_ascii=False) + "\n")
         print(f"{r['id']}  {tot:3d} words  {when}  {r['topic']}" + (f"  !! {'; '.join(errs)}" if errs else ""))
         bad += bool(errs)
     sys.exit(1 if bad else 0)

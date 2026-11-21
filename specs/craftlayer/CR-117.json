@@ -3,6 +3,7 @@
  "style": "showcase",
  "format": "short",
  "badge": "CONCEPT DEMO",
+ "bigScreens": true,
  "light": true,
  "langs": {
   "en": {}
@@ -48,13 +49,13 @@
  "scenes": [
   {
    "chapter": "00 · Hook",
+   "mood": "excited",
    "say": "It's *midnight*. A dog is sick, and the owner is searching for a vet. Your number *isn't there*.",
    "vis": [
     {
-     "type": "title",
-     "at": -0.4,
-     "anim": "none",
-     "size": 60,
+     "type": "slam",
+     "at": 0,
+     "size": 66,
      "text": "Midnight.\nYour number *missing*."
     },
     {
@@ -83,11 +84,14 @@
   },
   {
    "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 1",
    "say": "Problem one: a dog ate *chocolate*, and the owner can't find your *number* on Google.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -145,11 +149,14 @@
   },
   {
    "chapter": "01 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: a website with *open now*, *one-tap call* and directions to your door.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -212,11 +219,14 @@
   },
   {
    "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 2",
    "say": "Problem two: the *rabies booster* was due in March. Nobody remembered, not even the *owner*.",
    "vis": [
     {
      "type": "tablet",
-     "w": 620,
+     "w": 668,
      "tilt": [
       10,
       0,
@@ -273,11 +283,14 @@
   },
   {
    "chapter": "02 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: *vaccine reminders* for every pet, on WhatsApp, a week before the *date*.",
    "vis": [
     {
      "type": "browser",
-     "w": 560,
+     "w": 640,
      "url": "meadowlarkvets.in",
      "at": "0%",
      "screen": {
@@ -336,11 +349,14 @@
   },
   {
    "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "tone": "bad",
+   "label": "PROBLEM 3",
    "say": "Problem three: a full waiting room, a nervous cat, and an owner told to *wait an hour*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       -10,
@@ -393,11 +409,14 @@
   },
   {
    "chapter": "03 · Fix",
+   "mood": "confident",
+   "tone": "good",
+   "label": "THE FIX",
    "say": "The fix: *online slots*, so every pet walks in at its own *time*.",
    "vis": [
     {
      "type": "phone",
-     "w": 320,
+     "w": 372,
      "tilt": [
       5,
       10,
@@ -463,6 +482,7 @@
   },
   {
    "chapter": "04 · System",
+   "mood": "upbeat",
    "say": "*One-tap calls*, *vaccine reminders* and *online slots*, all in one system.",
    "vis": [
     {
@@ -491,6 +511,7 @@
   },
   {
    "chapter": "05 · PET",
+   "mood": "warm",
    "say": "Want this for your *pet clinic*? Comment *PET* or send us a *DM*.",
    "vis": [
     {

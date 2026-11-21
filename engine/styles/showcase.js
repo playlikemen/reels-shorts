@@ -186,6 +186,28 @@
   V.tablet = (e, ctx) => device(e, ctx, 'tablet');
   V.qr = (e, ctx) => { const n = h('div', 'qr', qrSvg(e.size || 260, e.seed || 3)); enter(ctx, n, e.anim || 'pop', e.tin, 0.5, 'pop'); return n; };
   V.title = (e, ctx) => { const n = h('div', 'title', md(e.text)); if (e.size) n.style.fontSize = e.size + 'px'; enter(ctx, n, e.anim || 'blur', e.tin, 0.5); return n; };
+  V.slam = (e, ctx) => {
+    const n = h('div', 'title slam'); if (e.size) n.style.fontSize = e.size + 'px';
+    const lines = (e.text || '').split('\n'); let k = 0;
+    lines.forEach((ln, li) => {
+      const row = h('div', 'sl'); n.appendChild(row);
+      let on = false;
+      ln.split(' ').filter(Boolean).forEach(tok => {
+        const st = tok.startsWith('*'), en = tok.replace(/[.,!?:;]+$/, '').endsWith('*'); const acc = on || st; if (st && !en) on = true; if (en) on = false;
+        const w = h('span', 'sw' + (acc ? ' acc' : ''), esc(tok.replace(/\*/g, ''))); row.appendChild(w);
+        const tin = e.tin + (e.stagger || 0.11) * k++;
+        ctx.custom(t => {
+          const p = clamp((t - tin) / 0.22);
+          w.style.opacity = p > 0 ? 1 : 0;
+          w.style.transform = `scale(${2.3 - 1.3 * ease.back(p)}) translateY(${(1 - p) * -30}px)`;
+          w.style.filter = `blur(${(1 - p) * 10}px)`;
+          if (acc) w.style.setProperty('--hl', clamp((t - tin - 0.12) / 0.2));
+        });
+        if (k % 2) KV.sfx(tin, 'pop', 0.5);
+      });
+    });
+    return n;
+  };
   V.sub = (e, ctx) => { const n = h('div', 'sub', md(e.text)); enter(ctx, n, e.anim || 'up', e.tin, 0.45); return n; };
   V.logo = (e, ctx, spec) => {
     const n = h('div', 'logo', `<img src="${spec.logo}" width="${e.size || 170}" height="${e.size || 170}"><div class="n">CraftLayer <span>Studio</span></div>${e.sub ? `<div class="s">${esc(e.sub)}</div>` : ''}`);
@@ -335,10 +357,48 @@
   // mark screen blocks that have their own cue so they animate in
   function prepBlocks(list) { (list || []).forEach(e => { (e.screens || (e.screen ? [e.screen] : [])).forEach(s => (s.blocks || []).forEach(b => { if (b.tin != null && b.anim !== 'none') b.at_set = true; })); if (e.children) prepBlocks(e.children); }); }
 
+  // ---- problem / fix treatment: a coloured flash and tint, a big label, a stamp, a shake (bad) or a tap (good)
+  function toneFx(sc, i, root, vis, vin, ctx, end) {
+    const bad = sc.tone === 'bad', col = bad ? '#FF4D4D' : '#2EE59D', len = Math.max(0.6, end - sc.t0);
+    const tint = h('div', 'tint'); tint.style.background = `radial-gradient(60% 45% at 50% 45%, ${col}33, transparent 70%)`; root.insertBefore(tint, vis);
+    const flash = h('div', 'flash'); flash.style.background = bad ? `${col}` : `linear-gradient(115deg, transparent 30%, ${col}aa 50%, transparent 70%)`; root.appendChild(flash);
+    const lab = h('div', 'tlabel ' + (bad ? 'bad' : 'good'), `<i>${bad ? '✕' : '✓'}</i><span>${esc(sc.label || (bad ? 'PROBLEM' : 'FIX'))}</span>`); root.appendChild(lab);
+    const stamp = h('div', 'stamp ' + (bad ? 'bad' : 'good'), bad ? '✕' : '✓'); root.appendChild(stamp);
+    const rays = []; if (!bad) for (let r = 0; r < 10; r++) { const ry = h('div', 'ray'); ry.style.transform = `rotate(${r * 36}deg)`; stamp.appendChild(ry); rays.push(ry); }
+    const sAt = sc.t0 + len * (sc.stampAt || (bad ? 0.55 : 0.62));
+    KV.sfx(sc.t0 + 0.02, bad ? 'stamp' : 'riser', bad ? 0.35 : 0.25); KV.sfx(sAt, bad ? 'stamp' : 'ding', bad ? 0.8 : 0.6);
+    const btn = vin.querySelector('.b-btn'); const tap = btn ? h('div', 'tap') : null; if (tap) root.appendChild(tap);
+    const tAt = sc.t0 + len * 0.78; if (tap) KV.sfx(tAt, 'tick', 0.9);
+    ctx.custom(t => {
+      const d = t - sc.t0;
+      tint.style.opacity = clamp(d / 0.3) * (0.85 + 0.15 * Math.sin(t * 6));
+      flash.style.opacity = bad ? Math.max(0, 0.32 * (1 - d / 0.22)) : Math.max(0, 1 - Math.abs(d - 0.25) / 0.25) * 0.7;
+      if (!bad) flash.style.transform = `translateX(${(d / 0.5 - 0.5) * 140}%)`;
+      const lp = ease.back(clamp(d / 0.3)), lo = clamp((len - d) / 0.2);
+      lab.style.opacity = Math.min(clamp(d / 0.12), lo); lab.style.transform = `translateX(-50%) scale(${0.4 + 0.6 * lp}) rotate(${(bad ? -3 : 2) * (1 - lp)}deg)`;
+      const sp = clamp((t - sAt) / 0.25);
+      stamp.style.opacity = t < sAt ? 0 : Math.min(1, clamp((end - t) / 0.2) * 1);
+      stamp.style.transform = `rotate(${bad ? -12 : 8}deg) scale(${t < sAt ? 3 : 3 - 2 * ease.out5(sp)})`;
+      rays.forEach(ry => { const rp = clamp((t - sAt - 0.1) / 0.45); ry.style.opacity = rp > 0 && rp < 1 ? 1 - rp : 0; ry.style.height = (30 + rp * 80) + 'px'; });
+      if (bad) { const sh = d < 0.42 ? (1 - d / 0.42) * 14 : (t > sAt && t < sAt + 0.2 ? (1 - (t - sAt) / 0.2) * 10 : 0);
+        vis.style.transform = `translate(${Math.sin(t * 90) * sh}px,${Math.cos(t * 77) * sh * 0.6}px)`; }
+      if (tap) {
+        const r = btn.getBoundingClientRect(), rr = root.getBoundingClientRect(), sx = (r.left + r.width / 2 - rr.left) / (rr.width / SPEC.W), sy = (r.top + r.height / 2 - rr.top) / (rr.height / SPEC.H);
+        const tp = (t - tAt);
+        tap.style.left = sx + 'px'; tap.style.top = sy + 'px';
+        tap.style.opacity = tp > -0.35 && tp < 0.5 ? (tp < 0 ? 1 + tp / 0.35 : 1 - tp / 0.5) : 0;
+        tap.style.transform = `translate(-50%,-50%) scale(${tp < 0 ? 1.4 + tp : 0.6 + tp * 3})`;
+        btn.style.transform = tp > 0 && tp < 0.16 ? 'scale(.93)' : '';
+        if (tp > 0) btn.style.filter = 'brightness(1.15)';
+      }
+    });
+  }
+
   let SPEC, CAP = [], KICK, scenesRef;
   const STYLE = {
     buildScene(sc, i, root, ctx, spec) {
       if (i === 0) {   // theme first: elements read C while they are built
+        if (spec.bigScreens) document.body.classList.add('big');
         if (spec.light) { document.body.classList.add('light'); Object.assign(C, { text: '#101828', accent: '#3A50E0', accent2: '#465FFF', bg: '#F3F1EC' }); }
         Object.assign(C, (spec.light ? spec.lightTheme : spec.theme) || {});
       }
@@ -348,6 +408,7 @@
       const vis = h('div', 'vis'); if (sc.visTop != null) vis.style.top = sc.visTop + 'px'; if (sc.visH != null) vis.style.height = sc.visH + 'px';
       const vin = h('div', 'vin'); vis.appendChild(vin); root.appendChild(vis);
       (sc.vis || []).forEach(e => vin.appendChild(build(e, ctx, spec)));
+      if (sc.tone) toneFx(sc, i, root, vis, vin, ctx, end);
       // slow camera push for the whole scene
       const [s0, s1] = sc.push || [1, 1.08];
       const kicks = (sc.words || []).filter(w => w.acc).map(w => w.t);
@@ -371,6 +432,7 @@
       const hdr = h('div', 'hdr', `<div class="kick"></div><div class="brand">${spec.logo ? `<img src="${spec.logo}">` : ''}<span>${esc(spec.brand || 'CraftLayer')}</span></div>`); stage.appendChild(hdr);
       KICK = hdr.querySelector('.kick');
       stage.appendChild(h('div', 'handle', esc(spec.handle || '@craftlayer.studio')));   // watermark: always on
+      this._prog = h('div', 'prog'); stage.appendChild(this._prog);
       if (spec.badge) stage.appendChild(h('div', 'badge', `<span>${esc(spec.badge)}</span>`));
       // captions: lines of <= capChars characters, broken after punctuation
       const maxC = spec.capChars || 16, top = spec.capTop || 975;
@@ -400,6 +462,7 @@
       const bok = this._bok || [];
       bok.forEach((p, k) => { const y = ((p.y - t * p.v) % SPEC.H + SPEC.H) % SPEC.H; p.b.style.transform = `translate(${p.x + Math.sin(t * 0.5 + k) * 12}px,${y}px)`; p.b.style.opacity = p.o * (0.6 + 0.4 * Math.sin(t * 1.3 + k)); });
       if (this._glow) this._glow.style.transform = `translate(${Math.sin(t * 0.3) * 40}px,${Math.cos(t * 0.25) * 30}px) scale(${1 + Math.sin(t * 0.7) * 0.05})`;
+      if (this._prog) this._prog.style.transform = `scaleX(${clamp(t / SPEC.duration)})`;
       const sc = scenesRef[cur].sc; const ch = sc.chapter || '';
       if (KICK.textContent !== ch) KICK.textContent = ch;
       KICK.style.opacity = clamp((t - sc.t0) / 0.3);
@@ -416,7 +479,10 @@
     },
     visible(S, cur, t) {
       const dt = t - S[cur].sc.t0, TR = 0.16;
-      if (cur > 0 && dt < TR) { const p = ease.inout(clamp(dt / TR)); return [[cur - 1, { z: 3, o: 1 - p, f: `blur(${p * 14}px)`, tf: `scale(${1 + p * 0.25})` }], [cur, { z: 2 }]]; }
+      if (cur > 0 && dt < TR) {
+        const p = ease.inout(clamp(dt / TR)), into = S[cur].sc.tone === 'good';
+        return [[cur - 1, { z: 3, o: 1 - p, f: `blur(${p * 16}px)`, tf: into ? `scale(${1 + p * 0.6})` : `translateY(${-p * 18}%) scale(${1 - p * 0.08})` }], [cur, { z: 2 }]];
+      }
       return [[cur, { z: 2 }]];
     },
   };
