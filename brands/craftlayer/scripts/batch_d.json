@@ -1,0 +1,802 @@
+[
+ {
+  "id": "CR-135",
+  "topic": "Google Maps: 3 reasons customers walk past you",
+  "audience": "shop",
+  "demo_name": "Saffron Street Cafe",
+  "domain": "saffronstreet.in",
+  "keyword": "MAPS",
+  "sources": [
+   "https://craftlayer-studio.github.io/services/web-development/"
+  ],
+  "voice": {
+   "engine": "elevenlabs",
+   "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+   "model": "eleven_v3",
+   "settings": {
+    "stability": 0.5
+   }
+  },
+  "hook": {
+   "say": "Your *shop* is open. On *Google Maps*, it looks closed.",
+   "title": "Open in real life.\n*Closed* on Maps.",
+   "tiles": [
+    {
+     "ic": "pin",
+     "label": "Your shop"
+    },
+    {
+     "ic": "clock",
+     "label": "Hours: unknown",
+     "hot": true
+    }
+   ]
+  },
+  "problems": [
+   {
+    "say": "Problem one: no *hours*, no photos, no menu. So people *pick* the place next door.",
+    "screen": "rows",
+    "head": "Search *results*",
+    "rows": [
+     {
+      "t": "Saffron Street Cafe",
+      "s": "No hours · 2 photos",
+      "bad": true,
+      "ic": "pin"
+     },
+     {
+      "t": "Cafe next door",
+      "s": "Open now · 140 photos",
+      "ic": "pin"
+     },
+     {
+      "t": "Another cafe",
+      "s": "Open now · menu",
+      "ic": "pin"
+     }
+    ],
+    "chip": "Skipped in 2 seconds",
+    "fix": {
+     "say": "The fix: a profile with *hours*, real *photos* and a menu link that goes to *your* website.",
+     "head": "Open *now*",
+     "sub": "Saffron Street Cafe · 8 AM to 11 PM",
+     "rows": [
+      {
+       "t": "Menu",
+       "s": "on your website",
+       "v": "View",
+       "ic": "menu"
+      },
+      {
+       "t": "Directions",
+       "s": "600 m away",
+       "v": "Go",
+       "ic": "pin"
+      },
+      {
+       "t": "Call",
+       "s": "one tap",
+       "v": "Call",
+       "ic": "phone"
+      }
+     ],
+     "btn": "See the menu",
+     "chip": "Profile complete"
+    }
+   },
+   {
+    "say": "Problem two: the *website* button on your profile opens a *broken* page.",
+    "screen": "chat",
+    "head": "Customer *messages*",
+    "chat": [
+     {
+      "t": "Your website link isn't working?"
+     },
+     {
+      "t": "Is the cafe still open??"
+     }
+    ],
+    "chip": "Link points nowhere",
+    "fix": {
+     "say": "The fix: a fast site that *loads* on any phone, with the same hours and menu as *Maps*.",
+     "head": "Saffron *Street*",
+     "sub": "Fresh coffee · all day breakfast",
+     "rows": [
+      {
+       "t": "Today's specials",
+       "s": "updated this morning",
+       "ic": "coffee"
+      },
+      {
+       "t": "Book a table",
+       "s": "free slots shown",
+       "ic": "cal"
+      }
+     ],
+     "btn": "Order on WhatsApp",
+     "chip": "Loads in a blink"
+    }
+   },
+   {
+    "say": "Problem three: *reviews* sit there unanswered, and the last one says *rude staff*.",
+    "screen": "rows",
+    "head": "Latest *reviews*",
+    "rows": [
+     {
+      "t": "★★ Rude staff",
+      "s": "3 weeks ago · no reply",
+      "bad": true,
+      "ic": "star"
+     },
+     {
+      "t": "★★★★★ Great chai",
+      "s": "no reply",
+      "ic": "star"
+     },
+     {
+      "t": "★★★★ Nice place",
+      "s": "no reply",
+      "ic": "star"
+     }
+    ],
+    "chip": "Silence reads as guilt",
+    "fix": {
+     "say": "The fix: a *review* alert on WhatsApp, so you *reply* the same day, kindly.",
+     "head": "New *review*",
+     "sub": "Reply suggested",
+     "rows": [
+      {
+       "t": "★★★★★ Great chai",
+       "s": "Thank you, see you soon!",
+       "v": "Sent",
+       "ic": "chat"
+      }
+     ],
+     "btn": "Reply now",
+     "chip": "Replied today"
+    }
+   }
+  ],
+  "recap_say": "*Hours*, a *website* that works, and *replies* the same day.",
+  "recap": [
+   {
+    "t": "Maps profile",
+    "s": "hours, photos, menu"
+   },
+   {
+    "t": "Website",
+    "s": "fast on every phone"
+   },
+   {
+    "t": "Review alerts",
+    "s": "reply the same day"
+   }
+  ],
+  "cta_say": "Want your *shop* to look open online? Comment *MAPS* or send us a *DM*.",
+  "caption": "Open in real life. Closed on Google Maps. 📍\n\n1️⃣ No hours, no photos, no menu\n✅ Fix: a complete profile that links to your own website\n\n2️⃣ The website button opens a broken page\n✅ Fix: a fast site with the same hours and menu\n\n3️⃣ Reviews sit there unanswered\n✅ Fix: review alerts on WhatsApp, reply the same day\n\nSaffron Street Cafe is a concept demo. Send this to a shop owner who needs it.\nComment MAPS 👇\n\nVoiceover is AI-generated (ElevenLabs).",
+  "hashtags": [
+   "#googlemaps",
+   "#localbusiness",
+   "#smallbusinessindia",
+   "#cafeowner",
+   "#googlebusinessprofile",
+   "#websitedesign",
+   "#craftlayer"
+  ],
+  "tags": [
+   "google maps business",
+   "google business profile",
+   "local seo",
+   "small business website"
+  ]
+ },
+ {
+  "id": "CR-136",
+  "topic": "WhatsApp is not a CRM: 3 leaks",
+  "audience": "business",
+  "demo_name": "Brightline Interiors",
+  "domain": "brightline.in",
+  "keyword": "LEADS",
+  "theme": {
+   "accent": "#4ADE80",
+   "accent2": "#16A34A"
+  },
+  "voice": {
+   "engine": "elevenlabs",
+   "voice_id": "cgSgspJ2msm6clMCkdW9",
+   "model": "eleven_v3",
+   "settings": {
+    "stability": 0.5
+   }
+  },
+  "moods": {
+   "hook": "playful",
+   "problem": "sighs",
+   "fix": "excited"
+  },
+  "hook": {
+   "say": "*Four hundred* unread chats. Somewhere in there is your *biggest* order.",
+   "title": "400 unread.\nOne is your *biggest order*.",
+   "tiles": [
+    {
+     "ic": "chat",
+     "label": "WhatsApp"
+    },
+    {
+     "ic": "bolt",
+     "label": "Lost lead",
+     "hot": true
+    }
+   ]
+  },
+  "problems": [
+   {
+    "say": "Leak one: a new *enquiry* gets buried under family groups and *good morning* messages.",
+    "screen": "rows",
+    "head": "Chats · *unread*",
+    "rows": [
+     {
+      "t": "Family group",
+      "s": "86 new messages",
+      "ic": "users"
+     },
+     {
+      "t": "Good morning ☀️",
+      "s": "12 forwards",
+      "ic": "chat"
+     },
+     {
+      "t": "Unknown number",
+      "s": "Quote for a 3BHK?",
+      "bad": true,
+      "ic": "phone"
+     }
+    ],
+    "chip": "Buried in 20 minutes",
+    "fix": {
+     "say": "The fix: every enquiry lands on one *lead board*, with a name, a need and a *next step*.",
+     "head": "Lead *board*",
+     "sub": "Brightline Interiors",
+     "rows": [
+      {
+       "t": "Ritu · 3BHK",
+       "s": "Site visit · Sat 11 AM",
+       "v": "New",
+       "ic": "users"
+      },
+      {
+       "t": "Arjun · kitchen",
+       "s": "Quote sent",
+       "v": "Warm",
+       "ic": "users"
+      },
+      {
+       "t": "Meera · office",
+       "s": "Call back today",
+       "v": "Due",
+       "ic": "users"
+      }
+     ],
+     "btn": "Add lead",
+     "chip": "Nothing gets buried"
+    }
+   },
+   {
+    "say": "Leak two: you *promised* to follow up on Monday. It's *Thursday*.",
+    "screen": "chat",
+    "head": "Ritu *Sharma*",
+    "chat": [
+     {
+      "t": "Any update on the quote?"
+     },
+     {
+      "me": true,
+      "t": "Sorry! Sending today"
+     },
+     {
+      "t": "We went with someone else 🙏"
+     }
+    ],
+    "chip": "Follow-up forgotten",
+    "fix": {
+     "say": "The fix: automatic *reminders*, so the follow-up goes out *before* the customer asks.",
+     "head": "Today's *follow-ups*",
+     "rows": [
+      {
+       "t": "Ritu · quote",
+       "s": "due 10 AM",
+       "v": "Send",
+       "ic": "bell"
+      },
+      {
+       "t": "Arjun · samples",
+       "s": "due 4 PM",
+       "v": "Send",
+       "ic": "bell"
+      }
+     ],
+     "btn": "Send all",
+     "chip": "Sent on time"
+    }
+   },
+   {
+    "say": "Leak three: when a staff member *leaves*, their phone, and every *customer* on it, leaves too.",
+    "screen": "rows",
+    "head": "Team *phones*",
+    "rows": [
+     {
+      "t": "Rahul's phone",
+      "s": "left last month · 120 chats",
+      "bad": true,
+      "ic": "phone"
+     },
+     {
+      "t": "Shop phone",
+      "s": "shared · messy",
+      "ic": "phone"
+     },
+     {
+      "t": "Owner's phone",
+      "s": "everything else",
+      "ic": "phone"
+     }
+    ],
+    "chip": "Customers walked out",
+    "fix": {
+     "say": "The fix: one shared *inbox* the business owns, with every *conversation* saved.",
+     "head": "Shared *inbox*",
+     "sub": "All chats · one place",
+     "rows": [
+      {
+       "t": "Rahul's leads",
+       "s": "reassigned to Priya",
+       "v": "Moved",
+       "ic": "users"
+      },
+      {
+       "t": "History",
+       "s": "every message kept",
+       "v": "Saved",
+       "ic": "check"
+      }
+     ],
+     "btn": "Open inbox",
+     "chip": "Nothing lost"
+    }
+   }
+  ],
+  "recap_say": "One *lead board*, automatic *reminders*, and an *inbox* you own.",
+  "recap": [
+   {
+    "t": "Lead board",
+    "s": "every enquiry, one place"
+   },
+   {
+    "t": "Reminders",
+    "s": "follow-ups on time"
+   },
+   {
+    "t": "Shared inbox",
+    "s": "owned by the business"
+   }
+  ],
+  "cta_say": "Losing leads in *WhatsApp*? Comment *LEADS* and we'll show you how this works.",
+  "caption": "400 unread chats. One of them is your biggest order. 💬\n\n1️⃣ New enquiries get buried under groups and forwards\n✅ Fix: a lead board with a name, a need and a next step\n\n2️⃣ \"I'll follow up Monday\"… it's Thursday\n✅ Fix: automatic follow-up reminders\n\n3️⃣ A staff member leaves, and their customers go too\n✅ Fix: one shared inbox the business owns\n\nBrightline Interiors is a concept demo. Send this to a business owner who runs everything on WhatsApp.\nComment LEADS 👇\n\nVoiceover is AI-generated (ElevenLabs).",
+  "hashtags": [
+   "#whatsappbusiness",
+   "#smallbusinessindia",
+   "#crm",
+   "#leadgeneration",
+   "#businessautomation",
+   "#entrepreneurindia",
+   "#craftlayer"
+  ],
+  "tags": [
+   "whatsapp crm",
+   "lead management",
+   "small business crm",
+   "business automation"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/services/business-automation/"
+  ]
+ },
+ {
+  "id": "CR-137",
+  "topic": "Link in bio vs a real website",
+  "audience": "creator",
+  "demo_name": "Kavya Makes",
+  "domain": "kavyamakes.in",
+  "keyword": "BIO",
+  "voice": {
+   "engine": "elevenlabs",
+   "voice_id": "iP95p4xoKVk53GoZ742B",
+   "model": "eleven_v3",
+   "settings": {
+    "stability": 0.5
+   }
+  },
+  "moods": {
+   "hook": "curious",
+   "problem": "frustrated",
+   "fix": "excited",
+   "cta": "cheerfully"
+  },
+  "hook": {
+   "say": "*Ten thousand* followers clicked your bio link. *Nobody* bought anything.",
+   "title": "10K clicks.\n*Zero* orders.",
+   "tiles": [
+    {
+     "ic": "users",
+     "label": "Followers"
+    },
+    {
+     "ic": "cash",
+     "label": "Orders: 0",
+     "hot": true
+    }
+   ]
+  },
+  "problems": [
+   {
+    "say": "Problem one: your link page is a list of *eight* buttons, and people *bounce*.",
+    "screen": "rows",
+    "head": "linktr *page*",
+    "rows": [
+     {
+      "t": "Shop",
+      "s": "opens a DM",
+      "ic": "arrow"
+     },
+     {
+      "t": "Catalogue PDF",
+      "s": "18 MB",
+      "bad": true,
+      "ic": "arrow"
+     },
+     {
+      "t": "Old YouTube video",
+      "s": "2 years ago",
+      "ic": "arrow"
+     },
+     {
+      "t": "Google form",
+      "s": "custom orders",
+      "ic": "arrow"
+     }
+    ],
+    "chip": "Too many choices",
+    "fix": {
+     "say": "The fix: one *page* with your best products, *prices* and a Buy button.",
+     "head": "Kavya *Makes*",
+     "sub": "Handmade earrings · ships in 3 days",
+     "rows": [
+      {
+       "t": "Mirror jhumkas",
+       "s": "bestseller",
+       "v": "₹499",
+       "ic": "gift"
+      },
+      {
+       "t": "Pearl studs",
+       "s": "new",
+       "v": "₹349",
+       "ic": "gift"
+      }
+     ],
+     "btn": "Buy now",
+     "chip": "One clear path"
+    }
+   },
+   {
+    "say": "Problem two: *price* in DM. Same question, *fifty* times a day.",
+    "screen": "chat",
+    "head": "*Requests*",
+    "chat": [
+     {
+      "t": "price??"
+     },
+     {
+      "t": "pp"
+     },
+     {
+      "t": "how much for 2"
+     }
+    ],
+    "chip": "50 DMs a day",
+    "fix": {
+     "say": "The fix: prices and *stock* on the page, so the DM becomes an *order*.",
+     "head": "Your *order*",
+     "sub": "Mirror jhumkas × 2",
+     "rows": [
+      {
+       "t": "Subtotal",
+       "s": "2 items",
+       "v": "₹998",
+       "ic": "tag"
+      },
+      {
+       "t": "Delivery",
+       "s": "3 days",
+       "v": "Free",
+       "ic": "check"
+      }
+     ],
+     "btn": "Pay ₹998 with UPI",
+     "chip": "Paid, no DM needed"
+    }
+   },
+   {
+    "say": "Problem three: the *algorithm* changes, and your whole shop *disappears* with it.",
+    "screen": "rows",
+    "head": "This *week*",
+    "rows": [
+     {
+      "t": "Reach",
+      "s": "down overnight",
+      "bad": true,
+      "ic": "users"
+     },
+     {
+      "t": "Orders",
+      "s": "down with it",
+      "bad": true,
+      "ic": "cash"
+     },
+     {
+      "t": "Your customers' numbers",
+      "s": "you never saved them",
+      "ic": "phone"
+     }
+    ],
+    "chip": "Rented audience",
+    "fix": {
+     "say": "The fix: your own *site* and customer list, so a bad week is just a *bad week*.",
+     "head": "Your *customers*",
+     "sub": "Saved on your site",
+     "rows": [
+      {
+       "t": "Repeat buyers",
+       "s": "message them directly",
+       "v": "Saved",
+       "ic": "users"
+      },
+      {
+       "t": "New drop alert",
+       "s": "goes to everyone",
+       "v": "Send",
+       "ic": "bell"
+      }
+     ],
+     "btn": "Announce new drop",
+     "chip": "Yours to keep"
+    }
+   }
+  ],
+  "recap_say": "One *page*, real *prices*, and customers you *own*.",
+  "recap": [
+   {
+    "t": "One page",
+    "s": "best products first"
+   },
+   {
+    "t": "Prices + UPI",
+    "s": "DMs become orders"
+   },
+   {
+    "t": "Customer list",
+    "s": "yours, not the app's"
+   }
+  ],
+  "cta_say": "Selling from your *bio*? Comment *BIO* and we'll build the page that *sells*.",
+  "caption": "10K clicks. Zero orders. 🔗\n\n1️⃣ A link page with eight buttons, and people bounce\n✅ Fix: one page with your best products, prices and a Buy button\n\n2️⃣ \"Price?\" in your DMs, fifty times a day\n✅ Fix: prices and stock on the page, UPI checkout\n\n3️⃣ The algorithm changes and your shop disappears\n✅ Fix: your own site and customer list\n\nKavya Makes is a concept demo. Send this to a creator who sells from their bio.\nComment BIO 👇\n\nVoiceover is AI-generated (ElevenLabs).",
+  "hashtags": [
+   "#linkinbio",
+   "#instagramshop",
+   "#smallbusinessindia",
+   "#handmadeindia",
+   "#d2c",
+   "#creatoreconomy",
+   "#craftlayer"
+  ],
+  "tags": [
+   "link in bio website",
+   "instagram shop website",
+   "sell on instagram",
+   "d2c website"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/services/e-commerce/"
+  ]
+ },
+ {
+  "id": "CR-138",
+  "topic": "Reviews: the 5-star problem",
+  "audience": "clinic or salon",
+  "demo_name": "Fernlight Salon",
+  "domain": "fernlightsalon.in",
+  "keyword": "STARS",
+  "theme": {
+   "accent": "#E8C26A",
+   "accent2": "#C9962E"
+  },
+  "voice": {
+   "engine": "elevenlabs",
+   "voice_id": "FGY2WhTYpPnrIDTdsKH5",
+   "model": "eleven_v3",
+   "settings": {
+    "stability": 0.5
+   }
+  },
+  "moods": {
+   "hook": "whispers",
+   "problem": "disappointed",
+   "fix": "excited",
+   "recap": "confident",
+   "cta": "laughs"
+  },
+  "hook": {
+   "say": "Your *happiest* customers never leave a review. Your *angriest* one always does.",
+   "title": "Happy customers: *silent*.\nAngry one: *loud*.",
+   "tiles": [
+    {
+     "ic": "star",
+     "label": "Happy: 0 reviews"
+    },
+    {
+     "ic": "star",
+     "label": "Angry: 1 review",
+     "hot": true
+    }
+   ]
+  },
+  "problems": [
+   {
+    "say": "Problem one: you *ask* for reviews at the counter. Everyone says *yes*. Nobody does it.",
+    "screen": "chat",
+    "head": "At the *counter*",
+    "chat": [
+     {
+      "me": true,
+      "t": "Please leave us a review!"
+     },
+     {
+      "t": "Sure, sure, I'll do it tonight 😊"
+     }
+    ],
+    "chip": "Tonight never comes",
+    "fix": {
+     "say": "The fix: a *thank-you* message one hour later, with a *one-tap* review link.",
+     "head": "Fernlight *Salon*",
+     "sub": "WhatsApp · 1 hour after visit",
+     "rows": [
+      {
+       "t": "Thanks for visiting, Ananya!",
+       "s": "How was your haircut?",
+       "ic": "chat"
+      },
+      {
+       "t": "Rate us",
+       "s": "one tap",
+       "v": "★★★★★",
+       "ic": "star"
+      }
+     ],
+     "btn": "Leave a review",
+     "chip": "Asked at the right time"
+    }
+   },
+   {
+    "say": "Problem two: one *bad* review sits at the top for *months*.",
+    "screen": "rows",
+    "head": "Google *reviews*",
+    "rows": [
+     {
+      "t": "★ Waited 40 minutes",
+      "s": "top review · 4 months",
+      "bad": true,
+      "ic": "star"
+     },
+     {
+      "t": "★★★★★ Lovely staff",
+      "s": "6 months ago",
+      "ic": "star"
+     },
+     {
+      "t": "★★★★★ Best facial",
+      "s": "8 months ago",
+      "ic": "star"
+     }
+    ],
+    "chip": "First thing people see",
+    "fix": {
+     "say": "The fix: a steady flow of *fresh* reviews, so the real picture rises to the *top*.",
+     "head": "This *month*",
+     "sub": "New reviews",
+     "rows": [
+      {
+       "t": "★★★★★ Loved my hair colour",
+       "s": "today",
+       "ic": "star"
+      },
+      {
+       "t": "★★★★★ On time, super friendly",
+       "s": "yesterday",
+       "ic": "star"
+      },
+      {
+       "t": "★★★★★ Booked online, easy",
+       "s": "2 days ago",
+       "ic": "star"
+      }
+     ],
+     "chip": "Fresh on top"
+    }
+   },
+   {
+    "say": "Problem three: an *unhappy* customer has nowhere to tell *you*, so they tell *Google*.",
+    "screen": "chat",
+    "head": "Ananya *R.*",
+    "chat": [
+     {
+      "t": "Not happy with the colour…"
+     },
+     {
+      "t": "Posting a review."
+     }
+    ],
+    "chip": "Feedback went public",
+    "fix": {
+     "say": "The fix: low ratings come *privately* to you first, so you can make it *right*.",
+     "head": "Private *feedback*",
+     "sub": "★★ · Ananya R.",
+     "rows": [
+      {
+       "t": "Colour too dark",
+       "s": "free touch-up offered",
+       "v": "Fixed",
+       "ic": "check"
+      }
+     ],
+     "btn": "Call customer",
+     "chip": "Solved before it went public"
+    }
+   }
+  ],
+  "recap_say": "Ask at the *right* time, keep reviews *fresh*, and hear problems *first*.",
+  "recap": [
+   {
+    "t": "Thank-you message",
+    "s": "one-tap review link"
+   },
+   {
+    "t": "Fresh reviews",
+    "s": "every week"
+   },
+   {
+    "t": "Private feedback",
+    "s": "fix it first"
+   }
+  ],
+  "cta_say": "Want *more* five-star reviews? Comment *STARS*. We'll set it up for you.",
+  "caption": "Your happiest customers never leave a review. Your angriest one always does. ⭐\n\n1️⃣ \"I'll review tonight\"… they never do\n✅ Fix: a thank-you message an hour later with a one-tap review link\n\n2️⃣ One bad review sits on top for months\n✅ Fix: a steady flow of fresh reviews\n\n3️⃣ Unhappy customers have nowhere to tell you\n✅ Fix: low ratings come to you privately first\n\nFernlight Salon is a concept demo. Send this to a salon or clinic owner.\nComment STARS 👇\n\nVoiceover is AI-generated (ElevenLabs).",
+  "hashtags": [
+   "#googlereviews",
+   "#salonowner",
+   "#clinicmarketing",
+   "#customerexperience",
+   "#smallbusinessindia",
+   "#reputationmanagement",
+   "#craftlayer"
+  ],
+  "tags": [
+   "google reviews",
+   "get more reviews",
+   "review management",
+   "salon marketing"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/salon/"
+  ]
+ }
+]

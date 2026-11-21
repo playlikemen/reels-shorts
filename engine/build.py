@@ -208,6 +208,10 @@ def main():
 
     # 1) voice per scene
     clips = []
+    TAG = re.compile(r"\[[^\]]*\]\s*")
+    for sc in spec["scenes"]:          # v3 audio tags ("[excited]") steer the voice only; never shown or sent to other engines
+        sc["_tts"] = ((f"[{sc['mood']}] " if sc.get("mood") else "") + sc["say"]).replace("*", "")
+        sc["say"] = TAG.sub("", sc["say"]).strip()
     for i, sc in enumerate(spec["scenes"]):
         if sc.get("voice_file"):
             p, d, words = T.align_file(sc["voice_file"])
@@ -215,6 +219,13 @@ def main():
             p, d, words = T.edge_tts(sc["say"].replace("*", ""), v.get("name", "en-US-AndrewNeural"), v.get("rate", "+0%"), v.get("pitch", "+0Hz"))
         elif v.get("engine") == "kokoro":
             p, d, words = T.kokoro_tts(sc["say"].replace("*", ""), v.get("name", "af_heart"), v.get("speed", 1.2), v.get("lang", "a"))
+        elif v.get("engine") == "elevenlabs":
+            model = v.get("model", "eleven_v3")
+            try:
+                p, d, words = T.elevenlabs_tts(sc["_tts"] if model >= "eleven_v3" else TAG.sub("", sc["_tts"]),
+                                               v["voice_id"], model, v.get("settings"), v.get("speed"))
+            except Exception as e:     # quota or network: stop cleanly; render again with a kokoro/edge voice if needed
+                raise SystemExit(f"ElevenLabs failed on scene {i}: {str(e)[:300]}")
         else:
             raise SystemExit("unknown voice engine")
         clips.append((p, d, words))

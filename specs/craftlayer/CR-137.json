@@ -1,0 +1,513 @@
+{
+ "title": "Link in bio vs a real website",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "light": true,
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-137",
+  "brand": "craftlayer",
+  "topic": "Link in bio vs a real website",
+  "schedule": {
+   "en": "2026-11-21 16:16"
+  },
+  "yt_title": {
+   "en": "10K clicks. Zero orders. #shorts"
+  },
+  "yt_tags": [
+   "link in bio website",
+   "instagram shop website",
+   "sell on instagram",
+   "d2c website"
+  ],
+  "yt_description": {
+   "en": "10K clicks. Zero orders. 🔗"
+  },
+  "ig_caption": {
+   "en": "10K clicks. Zero orders. 🔗\n\n1️⃣ A link page with eight buttons, and people bounce\n✅ Fix: one page with your best products, prices and a Buy button\n\n2️⃣ \"Price?\" in your DMs, fifty times a day\n✅ Fix: prices and stock on the page, UPI checkout\n\n3️⃣ The algorithm changes and your shop disappears\n✅ Fix: your own site and customer list\n\nKavya Makes is a concept demo. Send this to a creator who sells from their bio.\nComment BIO 👇\n\nVoiceover is AI-generated (ElevenLabs)."
+  },
+  "ig_hashtags": [
+   "#linkinbio",
+   "#instagramshop",
+   "#smallbusinessindia",
+   "#handmadeindia",
+   "#d2c",
+   "#creatoreconomy",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/services/e-commerce/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "mood": "curious",
+   "say": "*Ten thousand* followers clicked your bio link. *Nobody* bought anything.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "10K clicks.\n*Zero* orders."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "users",
+       "size": 170,
+       "label": "Followers",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "cash",
+       "size": 170,
+       "label": "Orders: 0",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "say": "Problem one: your link page is a list of *eight* buttons, and people *bounce*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Kavya Makes",
+        "t": "linktr *page*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Shop",
+          "s": "opens a DM",
+          "ic": "arrow"
+         },
+         {
+          "t": "Catalogue PDF",
+          "s": "18 MB",
+          "ic": "arrow",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Old YouTube video",
+          "s": "2 years ago",
+          "ic": "arrow"
+         },
+         {
+          "t": "Google form",
+          "s": "custom orders",
+          "ic": "arrow"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Too many choices",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "mood": "excited",
+   "say": "The fix: one *page* with your best products, *prices* and a Buy button.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "kavyamakes.in",
+        "t": "Kavya *Makes*",
+        "s": "Handmade earrings · ships in 3 days"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Mirror jhumkas",
+          "s": "bestseller",
+          "v": "₹499",
+          "ic": "gift",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Pearl studs",
+          "s": "new",
+          "v": "₹349",
+          "ic": "gift",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Buy now",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "One clear path",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "say": "Problem two: *price* in DM. Same question, *fifty* times a day.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Kavya Makes",
+        "t": "*Requests*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "price??",
+          "at": "10%"
+         },
+         {
+          "t": "pp",
+          "at": "37%"
+         },
+         {
+          "t": "how much for 2",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "50 DMs a day",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "mood": "excited",
+   "say": "The fix: prices and *stock* on the page, so the DM becomes an *order*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "kavyamakes.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "kavyamakes.in",
+        "t": "Your *order*",
+        "s": "Mirror jhumkas × 2"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Subtotal",
+          "s": "2 items",
+          "v": "₹998",
+          "ic": "tag",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Delivery",
+          "s": "3 days",
+          "v": "Free",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Pay ₹998 with UPI",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Paid, no DM needed",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "say": "Problem three: the *algorithm* changes, and your whole shop *disappears* with it.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Kavya Makes",
+        "t": "This *week*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Reach",
+          "s": "down overnight",
+          "ic": "users",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Orders",
+          "s": "down with it",
+          "ic": "cash",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Your customers' numbers",
+          "s": "you never saved them",
+          "ic": "phone"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Rented audience",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "mood": "excited",
+   "say": "The fix: your own *site* and customer list, so a bad week is just a *bad week*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "kavyamakes.in",
+        "t": "Your *customers*",
+        "s": "Saved on your site"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Repeat buyers",
+          "s": "message them directly",
+          "v": "Saved",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "New drop alert",
+          "s": "goes to everyone",
+          "v": "Send",
+          "ic": "bell",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Announce new drop",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Yours to keep",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "mood": "upbeat",
+   "say": "One *page*, real *prices*, and customers you *own*.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · creator system",
+     "items": [
+      {
+       "t": "One page",
+       "s": "best products first",
+       "at": "2%"
+      },
+      {
+       "t": "Prices + UPI",
+       "s": "DMs become orders",
+       "at": "26%"
+      },
+      {
+       "t": "Customer list",
+       "s": "yours, not the app's",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · BIO",
+   "mood": "cheerfully",
+   "say": "Selling from your *bio*? Comment *BIO* and we'll build the page that *sells*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "BIO",
+     "label": "Comment *BIO*",
+     "mt": 24
+    }
+   ]
+  }
+ ],
+ "voice": {
+  "engine": "elevenlabs",
+  "voice_id": "iP95p4xoKVk53GoZ742B",
+  "model": "eleven_v3",
+  "settings": {
+   "stability": 0.5
+  }
+ }
+}

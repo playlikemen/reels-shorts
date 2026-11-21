@@ -1,0 +1,517 @@
+{
+ "title": "WhatsApp is not a CRM: 3 leaks",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-136",
+  "brand": "craftlayer",
+  "topic": "WhatsApp is not a CRM: 3 leaks",
+  "schedule": {
+   "en": "2026-11-21 16:16"
+  },
+  "yt_title": {
+   "en": "400 unread. One is your biggest order. #shorts"
+  },
+  "yt_tags": [
+   "whatsapp crm",
+   "lead management",
+   "small business crm",
+   "business automation"
+  ],
+  "yt_description": {
+   "en": "400 unread chats. One of them is your biggest order. 💬"
+  },
+  "ig_caption": {
+   "en": "400 unread chats. One of them is your biggest order. 💬\n\n1️⃣ New enquiries get buried under groups and forwards\n✅ Fix: a lead board with a name, a need and a next step\n\n2️⃣ \"I'll follow up Monday\"… it's Thursday\n✅ Fix: automatic follow-up reminders\n\n3️⃣ A staff member leaves, and their customers go too\n✅ Fix: one shared inbox the business owns\n\nBrightline Interiors is a concept demo. Send this to a business owner who runs everything on WhatsApp.\nComment LEADS 👇\n\nVoiceover is AI-generated (ElevenLabs)."
+  },
+  "ig_hashtags": [
+   "#whatsappbusiness",
+   "#smallbusinessindia",
+   "#crm",
+   "#leadgeneration",
+   "#businessautomation",
+   "#entrepreneurindia",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/services/business-automation/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "mood": "playful",
+   "say": "*Four hundred* unread chats. Somewhere in there is your *biggest* order.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "400 unread.\nOne is your *biggest order*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "chat",
+       "size": 170,
+       "label": "WhatsApp",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "bolt",
+       "size": 170,
+       "label": "Lost lead",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "mood": "sighs",
+   "say": "Leak one: a new *enquiry* gets buried under family groups and *good morning* messages.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Brightline Interiors",
+        "t": "Chats · *unread*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Family group",
+          "s": "86 new messages",
+          "ic": "users"
+         },
+         {
+          "t": "Good morning ☀️",
+          "s": "12 forwards",
+          "ic": "chat"
+         },
+         {
+          "t": "Unknown number",
+          "s": "Quote for a 3BHK?",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Buried in 20 minutes",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "mood": "excited",
+   "say": "The fix: every enquiry lands on one *lead board*, with a name, a need and a *next step*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "brightline.in",
+        "t": "Lead *board*",
+        "s": "Brightline Interiors"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Ritu · 3BHK",
+          "s": "Site visit · Sat 11 AM",
+          "v": "New",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Arjun · kitchen",
+          "s": "Quote sent",
+          "v": "Warm",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Meera · office",
+          "s": "Call back today",
+          "v": "Due",
+          "ic": "users",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Add lead",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Nothing gets buried",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "mood": "sighs",
+   "say": "Leak two: you *promised* to follow up on Monday. It's *Thursday*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Brightline Interiors",
+        "t": "Ritu *Sharma*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Any update on the quote?",
+          "at": "10%"
+         },
+         {
+          "t": "Sorry! Sending today",
+          "me": true,
+          "at": "37%"
+         },
+         {
+          "t": "We went with someone else 🙏",
+          "at": "64%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Follow-up forgotten",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "mood": "excited",
+   "say": "The fix: automatic *reminders*, so the follow-up goes out *before* the customer asks.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "brightline.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "brightline.in",
+        "t": "Today's *follow-ups*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Ritu · quote",
+          "s": "due 10 AM",
+          "v": "Send",
+          "ic": "bell",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Arjun · samples",
+          "s": "due 4 PM",
+          "v": "Send",
+          "ic": "bell",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Send all",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Sent on time",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "mood": "sighs",
+   "say": "Leak three: when a staff member *leaves*, their phone, and every *customer* on it, leaves too.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Brightline Interiors",
+        "t": "Team *phones*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Rahul's phone",
+          "s": "left last month · 120 chats",
+          "ic": "phone",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Shop phone",
+          "s": "shared · messy",
+          "ic": "phone"
+         },
+         {
+          "t": "Owner's phone",
+          "s": "everything else",
+          "ic": "phone"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Customers walked out",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "mood": "excited",
+   "say": "The fix: one shared *inbox* the business owns, with every *conversation* saved.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "brightline.in",
+        "t": "Shared *inbox*",
+        "s": "All chats · one place"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Rahul's leads",
+          "s": "reassigned to Priya",
+          "v": "Moved",
+          "ic": "users",
+          "c": "#465FFF"
+         },
+         {
+          "t": "History",
+          "s": "every message kept",
+          "v": "Saved",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Open inbox",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Nothing lost",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "mood": "upbeat",
+   "say": "One *lead board*, automatic *reminders*, and an *inbox* you own.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · business system",
+     "items": [
+      {
+       "t": "Lead board",
+       "s": "every enquiry, one place",
+       "at": "2%"
+      },
+      {
+       "t": "Reminders",
+       "s": "follow-ups on time",
+       "at": "26%"
+      },
+      {
+       "t": "Shared inbox",
+       "s": "owned by the business",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · LEADS",
+   "mood": "warm",
+   "say": "Losing leads in *WhatsApp*? Comment *LEADS* and we'll show you how this works.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "LEADS",
+     "label": "Comment *LEADS*",
+     "mt": 24
+    }
+   ]
+  }
+ ],
+ "voice": {
+  "engine": "elevenlabs",
+  "voice_id": "cgSgspJ2msm6clMCkdW9",
+  "model": "eleven_v3",
+  "settings": {
+   "stability": 0.5
+  }
+ },
+ "theme": {
+  "accent": "#4ADE80",
+  "accent2": "#16A34A"
+ }
+}

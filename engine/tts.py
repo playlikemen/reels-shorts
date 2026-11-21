@@ -84,6 +84,56 @@ def kokoro_tts(text, voice="af_heart", speed=1.2, lang="a"):
     return str(wav), duration(wav), json.loads(js.read_text())
 
 
+def elevenlabs_tts(text, voice_id, model="eleven_v3", settings=None, speed=None):
+    """ElevenLabs with character timestamps. `text` may carry v3 audio tags ("[excited] ..."), which shape the
+    delivery but are not spoken; they are dropped from the returned words. Key: ELEVENLABS_API_KEY or
+    ~/.config/elevenlabs/api_key (never stored in the repo)."""
+    import base64, httpx
+    key = os.environ.get("ELEVENLABS_API_KEY") or (pathlib.Path.home() / ".config" / "elevenlabs" / "api_key").read_text().strip()
+    vs = dict(settings or {})
+    if speed:
+        vs["speed"] = speed
+    ck = hashlib.sha1(json.dumps(["11labs", text, voice_id, model, vs]).encode()).hexdigest()[:16]
+    mp3, js = CACHE / f"{ck}.mp3", CACHE / f"{ck}.json"
+    if not (mp3.exists() and js.exists()):
+        body = {"text": text, "model_id": model}
+        if vs:
+            body["voice_settings"] = vs
+        import time
+        for attempt in range(6):     # free plan: 2 concurrent requests; parallel renders back off and retry
+            r = httpx.post(f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps", headers={"xi-api-key": key},
+                           params={"output_format": "mp3_44100_128"}, json=body, timeout=180)
+            if r.status_code != 429 or "concurrent" not in r.text:
+                break
+            time.sleep(4 * (attempt + 1))
+        if r.status_code != 200:
+            raise RuntimeError(f"ElevenLabs {r.status_code}: {r.text[:300]}")
+        d = r.json()
+        al = d.get("normalized_alignment") or d.get("alignment") or {}
+        ch, st, en = al.get("characters", []), al.get("character_start_times_seconds", []), al.get("character_end_times_seconds", [])
+        words, cur, depth = [], None, 0
+        for c, a, b in zip(ch, st, en):
+            if c == "[":
+                depth += 1; continue
+            if c == "]":
+                depth = max(0, depth - 1); continue
+            if depth:
+                continue
+            if c.isspace():
+                if cur: words.append(cur); cur = None
+                continue
+            if cur is None:
+                cur = {"w": c, "s": round(a, 3), "e": round(b, 3)}
+            else:
+                cur["w"] += c; cur["e"] = round(b, 3)
+        if cur:
+            words.append(cur)
+        words = [w for w in words if re.search(r"\w", w["w"])]
+        mp3.write_bytes(base64.b64decode(d["audio_base64"]))
+        js.write_text(json.dumps(words))
+    return str(mp3), duration(mp3), json.loads(js.read_text())
+
+
 def align_file(path, model="small.en"):
     """Word timestamps for any voice file (ElevenLabs, a mic recording, ...)."""
     import numpy as np

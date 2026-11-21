@@ -47,7 +47,8 @@ def screen_fix(f, domain):
 
 def spec_for(r, n, when):
     demo, domain = r["demo_name"], r.get("domain", "")
-    scenes = [{"chapter": "00 · Hook", "say": r["hook"]["say"], "vis": [
+    M = {**{"hook": "excited", "problem": "frustrated", "fix": "confident", "recap": "upbeat", "cta": "warm"}, **r.get("moods", {})}
+    scenes = [{"chapter": "00 · Hook", "mood": M["hook"], "say": r["hook"]["say"], "vis": [
         {"type": "title", "at": -0.4, "anim": "none", "size": 60, "text": r["hook"]["title"]},
         {"type": "row", "at": -0.4, "gap": 60, "children": [
             {"type": "tile", "ic": t.get("ic", "users"), "size": 170, "label": t["label"],
@@ -61,19 +62,19 @@ def spec_for(r, n, when):
         else:
             dev = {"type": "phone", "w": 320, "tilt": tilt, "at": "0%", "screen": screen_problem(p, demo)}
         vis = [dev] + ([chip(p["chip"], "bell", "60%", not side, dark=True)] if p.get("chip") else [])
-        scenes.append({"chapter": f"0{i + 1} · Problem", "say": p["say"], "vis": vis})
+        scenes.append({"chapter": f"0{i + 1} · Problem", "mood": M["problem"], "say": p["say"], "vis": vis})
         f = p["fix"]
         if i == 1:
             dev = {"type": "browser", "w": 560, "url": domain or "yourbusiness.in", "at": "0%", "screen": screen_fix(f, domain)}
         else:
             dev = {"type": "phone", "w": 320, "tilt": [5, 10, 0] if side else [5, -10, 0], "at": "0%", "screen": screen_fix(f, domain)}
         vis = [dev] + ([chip(f["chip"], "check", "65%", side)] if f.get("chip") else [])
-        scenes.append({"chapter": f"0{i + 1} · Fix", "say": f["say"], "vis": vis})
-    scenes.append({"chapter": "04 · System", "say": r["recap_say"], "vis": [
+        scenes.append({"chapter": f"0{i + 1} · Fix", "mood": M["fix"], "say": f["say"], "vis": vis})
+    scenes.append({"chapter": "04 · System", "mood": M["recap"], "say": r["recap_say"], "vis": [
         {"type": "steps", "at": "0%", "title": f"CraftLayer · {r['audience']} system",
          "items": [{"t": x["t"], "s": x.get("s", ""), "at": f"{2 + 24 * j}%"} for j, x in enumerate(r["recap"][:3])]}]})
     kw = r["keyword"]
-    scenes.append({"chapter": f"05 · {kw}", "say": r["cta_say"], "vis": [
+    scenes.append({"chapter": f"05 · {kw}", "mood": M["cta"], "say": r["cta_say"], "vis": [
         {"type": "logo", "at": "0%", "size": 150, "sub": "Websites · Apps · Systems"},
         {"type": "cta", "at": "25%", "text": kw, "label": f"Comment *{kw}*", "mt": 24}]})
     cap = r["caption"]
@@ -86,6 +87,10 @@ def spec_for(r, n, when):
                      "yt_tags": r.get("tags", []), "yt_description": {"en": cap.split("\n")[0]},
                      "ig_caption": {"en": cap}, "ig_hashtags": r.get("hashtags", []), "sources": r.get("sources", [])},
             "scenes": scenes}
+    if r.get("voice"):
+        spec["voice"] = r["voice"]
+    if r.get("theme"):
+        spec["theme"] = r["theme"]
     return spec
 
 

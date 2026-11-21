@@ -1,0 +1,490 @@
+{
+ "title": "Reviews: the 5-star problem",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-138",
+  "brand": "craftlayer",
+  "topic": "Reviews: the 5-star problem",
+  "schedule": {
+   "en": "2026-11-21 16:16"
+  },
+  "yt_title": {
+   "en": "Happy customers: silent. Angry one: loud. #shorts"
+  },
+  "yt_tags": [
+   "google reviews",
+   "get more reviews",
+   "review management",
+   "salon marketing"
+  ],
+  "yt_description": {
+   "en": "Your happiest customers never leave a review. Your angriest one always does. ⭐"
+  },
+  "ig_caption": {
+   "en": "Your happiest customers never leave a review. Your angriest one always does. ⭐\n\n1️⃣ \"I'll review tonight\"… they never do\n✅ Fix: a thank-you message an hour later with a one-tap review link\n\n2️⃣ One bad review sits on top for months\n✅ Fix: a steady flow of fresh reviews\n\n3️⃣ Unhappy customers have nowhere to tell you\n✅ Fix: low ratings come to you privately first\n\nFernlight Salon is a concept demo. Send this to a salon or clinic owner.\nComment STARS 👇\n\nVoiceover is AI-generated (ElevenLabs)."
+  },
+  "ig_hashtags": [
+   "#googlereviews",
+   "#salonowner",
+   "#clinicmarketing",
+   "#customerexperience",
+   "#smallbusinessindia",
+   "#reputationmanagement",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/industry-demos/salon/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "mood": "whispers",
+   "say": "Your *happiest* customers never leave a review. Your *angriest* one always does.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Happy customers: *silent*.\nAngry one: *loud*."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "star",
+       "size": 170,
+       "label": "Happy: 0 reviews",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "star",
+       "size": 170,
+       "label": "Angry: 1 review",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "mood": "disappointed",
+   "say": "Problem one: you *ask* for reviews at the counter. Everyone says *yes*. Nobody does it.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Fernlight Salon",
+        "t": "At the *counter*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Please leave us a review!",
+          "me": true,
+          "at": "10%"
+         },
+         {
+          "t": "Sure, sure, I'll do it tonight 😊",
+          "at": "65%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Tonight never comes",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "mood": "excited",
+   "say": "The fix: a *thank-you* message one hour later, with a *one-tap* review link.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "fernlightsalon.in",
+        "t": "Fernlight *Salon*",
+        "s": "WhatsApp · 1 hour after visit"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Thanks for visiting, Ananya!",
+          "s": "How was your haircut?",
+          "ic": "chat",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Rate us",
+          "s": "one tap",
+          "v": "★★★★★",
+          "ic": "star",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Leave a review",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Asked at the right time",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "mood": "disappointed",
+   "say": "Problem two: one *bad* review sits at the top for *months*.",
+   "vis": [
+    {
+     "type": "tablet",
+     "w": 620,
+     "tilt": [
+      10,
+      0,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Fernlight Salon",
+        "t": "Google *reviews*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "★ Waited 40 minutes",
+          "s": "top review · 4 months",
+          "ic": "star",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "★★★★★ Lovely staff",
+          "s": "6 months ago",
+          "ic": "star"
+         },
+         {
+          "t": "★★★★★ Best facial",
+          "s": "8 months ago",
+          "ic": "star"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "First thing people see",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "mood": "excited",
+   "say": "The fix: a steady flow of *fresh* reviews, so the real picture rises to the *top*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "fernlightsalon.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "fernlightsalon.in",
+        "t": "This *month*",
+        "s": "New reviews"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "★★★★★ Loved my hair colour",
+          "s": "today",
+          "ic": "star",
+          "c": "#465FFF"
+         },
+         {
+          "t": "★★★★★ On time, super friendly",
+          "s": "yesterday",
+          "ic": "star",
+          "c": "#465FFF"
+         },
+         {
+          "t": "★★★★★ Booked online, easy",
+          "s": "2 days ago",
+          "ic": "star",
+          "c": "#465FFF"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Fresh on top",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "mood": "disappointed",
+   "say": "Problem three: an *unhappy* customer has nowhere to tell *you*, so they tell *Google*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Fernlight Salon",
+        "t": "Ananya *R.*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Not happy with the colour…",
+          "at": "10%"
+         },
+         {
+          "t": "Posting a review.",
+          "at": "65%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Feedback went public",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "mood": "excited",
+   "say": "The fix: low ratings come *privately* to you first, so you can make it *right*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "fernlightsalon.in",
+        "t": "Private *feedback*",
+        "s": "★★ · Ananya R."
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Colour too dark",
+          "s": "free touch-up offered",
+          "v": "Fixed",
+          "ic": "check",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Call customer",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Solved before it went public",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "mood": "confident",
+   "say": "Ask at the *right* time, keep reviews *fresh*, and hear problems *first*.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · clinic or salon system",
+     "items": [
+      {
+       "t": "Thank-you message",
+       "s": "one-tap review link",
+       "at": "2%"
+      },
+      {
+       "t": "Fresh reviews",
+       "s": "every week",
+       "at": "26%"
+      },
+      {
+       "t": "Private feedback",
+       "s": "fix it first",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · STARS",
+   "mood": "laughs",
+   "say": "Want *more* five-star reviews? Comment *STARS*. We'll set it up for you.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "STARS",
+     "label": "Comment *STARS*",
+     "mt": 24
+    }
+   ]
+  }
+ ],
+ "voice": {
+  "engine": "elevenlabs",
+  "voice_id": "FGY2WhTYpPnrIDTdsKH5",
+  "model": "eleven_v3",
+  "settings": {
+   "stability": 0.5
+  }
+ },
+ "theme": {
+  "accent": "#E8C26A",
+  "accent2": "#C9962E"
+ }
+}

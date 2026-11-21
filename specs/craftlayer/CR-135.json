@@ -1,0 +1,500 @@
+{
+ "title": "Google Maps: 3 reasons customers walk past you",
+ "style": "showcase",
+ "format": "short",
+ "badge": "CONCEPT DEMO",
+ "langs": {
+  "en": {}
+ },
+ "meta": {
+  "id": "CR-135",
+  "brand": "craftlayer",
+  "topic": "Google Maps: 3 reasons customers walk past you",
+  "schedule": {
+   "en": "2026-11-21 16:16"
+  },
+  "yt_title": {
+   "en": "Open in real life. Closed on Maps. #shorts"
+  },
+  "yt_tags": [
+   "google maps business",
+   "google business profile",
+   "local seo",
+   "small business website"
+  ],
+  "yt_description": {
+   "en": "Open in real life. Closed on Google Maps. 📍"
+  },
+  "ig_caption": {
+   "en": "Open in real life. Closed on Google Maps. 📍\n\n1️⃣ No hours, no photos, no menu\n✅ Fix: a complete profile that links to your own website\n\n2️⃣ The website button opens a broken page\n✅ Fix: a fast site with the same hours and menu\n\n3️⃣ Reviews sit there unanswered\n✅ Fix: review alerts on WhatsApp, reply the same day\n\nSaffron Street Cafe is a concept demo. Send this to a shop owner who needs it.\nComment MAPS 👇\n\nVoiceover is AI-generated (ElevenLabs)."
+  },
+  "ig_hashtags": [
+   "#googlemaps",
+   "#localbusiness",
+   "#smallbusinessindia",
+   "#cafeowner",
+   "#googlebusinessprofile",
+   "#websitedesign",
+   "#craftlayer"
+  ],
+  "sources": [
+   "https://craftlayer-studio.github.io/services/web-development/"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 · Hook",
+   "mood": "excited",
+   "say": "Your *shop* is open. On *Google Maps*, it looks closed.",
+   "vis": [
+    {
+     "type": "title",
+     "at": -0.4,
+     "anim": "none",
+     "size": 60,
+     "text": "Open in real life.\n*Closed* on Maps."
+    },
+    {
+     "type": "row",
+     "at": -0.4,
+     "gap": 60,
+     "children": [
+      {
+       "type": "tile",
+       "ic": "pin",
+       "size": 170,
+       "label": "Your shop",
+       "anim": "none"
+      },
+      {
+       "type": "tile",
+       "ic": "clock",
+       "size": 170,
+       "label": "Hours: unknown",
+       "c": "#465FFF",
+       "at": "55%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Problem",
+   "mood": "frustrated",
+   "say": "Problem one: no *hours*, no photos, no menu. So people *pick* the place next door.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Saffron Street Cafe",
+        "t": "Search *results*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "Saffron Street Cafe",
+          "s": "No hours · 2 photos",
+          "ic": "pin",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "Cafe next door",
+          "s": "Open now · 140 photos",
+          "ic": "pin"
+         },
+         {
+          "t": "Another cafe",
+          "s": "Open now · menu",
+          "ic": "pin"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Skipped in 2 seconds",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 · Fix",
+   "mood": "confident",
+   "say": "The fix: a profile with *hours*, real *photos* and a menu link that goes to *your* website.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "saffronstreet.in",
+        "t": "Open *now*",
+        "s": "Saffron Street Cafe · 8 AM to 11 PM"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Menu",
+          "s": "on your website",
+          "v": "View",
+          "ic": "menu",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Directions",
+          "s": "600 m away",
+          "v": "Go",
+          "ic": "pin",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Call",
+          "s": "one tap",
+          "v": "Call",
+          "ic": "phone",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "See the menu",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Profile complete",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Problem",
+   "mood": "frustrated",
+   "say": "Problem two: the *website* button on your profile opens a *broken* page.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "bg": "#EFE9E1",
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Saffron Street Cafe",
+        "t": "Customer *messages*"
+       },
+       {
+        "k": "chat",
+        "msgs": [
+         {
+          "t": "Your website link isn't working?",
+          "at": "10%"
+         },
+         {
+          "t": "Is the cafe still open??",
+          "at": "65%"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Link points nowhere",
+       "ic": "bell",
+       "x": 400,
+       "y": 560,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 · Fix",
+   "mood": "confident",
+   "say": "The fix: a fast site that *loads* on any phone, with the same hours and menu as *Maps*.",
+   "vis": [
+    {
+     "type": "browser",
+     "w": 560,
+     "url": "saffronstreet.in",
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "saffronstreet.in",
+        "t": "Saffron *Street*",
+        "s": "Fresh coffee · all day breakfast"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "Today's specials",
+          "s": "updated this morning",
+          "ic": "coffee",
+          "c": "#465FFF"
+         },
+         {
+          "t": "Book a table",
+          "s": "free slots shown",
+          "ic": "cal",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Order on WhatsApp",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Loads in a blink",
+       "ic": "check",
+       "x": 30,
+       "y": 600,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Problem",
+   "mood": "frustrated",
+   "say": "Problem three: *reviews* sit there unanswered, and the last one says *rude staff*.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "Saffron Street Cafe",
+        "t": "Latest *reviews*"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.18,
+        "items": [
+         {
+          "t": "★★ Rude staff",
+          "s": "3 weeks ago · no reply",
+          "ic": "star",
+          "c": "#FF6B4A"
+         },
+         {
+          "t": "★★★★★ Great chai",
+          "s": "no reply",
+          "ic": "star"
+         },
+         {
+          "t": "★★★★ Nice place",
+          "s": "no reply",
+          "ic": "star"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "dark": true,
+     "items": [
+      {
+       "t": "Silence reads as guilt",
+       "ic": "bell",
+       "x": 30,
+       "y": 600,
+       "at": "60%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "03 · Fix",
+   "mood": "confident",
+   "say": "The fix: a *review* alert on WhatsApp, so you *reply* the same day, kindly.",
+   "vis": [
+    {
+     "type": "phone",
+     "w": 320,
+     "tilt": [
+      5,
+      -10,
+      0
+     ],
+     "at": "0%",
+     "screen": {
+      "blocks": [
+       {
+        "k": "head",
+        "kick": "saffronstreet.in",
+        "t": "New *review*",
+        "s": "Reply suggested"
+       },
+       {
+        "k": "rows",
+        "stagger": 0.15,
+        "items": [
+         {
+          "t": "★★★★★ Great chai",
+          "s": "Thank you, see you soon!",
+          "v": "Sent",
+          "ic": "chat",
+          "c": "#465FFF"
+         }
+        ]
+       },
+       {
+        "k": "btn",
+        "t": "Reply now",
+        "grow": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "chips",
+     "items": [
+      {
+       "t": "Replied today",
+       "ic": "check",
+       "x": 400,
+       "y": 560,
+       "at": "65%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "04 · System",
+   "mood": "upbeat",
+   "say": "*Hours*, a *website* that works, and *replies* the same day.",
+   "vis": [
+    {
+     "type": "steps",
+     "at": "0%",
+     "title": "CraftLayer · shop system",
+     "items": [
+      {
+       "t": "Maps profile",
+       "s": "hours, photos, menu",
+       "at": "2%"
+      },
+      {
+       "t": "Website",
+       "s": "fast on every phone",
+       "at": "26%"
+      },
+      {
+       "t": "Review alerts",
+       "s": "reply the same day",
+       "at": "50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "05 · MAPS",
+   "mood": "warm",
+   "say": "Want your *shop* to look open online? Comment *MAPS* or send us a *DM*.",
+   "vis": [
+    {
+     "type": "logo",
+     "at": "0%",
+     "size": 150,
+     "sub": "Websites · Apps · Systems"
+    },
+    {
+     "type": "cta",
+     "at": "25%",
+     "text": "MAPS",
+     "label": "Comment *MAPS*",
+     "mt": 24
+    }
+   ]
+  }
+ ],
+ "voice": {
+  "engine": "elevenlabs",
+  "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+  "model": "eleven_v3",
+  "settings": {
+   "stability": 0.5
+  }
+ }
+}

@@ -1,0 +1,80 @@
+1
+00:00:00,280 --> 00:00:02,919
+Ten thousand followers clicked your bio link.
+
+2
+00:00:02,915 --> 00:00:03,959
+Nobody bought anything.
+
+3
+00:00:04,232 --> 00:00:05,929
+Problem one: your link page is a
+
+4
+00:00:05,927 --> 00:00:08,410
+list of eight buttons, and people bounce.
+
+5
+00:00:08,477 --> 00:00:10,780
+The fix: one page with your best
+
+6
+00:00:10,783 --> 00:00:13,820
+products, prices and a Buy button.
+
+7
+00:00:14,092 --> 00:00:16,110
+Problem two: price in DM.
+
+8
+00:00:16,140 --> 00:00:18,030
+Same question, fifty times a day.
+
+9
+00:00:17,938 --> 00:00:19,920
+The fix: prices and stock on the
+
+10
+00:00:19,934 --> 00:00:21,839
+page, so the DM becomes an order.
+
+11
+00:00:22,112 --> 00:00:24,289
+Problem three: the algorithm changes, and your
+
+12
+00:00:24,266 --> 00:00:25,809
+whole shop disappears with it.
+
+13
+00:00:25,878 --> 00:00:28,099
+The fix: your own site and customer
+
+14
+00:00:28,129 --> 00:00:30,260
+list, so a bad week is just
+
+15
+00:00:30,250 --> 00:00:31,219
+a bad week.
+
+16
+00:00:31,364 --> 00:00:33,749
+One page, real prices, and customers you
+
+17
+00:00:33,780 --> 00:00:34,149
+own.
+
+18
+00:00:34,423 --> 00:00:35,239
+Selling from your bio?
+
+19
+00:00:35,269 --> 00:00:37,319
+Comment BIO and we'll build the page
+
+20
+00:00:37,301 --> 00:00:37,959
+that sells.
+

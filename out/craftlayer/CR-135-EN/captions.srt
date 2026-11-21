@@ -1,0 +1,84 @@
+1
+00:00:00,284 --> 00:00:01,240
+Your shop is open.
+
+2
+00:00:01,322 --> 00:00:03,079
+On Google Maps, it looks closed.
+
+3
+00:00:03,421 --> 00:00:06,329
+Problem one: no hours, no photos, no
+
+4
+00:00:06,375 --> 00:00:06,889
+menu.
+
+5
+00:00:07,000 --> 00:00:08,890
+So people pick the place next door.
+
+6
+00:00:08,957 --> 00:00:11,739
+The fix: a profile with hours, real
+
+7
+00:00:11,769 --> 00:00:13,739
+photos and a menu link that goes
+
+8
+00:00:13,716 --> 00:00:14,619
+to your website.
+
+9
+00:00:14,892 --> 00:00:17,229
+Problem two: the website button on your
+
+10
+00:00:17,259 --> 00:00:19,309
+profile opens a broken page.
+
+11
+00:00:19,377 --> 00:00:21,439
+The fix: a fast site that loads
+
+12
+00:00:21,442 --> 00:00:23,199
+on any phone, with the same hours
+
+13
+00:00:23,169 --> 00:00:24,479
+and menu as Maps.
+
+14
+00:00:24,752 --> 00:00:27,649
+Problem three: reviews sit there unanswered, and
+
+15
+00:00:27,639 --> 00:00:30,289
+the last one says rude staff.
+
+16
+00:00:30,357 --> 00:00:33,139
+The fix: a review alert on WhatsApp,
+
+17
+00:00:33,142 --> 00:00:36,179
+so you reply the same day, kindly.
+
+18
+00:00:36,512 --> 00:00:38,869
+Hours, a website that works, and replies
+
+19
+00:00:38,839 --> 00:00:39,669
+the same day.
+
+20
+00:00:39,861 --> 00:00:41,479
+Want your shop to look open online?
+
+21
+00:00:41,509 --> 00:00:43,959
+Comment MAPS or send us a DM.
+
