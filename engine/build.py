@@ -276,7 +276,7 @@ def main():
     # 5) audio + mix
     events = json.load(open(out / "events.json"))
     AU.build_music(spec.get("music", "pulse"), duration, out / "music.wav")
-    AU.build_sfx(events if spec.get("sfx", True) else [], duration, out / "sfx.wav")
+    AU.build_sfx(events if spec.get("sfx", True) else [], duration, out / "sfx.wav", pack=spec.get("sfx_pack"))
     final = out / (spec.get("slug", "video") + ".mp4")
     AU.mix_final(str(out / "video_silent.mp4"), str(out / "voice.wav"), str(out / "music.wav"), str(out / "sfx.wav"), str(final),
                  music_db=spec.get("music_db", -21), sfx_db=spec.get("sfx_db", -9), lufs=spec.get("lufs", -14))

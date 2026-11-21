@@ -49,7 +49,8 @@
       "gap": 0.05,
       "pre": 0.04,
       "tail": 1.1,
-      "enter_delay": 0.06
+      "enter_delay": 0.06,
+      "sfx_pack": "earshot"
     },
     "clean": {
       "theme": {

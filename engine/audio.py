@@ -6,6 +6,7 @@ Presets:  pulse  - minimal electronic pulse (news/explainer, sits far under the 
           none   - voice only
 """
 import json, subprocess, wave
+import pathlib
 import numpy as np
 
 SR = 44100
@@ -81,14 +82,33 @@ def sfx(kind):
     return np.zeros(1)
 
 
-def build_sfx(events, dur, out, gain=1.0):
+BANK = pathlib.Path(__file__).parent / "sfx_bank"
+
+
+def _bank(pack, kind, ref):
+    """Recorded/rendered takes for one cue kind from engine/sfx_bank/<pack>/<kind>_N.wav (made with earshot, see
+    sfx_bank/README.md), resampled to SR and matched to the RMS of the synthesized cue so the mix balance holds."""
+    import soundfile as sf
+    takes = []
+    for f in sorted((BANK / pack).glob(f"{kind}_*.wav")):
+        x, sr = sf.read(f, always_2d=True); x = x.mean(axis=1)
+        if sr != SR:
+            x = np.interp(np.arange(int(len(x) * SR / sr)) * sr / SR, np.arange(len(x)), x)
+        rms = np.sqrt(np.mean(x ** 2)) or 1.0
+        takes.append(x * (np.sqrt(np.mean(ref ** 2)) / rms))
+    return takes
+
+
+def build_sfx(events, dur, out, gain=1.0, pack=None):
     track = np.zeros(int(SR * dur) + SR)
-    cache = {}
+    cache, uses = {}, {}
     for e in events:
         k = e["sfx"]
         if k not in cache:
-            cache[k] = sfx(k)
-        s = cache[k]; i = int(e["t"] * SR)
+            ref = sfx(k)
+            cache[k] = (_bank(pack, k, ref) if pack else []) or [ref]
+        takes = cache[k]; s = takes[uses.get(k, 0) % len(takes)]; uses[k] = uses.get(k, 0) + 1
+        i = int(e["t"] * SR)
         if i < 0 or i >= len(track):
             continue
         j = min(len(track), i + len(s))
