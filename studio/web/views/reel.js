@@ -1,5 +1,6 @@
 // Reel detail drawer (all metadata, editable fields, player, contact sheet) and the publish confirm dialog.
-import { h, api, post, drawer, closeDrawer, modal, toast, pill, button, busy, HEAD, brandOf, fmtWhen, jobToast, loadReels, ApiError } from "../app.js";
+import { h, api, post, drawer, modal, toast, pill, button, busy, brandOf, fmtWhen, jobToast, loadReels, ApiError, icon } from "../app.js";
+import { publishButton, canPublish, scheduleDialog, archiveReel, holdReel } from "./publish.js";
 
 const EDIT = [
   ["Category / Topic", "input"], ["Scheduled Time (IST)", "input"], ["Instagram Status", "status"], ["YouTube Status", "status"],
@@ -34,18 +35,18 @@ function render(d, data, onChange) {
   }));
   const save = button("Save to Sheet", () => busy(save, () => saveEdits(r, changed, d, onChange)), "primary", { disabled: true });
 
-  const igReady = r["Instagram Status"] === "Ready", ytReady = r["YouTube Status"] === "Ready";
-  const igBtn = button("Publish to Instagram now", () => publishDialog(r, "instagram", onChange), igReady ? "primary" : "",
-    { disabled: !igReady, title: igReady ? "" : `Instagram Status is ${r["Instagram Status"] || "empty"}; only Ready rows are posted` });
-  const ytBtn = b.youtube ? button("Upload to YouTube now", () => publishDialog(r, "youtube", onChange), "", { disabled: !ytReady }) : null;
-  const hold = r["Instagram Status"] === "Hold" || r["YouTube Status"] === "Hold";
-  const canHold = hold || igReady || ytReady;
-  const holdBtn = !canHold ? null : button(hold ? "Unhold" : "Hold", () => busy(holdBtn, async () => {
-    const res = await post(`/api/reels/${r["Video ID"]}/hold`, { hold: !hold }, { allow: [202, 409] });
-    if (res.status === "conflict") return conflictDialog(r, res.conflicts, d, onChange);
-    toast(res.status === "pending" ? "Sheet write failed; queued for the next sync" : (hold ? "Back to Ready" : "Held"), res.status === "pending" ? "error" : "ok");
-    await refresh(r["Video ID"], d, onChange);
-  }));
+  const refreshMe = () => refresh(r["Video ID"], d, onChange);
+  const igBtn = canPublish(r, "instagram") ? publishButton(r, "instagram", { onDone: refreshMe }) : null;
+  const ytBtn = canPublish(r, "youtube") ? publishButton(r, "youtube", { onDone: refreshMe }) : null;
+  const archived = r.folder === "archive";
+  const published = (r["Instagram Status"] || "").startsWith("Published");
+  const hold = (r["Instagram Status"] || "").startsWith("Hold") || r["YouTube Status"] === "Hold";
+  const canHold = r["Instagram Status"] === "Hold" || r["YouTube Status"] === "Hold" || r["Instagram Status"] === "Ready" || r["YouTube Status"] === "Ready";
+  const holdBtn = !canHold ? null : button(hold ? "Unhold" : "Hold", (e) => busy(e.target, () => holdReel(r, !hold, refreshMe)), "ghost sm");
+  const schedBtn = published || archived && r["Instagram Post URL"] ? null
+    : button([icon("clock"), "Schedule…"], () => scheduleDialog(r, refreshMe), "sm");
+  const archBtn = button([icon("archive"), archived ? "Unarchive" : "Archive"], (e) => busy(e.target, () => archiveReel(r, !archived, refreshMe)), "ghost sm",
+    { title: archived ? "Put back the status it had before" : "Hide it from the queue; nothing is deleted and cron never posts it" });
 
   const links = [
     r["Instagram Post URL"] && h("a", { href: r["Instagram Post URL"], target: "_blank", rel: "noopener" }, "Instagram post ↗"),
@@ -67,7 +68,7 @@ function render(d, data, onChange) {
     h("div.detail", {},
       h("div", {},
         media ? h("video", { src: media, controls: true, preload: "metadata", playsInline: true, poster: `/thumb/${r["Video ID"]}.jpg` }) : h("img.poster", { src: `/thumb/${r["Video ID"]}.jpg`, alt: "" }),
-        h("div.actions", {}, igBtn, ytBtn, holdBtn, button("Dry run (what would post)", () => dryRun(r, "instagram"), "ghost sm"),
+        h("div.actions", {}, igBtn, ytBtn, schedBtn, holdBtn, archBtn, button("Dry run (what would post)", () => dryRun(r, "instagram"), "ghost sm"),
           r.spec_path ? button("Render or stills…", () => import("./jobs.js").then((m) => m.newJob({ kind: "rerender", spec: r.spec_path, lang: (r["Video ID"].match(/-([A-Z]{2})$/) || [])[1]?.toLowerCase() || "" })), "ghost sm") : null),
         h("div.row", { style: { marginTop: "10px" } }, links.map((a) => [a, " "]))),
       h("div", {},
@@ -146,33 +147,4 @@ async function dryRun(r, platform) {
   if (res._status === 409) return toast(res.error, "error", 7000);
   jobToast(res.job, "Dry run");
   location.hash = `#/jobs/${res.job}`;
-}
-
-export async function publishDialog(r, platform, onChange) {
-  let p;
-  try { p = await api(`/api/publish/preview?id=${encodeURIComponent(r["Video ID"])}&platform=${platform}`); } catch (e) { return toast(e.message, "error"); }
-  const sure = h("input", { type: "checkbox" });
-  const over = h("input", { type: "checkbox" });
-  const go = button(`Publish to ${platform === "instagram" ? "Instagram" : "YouTube"}`, () => busy(go, async () => {
-    const res = await post("/api/publish", { id: r["Video ID"], platform, confirm: true, override_cap: over.checked }, { allow: [409] });
-    if (res._status === 409) return toast(res.error, "error", 8000);
-    dlg.close(); closeDrawer();
-    jobToast(res.job, `Publish ${r["Video ID"]}`, () => { loadReels(true).then(() => onChange && onChange()); });
-    location.hash = `#/jobs/${res.job}`;
-  }), "danger", { disabled: true });
-  const update = () => { go.disabled = !(sure.checked && (!p.over_cap || over.checked) && !p.problems.length && !p.lock_busy); };
-  sure.addEventListener("change", update); over.addEventListener("change", update);
-  const dlg = modal(`Publish ${r["Video ID"]} now`, [
-    p.problems.length ? h("div.banner.bad", {}, h("div", {}, p.problems.map((x) => h("div", {}, x)))) : null,
-    p.lock_busy ? h("div.banner.warn", {}, "The scheduler (cron) is running right now. Wait a minute and try again.") : null,
-    h("dl.kv", {},
-      h("dt", {}, "Account"), h("dd", {}, h("b", {}, p.handle), ` · ${p.brand}`),
-      h("dt", {}, "Status"), h("dd", {}, pill(p.status)),
-      p.cap != null || p.posted_today != null ? [h("dt", {}, "Today"), h("dd", {}, `${p.posted_today ?? 0} posted` + (p.cap ? ` of a daily cap of ${p.cap}` : " (no daily cap)"))] : null,
-      p.title ? [h("dt", {}, "Title"), h("dd", {}, p.title)] : null),
-    h("div", {}, h("div.small.muted", {}, platform === "instagram" ? "Caption preview" : "Description preview"), h("div.preview", {}, p.caption || "—")),
-    h("p.small.muted", {}, "This goes through the same scheduler code as cron: the row is marked Publishing first, then Published or Failed. Only this reel and platform are touched."),
-    h("label.check", {}, sure, h("span", {}, `Post this reel publicly on ${p.handle} now.`)),
-    p.over_cap ? h("label.check", {}, over, h("span", {}, `Post anyway: the daily cap of ${p.cap} is already reached.`)) : null,
-  ], [button("Cancel", () => dlg.close()), go]);
 }

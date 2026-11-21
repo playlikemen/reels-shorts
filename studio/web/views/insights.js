@@ -4,6 +4,7 @@ import { h, api, post, state, button, busy, jobToast, brandDot, short, ago } fro
 const ui = { brand: "" };
 
 export async function render(root) {
+  ui.brand = state.channel;
   const body = h("div");
   const brand = h("select", { onchange: (e) => { ui.brand = e.target.value; load(); } }, h("option", { value: "" }, "All brands"),
     state.brands.map((b) => h("option", { value: b.key, selected: ui.brand === b.key }, b.name)));

@@ -6,7 +6,7 @@ const COLS = [["ready", "Ready"], ["hold", "Hold"], ["published", "Published"], 
 
 export async function render(root) {
   await loadReels(true);
-  const brand = h("select", { onchange: () => draw() }, h("option", { value: "" }, "All brands"), state.brands.map((b) => h("option", { value: b.key }, b.name)));
+  const brand = h("select", { onchange: () => draw() }, h("option", { value: "" }, "All brands"), state.brands.map((b) => h("option", { value: b.key, selected: state.channel === b.key }, b.name)));
   const body = h("div.board");
   root.append(h("header.page", {}, h("h1", {}, "Board"), brand, h("div.sub", {}, "By Instagram status. Rows in Publishing or other states are in the Library.")), body);
   const draw = () => {

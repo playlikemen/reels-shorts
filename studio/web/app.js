@@ -1,6 +1,6 @@
 // Reels Studio: shell, router and shared helpers. Views live in /static/views/*.js and export render(root, ctx).
 
-export const state = { csrf: null, brands: [], reels: null, user: null };
+export const state = { csrf: null, brands: [], reels: null, user: null, channel: "" };
 
 // Views pass optional parts as `cond ? el : null`; let append/replaceChildren skip those instead of printing "null".
 for (const m of ["append", "replaceChildren", "prepend"]) {
@@ -64,7 +64,8 @@ export function statusKind(s) {
   if (s.startsWith("published")) return "published";
   if (s.startsWith("failed") || s.startsWith("manual")) return "failed";
   if (s === "publishing") return "busy";
-  if (s === "hold") return "hold";
+  if (s.startsWith("hold")) return "hold";
+  if (s === "archived") return "archived";
   return "muted";
 }
 export function pill(s, label) {
@@ -174,6 +175,50 @@ export async function loadReels(force = false) {
   return state.reels;
 }
 
+// ---------- channel switcher (one pill per brand; filters every page; kept in the URL as ?ch= and in localStorage) ----------
+export function hashParts() {
+  const raw = (location.hash || "#/library").slice(1);
+  const [path, query = ""] = raw.split("?");
+  return { parts: path.split("/").filter(Boolean), query: new URLSearchParams(query) };
+}
+export function setChannel(key) {
+  state.channel = state.brands.some((b) => b.key === key) ? key : "";
+  try { localStorage.setItem("rs-ch", state.channel); } catch { /* private mode */ }
+  const { parts, query } = hashParts();
+  if (state.channel) query.set("ch", state.channel); else query.delete("ch");
+  const q = query.toString();
+  const next = `#/${(parts.length ? parts : ["library"]).join("/")}${q ? "?" + q : ""}`;
+  if (location.hash !== next) location.hash = next; else route();
+}
+export function hrefWithCh(path) { return state.channel ? `${path}?ch=${state.channel}` : path; }
+function revealActiveChip() {
+  const on = document.querySelector("#chbar .chip.on"), row = document.querySelector("#chbar .chips");
+  if (on && row) row.scrollLeft = Math.max(0, on.offsetLeft - row.offsetLeft - 24);
+}
+export async function reloadBrands() { state.brands = (await api("/api/brands")).brands; drawChannels(); }
+
+function avatar(b) { return h("span.avatar", { dataset: { brand: b.key }, "aria-hidden": "true" }, (b.name || "?").slice(0, 1)); }
+
+export function drawChannels() {
+  const bar = $("#chbar");
+  if (!bar) return;
+  const cur = state.brands.find((b) => b.key === state.channel);
+  const off = state.brands.filter((b) => b.auto_publish === false && (!cur || cur.key === b.key));
+  const pills = [h("button.chip", { type: "button", class: !state.channel ? "on" : "", "aria-pressed": String(!state.channel), title: "All channels (0)", onclick: () => setChannel("") }, "All")]
+    .concat(state.brands.map((b, i) => h("button.chip", {
+      type: "button", class: state.channel === b.key ? "on" : "", "aria-pressed": String(state.channel === b.key),
+      title: `${b.name} ${b.instagram} (${i + 1}) · auto-publish ${b.auto_publish === false ? "off" : "on"}`, onclick: () => setChannel(b.key),
+    }, avatar(b), h("span.handle", {}, b.instagram || b.name), h("span.apdot", { class: b.auto_publish === false ? "off" : "", "aria-label": b.auto_publish === false ? "auto-publish off" : "auto-publish on" }))));
+  bar.replaceChildren(
+    h("div.chips", { role: "toolbar", "aria-label": "Channel" }, pills),
+    h("div.chtools", {},
+      off.map((b) => h("a.chip.bad", { href: "#/settings", title: "Cron posts nothing for this channel until it is switched on" }, `Auto-publish OFF${cur ? "" : ` · ${b.name}`}`)),
+      cur ? [cur.instagram_url && h("a.btn.ghost.sm", { href: cur.instagram_url, target: "_blank", rel: "noopener" }, "Instagram ↗"),
+        cur.youtube_url && h("a.btn.ghost.sm", { href: cur.youtube_url, target: "_blank", rel: "noopener" }, "YouTube ↗"),
+        h("a.btn.ghost.sm", { href: "#/settings", title: "Channel settings", "aria-label": "Channel settings" }, icon("gear"))] : null));
+  requestAnimationFrame(revealActiveChip);
+}
+
 // ---------- shell and router ----------
 const NAV = [
   ["library", "Library", "grid"], ["calendar", "Calendar", "cal"], ["board", "Board", "board"], ["jobs", "Jobs", "play"],
@@ -193,7 +238,7 @@ function shell() {
   const tabs = h("nav.tabs", { "aria-label": "Main (mobile)" },
     MOBILE.map((k) => { const n = NAV.find((x) => x[0] === k); return h("a", { href: `#/${k}`, dataset: { view: k } }, icon(n[2]), h("span", {}, n[1])); }),
     h("a", { href: "#/more", dataset: { view: "more" } }, icon("dots"), h("span", {}, "More")));
-  document.body.append(nav, h("main#view", { tabindex: "-1" }), tabs, h("div#toasts", { "aria-live": "polite" }));
+  document.body.append(nav, h("div#chbar"), h("main#view", { tabindex: "-1" }), tabs, h("div#toasts", { "aria-live": "polite" }));
 }
 
 function toggleTheme() {
@@ -206,7 +251,14 @@ async function logout() { await post("/api/logout"); location.href = "/login"; }
 
 const cache = {};
 async function route() {
-  const [, view = "library", ...rest] = (location.hash || "#/library").split("/");
+  const { parts, query } = hashParts();
+  const [view = "library", ...rest] = parts;
+  const ch = query.get("ch");
+  if (ch !== null && ch !== state.channel && state.brands.some((b) => b.key === ch)) {
+    state.channel = ch;
+    try { localStorage.setItem("rs-ch", ch); } catch { /* */ }
+  }
+  drawChannels();
   document.querySelectorAll("[data-view]").forEach((a) => a.classList.toggle("on", a.dataset.view === view));
   closeDrawer();
   const root = clear($("#view"));
@@ -214,7 +266,7 @@ async function route() {
   const known = NAV.some((n) => n[0] === view);
   try {
     const mod = cache[view] || (cache[view] = await import(`/static/views/${known ? view : "library"}.js`));
-    await mod.render(root, { params: rest.map(decodeURIComponent) });
+    await mod.render(root, { params: rest.map(decodeURIComponent), query, channel: state.channel });
   } catch (e) {
     console.error(e);
     root.append(h("div.empty", {}, h("h2", {}, "Something went wrong"), h("p", {}, e.message)));
@@ -235,9 +287,16 @@ async function boot() {
   const s = await api("/api/session");
   state.csrf = s.csrf; state.user = s.user;
   state.brands = (await api("/api/brands")).brands;
+  try { const c = localStorage.getItem("rs-ch"); if (c && state.brands.some((b) => b.key === c)) state.channel = c; } catch { /* */ }
   shell();
   addEventListener("hashchange", route);
-  addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
+  addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeDrawer();
+    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) || e.target.isContentEditable;
+    if (typing || e.ctrlKey || e.metaKey || e.altKey || document.querySelector("dialog[open]")) return;
+    if (e.key === "0") setChannel("");
+    else if (/^[1-9]$/.test(e.key) && state.brands[+e.key - 1]) setChannel(state.brands[+e.key - 1].key);
+  });
   route();
 }
 boot();

@@ -8,6 +8,7 @@ const iso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0
 const parse = (s) => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
 
 export async function render(root) {
+  ui.brand = state.channel;
   ui.anchor = ui.anchor || istNow().slice(0, 10);
   const data = await loadReels(true);
   const body = h("div");

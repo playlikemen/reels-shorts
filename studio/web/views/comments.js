@@ -5,7 +5,7 @@ import { h, api, post, state, button, busy, toast, ago, short } from "../app.js"
 const ui = { brand: "" };
 
 export async function render(root) {
-  ui.brand = ui.brand || state.brands[0]?.key || "";
+  ui.brand = state.channel || ui.brand || state.brands[0]?.key || "";
   const body = h("div");
   const brand = h("select", { onchange: (e) => { ui.brand = e.target.value; load(); } }, state.brands.map((b) => h("option", { value: b.key, selected: ui.brand === b.key }, `${b.name} ${b.instagram}`)));
   const refresh = button("Refresh from Instagram", (e) => busy(e.target, async () => {
