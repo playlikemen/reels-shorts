@@ -25,7 +25,8 @@ engine/                  Kinetic Video Engine: build.py, tts.py, audio.py, rende
 brands/<brand>/          brand.json (accounts, voice, colours, slots) and brand.md (voice and topic rules)
 specs/<brand>/<ID>.json  one spec per video; specs/examples/ are the engine's own examples
 out/<brand>/<ID>/        render output: <id>.mp4, thumb.jpg, captions.srt, contact.jpg (intermediates are git-ignored)
-ops/                     make.py, scheduler.py, sheet.py, drive.py, publish_*.py, composio.py, config.py, install_cron.sh
+ops/                     make.py, scheduler.py, sheet.py, drive.py, publish_*.py, composio.py, config.py, install_cron.sh, studio_service.sh
+studio/                  Reels Studio web dashboard (see studio/README.md)
 skills/                  76 skills; skills/INDEX.md lists them with sources and licenses
 ```
 
@@ -60,6 +61,15 @@ Status values: `Ready` (will be posted when due), `Publishing`, `Published`, `Fa
 - Each row is marked `Publishing` before the API call, so a crash cannot double-post.
 - YouTube canary: YouTube deleted earlier Composio uploads to StackShade (October 2026). The first upload is checked again after 30 minutes. Until it passes, no other video is uploaded. If it is gone, waiting rows become `Manual upload needed` and the title, tags and description in the sheet are used for a manual upload. State file: `~/.local/state/reels-shorts/youtube_canary.json`.
 - Logs: `~/.local/state/reels-shorts/scheduler.log` and `publish-log.jsonl`.
+
+## Reels Studio (web dashboard)
+
+`studio/` is a password-protected website over this repo: http://127.0.0.1:4820 on this host, https://studio.campusloop.space from anywhere (own Cloudflare tunnel). It shows every row of every tab with its player, and has publish buttons, a calendar, a board, jobs, the CraftLayer script studio, insights, a comments inbox, health, sound and the FilmCraft editor. Details: `studio/README.md`.
+
+- Run: `bash ops/studio_service.sh start|stop|status|logs`. Its local copy of the Sheet is `~/.local/state/reels-shorts/studio.db`; nightly snapshots go to `~/.local/state/reels-shorts/backup/YYYY-MM-DD/`.
+- Agents can drive it through its JSON API with `Authorization: Bearer <token>` (create one with `python3.11 -m studio token <name>`): `GET /api/reels`, `PATCH /api/reels/<ID>` (writes the Sheet, answers 409 on a conflict), `POST /api/jobs` (render, sync, generate, insights), `POST /api/publish {id, platform, confirm: true}`.
+- The publish button runs `ops/scheduler.run` under the scheduler's lock for one row, so it can never double-post with cron. Never call `/api/publish` unless the owner asked for that reel to go out now.
+- Editing in the Sheet directly still works; the studio pulls every 5 minutes and flags rows that disappear instead of deleting them.
 
 ## Rules
 

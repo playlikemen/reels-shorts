@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Reels Studio · Log in</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/style.css">
+  <script type="module" src="/static/login.js"></script>
+</head>
+<body>
+  <div class="login">
+    <form class="card" id="login" autocomplete="on">
+      <div class="logo"><span class="mark">R</span><span>Reels Studio</span></div>
+      <p class="muted" style="margin:0">Every reel, every channel, one place. Sign in to continue.</p>
+      <input type="text" name="username" value="owner" autocomplete="username" hidden>
+      <label class="field">Password
+        <input type="password" name="password" id="pw" autocomplete="current-password" required autofocus>
+      </label>
+      <div class="error" id="err" role="alert"></div>
+      <button class="btn primary" type="submit" id="go">Log in</button>
+    </form>
+  </div>
+</body>
+</html>

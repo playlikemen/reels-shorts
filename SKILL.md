@@ -77,6 +77,10 @@ Uploads the MP4 to a new Drive folder, then writes the sheet row with status `Re
 
 Commit the spec and `out/<brand>/<ID>/` (MP4, thumb, captions, contact sheet). Report the Video ID, schedule time, Drive link and the YouTube title, description and tags.
 
+## Reels Studio
+
+Everything above can also be done in the web dashboard (`studio/README.md`): the Library shows each reel's row, player, stills and contact sheet; Jobs runs `make.py` (stills, render, sync) and `gen_reels.py` with a live log; the Calendar reschedules by drag; Publish posts one reel now through the scheduler. Agents use the same JSON API with a bearer token, for example `curl -H "Authorization: Bearer $TOKEN" http://127.0.0.1:4820/api/reels?brand=craftlayer`. Step 5 (looking at the stills) still applies: open them in the reel's drawer or in `out/`.
+
 ## Bilingual specs (Hindi + English)
 
 Add `"langs": {"hi": {}, "en": {}}`. Any value can then be `{"hi": ..., "en": ...}` (say, titles, captions, schedule). For Hindi, `say` is Devanagari with English product words in Latin script, and `show` is the same sentence in Roman Hinglish with exactly the same number of words; captions show `show`, timed to the Hindi audio. Mark accent words with `*stars*`. Cue visuals with `"at": "40%"` of the scene's voice so both languages line up. Build each with `--lang hi` / `--lang en`; the brand's `voices` picks the voice per language.
