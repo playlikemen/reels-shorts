@@ -11,6 +11,9 @@ Rules
 - YouTube canary: YouTube has deleted Composio uploads to StackShade before. The first upload is checked again after
   30 minutes. Until that check passes no other video is uploaded. If the video is gone, every waiting row is set to
   "Manual upload needed" and YouTube uploads stop (delete the canary state file to try again).
+- Auto-publish switch (Studio > Settings > Channels, stored in channels.json): a brand whose auto-publish is off is
+  skipped, and one whose YouTube auto-upload is off gets no YouTube uploads; ids in --now (force) still go out.
+- After an Instagram post the reel's Drive folder is moved into Published/ (best effort: a failure is only printed).
 """
 import argparse, datetime, fcntl, json, os, sys
 from zoneinfo import ZoneInfo
@@ -61,17 +64,36 @@ def canary_state():
     return json.load(open(CANARY)) if CANARY.exists() else {"state": "none"}
 
 
+def file_published(folder_link):
+    """Move a posted reel's Drive folder into Published/. Never raises: posting must not depend on Drive."""
+    if not folder_link:
+        return
+    try:
+        import drive
+        drive.move(folder_link, "Published")
+        print(f"Drive folder moved to Published/: {folder_link}")
+    except Exception as e:
+        print(f"Drive folder not moved to Published/ ({str(e)[:160]}); the post itself is fine")
+
+
 def run(publish, force=()):
-    """force: video ids to post now, ignoring their scheduled time and the daily cap (an owner's explicit request)."""
+    """force: video ids to post now, ignoring their scheduled time, the daily cap and the auto-publish switch
+    (an owner's explicit request)."""
     import sheet, publish_instagram, publish_youtube
     for b in K.brands():
         tab = b["sheet_tab"]
+        auto = b.get("auto_publish", True)
+        if not auto and not force:
+            print(f"{b['name']}: auto-publish is off; skipping (Publish now in the studio still works)")
+            continue
         # A backlog must never flood the feed: brands may cap Instagram posts per day.
         cap = b.get("max_reels_per_day")
         sent = posted_today(b["id_prefix"]) if cap else 0
         for row in sorted(sheet.rows(tab), key=lambda r: r["Scheduled Time (IST)"]):
             vid, n = row["Video ID"], row["_row"]
             mp4 = K.ROOT / row["Local Path"]
+            if not auto and vid not in force:
+                continue
             is_due = due(row) or vid in force
 
             if row["Instagram Status"] == "Ready" and is_due and cap and sent >= cap and vid not in force:
@@ -90,11 +112,15 @@ def run(publish, force=()):
                         r = publish_instagram.publish(b["key"], mp4, caption)
                         sheet.set_cells(tab, n, {"Instagram Status": "Published", "Instagram Post URL": r["permalink"]})
                         log(video=vid, platform="instagram", status="published", **r)
+                        file_published(row.get("Google Drive Folder", ""))
                     except Exception as e:
                         sheet.set_cells(tab, n, {"Instagram Status": f"Failed: {str(e)[:120]}"})
                         log(video=vid, platform="instagram", status="failed", error=str(e)[:400])
 
             if not b.get("youtube") or row["YouTube Status"] != "Ready" or not is_due:
+                continue
+            if not b.get("youtube_auto", True) and vid not in force:
+                print(f"{vid}: YouTube auto-upload is off for {b['name']}; not uploaded")
                 continue
             c = canary_state()
             if c["state"] == "pending":

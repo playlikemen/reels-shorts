@@ -11,6 +11,7 @@ from starlette.requests import Request
 from starlette.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, Response
 from starlette.routing import Mount, Route
 from starlette.staticfiles import StaticFiles
+from starlette.middleware.body_limit import RequestBodyLimitMiddleware
 from sse_starlette import EventSourceResponse
 
 from . import ROOT, WEB, FILMCRAFT, CACHE, STATE, SFX_BANK
@@ -19,6 +20,7 @@ from . import jobs as J
 from . import store as S
 from . import sync as Y
 from . import tasks as T
+from . import publish_job as PJ
 import config as K
 import scheduler
 
@@ -54,9 +56,16 @@ def is_https(req):
 
 # ---------- auth guard (pure ASGI, so SSE and file streaming are untouched) ----------
 
+BODY_LIMIT = 4 * 1024 * 1024
+UPLOAD_LIMIT = 1024 ** 3                     # 1 GB video
+UPLOAD_PATH = "/api/upload"
+
+
 class Guard:
     def __init__(self, app):
-        self.app = app
+        # one body limit for every route, a larger one only for the upload route
+        self.app = RequestBodyLimitMiddleware(app, max_body_size=BODY_LIMIT)
+        self.upload_app = RequestBodyLimitMiddleware(app, max_body_size=UPLOAD_LIMIT + 1024 * 1024)
 
     async def __call__(self, scope, receive, send):
         if scope["type"] != "http":
@@ -99,7 +108,7 @@ class Guard:
                     h.append((b"cache-control", b"no-store"))
             await send(msg)
 
-        await self.app(scope, receive, send_wrapped)
+        await (self.upload_app if path == UPLOAD_PATH else self.app)(scope, receive, send_wrapped)
 
 
 class _State:
@@ -202,9 +211,14 @@ def brand_info():
     out = []
     for b in K.brands():
         packs = {s: v.get("sfx_pack", "") for s, v in b.get("styles", {}).items()}
+        ig, yt = b["instagram"]["handle"], (b.get("youtube") or {}).get("handle", "")
         out.append({"key": b["key"], "name": b["name"], "prefix": b["id_prefix"], "tab": b["sheet_tab"],
-                    "instagram": b["instagram"]["handle"], "youtube": (b.get("youtube") or {}).get("handle", ""),
+                    "instagram": ig, "youtube": yt,
+                    "instagram_url": f"https://www.instagram.com/{ig.lstrip('@')}/" if ig else "",
+                    "youtube_url": f"https://www.youtube.com/{yt if yt.startswith('@') else '@' + yt}" if yt else "",
                     "cap": b.get("max_reels_per_day"), "slots": b.get("slots_ist", []), "sfx_packs": packs,
+                    "auto_publish": b.get("auto_publish", True), "youtube_auto": b.get("youtube_auto", True),
+                    "hashtags": b.get("hashtags", []), "cta": b.get("cta", ""),
                     "insights_tab": b.get("insights_tab", ""), "posted_today": scheduler.posted_today(b["id_prefix"])})
     return out
 
@@ -216,6 +230,15 @@ async def api_brands(req):
 async def api_reels(req):
     q = req.query_params
     reels = S.list_reels()
+    now = Y.ist_now()
+    counts = {}
+    for r in reels:
+        r["folder"] = Y.folder_of(r, now)
+        c = counts.setdefault(r["brand"], {f: 0 for f in Y.FOLDERS + ["all"]})
+        c[r["folder"]] += 1
+        c["all"] += 1
+    if q.get("folder"):
+        reels = [r for r in reels if r["folder"] == q["folder"] or q["folder"] == "all"]
     if q.get("brand"):
         reels = [r for r in reels if r["brand"] == q["brand"]]
     if q.get("status"):
@@ -224,8 +247,8 @@ async def api_reels(req):
     if q.get("q"):
         words = q["q"].lower().split()
         reels = [r for r in reels if all(w in json.dumps({h: r[h] for h in K.HEADERS}, ensure_ascii=False).lower() for w in words)]
-    return JSONResponse({"reels": reels, "count": len(reels), "last_pull": S.get_setting("last_pull"),
-                         "unsynced": await run_in_threadpool(Y.unsynced_renders)})
+    return JSONResponse({"reels": reels, "count": len(reels), "last_pull": S.get_setting("last_pull"), "counts": counts,
+                         "now": now, "unsynced": await run_in_threadpool(Y.unsynced_renders)})
 
 
 @route
@@ -234,6 +257,7 @@ async def api_reel(req):
     r = S.get_reel(vid)
     if not r:
         raise ApiError(f"no reel {vid}", 404)
+    r["folder"] = Y.folder_of(r)
     db = S.connect()
     log = [json.loads(x["data"]) for x in db.execute("SELECT data FROM publish_log WHERE video=? ORDER BY at", (vid,))]
     ins = [dict(x) for x in db.execute("SELECT * FROM insights WHERE video_id=? OR (permalink<>'' AND permalink=?) ORDER BY fetched_at",
@@ -291,7 +315,128 @@ async def api_hold(req):
     if not f:
         raise ApiError("nothing to change: hold works on Ready rows, unhold on Hold rows", 409)
     res = await run_in_threadpool(Y.edit, vid, f, None, False, who(req), client_ip(req))
-    return JSONResponse(res, status_code={"ok": 200, "unchanged": 200, "pending": 202, "conflict": 409}[res["status"]])
+    return JSONResponse(res, status_code=edit_code(res))
+
+
+def edit_code(res):
+    return {"ok": 200, "unchanged": 200, "pending": 202, "conflict": 409}[res["status"]]
+
+
+@route
+async def api_archive(req):
+    """{archive: true} archives (both statuses -> Archived, Drive folder -> Archive/); {archive: false} restores."""
+    vid = req.path_params["vid"]
+    data = await body(req)
+    fn = Y.archive if data.get("archive", True) is not False else Y.unarchive
+    res = await run_in_threadpool(fn, vid, who(req), client_ip(req))
+    return JSONResponse(res, status_code=edit_code(res))
+
+
+@route
+async def api_schedule(req):
+    """{when: 'YYYY-MM-DD HH:MM' | 'next', auto: true} -> Ready at that time (cron posts it); auto false -> Hold."""
+    vid = req.path_params["vid"]
+    data = await body(req)
+    r = S.get_reel(vid)
+    if not r:
+        raise ApiError(f"no reel {vid}", 404)
+    when = str(data.get("when", ""))
+    if when == "next":
+        when = await run_in_threadpool(Y.next_free_slot, r["brand"], None, (vid,))
+    res = await run_in_threadpool(Y.schedule, vid, when, data.get("auto", True) is not False, who(req), client_ip(req))
+    res["when"] = when
+    return JSONResponse(res, status_code=edit_code(res))
+
+
+@route
+async def api_next_slot(req):
+    q = req.query_params
+    k = _brand_key(q.get("brand", ""))
+    after = q.get("after") or None
+    if after and not Y.TIME_RE.match(after):
+        raise ApiError("after must be YYYY-MM-DD HH:MM")
+    exclude = tuple(x for x in q.get("exclude", "").split(",") if x)
+    n = max(1, min(30, int(q.get("n") or 1)))
+    out, taken = [], []
+    for _ in range(n):
+        t = await run_in_threadpool(Y.next_free_slot, k, after, exclude, tuple(taken))
+        out.append(t); taken.append(t)
+    _, slots, cap = Y.brand_slots(k)
+    return JSONResponse({"brand": k, "next": out[0], "slots": out, "times": slots, "cap": cap})
+
+
+async def api_channels(req):
+    return JSONResponse({"channels": await run_in_threadpool(brand_info), "stored": K.channels()})
+
+
+@route
+async def api_channels_save(req):
+    data = await body(req)
+    k = _brand_key(data.get("brand", ""))
+    values = {x: data[x] for x in K.CHANNEL_KEYS if x in data}
+    if not values:
+        raise ApiError("send auto_publish, youtube_auto, slots or cap")
+    try:
+        before, after = K.save_channel(k, values)
+    except ValueError as e:
+        raise ApiError(str(e))
+    S.audit("channel settings", k, before, after, who(req), client_ip(req))
+    return JSONResponse({"ok": True, "brand": k, "settings": after, "channels": await run_in_threadpool(brand_info)})
+
+
+@route
+async def api_upload(req):
+    """multipart: file (MP4/MOV up to 1 GB) + the form fields of studio/upload.py. Queues an upload job."""
+    from . import upload as U
+    try:
+        length = int(req.headers.get("content-length") or 0)
+    except ValueError:
+        length = 0
+    if length > UPLOAD_LIMIT + 1024 * 1024:
+        raise ApiError("the file is over 1 GB", 413)
+    try:
+        form = await req.form(max_files=1, max_fields=20, max_part_size=64 * 1024)
+    except Exception as e:
+        raise ApiError(f"could not read the upload: {str(e)[:200]}", 413 if "large" in str(e).lower() else 400)
+    try:
+        f = form.get("file")
+        if f is None or not hasattr(f, "read"):
+            raise ApiError("attach a video file (MP4 or MOV)")
+        ext = os.path.splitext(f.filename or "")[1].lower()
+        if ext not in (".mp4", ".mov"):
+            raise ApiError("only MP4 or MOV files")
+        params = {k: str(form.get(k) or "") for k in ("brand", "lang", "topic", "caption", "hashtags", "yt_title", "yt_desc",
+                                                      "after", "when")}
+        if params["after"] == "now" and form.get("confirm") != "true":
+            raise ApiError("publishing right after the upload needs confirm=true")
+        try:
+            U.validate(params)
+        except U.UploadError as e:
+            raise ApiError(str(e))
+        d = STATE / "uploads"
+        d.mkdir(parents=True, exist_ok=True)
+        name = f"{secrets.token_hex(8)}{ext}"
+        dst = d / name
+        size = 0
+        with open(dst, "wb") as out:
+            while True:
+                chunk = await f.read(1024 * 1024)
+                if not chunk:
+                    break
+                size += len(chunk)
+                if size > UPLOAD_LIMIT:
+                    out.close(); dst.unlink()
+                    raise ApiError("the file is over 1 GB", 413)
+                out.write(chunk)
+        if size < 1024:
+            dst.unlink()
+            raise ApiError("the file is empty")
+    finally:
+        await form.close()
+    params.update(file=name, who=who(req))
+    jid = STATE_REF.queue.submit("upload", params, who(req))
+    S.audit("upload received", name, None, {k: params[k] for k in ("brand", "after", "when", "topic")} | {"bytes": size}, who(req), client_ip(req))
+    return JSONResponse({"job": jid, "file": name, "bytes": size}, status_code=202)
 
 
 @route
@@ -304,13 +449,39 @@ async def api_drop_pending(req):
 async def api_bulk(req):
     data = await body(req)
     ids = [i for i in data.get("ids") or [] if isinstance(i, str) and ID_RE.match(i)]
-    if not ids or data.get("action") not in ("hold", "ready", "schedule"):
-        raise ApiError("ids and action (hold, ready, schedule)")
+    actions = ("hold", "ready", "schedule", "archive", "unarchive", "fill", "swap", "publish")
+    if not ids or data.get("action") not in actions:
+        raise ApiError(f"ids and action ({', '.join(actions)})")
     if data["action"] == "schedule" and not Y.TIME_RE.match(data.get("start", "")):
         raise ApiError("start must be YYYY-MM-DD HH:MM")
-    params = {"ids": ids, "action": data["action"], "start": data.get("start", ""), "every_days": int(data.get("every_days") or 1)}
+    if data["action"] == "swap" and len(ids) != 2:
+        raise ApiError("swap needs exactly two reels")
+    if data["action"] == "publish":
+        return await bulk_publish(req, ids, data)
+    params = {"ids": ids, "action": data["action"], "start": data.get("start", ""), "every_days": int(data.get("every_days") or 1),
+              "auto": data.get("auto", True) is not False}
     jid = STATE_REF.queue.submit("bulk", params, who(req), argv=[J.PY, "-m", "studio.sync", "bulk", json.dumps(params), "--who", who(req)],
                                  title=f"Bulk {data['action']} {len(ids)} reels", target=",".join(ids)[:200])
+    return JSONResponse({"job": jid}, status_code=202)
+
+
+async def bulk_publish(req, ids, data):
+    """Publish several reels now, one after another in one job (one confirm for the batch)."""
+    platform = data.get("platform", "instagram")
+    if platform not in ("instagram", "youtube"):
+        raise ApiError("platform: instagram or youtube")
+    dry = bool(data.get("dry_run"))
+    if not dry and data.get("confirm") is not True:
+        raise ApiError("publishing needs confirm: true")
+    checks = [await run_in_threadpool(publish_checks, v, platform) for v in ids]
+    bad = {c["reel"]["Video ID"]: c["problems"][0] for c in checks if c["problems"]}
+    if bad:
+        raise ApiError("; ".join(f"{k}: {v}" for k, v in bad.items())[:600], 409, problems=bad)
+    if lock_busy():
+        raise ApiError("the scheduler is running right now; try again in a minute", 409, lock_busy=True)
+    jid = STATE_REF.queue.submit("publish", {"ids": ids, "platform": platform, "dry_run": dry}, who(req))
+    S.audit("bulk publish requested" if not dry else "bulk publish dry-run", ",".join(ids)[:200], None,
+            {"platform": platform, "job": jid}, who(req), client_ip(req))
     return JSONResponse({"job": jid}, status_code=202)
 
 
@@ -369,8 +540,8 @@ def publish_checks(vid, platform):
     mp4 = ROOT / r["Local Path"] if r["Local Path"] else None
     caption = (r["Instagram Viral Caption"].rstrip() + "\n\n" + r["Instagram Hashtags"]) if platform == "instagram" else r["YouTube Best SEO Description"]
     problems = []
-    if r[col] != "Ready":
-        problems.append(f"{col} is '{r[col]}'; only Ready rows are posted. Set it to Ready first.")
+    if not PJ.pushable(r[col]):
+        problems.append(f"{col} is '{r[col] or 'empty'}'; Published, Publishing, Archived and channel-less rows are never posted")
     if r["pending"]:
         problems.append("this row has edits waiting to reach the Sheet; sync first")
     if r["missing"]:
@@ -863,6 +1034,11 @@ def create_app():
         Route("/api/reels", api_reels), Route("/api/reels/bulk", api_bulk, methods=["POST"]),
         Route("/api/reels/{vid}", api_reel), Route("/api/reels/{vid}", api_edit, methods=["PATCH"]),
         Route("/api/reels/{vid}/hold", api_hold, methods=["POST"]),
+        Route("/api/reels/{vid}/archive", api_archive, methods=["POST"]),
+        Route("/api/reels/{vid}/schedule", api_schedule, methods=["POST"]),
+        Route("/api/slots/next", api_next_slot),
+        Route("/api/channels", api_channels), Route("/api/channels", api_channels_save, methods=["POST"]),
+        Route("/api/upload", api_upload, methods=["POST"]),
         Route("/api/reels/{vid}/pending/drop", api_drop_pending, methods=["POST"]),
         Route("/api/reels/{vid}/restore", api_restore, methods=["GET", "POST"]),
         Route("/api/snapshots", api_snapshots), Route("/api/unsynced", api_unsynced),
@@ -888,7 +1064,7 @@ def create_app():
         Route("/editor", editor_root), Route("/editor/", editor), Route("/editor/{path:path}", editor),
         Mount("/static", app=StaticFiles(directory=str(WEB)), name="static"),
     ]
-    app = Starlette(routes=routes, lifespan=lifespan, max_body_size=4 * 1024 * 1024)
+    app = Starlette(routes=routes, lifespan=lifespan)
     return Guard(app)
 
 

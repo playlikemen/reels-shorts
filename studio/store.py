@@ -20,7 +20,11 @@ COLS = {
     "Scheduled Time (IST)": "scheduled",
 }
 assert list(COLS) == K.HEADERS, "studio COLS must follow ops/config.py HEADERS"
-EXTRA = ["tab", "brand", "sheet_row", "spec_path", "thumb", "updated_at", "sheet_hash", "missing", "pending", "loaded_at"]
+EXTRA = ["tab", "brand", "sheet_row", "spec_path", "thumb", "updated_at", "sheet_hash", "missing", "pending", "loaded_at",
+         "prev_status"]
+JSON_EXTRA = {"pending", "prev_status"}   # stored as JSON text
+# columns added after the first release: (name, SQL type), added by connect() to older databases
+MIGRATIONS = [("prev_status", "TEXT DEFAULT '{}'")]
 
 SCHEMA = f"""
 CREATE TABLE IF NOT EXISTS reels (
@@ -67,6 +71,10 @@ def connect(path=None):
         c.execute("PRAGMA journal_mode=WAL")
         c.execute("PRAGMA busy_timeout=30000")
         c.executescript(SCHEMA)
+        have = {r["name"] for r in c.execute("PRAGMA table_info(reels)")}
+        for name, typ in MIGRATIONS:
+            if name not in have:
+                c.execute(f"ALTER TABLE reels ADD COLUMN {name} {typ}")
         cache[path] = c
     return cache[path]
 
@@ -90,6 +98,7 @@ def to_api(r):
     for e in EXTRA:
         d[e] = r[e]
     d["pending"] = json.loads(r["pending"] or "{}")
+    d["prev_status"] = json.loads(r["prev_status"] or "{}")
     d["missing"] = bool(r["missing"])
     return d
 
@@ -112,7 +121,7 @@ def save_reel(values, db=None, **extra):
     for k, v in extra.items():
         if k not in EXTRA:
             raise KeyError(k)
-        cols[k] = json.dumps(v) if k == "pending" else v
+        cols[k] = json.dumps(v) if k in JSON_EXTRA else v
     cols["updated_at"] = cols.get("updated_at") or now()
     cols["video_id"] = vid
     names = list(cols)

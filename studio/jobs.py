@@ -11,7 +11,7 @@ from . import store as S
 import config as K
 
 FINAL = {"done", "failed", "cancelled", "interrupted"}
-ID_RE = re.compile(r"^[A-Z]{2,4}-\d{2,4}(-[A-Z]{2})?$")
+ID_RE = re.compile(r"^[A-Z]{2,4}-U?\d{2,4}(-[A-Z]{2})?$")      # CR-110-EN, SS-101, uploads: CR-U001-EN
 TIMES_RE = re.compile(r"^\d+(\.\d+)?(,\d+(\.\d+)?){0,15}$")
 SCENES_RE = re.compile(r"^\d{1,2}(,\d{1,2}){0,20}$")
 TIME_RE = re.compile(r"^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$")
@@ -92,11 +92,20 @@ def build(kind, p):
             raise JobError("unknown brand")
         return [PY, "-m", "studio.tasks", "insights", b] + (["--sheet"] if p.get("sheet") else []), f"Fetch insights for {b}", b
     if kind == "publish":
-        vid, plat = p.get("id", ""), p.get("platform", "")
-        if not ID_RE.match(vid) or plat not in ("instagram", "youtube"):
-            raise JobError("publish needs a Video ID and platform instagram or youtube")
-        argv = [PY, "-m", "studio.publish_job", vid, "--platform", plat] + (["--dry-run"] if p.get("dry_run") else [])
-        return argv, f"{'Dry-run ' if p.get('dry_run') else ''}Publish {vid} to {plat}", vid
+        ids = p.get("ids") or [p.get("id", "")]
+        plat = p.get("platform", "")
+        if not ids or not all(isinstance(v, str) and ID_RE.match(v) for v in ids) or plat not in ("instagram", "youtube"):
+            raise JobError("publish needs Video IDs and platform instagram or youtube")
+        argv = [PY, "-m", "studio.publish_job", *ids, "--platform", plat, "--pull"] + (["--dry-run"] if p.get("dry_run") else [])
+        what = ids[0] if len(ids) == 1 else f"{len(ids)} reels"
+        return argv, f"{'Dry-run ' if p.get('dry_run') else ''}Publish {what} to {plat}", ",".join(ids)[:200]
+    if kind == "upload":
+        f = (STATE / "uploads" / os.path.basename(str(p.get("file", "")))).resolve()
+        if not re.match(r"^[0-9a-f]{16}\.(mp4|mov)$", f.name) or not f.exists():
+            raise JobError("upload: no such uploaded file")
+        if p.get("brand") not in [b["key"] for b in K.brands()]:
+            raise JobError("unknown brand")
+        return [PY, "-m", "studio.upload", json.dumps(p)], f"Upload a reel to {p['brand']}", p.get("brand")
     if kind == "earshot":
         words = (p.get("words") or "").strip()
         if not 3 <= len(words) <= 200:
@@ -160,8 +169,8 @@ class JobQueue:
         q, a = "SELECT id FROM jobs WHERE status IN ('queued','running')", []
         if kind:
             q += " AND kind=?"; a.append(kind)
-        if target:
-            q += " AND target=?"; a.append(target)
+        if target:      # a bulk job's target is a comma list of ids
+            q += " AND (target=? OR ','||target||',' LIKE ?)"; a += [target, f"%,{target},%"]
         return [r["id"] for r in S.connect().execute(q, a)]
 
     def cancel(self, jid):

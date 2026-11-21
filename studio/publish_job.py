@@ -7,6 +7,10 @@
   "Published"/"Failed: ..." after it, and the publish log is written, exactly as for a cron post.
 - Only this reel and this platform are touched: the brand list and the sheet rows the scheduler sees are narrowed to the
   one row, and the other platform's status is hidden from it in memory (the Sheet is not changed for that).
+- A reel the owner pushes by hand may be Hold, Failed, Manual upload needed or a draft: for this one forced row the
+  scheduler sees it as Ready (in memory), so it posts it and writes Publishing -> Published/Failed to the Sheet.
+  Published, Publishing, Archived and "No channel" rows are never posted.
+- Several ids run one after another under one lock (bulk "Publish selected now").
 """
 import argparse, fcntl, json, sys
 
@@ -16,11 +20,18 @@ import scheduler
 import sheet
 
 HIDDEN = "(not this run)"
+NEVER = ("Published", "Publishing", "Archived", "No channel")
 
 
-def narrow(vid, platform):
+def pushable(status):
+    """Can an owner's Publish now post a row with this status? Ready, Hold, Failed, Manual and drafts: yes."""
+    s = (status or "").strip()
+    return bool(s) and not s.startswith(NEVER)
+
+
+def narrow(vid, platform, real_brands=None, real_rows=None):
     """Patch config.brands and sheet.rows so scheduler.run only sees this one row and platform."""
-    real_brands, real_rows = K.brands, sheet.rows
+    real_brands, real_rows = real_brands or K.brands, real_rows or sheet.rows
     prefix = vid.split("-")[0]
     target = [b for b in real_brands() if b["id_prefix"] == prefix]
     if not target:
@@ -33,7 +44,11 @@ def narrow(vid, platform):
                 continue
             r = dict(r)
             other = "YouTube Status" if platform == "instagram" else "Instagram Status"
+            mine = "Instagram Status" if platform == "instagram" else "YouTube Status"
             r[other] = HIDDEN
+            if r[mine] != "Ready" and pushable(r[mine]):
+                print(f"{vid}: {mine} is '{r[mine]}'; posting it anyway because the owner asked (Publish now)")
+                r[mine] = "Ready"
             out.append(r)
         return out
 
@@ -42,10 +57,42 @@ def narrow(vid, platform):
     return target[0]
 
 
+def one(vid, platform, dry_run, real_brands, real_rows):
+    """Post one reel. 0 posted, 1 failed, 2 nothing posted."""
+    try:
+        b = narrow(vid, platform, real_brands, real_rows)
+    except SystemExit as e:
+        print(e)
+        return 2
+    try:
+        print(f"{'[dry-run] ' if dry_run else ''}{vid} -> {platform} {b[platform]['handle'] if b.get(platform) else '(no channel)'}")
+        log = scheduler.LOG
+        start = log.stat().st_size if log.exists() else 0
+        scheduler.run(publish=not dry_run, force={vid})
+    finally:
+        K.brands, sheet.rows = real_brands, real_rows
+    if dry_run:
+        return 0
+    entries = []
+    if log.exists():
+        with open(log) as f:
+            f.seek(start)
+            entries = [json.loads(x) for x in f if x.strip()]
+    mine = [e for e in entries if e.get("video") == vid and e.get("platform") == platform]
+    if not mine:
+        print(f"nothing was posted: {vid} can not be posted to {platform} now, or the channel is waiting (see above)")
+        return 2
+    for e in mine:
+        if e.get("permalink") or e.get("url"):
+            print(f"POSTED {vid} {e.get('permalink') or e.get('url')}")
+    return 1 if any(e.get("status") == "failed" for e in mine) else 0
+
+
 def main(argv=None, lock_path=None):
     ap = argparse.ArgumentParser(prog="studio.publish_job")
-    ap.add_argument("video_id"); ap.add_argument("--platform", choices=["instagram", "youtube"], required=True)
+    ap.add_argument("video_id", nargs="+"); ap.add_argument("--platform", choices=["instagram", "youtube"], required=True)
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--pull", action="store_true", help="pull the brand tab into the studio store afterwards")
     a = ap.parse_args(argv)
     lock = open(lock_path or (K.STATE / "scheduler.lock"), "w")
     try:
@@ -53,23 +100,22 @@ def main(argv=None, lock_path=None):
     except BlockingIOError:
         print("the scheduler is running right now (cron); nothing was posted. Try again in a minute.")
         return 3
-    b = narrow(a.video_id, a.platform)
-    print(f"{'[dry-run] ' if a.dry_run else ''}{a.video_id} -> {a.platform} {b[a.platform]['handle'] if b.get(a.platform) else '(no channel)'}")
-    log = scheduler.LOG
-    start = log.stat().st_size if log.exists() else 0
-    scheduler.run(publish=not a.dry_run, force={a.video_id})
-    if a.dry_run:
-        return 0
-    entries = []
-    if log.exists():
-        with open(log) as f:
-            f.seek(start)
-            entries = [json.loads(x) for x in f if x.strip()]
-    mine = [e for e in entries if e.get("video") == a.video_id and e.get("platform") == a.platform]
-    if not mine:
-        print(f"nothing was posted: {a.video_id} is not 'Ready' for {a.platform}, or the channel is waiting (see above)")
-        return 2
-    return 1 if any(e.get("status") == "failed" for e in mine) else 0
+    real_brands, real_rows = K.brands, sheet.rows
+    codes = []
+    for vid in a.video_id:
+        codes.append(one(vid, a.platform, a.dry_run, real_brands, real_rows))
+        if len(a.video_id) > 1:
+            print(f"{vid}: {['posted', 'FAILED', 'not posted'][codes[-1]]}", flush=True)
+    if a.pull and not a.dry_run:
+        from . import sync as Y
+        tabs = sorted({b["sheet_tab"] for b in K.brands() if any(v.startswith(b["id_prefix"] + "-") for v in a.video_id)})
+        try:
+            Y.pull(tabs)
+        except Exception as e:
+            print(f"pull after publish failed: {str(e)[:200]}")
+    if len(codes) == 1:
+        return codes[0]
+    return 1 if 1 in codes else (2 if all(c == 2 for c in codes) else 0)
 
 
 if __name__ == "__main__":

@@ -34,9 +34,10 @@ def test_publish_needs_confirm_and_queues_one_job(client):
     assert client.submitted == [("publish", {"id": "CR-901-EN", "platform": "instagram", "dry_run": False})]
 
 
-def test_publish_refuses_rows_that_are_not_ready_or_have_no_channel(client):
+def test_publish_refuses_rows_that_are_published_or_have_no_channel(client):
+    S.save_reel({"Video ID": "CR-902-EN", "Instagram Status": "Published"})
     r = client.post("/api/publish", json={"id": "CR-902-EN", "platform": "instagram", "confirm": True})
-    assert r.status_code == 409 and "Ready" in r.json()["error"]
+    assert r.status_code == 409 and "never posted" in r.json()["error"]
     r = client.post("/api/publish", json={"id": "CR-901-EN", "platform": "youtube", "confirm": True})
     assert r.status_code == 400
     assert client.submitted == []
@@ -52,10 +53,11 @@ def test_publish_respects_scheduler_lock(client):
 
 
 def test_daily_cap_needs_override(client):
-    scheduler.LOG.write_text(json.dumps({"video": "CR-800-EN", "platform": "instagram", "status": "published",
-                                         "at": scheduler.now().isoformat()}) + "\n")
+    cap = K.brand("craftlayer")["max_reels_per_day"]
+    scheduler.LOG.write_text("".join(json.dumps({"video": f"CR-8{i:02d}-EN", "platform": "instagram", "status": "published",
+                                                 "at": scheduler.now().isoformat()}) + "\n" for i in range(cap)))
     p = client.get("/api/publish/preview?id=CR-901-EN&platform=instagram").json()
-    assert p["over_cap"] and p["cap"] == 1 and p["posted_today"] == 1 and p["handle"] == "@craftlayer.studio"
+    assert p["over_cap"] and p["cap"] == cap and p["posted_today"] == cap and p["handle"] == "@craftlayer.studio"
     r = client.post("/api/publish", json={"id": "CR-901-EN", "platform": "instagram", "confirm": True})
     assert r.status_code == 409 and r.json()["need_override"]
     r = client.post("/api/publish", json={"id": "CR-901-EN", "platform": "instagram", "confirm": True, "override_cap": True})

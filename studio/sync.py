@@ -333,8 +333,26 @@ def restore_row(vid, date, dry_run=True, who="owner", ip="", db=None, base=None)
 
 
 def bulk(params, who="owner", db=None):
-    """Hold, unhold or reschedule several rows, one Sheet edit each. Schedule: `start`, then one row every `every_days`."""
+    """Hold, unhold or reschedule several rows, one Sheet edit each. Schedule: `start`, then one row every `every_days`.
+    Also: archive, unarchive, fill (next free slots), swap (exactly two ids)."""
     db = db or S.connect()
+    act = params.get("action")
+    if act == "fill":
+        return fill(params["ids"], auto=params.get("auto", True) is not False, who=who, db=db)
+    if act == "swap":
+        res = swap(*params["ids"][:2], who=who, db=db)
+        print(json.dumps(res), flush=True)
+        return res
+    if act in ("archive", "unarchive"):
+        results = {}
+        for vid in params["ids"]:
+            try:
+                res = (archive if act == "archive" else unarchive)(vid, who=who, db=db)
+                results[vid] = res["status"] + (f" · {res['drive']}" if res.get("drive") else "")
+            except SyncError as e:
+                results[vid] = f"error: {e}"
+            print(vid, results[vid], flush=True)
+        return results
     t0 = datetime.datetime.strptime(params["start"], "%Y-%m-%d %H:%M") if params.get("action") == "schedule" else None
     results = {}
     for i, vid in enumerate(params["ids"]):
@@ -356,6 +374,209 @@ def bulk(params, who="owner", db=None):
             results[vid] = f"error: {e}"
         print(vid, results[vid], flush=True)
     return results
+
+
+# ---------- folders, archive, scheduling ----------
+
+ARCHIVED = "Archived"
+FOLDERS = ["queue", "due", "drafts", "published", "archive"]
+
+
+def ist_now():
+    return datetime.datetime.now(S.TZ).strftime("%Y-%m-%d %H:%M")
+
+
+def folder_of(r, now=None):
+    """Library folder of a row, from its Instagram status and time (the Sheet stays the source of truth)."""
+    now = now or ist_now()
+    ig = (r.get("Instagram Status") or "").strip()
+    low = ig.lower()
+    if ARCHIVED in (ig, r.get("YouTube Status")):
+        return "archive"
+    if low.startswith("published"):
+        return "published"
+    if ig == "Ready":
+        t = r.get("Scheduled Time (IST)") or ""
+        return "queue" if TIME_RE.match(t) and t > now else "due"
+    if low.startswith(("failed", "manual")) or ig == "Publishing":
+        return "due"
+    return "drafts"
+
+
+def _move_drive(link, sub):
+    """Best effort: move the reel's Drive folder. Returns a short note for the caller; never raises."""
+    if not link:
+        return "no Drive folder"
+    try:
+        import drive
+        drive.move(link, sub)
+        return f"Drive folder moved to {sub or 'the reels folder'}"
+    except Exception as e:
+        return f"Drive folder not moved: {str(e)[:160]}"
+
+
+def archive(vid, who="owner", ip="", db=None, move_drive=True):
+    """Set both status cells to Archived (Sheet first), remember the previous values locally, move the Drive folder
+    into Archive/. Nothing is deleted: the row, the local files and the Drive files all stay."""
+    db = db or S.connect()
+    r = S.get_reel(vid, db)
+    if not r:
+        raise SyncError(f"no reel {vid}", 404)
+    if ARCHIVED in (r["Instagram Status"], r["YouTube Status"]):
+        raise SyncError(f"{vid} is already archived", 409)
+    prev = {c: r[c] for c in STATUS_COLS}
+    res = edit(vid, {c: ARCHIVED for c in STATUS_COLS}, who=who, ip=ip, db=db)
+    if res["status"] in ("ok", "pending", "unchanged"):
+        S.save_reel({"Video ID": vid}, db, prev_status=prev)
+        S.audit("archive", vid, prev, {c: ARCHIVED for c in STATUS_COLS}, who, ip, db)
+        res["drive"] = _move_drive(r["Google Drive Folder"], "Archive") if move_drive else "skipped"
+        res["reel"] = S.get_reel(vid, db)
+    return res
+
+
+def unarchive(vid, who="owner", ip="", db=None, move_drive=True):
+    """Put back the statuses the row had before Archive. A Ready reel whose slot has already passed comes back as
+    Hold, so unarchiving never makes cron post it at once."""
+    db = db or S.connect()
+    r = S.get_reel(vid, db)
+    if not r:
+        raise SyncError(f"no reel {vid}", 404)
+    if ARCHIVED not in (r["Instagram Status"], r["YouTube Status"]):
+        raise SyncError(f"{vid} is not archived", 409)
+    prev = dict(r.get("prev_status") or {})
+    if not prev:      # the local memory was lost: published if it has a post link, otherwise a draft
+        prev = {"Instagram Status": "Published" if r["Instagram Post URL"] else "Hold",
+                "YouTube Status": "Published" if r["YouTube Shorts URL"] else
+                ("Hold" if (K.brand(r["brand"]).get("youtube")) else "No channel")}
+    t = r["Scheduled Time (IST)"]
+    note = ""
+    for c in STATUS_COLS:
+        if prev.get(c) == "Ready" and not (TIME_RE.match(t or "") and t > ist_now()):
+            prev[c] = "Hold"
+            note = "its slot has passed, so it comes back as Hold; schedule it again"
+    fields = {c: prev.get(c, "") for c in STATUS_COLS if r[c] == ARCHIVED}
+    res = edit(vid, fields, who=who, ip=ip, db=db, allow_repost=True)
+    if res["status"] in ("ok", "pending", "unchanged"):
+        S.save_reel({"Video ID": vid}, db, prev_status={})
+        S.audit("unarchive", vid, {c: ARCHIVED for c in fields}, fields, who, ip, db)
+        sub = "Published" if fields.get("Instagram Status", r["Instagram Status"]).startswith("Published") else ""
+        res["drive"] = _move_drive(r["Google Drive Folder"], sub) if move_drive else "skipped"
+        res["note"] = note
+        res["reel"] = S.get_reel(vid, db)
+    return res
+
+
+def brand_slots(brand_key):
+    b = K.brand(brand_key)
+    slots = sorted(b.get("slots_ist") or ["19:30"])
+    cap = b.get("max_reels_per_day") or len(slots)
+    return b, slots, cap
+
+
+def next_free_slot(brand_key, after=None, exclude=(), taken_extra=(), db=None):
+    """First slot (YYYY-MM-DD HH:MM, IST) after `after` that no Ready row of the brand holds, on a day that still has
+    room under the daily cap. Ready, Publishing and Published rows count towards a day; `exclude` ids do not."""
+    db = db or S.connect()
+    _, slots, cap = brand_slots(brand_key)
+    after = after or ist_now()
+    taken, per_day = set(taken_extra), {}
+    for t in taken_extra:
+        per_day[t[:10]] = per_day.get(t[:10], 0) + 1
+    for r in S.list_reels(db):
+        if r["brand"] != brand_key or r["Video ID"] in exclude or r["missing"]:
+            continue
+        st, t = r["Instagram Status"], r["Scheduled Time (IST)"]
+        if not TIME_RE.match(t or ""):
+            continue
+        if st in ("Ready", "Publishing"):
+            taken.add(t)
+        if st in ("Ready", "Publishing") or st.startswith("Published"):
+            per_day[t[:10]] = per_day.get(t[:10], 0) + 1
+    day = datetime.date.fromisoformat(after[:10])
+    for _ in range(400):
+        d = day.isoformat()
+        for s_ in slots:
+            t = f"{d} {s_}"
+            if t > after and t not in taken and per_day.get(d, 0) < cap:
+                return t
+        day += datetime.timedelta(days=1)
+    raise SyncError("no free slot in the next 400 days")
+
+
+def schedule(vid, when, auto=True, who="owner", ip="", db=None):
+    """Set a reel's time. auto: the reel is Ready (cron posts it then); otherwise Hold (just planned).
+    A Published reel can not be rescheduled."""
+    db = db or S.connect()
+    r = S.get_reel(vid, db)
+    if not r:
+        raise SyncError(f"no reel {vid}", 404)
+    if not TIME_RE.match(when or ""):
+        raise SyncError("time must look like YYYY-MM-DD HH:MM")
+    if r["Instagram Status"].startswith("Published"):
+        raise SyncError(f"{vid} is already published; it can not be rescheduled", 409)
+    if r["Instagram Status"] == ARCHIVED and (r["Instagram Post URL"] or
+                                              (r.get("prev_status") or {}).get("Instagram Status", "").startswith("Published")):
+        raise SyncError(f"{vid} was published before it was archived; unarchive it instead of rescheduling", 409)
+    has_yt = bool(K.brand(r["brand"]).get("youtube"))
+    fields = {"Scheduled Time (IST)": when, "Date": when[:10]}
+    target = "Ready" if auto else "Hold"
+    for c in STATUS_COLS:
+        cur = r[c]
+        if c == "YouTube Status":
+            if not has_yt:
+                if cur == ARCHIVED:
+                    fields[c] = "No channel"
+                continue
+            if cur.startswith("Published"):
+                continue
+            if cur == ARCHIVED and r["YouTube Shorts URL"]:
+                fields[c] = "Published"
+                continue
+        if auto or cur in ("Ready", ARCHIVED) or cur.startswith(("Failed", "Manual")):
+            if cur != target:
+                fields[c] = target
+    res = edit(vid, fields, who=who, ip=ip, db=db)
+    if res["status"] in ("ok", "pending") and r.get("prev_status"):
+        S.save_reel({"Video ID": vid}, db, prev_status={})
+    return res
+
+
+def swap(a, b, who="owner", ip="", db=None):
+    """Swap the scheduled times of two reels (two Sheet edits, each audited)."""
+    db = db or S.connect()
+    ra, rb = S.get_reel(a, db), S.get_reel(b, db)
+    if not ra or not rb:
+        raise SyncError("both reels must exist", 404)
+    for r in (ra, rb):
+        if r["Instagram Status"].startswith("Published") or r["Instagram Status"] == "Publishing":
+            raise SyncError(f"{r['Video ID']} is {r['Instagram Status']}; only unpublished reels can swap slots", 409)
+    ta, tb = ra["Scheduled Time (IST)"], rb["Scheduled Time (IST)"]
+    out = {}
+    for vid, t in ((a, tb), (b, ta)):
+        fields = {"Scheduled Time (IST)": t}
+        if TIME_RE.match(t or ""):
+            fields["Date"] = t[:10]
+        out[vid] = edit(vid, fields, who=who, ip=ip, db=db)["status"]
+    return out
+
+
+def fill(ids, brand_key=None, after=None, auto=True, who="owner", db=None):
+    """Give each reel the next free slot of its brand, in order."""
+    db = db or S.connect()
+    out, used = {}, {}
+    for vid in ids:
+        r = S.get_reel(vid, db)
+        if not r:
+            out[vid] = "no such reel"; continue
+        try:
+            t = next_free_slot(r["brand"], after, exclude=(vid,), taken_extra=used.get(r["brand"], ()), db=db)
+            res = schedule(vid, t, auto, who=who, db=db)
+            used.setdefault(r["brand"], []).append(t)
+            out[vid] = f"{res['status']} {t}"
+        except SyncError as e:
+            out[vid] = f"error: {e}"
+        print(vid, out[vid], flush=True)
+    return out
 
 
 def main(argv=None):
