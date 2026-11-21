@@ -68,8 +68,8 @@ def ensure(printer=print):
 
 
 def set_password(new):
-    if len(new) < 10:
-        raise ValueError("use at least 10 characters")
+    if len(new) < 8:
+        raise ValueError("use at least 8 characters")
     data = load()
     data["password"] = hash_password(new)
     data["secret"] = secrets.token_hex(32)          # rotating the secret signs every old session out
