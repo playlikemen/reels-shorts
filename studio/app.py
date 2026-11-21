@@ -106,6 +106,8 @@ class Guard:
                     h += [(b"x-frame-options", b"DENY"), (b"content-security-policy", CSP.encode())]
                 if path.startswith("/api/"):
                     h.append((b"cache-control", b"no-store"))
+                elif path.startswith("/static/") and not path.startswith("/static/v"):
+                    h.append((b"cache-control", b"no-cache"))
             await send(msg)
 
         await (self.upload_app if path == UPLOAD_PATH else self.app)(scope, receive, send_wrapped)
@@ -150,8 +152,27 @@ def route(fn):
 
 # ---------- pages and login ----------
 
+def web_version():
+    """Changes whenever a UI file changes. The page loads its CSS and JS from /static/v<version>/, so a browser or the
+    Cloudflare edge can never mix an old module with a new one."""
+    latest = max((p.stat().st_mtime_ns for p in WEB.rglob("*") if p.is_file()), default=0)
+    return format(latest // 1_000_000, "x")
+
+
 async def index(req):
-    return FileResponse(WEB / "index.html", headers={"cache-control": "no-cache"})
+    v = web_version()
+    html = (WEB / "index.html").read_text().replace('"/static/style.css"', f'"/static/v{v}/style.css"') \
+        .replace('"/static/app.js"', f'"/static/v{v}/app.js"')
+    return HTMLResponse(html, headers={"cache-control": "no-cache"})
+
+
+async def static_versioned(req):
+    base = WEB.resolve()
+    p = (base / req.path_params["path"]).resolve()
+    if base not in p.parents or not p.is_file():
+        return Response("not found", 404)
+    ctype = mimetypes.guess_type(p.name)[0] or "application/octet-stream"
+    return FileResponse(p, media_type=ctype, headers={"cache-control": "public, max-age=31536000, immutable"})
 
 
 async def login_page(req):
@@ -1062,6 +1083,7 @@ def create_app():
         Route("/api/settings/tokens/revoke", api_token_del, methods=["POST"]),
         Route("/media/{path:path}", media), Route("/thumb/{vid}.jpg", thumb),
         Route("/editor", editor_root), Route("/editor/", editor), Route("/editor/{path:path}", editor),
+        Route("/static/v{ver}/{path:path}", static_versioned),
         Mount("/static", app=StaticFiles(directory=str(WEB)), name="static"),
     ]
     app = Starlette(routes=routes, lifespan=lifespan)

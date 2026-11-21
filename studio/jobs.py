@@ -82,6 +82,8 @@ def build(kind, p):
     if kind == "pull":
         tabs = [t for t in (p.get("tabs") or []) if t in K.TAB_SHEET_IDS]
         return [PY, "-m", "studio.sync", "pull"] + [x for t in tabs for x in ("--tab", t)], "Sync from Sheet" + (f" ({', '.join(tabs)})" if tabs else ""), ",".join(tabs)
+    if kind == "backfill":
+        return [PY, "-m", "studio.sync", "backfill-published"], "Move published reels' Drive folders into Published/", ""
     if kind == "snapshot":
         return [PY, "-m", "studio.sync", "snapshot"], "Snapshot every tab", ""
     if kind == "dryrun":

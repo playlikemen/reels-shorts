@@ -468,3 +468,8 @@ main:focus-visible { outline: none; }
   .qas { gap: 4px; bottom: 30px; }
   #chbar .chip .handle { max-width: 84px; }
 }
+.pub .btn { max-width: 100%; }
+.pubbtn.armed { white-space: normal; height: auto; min-height: 28px; padding-top: 4px; padding-bottom: 4px; text-align: left; line-height: 1.25; overflow-wrap: anywhere; }
+#channels { margin-bottom: 16px; }
+.bulkbar .grp { flex-wrap: wrap; }
+.bulkbar input[size] { width: 150px; }

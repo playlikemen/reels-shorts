@@ -1,8 +1,8 @@
 // Settings: channels (auto-publish, slots, daily cap), password, API tokens for agents.
-import { h, api, post, button, busy, toast, modal, state, brandDot, reloadBrands } from "../app.js";
+import { h, api, post, button, busy, toast, modal, state, brandDot, reloadBrands, jobToast } from "../app.js";
 
 function channelsPanel() {
-  const panel = h("div.panel#channels", {}, h("h2", {}, "Channels"),
+  const panel = h("div#channels.panel", {}, h("h2", {}, "Channels"),
     h("p.small.muted", {}, "Auto-publish is the master switch for cron posting. Off: cron posts nothing for that channel; Publish now still works. Slots and the daily cap drive “Next free slot” and the scheduler. Every change is in the audit log."));
   const list = h("div.chlist");
   const draw = () => list.replaceChildren(...state.brands.map((b) => {
@@ -25,7 +25,10 @@ function channelsPanel() {
       h("label.field.inline", {}, "Slots (IST)", slots), h("label.field.inline", {}, "Per day", cap), save);
   }));
   draw();
-  panel.append(list);
+  panel.append(list, h("div.row", { style: { marginTop: "12px" } },
+    button("Move published Drive folders into Published/", (e) => busy(e.target, async () => {
+      const r = await post("/api/jobs", { kind: "backfill" }); jobToast(r.job, "Drive backfill");
+    }), "sm"), h("span.small.muted", {}, "One-off. New posts are moved there automatically; nothing is deleted.")));
   return panel;
 }
 

@@ -307,3 +307,21 @@ def test_upload_job_normalises_and_writes_a_hold_row(fake, isolated, monkeypatch
     assert U.next_id("craftlayer", "EN") == "CR-U002-EN"
     with pytest.raises(U.UploadError):
         U.validate({"brand": "craftlayer", "topic": "x", "after": "draft"})
+
+
+def test_ui_is_served_from_a_versioned_path(client):
+    html = client.get("/").text
+    path = html.split('src="')[1].split('"')[0]
+    assert path.startswith("/static/v") and path.endswith("/app.js")
+    r = client.get(path)
+    assert r.status_code == 200 and "immutable" in r.headers["cache-control"]
+    assert client.get(path.replace("app.js", "../../auth.py")).status_code == 404
+    assert client.get("/static/style.css").headers["cache-control"] == "no-cache"
+
+
+def test_backfill_moves_only_published_folders(fake, moves):
+    fake.tabs["@craftlayer"] = [row("CR-901-EN", **{"Instagram Status": "Published", "Google Drive Folder": FOLDER}),
+                                row("CR-902-EN", **{"Google Drive Folder": FOLDER})]
+    Y.pull()
+    res = Y.backfill_published()
+    assert res["moved"] == ["CR-901-EN"] and moves == [(FOLDER, "Published")]

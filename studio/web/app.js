@@ -107,11 +107,13 @@ export function toast(msg, kind = "info", ms = 4200) {
   setTimeout(() => t.classList.add("out"), ms);
   setTimeout(() => t.remove(), ms + 400);
 }
+// Static files are served under a versioned path (/static/v<ver>/), so resolve them next to this module.
+const ICONS = new URL("./icons.svg", import.meta.url).pathname;
 export function icon(name) {
   const s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   s.setAttribute("class", "ic"); s.setAttribute("aria-hidden", "true");
   const u = document.createElementNS("http://www.w3.org/2000/svg", "use");
-  u.setAttribute("href", `/static/icons.svg#${name}`);
+  u.setAttribute("href", `${ICONS}#${name}`);
   s.append(u);
   return s;
 }
@@ -265,7 +267,7 @@ async function route() {
   if (view === "more") return renderMore(root);
   const known = NAV.some((n) => n[0] === view);
   try {
-    const mod = cache[view] || (cache[view] = await import(`/static/views/${known ? view : "library"}.js`));
+    const mod = cache[view] || (cache[view] = await import(new URL(`./views/${known ? view : "library"}.js`, import.meta.url).href));
     await mod.render(root, { params: rest.map(decodeURIComponent), query, channel: state.channel });
   } catch (e) {
     console.error(e);

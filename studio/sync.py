@@ -579,15 +579,42 @@ def fill(ids, brand_key=None, after=None, auto=True, who="owner", db=None):
     return out
 
 
+def backfill_published(dry_run=False, db=None):
+    """One-off: move the Drive folder of every Instagram-published reel into Published/ (moves only)."""
+    db = db or S.connect()
+    import drive
+    rows = [r for r in S.list_reels(db) if r["Instagram Status"].startswith("Published") and drive.folder_id(r["Google Drive Folder"])]
+    moved, failed = [], {}
+    for r in rows:
+        if dry_run:
+            print("[dry-run] would move", r["Video ID"], flush=True); continue
+        try:
+            drive.move(r["Google Drive Folder"], "Published")
+            moved.append(r["Video ID"])
+            print("moved", r["Video ID"], flush=True)
+        except Exception as e:
+            failed[r["Video ID"]] = str(e)[:160]
+            print("FAILED", r["Video ID"], failed[r["Video ID"]], flush=True)
+    S.audit("drive backfill", "Published/", None, {"moved": len(moved), "failed": failed}, "studio", "", db)
+    if dry_run:
+        print(f"{len(rows)} published Drive folders would be moved into Published/")
+    else:
+        print(f"moved {len(moved)} of {len(rows)} published Drive folders into Published/" + (f"; {len(failed)} failed" if failed else ""))
+    return {"moved": moved, "failed": failed, "total": len(rows)}
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="studio.sync")
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("pull"); p.add_argument("--tab", action="append")
     sub.add_parser("snapshot"); sub.add_parser("import-log")
+    p = sub.add_parser("backfill-published"); p.add_argument("--dry-run", action="store_true")
     p = sub.add_parser("bulk"); p.add_argument("params"); p.add_argument("--who", default="owner")
     a = ap.parse_args(argv)
     if a.cmd == "pull":
         print(json.dumps(pull(a.tab), indent=1))
+    elif a.cmd == "backfill-published":
+        return 1 if backfill_published(a.dry_run)["failed"] else 0
     elif a.cmd == "snapshot":
         print(json.dumps(snapshot(), indent=1))
     elif a.cmd == "bulk":
