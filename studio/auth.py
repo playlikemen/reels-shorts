@@ -1,6 +1,7 @@
 """Password login, signed session cookies, CSRF tokens, login rate limit and API tokens.
 
-auth.json (mode 600) holds only the scrypt hash of the password, the cookie signing secret and hashed API tokens.
+auth.json (mode 600) holds only the scrypt hash of the password, the cookie signing secret, hashed API tokens and the
+scrypt hash of the MCP/API key (set with `python3.11 -m studio mcp-key`, rotated or revoked in Settings).
 On first start a password is generated, printed once and written to initial-password.txt (mode 600).
 """
 import base64, hashlib, hmac, json, os, secrets, time
@@ -173,3 +174,68 @@ class RateLimit:
 
     def ok(self, ip):
         self.fails.pop(ip, None)
+
+
+# ---------- the MCP / API key (one owner key; only its scrypt hash is stored) ----------
+
+KEY_MIN = 24
+_verified = {}          # sha256(key) -> the stored hash it matched, so scrypt runs once per key, not per request
+
+
+def set_key(key):
+    """Store the scrypt hash of a new key (replaces the old one). The key itself is never written anywhere."""
+    if not key or len(key) < KEY_MIN or any(c.isspace() for c in key):
+        raise ValueError(f"the key must be at least {KEY_MIN} characters with no spaces")
+    data = ensure(printer=lambda *a: None)
+    data["mcp_key"] = {**hash_password(key), "created": int(time.time())}
+    save(data)
+    _verified.clear()
+    return data["mcp_key"]["created"]
+
+
+def new_key():
+    key = "rsk_" + secrets.token_urlsafe(32)
+    set_key(key)
+    return key
+
+
+def revoke_key():
+    data = load() or {}
+    had = data.pop("mcp_key", None) is not None
+    save(data)
+    _verified.clear()
+    return had
+
+
+def key_info(data):
+    rec = (data or {}).get("mcp_key")
+    return {"set": bool(rec), "created": rec.get("created") if rec else None}
+
+
+def check_key(data, key):
+    rec = (data or {}).get("mcp_key")
+    if not key or not rec:
+        return False
+    d = hashlib.sha256(key.encode()).hexdigest()
+    if _verified.get(d) == rec["hash"]:
+        return True
+    if check_password(key, rec):
+        _verified[d] = rec["hash"]
+        return True
+    return False
+
+
+_mtime = [0.0]
+
+
+def reload_if_changed(current):
+    """auth.json changed on disk (the CLI set or revoked the key, or a token was made) -> the new record."""
+    path, _ = _paths()
+    try:
+        m = path.stat().st_mtime
+    except OSError:
+        return current
+    if current is not None and m == _mtime[0]:
+        return current
+    _mtime[0] = m
+    return load() or current

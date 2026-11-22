@@ -2,7 +2,7 @@
 
 Every page has a JSON API under /api (see studio/README.md). The UI and agents use the same routes.
 """
-import asyncio, contextlib, datetime, fcntl, json, mimetypes, os, re, secrets, shutil, subprocess, time
+import asyncio, contextlib, datetime, fcntl, json, mimetypes, os, re, secrets, shutil, subprocess, threading, time
 from urllib.parse import urlparse
 
 from starlette.applications import Starlette
@@ -73,12 +73,31 @@ class Guard:
         req = Request(scope)
         path, method = scope["path"], scope["method"]
         st = STATE_REF
+        st.auth = A.reload_if_changed(st.auth)
         user, via = None, None
         authz = req.headers.get("authorization", "")
-        if authz.lower().startswith("bearer "):
-            name = A.check_token(st.auth, authz[7:].strip())
-            if name:
-                user, via = f"token:{name}", "token"
+        is_mcp = path in ("/mcp", "/mcp/")
+        key = req.headers.get("x-api-key", "").strip() or (authz[7:].strip() if authz.lower().startswith("bearer ") else "")
+        if not key and is_mcp:
+            key = req.query_params.get("api_key", "").strip()      # for connectors that only take a URL
+        key_problem = ""
+        if key:
+            # a key was sent: it must be good. Bad keys are counted per IP (10, then 15 minutes locked out).
+            # On /mcp a bad key never fails the request (clients must still see the tools); tools that need the key say why.
+            ip = client_ip(req)
+            if st.key_limiter.blocked(ip):
+                key_problem = "too many bad API keys from this address; locked out for 15 minutes"
+            else:
+                name = A.check_token(st.auth, key)
+                if name:
+                    user, via = f"token:{name}", "token"
+                elif await run_in_threadpool(A.check_key, st.auth, key):
+                    user, via = "mcp-key", "key"
+                else:
+                    st.key_limiter.fail(ip)
+                    key_problem = "the API key is wrong or was revoked"
+            if key_problem and not is_mcp:
+                return await err(key_problem, 429 if "locked" in key_problem else 401)(scope, receive, send)
         if not user:
             sess = A.read_session(st.auth["secret"], req.cookies.get(A.COOKIE))
             if sess:
@@ -86,11 +105,15 @@ class Guard:
                 scope.setdefault("state", {})["session"] = sess
         scope.setdefault("state", {})["user"] = user
         scope["state"]["via"] = via
-        public = path in ("/login", "/api/login", "/healthz", "/favicon.svg") or path.startswith("/static/")
+        scope["state"]["key_problem"] = key_problem
+        public = (path in ("/login", "/api/login", "/healthz", "/favicon.svg") or is_mcp or path.startswith("/static/")
+                  or path.startswith("/.well-known/"))
+        if via in ("key", "token") and path.startswith("/api/settings/"):
+            return await err("settings (password, tokens, the key itself) need the owner's browser session", 403)(scope, receive, send)
         if not public and not user:
             resp = err("login required", 401) if path.startswith("/api/") else RedirectResponse("/login", 303)
             return await resp(scope, receive, send)
-        if method in UNSAFE and via == "cookie":
+        if method in UNSAFE and via == "cookie" and not is_mcp:
             if not A.check_csrf(st.auth["secret"], scope["state"]["session"], req.headers.get("x-csrf-token", "")):
                 return await err("missing or bad CSRF token (send X-CSRF-Token from /api/session)", 403)(scope, receive, send)
         editor = path.startswith("/editor")
@@ -104,7 +127,7 @@ class Guard:
                           (b"cross-origin-resource-policy", b"same-origin")]
                 else:
                     h += [(b"x-frame-options", b"DENY"), (b"content-security-policy", CSP.encode())]
-                if path.startswith("/api/"):
+                if path.startswith("/api/") or is_mcp:
                     h.append((b"cache-control", b"no-store"))
                 elif path.startswith("/static/") and not path.startswith("/static/v"):
                     h.append((b"cache-control", b"no-cache"))
@@ -116,6 +139,7 @@ class Guard:
 class _State:
     auth = None
     limiter = A.RateLimit()
+    key_limiter = A.RateLimit(per_ip=10, total=10 ** 9, window=900)
     queue = None
     conn_cache = None
 
@@ -268,7 +292,8 @@ async def api_reels(req):
     if q.get("q"):
         words = q["q"].lower().split()
         reels = [r for r in reels if all(w in json.dumps({h: r[h] for h in K.HEADERS}, ensure_ascii=False).lower() for w in words)]
-    return JSONResponse({"reels": reels, "count": len(reels), "last_pull": S.get_setting("last_pull"), "counts": counts,
+    return JSONResponse({"reels": reels, "count": len(reels), "last_mirror": S.get_setting("last_mirror"), "counts": counts,
+                         "unmirrored": sum(1 for r in reels if r["pending"]),
                          "now": now, "unsynced": await run_in_threadpool(Y.unsynced_renders)})
 
 
@@ -528,8 +553,29 @@ async def api_unsynced(req):
 @route
 async def api_sync(req):
     data = await body(req)
-    jid = STATE_REF.queue.submit("pull", {"tabs": data.get("tabs") or []}, who(req))
+    jid = STATE_REF.queue.submit("push", {"tabs": data.get("tabs") or []}, who(req))
     return JSONResponse({"job": jid}, status_code=202)
+
+
+@route
+async def api_import_preview(req):
+    """Sheet -> studio diff for one-off recovery. Nothing is written."""
+    tab = req.query_params.get("tab", "")
+    tabs = [tab] if tab else None
+    d = await run_in_threadpool(Y.import_diff, tabs)
+    return JSONResponse({"diff": d})
+
+
+@route
+async def api_import_apply(req):
+    data = await body(req)
+    changes = data.get("changes") or {}
+    new = data.get("new") or []
+    if not isinstance(changes, dict) or not isinstance(new, list) or not (changes or new):
+        raise ApiError("tick at least one cell or row: {changes: {id: [header]}, new: [id]}")
+    tab = data.get("tab") or None
+    res = await run_in_threadpool(lambda: Y.import_apply(changes, new, [tab] if tab else None, who(req), client_ip(req)))
+    return JSONResponse({"applied": res})
 
 
 # ---------- publish ----------
@@ -563,10 +609,6 @@ def publish_checks(vid, platform):
     problems = []
     if not PJ.pushable(r[col]):
         problems.append(f"{col} is '{r[col] or 'empty'}'; Published, Publishing, Archived and channel-less rows are never posted")
-    if r["pending"]:
-        problems.append("this row has edits waiting to reach the Sheet; sync first")
-    if r["missing"]:
-        problems.append("this row is missing from the Sheet")
     if not mp4 or not mp4.exists():
         problems.append("the local MP4 is missing")
     elif mp4.stat().st_size < K.MIN_MP4_BYTES:
@@ -669,19 +711,37 @@ async def api_job_stream(req):
 
 
 def on_job_done(j):
-    """After a job that changed the Sheet, pull that tab so the studio shows the new state."""
-    if j["kind"] not in ("publish", "sync", "bulk") or j["status"] == "cancelled":
+    """Jobs write the store themselves; afterwards mirror anything still unmirrored to the Sheet."""
+    if j["kind"] in ("publish", "sync", "bulk", "upload") and j["status"] != "cancelled":
+        kick_mirror()
+
+
+# ---------- Sheet mirror in the background (single flight; a failure only leaves cells pending) ----------
+
+_mirror = {"lock": threading.Lock(), "again": False}
+
+
+def kick_mirror(vid=None):
+    if os.environ.get("STUDIO_NO_MIRROR"):
         return
-    tabs = set()
-    for b in K.brands():
-        if j["kind"] == "publish" and j["target"].startswith(b["id_prefix"] + "-"):
-            tabs.add(b["sheet_tab"])
-        if j["kind"] == "sync" and f"specs/{b['key']}/" in j["title"]:
-            tabs.add(b["sheet_tab"])
-        if j["kind"] == "bulk" and any(t.startswith(b["id_prefix"] + "-") for t in j["target"].split(",")):
-            tabs.add(b["sheet_tab"])
-    if tabs:
-        STATE_REF.queue.submit("pull", {"tabs": sorted(tabs)}, "studio")
+    if not _mirror["lock"].acquire(blocking=False):
+        _mirror["again"] = True
+        return
+
+    def run():
+        try:
+            while True:
+                _mirror["again"] = False
+                try:
+                    Y.push()
+                except Exception as e:
+                    print("sheet mirror push failed:", str(e)[:200])
+                if not _mirror["again"]:
+                    break
+        finally:
+            _mirror["lock"].release()
+
+    threading.Thread(target=run, daemon=True, name="sheet-mirror").start()
 
 
 # ---------- scripts (CraftLayer) ----------
@@ -962,6 +1022,39 @@ async def api_token_del(req):
     return JSONResponse({"ok": True})
 
 
+async def api_key_info(req):
+    return JSONResponse(A.key_info(STATE_REF.auth))
+
+
+@route
+async def api_key_rotate(req):
+    """A new MCP/API key, shown once. The old one stops working at once."""
+    key = await run_in_threadpool(A.new_key)
+    STATE_REF.auth = A.load()
+    S.audit("mcp key rotated", "", None, None, who(req), client_ip(req))
+    return JSONResponse({"key": key, **A.key_info(STATE_REF.auth)})
+
+
+@route
+async def api_key_revoke(req):
+    had = A.revoke_key()
+    STATE_REF.auth = A.load()
+    S.audit("mcp key revoked", "", None, {"had_key": had}, who(req), client_ip(req))
+    return JSONResponse({"ok": True, **A.key_info(STATE_REF.auth)})
+
+
+# ---------- MCP ----------
+
+async def mcp_endpoint(req):
+    from . import mcp
+    return await mcp.handle(req)
+
+
+async def well_known(req):
+    """No OAuth here: MCP clients use the API key header. A JSON 404 (never the login redirect)."""
+    return JSONResponse({"error": "not found"}, status_code=404)
+
+
 # ---------- media, thumbnails, editor ----------
 
 MEDIA_EXT = {".mp4": "video/mp4", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".srt": "text/plain; charset=utf-8"}
@@ -1043,6 +1136,9 @@ async def lifespan(app):
     S.connect()
     STATE_REF.queue = J.JobQueue(workers=int(os.environ.get("STUDIO_WORKERS", "2")), on_done=on_job_done)
     await STATE_REF.queue.start()
+    if Y.MIRROR_HOOK is None:          # tests install their own, synchronous hook
+        Y.MIRROR_HOOK = kick_mirror
+        kick_mirror()
     yield
     await STATE_REF.queue.stop()
 
@@ -1064,6 +1160,7 @@ def create_app():
         Route("/api/reels/{vid}/restore", api_restore, methods=["GET", "POST"]),
         Route("/api/snapshots", api_snapshots), Route("/api/unsynced", api_unsynced),
         Route("/api/sync", api_sync, methods=["POST"]),
+        Route("/api/import/preview", api_import_preview), Route("/api/import/apply", api_import_apply, methods=["POST"]),
         Route("/api/publish/preview", api_publish_preview), Route("/api/publish", api_publish, methods=["POST"]),
         Route("/api/jobs", api_jobs), Route("/api/jobs", api_job_new, methods=["POST"]),
         Route("/api/jobs/{jid:int}", api_job), Route("/api/jobs/{jid:int}/cancel", api_job_cancel, methods=["POST"]),
@@ -1081,6 +1178,10 @@ def create_app():
         Route("/api/settings/password", api_password, methods=["POST"]),
         Route("/api/settings/tokens", api_tokens), Route("/api/settings/tokens", api_token_new, methods=["POST"]),
         Route("/api/settings/tokens/revoke", api_token_del, methods=["POST"]),
+        Route("/api/settings/mcp-key", api_key_info), Route("/api/settings/mcp-key/rotate", api_key_rotate, methods=["POST"]),
+        Route("/api/settings/mcp-key/revoke", api_key_revoke, methods=["POST"]),
+        Route("/mcp", mcp_endpoint, methods=["GET", "POST", "DELETE"]), Route("/mcp/", mcp_endpoint, methods=["GET", "POST", "DELETE"]),
+        Route("/.well-known/{path:path}", well_known),
         Route("/media/{path:path}", media), Route("/thumb/{vid}.jpg", thumb),
         Route("/editor", editor_root), Route("/editor/", editor), Route("/editor/{path:path}", editor),
         Route("/static/v{ver}/{path:path}", static_versioned),
