@@ -21,6 +21,7 @@ from . import store as S
 from . import sync as Y
 from . import tasks as T
 from . import publish_job as PJ
+from . import files as F
 import config as K
 import scheduler
 
@@ -66,12 +67,19 @@ class Guard:
         # one body limit for every route, a larger one only for the upload route
         self.app = RequestBodyLimitMiddleware(app, max_body_size=BODY_LIMIT)
         self.upload_app = RequestBodyLimitMiddleware(app, max_body_size=UPLOAD_LIMIT + 1024 * 1024)
+        # MCP upload_file carries up to 25 MB as base64 (about 34 MB of JSON); only for keyed calls
+        self.mcp_app = RequestBodyLimitMiddleware(app, max_body_size=40 * 1024 * 1024)
 
     async def __call__(self, scope, receive, send):
         if scope["type"] != "http":
             return await self.app(scope, receive, send)
         req = Request(scope)
         path, method = scope["path"], scope["method"]
+        if path.startswith("/f/"):
+            # public file links: no cookie is read or set and no login; the token in the path is the only key
+            if method not in ("GET", "HEAD"):
+                return await Response(status_code=405, headers={"allow": "GET, HEAD"})(scope, receive, send)
+            return await self.app(scope, receive, send)
         st = STATE_REF
         st.auth = A.reload_if_changed(st.auth)
         user, via = None, None
@@ -133,7 +141,9 @@ class Guard:
                     h.append((b"cache-control", b"no-cache"))
             await send(msg)
 
-        await (self.upload_app if path == UPLOAD_PATH else self.app)(scope, receive, send_wrapped)
+        big = path == UPLOAD_PATH or (method in ("POST", "PUT") and (path == "/api/files" or (path.startswith("/api/files/") and path.endswith("/content"))))
+        target = self.upload_app if big else (self.mcp_app if is_mcp and via in ("key", "token") else self.app)
+        await target(scope, receive, send_wrapped)
 
 
 class _State:
@@ -735,6 +745,12 @@ _mirror = {"lock": threading.Lock(), "again": False}
 
 def _reconcile_quietly():
     try:
+        gone = F.sweep()
+        if gone:
+            print(f"files: {len(gone)} expired file(s) deleted")
+    except Exception as e:
+        print("files sweep failed:", str(e)[:200])
+    try:
         res = PJ.reconcile()
         if res:
             print("publishing reconcile:", res)
@@ -1064,6 +1080,144 @@ async def api_key_revoke(req):
     return JSONResponse({"ok": True, **A.key_info(STATE_REF.auth)})
 
 
+# ---------- file hosting (studio/files.py) ----------
+
+def _fe(fn):
+    """files.FileError -> ApiError."""
+    async def wrapper(req):
+        try:
+            return await fn(req)
+        except F.FileError as e:
+            raise ApiError(str(e), e.status)
+    wrapper.__name__ = fn.__name__
+    return route(wrapper)
+
+
+def public_base(req):
+    host = req.headers.get("host", "")
+    return ("https://" if is_https(req) or not host.startswith(("127.", "localhost")) else "http://") + host if host else ""
+
+
+async def _multipart_file(req, limit=F.MAX_UI):
+    try:
+        length = int(req.headers.get("content-length") or 0)
+    except ValueError:
+        length = 0
+    if length > limit + 1024 * 1024:
+        raise ApiError(f"the file is over {F._fmt(limit)}", 413)
+    try:
+        form = await req.form(max_files=1, max_fields=10, max_part_size=64 * 1024)
+    except Exception as e:
+        raise ApiError(f"could not read the upload: {str(e)[:200]}", 413 if "large" in str(e).lower() else 400)
+    f = form.get("file")
+    if f is None or not hasattr(f, "read"):
+        await form.close()
+        raise ApiError("attach a file (form field file)")
+    return form, f
+
+
+def _chunks(upload):
+    upload.file.seek(0)
+    return iter(lambda: upload.file.read(1024 * 1024), b"")
+
+
+@_fe
+async def api_files(req):
+    q = req.query_params
+    every = q.get("all") == "1" or bool(q.get("q"))
+    files = await run_in_threadpool(F.list_files, q.get("folder") or None, q.get("q", ""), every, public_base(req))
+    return JSONResponse({"files": files, "folders": await run_in_threadpool(F.folders), "usage": await run_in_threadpool(F.usage),
+                         "max_upload": F.MAX_UI, "max_days": F.MAX_DAYS})
+
+
+@_fe
+async def api_file_upload(req):
+    form, f = await _multipart_file(req)
+    try:
+        name = str(form.get("name") or f.filename or "file")
+        res = await run_in_threadpool(F.add, name, _chunks(f), form.get("folder_id") or None, str(form.get("expiry") or "7d"),
+                                      who(req), client_ip(req), F.MAX_UI, public_base(req))
+    finally:
+        await form.close()
+    return JSONResponse(res, status_code=201)
+
+
+@_fe
+async def api_file(req):
+    return JSONResponse(await run_in_threadpool(F.get_file, req.path_params["fid"], public_base(req)))
+
+
+@_fe
+async def api_file_update(req):
+    data = await body(req)
+    res = await run_in_threadpool(lambda: F.update(req.path_params["fid"], data.get("name"),
+                                                   data["folder_id"] if "folder_id" in data else False, data.get("expiry"),
+                                                   bool(data.get("new_link")), who(req), client_ip(req), public_base(req)))
+    return JSONResponse(res)
+
+
+@_fe
+async def api_file_replace(req):
+    form, f = await _multipart_file(req)
+    try:
+        res = await run_in_threadpool(F.replace, req.path_params["fid"], _chunks(f), who(req), client_ip(req), F.MAX_UI,
+                                      form.get("name") or None, public_base(req))
+    finally:
+        await form.close()
+    return JSONResponse(res)
+
+
+@_fe
+async def api_file_delete(req):
+    return JSONResponse(await run_in_threadpool(F.delete, req.path_params["fid"], who(req), client_ip(req)))
+
+
+@_fe
+async def api_folder_new(req):
+    data = await body(req)
+    return JSONResponse(await run_in_threadpool(F.create_folder, data.get("name", ""), data.get("parent_id"), who(req), client_ip(req)),
+                        status_code=201)
+
+
+@_fe
+async def api_folder_update(req):
+    data = await body(req)
+    res = await run_in_threadpool(lambda: F.update_folder(req.path_params["fid"], data.get("name"),
+                                                          data["parent_id"] if "parent_id" in data else False, who(req), client_ip(req)))
+    return JSONResponse(res)
+
+
+@_fe
+async def api_folder_delete(req):
+    confirm = req.query_params.get("confirm") in ("1", "true")
+    return JSONResponse(await run_in_threadpool(F.delete_folder, req.path_params["fid"], confirm, who(req), client_ip(req)))
+
+
+@_fe
+async def api_files_quota(req):
+    data = await body(req)
+    b = await run_in_threadpool(F.set_quota, data.get("quota_gb"), who(req), client_ip(req))
+    return JSONResponse({"quota": b, "usage": F.usage()})
+
+
+FILE_HEADERS = {"x-content-type-options": "nosniff", "content-security-policy": "sandbox; default-src 'none'",
+                "referrer-policy": "no-referrer", "x-frame-options": "DENY", "cross-origin-resource-policy": "same-site",
+                "cache-control": "private, max-age=300", "x-robots-tag": "noindex, nofollow"}
+
+
+async def public_file(req):
+    """GET /f/<token>/<name>. Only an allowlist (images, audio, video, PDF, plain text) is shown inline; everything else,
+    HTML and SVG included, downloads as an attachment with a generic type, under a sandbox CSP."""
+    hit = await run_in_threadpool(F.by_token, req.path_params["token"])
+    if not hit:
+        return JSONResponse({"error": "not found or expired"}, status_code=404, headers=FILE_HEADERS)
+    r, path = hit
+    show = F.inline(r["mime"])
+    mime = (r["mime"] + ("; charset=utf-8" if r["mime"] == "text/plain" else "")) if show else "application/octet-stream"
+    return FileResponse(path, media_type=mime, filename=r["name"], content_disposition_type="inline" if show else "attachment",
+                        headers=FILE_HEADERS)
+
+
 # ---------- MCP ----------
 
 async def mcp_endpoint(req):
@@ -1203,6 +1357,15 @@ def create_app():
         Route("/api/settings/tokens/revoke", api_token_del, methods=["POST"]),
         Route("/api/settings/mcp-key", api_key_info), Route("/api/settings/mcp-key/rotate", api_key_rotate, methods=["POST"]),
         Route("/api/settings/mcp-key/revoke", api_key_revoke, methods=["POST"]),
+        Route("/api/files", api_files), Route("/api/files", api_file_upload, methods=["POST"]),
+        Route("/api/files/quota", api_files_quota, methods=["POST"]),
+        Route("/api/files/{fid}", api_file), Route("/api/files/{fid}", api_file_update, methods=["PATCH"]),
+        Route("/api/files/{fid}", api_file_delete, methods=["DELETE"]),
+        Route("/api/files/{fid}/content", api_file_replace, methods=["PUT", "POST"]),
+        Route("/api/folders", api_folder_new, methods=["POST"]),
+        Route("/api/folders/{fid:int}", api_folder_update, methods=["PATCH"]),
+        Route("/api/folders/{fid:int}", api_folder_delete, methods=["DELETE"]),
+        Route("/f/{token}/{name:path}", public_file, methods=["GET", "HEAD"]), Route("/f/{token}", public_file, methods=["GET", "HEAD"]),
         Route("/mcp", mcp_endpoint, methods=["GET", "POST", "DELETE"]), Route("/mcp/", mcp_endpoint, methods=["GET", "POST", "DELETE"]),
         Route("/.well-known/{path:path}", well_known),
         Route("/media/{path:path}", media), Route("/thumb/{vid}.jpg", thumb),

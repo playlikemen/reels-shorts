@@ -161,6 +161,46 @@ Create a token in Settings or with `python3.11 -m studio token <name>`, then sen
 | GET | `/media/<brand>/<ID>/<file>`, `/thumb/<ID>.jpg` | MP4 (range requests), images, captions |
 | GET | `/editor/` | FilmCraft web build, with COOP/COEP headers |
 
+## Files (temporary hosting)
+
+The Files page hosts any file at an unguessable public link, `https://studio.campusloop.space/f/<token>/<name>`. The
+token is 43 random URL-safe characters; the name in the link is cosmetic. Files sit in folders and expire after
+1 day, 1 week (the default), a custom time up to 90 days ahead, or never. Never is for the owner's session and the
+MCP key only, not agent tokens.
+
+- **Who:** uploading, listing, renaming, moving, replacing, changing expiry and deleting need the owner's login or the
+  API key; anonymous requests get 401. Only a file's own link is public.
+- **Safe serving on `/f/`:**
+  - Images (PNG, JPEG, GIF, WebP, AVIF), audio, video, PDF and plain text open inline.
+  - Everything else, including HTML, SVG and JS, is sent as `application/octet-stream` with
+    `Content-Disposition: attachment`, so it never renders on the studio origin.
+  - Every response has `X-Content-Type-Options: nosniff`, `Content-Security-Policy: sandbox; default-src 'none'` and
+    `Referrer-Policy: no-referrer`.
+  - No cookie is read or set and there is no login redirect. Range requests work.
+- **Storage:** content is kept by a random id in `~/.local/state/reels-shorts/files/` (mode 700) and metadata in the
+  studio store (`files_meta`, `file_folders`). Names are cleaned (no directories, control characters or leading dots)
+  and never touch the filesystem, so no path traversal is possible.
+- **Limits:** 1 GB per file through the UI and REST (streamed), 25 MB of base64 over MCP. The total quota defaults to
+  20 GB (Files, then Quota); a full store answers 507 "storage is full".
+- **Expiry:** `python3.11 -m studio.files sweep` runs on the 5-minute cron tick and at studio start. An expired link
+  answers 404 at once.
+- **Audit:** every write is in the audit log (file uploaded, changed, replaced, deleted, expired; folder created,
+  changed, deleted; quota).
+
+| Method | Path | What |
+|---|---|---|
+| GET | `/api/files?folder=&q=&all=1` | files in a folder (or matching q anywhere), the folder tree, usage |
+| POST | `/api/files` | multipart `file`, `folder_id?`, `expiry?` (1d, 7d, `YYYY-MM-DD HH:MM` IST, never) |
+| GET/PATCH/DELETE | `/api/files/{id}` | info / `{name?, folder_id?, expiry?, new_link?}` / delete |
+| PUT | `/api/files/{id}/content` | multipart `file`: replace the content, same link |
+| POST | `/api/folders` | `{name, parent_id?}` |
+| PATCH/DELETE | `/api/folders/{id}` | `{name?, parent_id?}` / delete (`?confirm=true` when it is not empty) |
+| POST | `/api/files/quota` | `{quota_gb}` |
+
+MCP (key only): `upload_file` (`content_base64` up to 25 MB or a public `url`), `list_files`, `get_file`, `update_file`
+(rename, move, expiry, `new_link`, replace content), `delete_file`, `create_folder`, `rename_folder`, `move_folder`,
+`delete_folder` (`confirm: true` when it is not empty). URL fetches refuse private and loopback addresses.
+
 ## MCP
 
 `https://studio.campusloop.space/mcp` is an MCP server (Streamable HTTP, JSON-RPC 2.0 over `POST`, protocol
@@ -210,7 +250,7 @@ Check it: `npx -y @modelcontextprotocol/inspector --cli https://studio.campusloo
 
 `app.py` routes, auth guard, media, SSE · `auth.py` scrypt, cookies, CSRF, tokens, rate limit · `store.py` SQLite ·
 `sync.py` store-first edits, Sheet mirror push, import diff, snapshots, restore, bulk, folders, archive, slots, swap ·
-`mcp.py` the MCP server (tools, redaction, JSON-RPC) · `jobs.py`
+`mcp.py` the MCP server (tools, redaction, JSON-RPC) · `files.py` temporary file hosting · `jobs.py`
 subprocess queue · `publish_job.py` one or more reels through `scheduler.run` · `upload.py` the upload job · `tasks.py` insights, comments, health · `web/` static UI (vanilla JS modules, no build).
 
 Tests: `python3.11 -m pytest tests/studio` (no network; Composio and the Sheet are mocked).

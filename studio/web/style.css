@@ -473,3 +473,36 @@ main:focus-visible { outline: none; }
 #channels { margin-bottom: 16px; }
 .bulkbar .grp { flex-wrap: wrap; }
 .bulkbar input[size] { width: 150px; }
+
+/* ---------- Files (temporary hosting) ---------- */
+.files { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 16px; align-items: start; }
+.ftree { display: flex; flex-direction: column; gap: 2px; position: sticky; top: 12px; }
+.frow { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 34px; padding: 6px 10px; border: 0; border-radius: 8px; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.frow span:first-of-type { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.frow .ic { width: 16px; height: 16px; flex: none; }
+.frow:hover { background: var(--surface-2); }
+.frow.on { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.ftree > .btn { margin-top: 8px; align-self: flex-start; }
+.fpane { min-width: 0; }
+.files-up { margin: 10px 0 14px; }
+.flist { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.fitem { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-top: 1px solid var(--line); }
+.fitem:first-child { border-top: 0; }
+.fmain { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.fmain b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.factions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.fusage { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+.fbar { width: 160px; height: 8px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.fbar span { display: block; height: 100%; background: var(--accent); }
+.fbar span.full { background: var(--bad); }
+@media (max-width: 760px) {
+  .files { grid-template-columns: 1fr; }
+  .ftree { position: static; flex-direction: row; flex-wrap: wrap; gap: 6px; }
+  .frow { width: auto; min-height: 32px; border: 1px solid var(--line); border-radius: 99px; padding: 4px 12px; }
+  .ftree > .btn { margin-top: 0; }
+  .fitem { flex-wrap: wrap; }
+  .fmain { flex-basis: 100%; }
+  .factions { justify-content: flex-start; }
+  .fusage { margin-left: 0; flex-wrap: wrap; }
+  .fbar { width: 120px; }
+}

@@ -225,7 +225,7 @@ export function drawChannels() {
 const NAV = [
   ["library", "Library", "grid"], ["calendar", "Calendar", "cal"], ["board", "Board", "board"], ["jobs", "Jobs", "play"],
   ["scripts", "Scripts", "pen"], ["insights", "Insights", "chart"], ["comments", "Comments", "chat"],
-  ["health", "Health", "pulse"], ["sound", "Sound", "wave"], ["audit", "Audit log", "list"], ["settings", "Settings", "gear"],
+  ["files", "Files", "stack"], ["health", "Health", "pulse"], ["sound", "Sound", "wave"], ["audit", "Audit log", "list"], ["settings", "Settings", "gear"],
 ];
 const MOBILE = ["library", "calendar", "board", "jobs"];
 

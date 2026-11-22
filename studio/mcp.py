@@ -362,6 +362,105 @@ async def t_check_instagram(ctx, a):
     return await call(ctx, _app().api_check_instagram, "POST", {"vid": _id(a)}, body={})
 
 
+# ---------- file hosting ----------
+
+def _fbase(ctx):
+    from .app import public_base
+    return public_base(ctx["req"])
+
+
+async def _files(ctx, fn, *args):
+    from . import files as F
+    try:
+        return await run_in_threadpool(fn, *args)
+    except F.FileError as e:
+        raise ToolError(str(e))
+
+
+def _content(a):
+    """(name, chunks, limit) from content_base64 or url."""
+    import base64, binascii
+    from . import files as F
+    b64, url = a.get("content_base64"), a.get("url")
+    if bool(b64) == bool(url):
+        raise ToolError("send either content_base64 (up to 25 MB) or url")
+    if b64:
+        if len(b64) > F.MAX_MCP * 4 // 3 + 16:
+            raise ToolError("content_base64 is over 25 MB; use url, or the studio's Files page (up to 1 GB)")
+        try:
+            data = base64.b64decode(b64, validate=True)
+        except (binascii.Error, ValueError):
+            raise ToolError("content_base64 is not valid base64")
+        if len(data) > F.MAX_MCP:
+            raise ToolError("the file is over 25 MB")
+        return a.get("name") or "file", iter([data]), F.MAX_MCP
+    try:
+        name, chunks = F.url_chunks(str(url))
+    except F.FileError as e:
+        raise ToolError(str(e))
+    except Exception as e:
+        raise ToolError(f"could not fetch the url: {str(e)[:200]}")
+    return a.get("name") or name, chunks, F.MAX_URL
+
+
+async def t_upload_file(ctx, a):
+    from . import files as F
+    name, chunks, limit = await run_in_threadpool(_content, a)
+    return await _files(ctx, lambda: F.add(name, chunks, a.get("folder_id"), a.get("expiry") or "7d", ctx["user"], ctx["ip"], limit, _fbase(ctx)))
+
+
+async def t_list_files(ctx, a):
+    from . import files as F
+    every = bool(a.get("all") or a.get("search"))
+    files = await _files(ctx, lambda: F.list_files(a.get("folder_id"), a.get("search", ""), every, _fbase(ctx)))
+    return {"files": files, "folders": await _files(ctx, F.folders), "usage": await _files(ctx, F.usage)}
+
+
+async def t_get_file(ctx, a):
+    from . import files as F
+    return await _files(ctx, lambda: F.get_file(str(a.get("id", "")), _fbase(ctx)))
+
+
+async def t_update_file(ctx, a):
+    from . import files as F
+    fid = str(a.get("id", ""))
+    out = None
+    if a.get("content_base64") or a.get("url"):
+        _, chunks, limit = await run_in_threadpool(_content, a)
+        out = await _files(ctx, lambda: F.replace(fid, chunks, ctx["user"], ctx["ip"], limit, None, _fbase(ctx)))
+    if any(k in a for k in ("name", "folder_id", "expiry", "new_link")):
+        out = await _files(ctx, lambda: F.update(fid, a.get("name"), a["folder_id"] if "folder_id" in a else False, a.get("expiry"),
+                                                 bool(a.get("new_link")), ctx["user"], ctx["ip"], _fbase(ctx)))
+    if out is None:
+        raise ToolError("send name, folder_id, expiry, new_link, content_base64 or url")
+    return out
+
+
+async def t_delete_file(ctx, a):
+    from . import files as F
+    return await _files(ctx, lambda: F.delete(str(a.get("id", "")), ctx["user"], ctx["ip"]))
+
+
+async def t_create_folder(ctx, a):
+    from . import files as F
+    return await _files(ctx, lambda: F.create_folder(a.get("name", ""), a.get("parent_id"), ctx["user"], ctx["ip"]))
+
+
+async def t_rename_folder(ctx, a):
+    from . import files as F
+    return await _files(ctx, lambda: F.update_folder(a.get("id"), a.get("name", ""), False, ctx["user"], ctx["ip"]))
+
+
+async def t_move_folder(ctx, a):
+    from . import files as F
+    return await _files(ctx, lambda: F.update_folder(a.get("id"), None, a.get("parent_id"), ctx["user"], ctx["ip"]))
+
+
+async def t_delete_folder(ctx, a):
+    from . import files as F
+    return await _files(ctx, lambda: F.delete_folder(a.get("id"), a.get("confirm") is True, ctx["user"], ctx["ip"]))
+
+
 async def t_mirror_push(ctx, a):
     return await call(ctx, _app().api_sync, "POST", body={})
 
@@ -444,6 +543,27 @@ TOOLS = [
      obj({"channel": S_CH, "comment_id": {"type": "string"}, "message": {"type": "string"}, "send": {"type": "boolean"}}, ["channel", "comment_id", "message"])),
     ("check_instagram", t_check_instagram, True, False, "A reel stuck at Publishing: find it on Instagram by caption and mark it "
      "Published with its link, or Failed if it is not there.", obj({"id": S_ID}, ["id"])),
+    ("upload_file", t_upload_file, True, False, "Host a file (any type) at an unguessable public link that expires. "
+     "Send content_base64 (up to 25 MB) or a public url to fetch. expiry: 1d, 7d (default), a time up to 90 days ahead "
+     "(YYYY-MM-DD HH:MM IST), or never. Returns the file with its public url.",
+     obj({"name": {"type": "string"}, "content_base64": {"type": "string"}, "url": {"type": "string"}, "folder_id": {"type": "integer"},
+          "expiry": {"type": "string"}}, [])),
+    ("list_files", t_list_files, True, True, "Hosted files in a folder (default: the top level; all: true or search for every folder), "
+     "the folder tree and storage use.",
+     obj({"folder_id": {"type": "integer"}, "search": {"type": "string"}, "all": {"type": "boolean"}})),
+    ("get_file", t_get_file, True, True, "One hosted file: name, size, type, folder, expiry and public url.", obj({"id": {"type": "string"}}, ["id"])),
+    ("update_file", t_update_file, True, False, "Rename, move (folder_id; null for the top level), change expiry, get a new link "
+     "(new_link: true; the old link stops working) or replace the content (content_base64 or url).",
+     obj({"id": {"type": "string"}, "name": {"type": "string"}, "folder_id": {"type": ["integer", "null"]}, "expiry": {"type": "string"},
+          "new_link": {"type": "boolean"}, "content_base64": {"type": "string"}, "url": {"type": "string"}}, ["id"])),
+    ("delete_file", t_delete_file, True, False, "Delete a hosted file and its link.", obj({"id": {"type": "string"}}, ["id"])),
+    ("create_folder", t_create_folder, True, False, "Create a file folder (parent_id for a subfolder).",
+     obj({"name": {"type": "string"}, "parent_id": {"type": "integer"}}, ["name"])),
+    ("rename_folder", t_rename_folder, True, False, "Rename a file folder.", obj({"id": {"type": "integer"}, "name": {"type": "string"}}, ["id", "name"])),
+    ("move_folder", t_move_folder, True, False, "Move a file folder under another (parent_id null for the top level).",
+     obj({"id": {"type": "integer"}, "parent_id": {"type": ["integer", "null"]}}, ["id", "parent_id"])),
+    ("delete_folder", t_delete_folder, True, False, "Delete a file folder. A folder holding files or subfolders needs confirm: true "
+     "(everything in it is deleted).", obj({"id": {"type": "integer"}, "confirm": {"type": "boolean"}}, ["id"])),
     ("mirror_push", t_mirror_push, True, False, "Push rows waiting for the Google Sheet mirror now.", obj()),
 ]
 BY_NAME = {t[0]: t for t in TOOLS}
@@ -502,7 +622,7 @@ async def dispatch(ctx, msg):
             data, err = {"error": f"bad arguments: {e}"}, True
         if ctx["keyed"]:
             S.audit(f"mcp {name}", str(args.get("id") or args.get("channel") or args.get("ids") or "")[:200], None,
-                    {"args": {k: v for k, v in args.items() if k not in ("message", "fields", "caption")} | ({"fields": list(args["fields"])} if isinstance(args.get("fields"), dict) else {}),
+                    {"args": {k: v for k, v in args.items() if k not in ("message", "fields", "caption", "content_base64")} | ({"fields": list(args["fields"])} if isinstance(args.get("fields"), dict) else {}),
                      "error": data.get("error") if err else None}, ctx["user"], ctx["ip"])
         else:
             data = redact(data)

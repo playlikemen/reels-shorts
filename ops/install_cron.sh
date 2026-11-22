@@ -13,7 +13,7 @@ LINES=(
   "*/15 * * * * cd $REPO && $PY ops/scheduler.py --publish >> $STATE/scheduler.log 2>&1  # reels-shorts"
   "*/15 * * * * bash $REPO/ops/studio_service.sh watchdog >> $STATE/studio-watchdog.log 2>&1  # reels-shorts studio"
   "@reboot sleep 60 && bash $REPO/ops/studio_service.sh watchdog >> $STATE/studio-watchdog.log 2>&1  # reels-shorts studio"
-  "*/5 * * * * cd $REPO && flock -n $STATE/studio-sync.lock sh -c '$PY -m studio.publish_job --reconcile; $PY -m studio.sync push' >> $STATE/studio-sync.log 2>&1  # reels-shorts studio"
+  "*/5 * * * * cd $REPO && flock -n $STATE/studio-sync.lock sh -c '$PY -m studio.publish_job --reconcile; $PY -m studio.files sweep; $PY -m studio.sync push' >> $STATE/studio-sync.log 2>&1  # reels-shorts studio"
   "15 3 * * * cd $REPO && flock $STATE/studio-sync.lock sh -c '$PY -m studio.sync push >/dev/null 2>&1; $PY -m studio.sync snapshot' >> $STATE/studio-sync.log 2>&1  # reels-shorts studio"
 )
 CURRENT="$(crontab -l 2>/dev/null | grep -v 'reels-shorts' || true)"
