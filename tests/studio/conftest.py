@@ -103,3 +103,51 @@ def seed():
     """Load the fake Sheet into the store once (what the one-time migration does)."""
     S.reset_connections()
     return Y.import_apply(everything=True, who="test")
+
+
+class FakeBackend:
+    """Stands in for ops/publish_backends.Composio: records calls, prints the real progress lines, never posts."""
+    name = "composio"
+
+    def __init__(self):
+        self.calls, self.fail, self.media = [], None, []
+
+    def instagram(self, brand_key, mp4, caption, progress=None, on_container=None):
+        self.calls.append(("instagram", brand_key, str(mp4), caption))
+        say = progress or (lambda s: None)
+        say("uploading video to Composio…")
+        if self.fail:
+            raise self.fail
+        on_container and on_container("C123")
+        say("Instagram container C123 created, processing…")
+        say("publishing…")
+        say("published https://www.instagram.com/reel/TEST/")
+        return {"media_id": "M1", "permalink": "https://www.instagram.com/reel/TEST/", "creation_id": "C123"}
+
+    def youtube(self, brand_key, mp4, title, description, tags, progress=None):
+        self.calls.append(("youtube", brand_key, str(mp4), title))
+        if self.fail:
+            raise self.fail
+        return {"video_id": "Y1", "url": "https://youtube.com/shorts/Y1"}
+
+    def recent_instagram(self, brand_key, limit=10):
+        self.calls.append(("recent", brand_key, limit))
+        return self.media
+
+
+@pytest.fixture
+def direct(fake, isolated, monkeypatch):
+    """A Ready reel CR-901-EN with an MP4 on disk and a fake posting backend."""
+    import publish_backends as PB
+    from studio import publish_job as P
+    fb = FakeBackend()
+    monkeypatch.setattr(PB, "for_brand", lambda key: fb)
+    monkeypatch.setattr(K, "ROOT", K.ROOT)
+    mp4 = isolated / "cr.mp4"
+    mp4.write_bytes(b"\0" * (K.MIN_MP4_BYTES + 10))
+    fake.tabs["@craftlayer"] = [row("CR-901-EN", **{"Local Path": str(mp4)}),
+                                row("CR-902-EN", **{"Local Path": str(mp4), "Instagram Status": "Hold"}),
+                                row("CR-903-EN", **{"Local Path": str(mp4), "Instagram Status": "Published"}),
+                                row("CR-904-EN", **{"Local Path": str(mp4), "Instagram Status": "Archived"})]
+    seed()
+    return fb

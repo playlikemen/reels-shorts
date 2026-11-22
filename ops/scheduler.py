@@ -81,7 +81,7 @@ def file_published(folder_link):
 def run(publish, force=()):
     """force: video ids to post now, ignoring their scheduled time, the daily cap and the auto-publish switch
     (an owner's explicit request)."""
-    import reelrows as sheet, publish_instagram, publish_youtube   # rows come from the studio store; the Sheet is a mirror
+    import reelrows as sheet, publish_backends as PB, publish_youtube   # rows come from the studio store; the Sheet is a mirror
     for b in K.brands():
         tab = b["sheet_tab"]
         auto = b.get("auto_publish", True)
@@ -111,7 +111,7 @@ def run(publish, force=()):
                     sheet.set_cells(tab, n, {"Instagram Status": "Publishing"})
                     try:
                         caption = row["Instagram Viral Caption"].rstrip() + "\n\n" + row["Instagram Hashtags"]
-                        r = publish_instagram.publish(b["key"], mp4, caption)
+                        r = PB.for_brand(b["key"]).instagram(b["key"], mp4, caption, progress=print)
                         sheet.set_cells(tab, n, {"Instagram Status": "Published", "Instagram Post URL": r["permalink"]})
                         log(video=vid, platform="instagram", status="published", **r)
                         file_published(row.get("Google Drive Folder", ""))
@@ -149,7 +149,7 @@ def run(publish, force=()):
             sheet.set_cells(tab, n, {"YouTube Status": "Publishing"})
             try:
                 tags = [t.strip() for t in row["YouTube SEO Tags (Separated)"].split(",") if t.strip()]
-                r = publish_youtube.upload(b["key"], mp4, row["YouTube Title"], row["YouTube Best SEO Description"], tags)
+                r = PB.for_brand(b["key"]).youtube(b["key"], mp4, row["YouTube Title"], row["YouTube Best SEO Description"], tags, progress=print)
                 sheet.set_cells(tab, n, {"YouTube Status": "Published", "YouTube Shorts URL": r["url"]})
                 log(video=vid, platform="youtube", status="published", **r)
                 if c["state"] == "none":

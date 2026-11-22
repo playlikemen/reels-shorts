@@ -358,6 +358,10 @@ async def t_reply_comment(ctx, a):
                                                                     "message": a.get("message", ""), "send": a.get("send") is True})
 
 
+async def t_check_instagram(ctx, a):
+    return await call(ctx, _app().api_check_instagram, "POST", {"vid": _id(a)}, body={})
+
+
 async def t_mirror_push(ctx, a):
     return await call(ctx, _app().api_sync, "POST", body={})
 
@@ -376,7 +380,7 @@ def obj(props=None, required=()):
 
 PUB = {"id": S_ID, "confirm": {"type": "boolean", "description": "must be true to post for real"},
        "dry_run": {"type": "boolean", "description": "check everything and post nothing"},
-       "override_cap": {"type": "boolean", "description": "post even if today's daily cap is reached"}}
+       "override_cap": {"type": "boolean", "description": "accepted for compatibility; a manual publish ignores the daily cap"}}
 
 TOOLS = [
     # name, fn, keyed, read_only, description, schema
@@ -413,7 +417,8 @@ TOOLS = [
     ("bulk_action", t_bulk, True, False, "Run hold, ready, schedule, archive, unarchive, fill or swap on several reels as one job.",
      obj({"ids": {"type": "array", "items": {"type": "string"}}, "action": {"type": "string", "enum": ["hold", "ready", "schedule", "archive", "unarchive", "fill", "swap"]},
           "start": S_TIME, "every_days": {"type": "integer"}, "auto": {"type": "boolean"}}, ["ids", "action"])),
-    ("publish_instagram", t_publish_instagram, True, False, "Publish one reel to Instagram now. Needs confirm: true; dry_run: true posts nothing.",
+    ("publish_instagram", t_publish_instagram, True, False, "Publish one reel to Instagram now, directly (schedule, slots, daily cap and the auto-publish switch are not used). "
+     "Needs confirm: true; dry_run: true posts nothing. Returns a job; get_job shows progress and the link.",
      obj(PUB, ["id"])),
     ("publish_youtube", t_publish_youtube, True, False, "Upload one reel to YouTube Shorts now. Needs confirm: true; dry_run: true posts nothing.",
      obj({k: v for k, v in PUB.items() if k != "override_cap"}, ["id"])),
@@ -424,9 +429,10 @@ TOOLS = [
      "sync (Drive + studio row for params.spec), push (Sheet mirror), snapshot, dryrun, insights (params.brand), backfill, generate.",
      obj({"kind": {"type": "string"}, "params": {"type": "object"}, "stills": {"type": "string", "description": "seconds for stills, e.g. 0.3,7,14"}}, ["kind"])),
     ("cancel_job", t_cancel_job, True, False, "Cancel a queued or running job.", obj({"id": {"type": "integer"}}, ["id"])),
-    ("channel_settings", t_channel_settings, True, False, "Change a channel's auto_publish, youtube_auto, slots (HH:MM list) or daily cap.",
+    ("channel_settings", t_channel_settings, True, False, "Change a channel's auto_publish, youtube_auto, slots (HH:MM list), daily cap or posting method.",
      obj({"channel": S_CH, "auto_publish": {"type": "boolean"}, "youtube_auto": {"type": "boolean"},
-          "slots": {"type": "array", "items": {"type": "string"}}, "cap": {"type": "integer"}}, ["channel"])),
+          "slots": {"type": "array", "items": {"type": "string"}}, "cap": {"type": "integer"},
+          "publish_backend": {"type": "string", "enum": ["composio", "metricool"], "description": "posting method (metricool is not enabled yet)"}}, ["channel"])),
     ("upload_video", t_upload_video, True, False, "Add a finished MP4/MOV from a file on the studio server (path) or a URL. after: draft (Hold), "
      "schedule (needs when), next (next free slot) or now (publishes; needs confirm).",
      obj({"path": {"type": "string"}, "url": {"type": "string"}, "channel": S_CH, "lang": {"type": "string"}, "topic": {"type": "string"},
@@ -436,6 +442,8 @@ TOOLS = [
     ("refresh_comments", t_refresh_comments, True, False, "Fetch the latest Instagram comments for a channel.", obj({"channel": S_CH}, ["channel"])),
     ("reply_comment", t_reply_comment, True, False, "Reply to an Instagram comment. Needs send: true.",
      obj({"channel": S_CH, "comment_id": {"type": "string"}, "message": {"type": "string"}, "send": {"type": "boolean"}}, ["channel", "comment_id", "message"])),
+    ("check_instagram", t_check_instagram, True, False, "A reel stuck at Publishing: find it on Instagram by caption and mark it "
+     "Published with its link, or Failed if it is not there.", obj({"id": S_ID}, ["id"])),
     ("mirror_push", t_mirror_push, True, False, "Push rows waiting for the Google Sheet mirror now.", obj()),
 ]
 BY_NAME = {t[0]: t for t in TOOLS}

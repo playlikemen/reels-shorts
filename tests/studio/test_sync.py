@@ -126,7 +126,7 @@ def test_scheduler_reads_the_store_not_the_sheet(fake, monkeypatch, isolated, ca
     seed()
     fake.tabs["@campusloop"][0]["Instagram Status"] = "Hold"            # a Sheet edit does not stop the post
     posted = []
-    monkeypatch.setattr(publish_instagram, "publish", lambda key, p, cap: posted.append(key) or {"permalink": "https://ig/x", "media_id": "1"})
+    monkeypatch.setattr(publish_instagram, "publish", lambda key, p, cap, **k: posted.append(key) or {"permalink": "https://ig/x", "media_id": "1"})
     scheduler.run(publish=True, force={"CL-901"})
     assert posted == ["campusloop"]
     r = S.get_reel("CL-901")
@@ -143,7 +143,7 @@ def test_scheduler_marks_store_even_when_the_sheet_is_down(fake, monkeypatch, is
     fake.tabs["@campusloop"] = [row("CL-901", **{"Scheduled Time (IST)": "2020-01-01 19:30", "Local Path": str(mp4)})]
     seed()
     fake.fail_write = fake.fail_read = True
-    monkeypatch.setattr(publish_instagram, "publish", lambda key, p, cap: {"permalink": "https://ig/x", "media_id": "1"})
+    monkeypatch.setattr(publish_instagram, "publish", lambda key, p, cap, **k: {"permalink": "https://ig/x", "media_id": "1"})
     scheduler.run(publish=True, force={"CL-901"})
     r = S.get_reel("CL-901")
     assert r["Instagram Status"] == "Published" and r["pending"]

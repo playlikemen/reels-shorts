@@ -190,7 +190,13 @@ class JobQueue:
                 os.killpg(proc.pid, signal.SIGTERM)
             except ProcessLookupError:
                 pass
-            asyncio.get_event_loop().call_later(5, self._kill, proc)
+            if j["kind"] == "publish":
+                # a publish job ignores SIGTERM while a post is in flight (studio/publish_job.NoCancel): never SIGKILL it,
+                # or a post Instagram already accepted would be left at "Publishing"
+                with open(JOB_LOGS / f"{jid}.log", "a") as f:
+                    f.write("\n[studio] cancel requested: reels not started yet are skipped; a post in flight finishes first\n")
+            else:
+                asyncio.get_event_loop().call_later(5, self._kill, proc)
             return True
         return False
 

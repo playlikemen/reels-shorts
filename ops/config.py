@@ -26,7 +26,8 @@ COL_WIDTHS = [90, 100, 200, 150, 80, 220, 180, 230, 260, 260, 340, 320, 220, 130
 # Per-channel publishing settings written by the studio (Settings > Channels). They overlay brand.json so cron, the
 # CLI and the studio read one value: {"<brand key>": {"auto_publish": bool, "youtube_auto": bool, "slots": ["12:30"],
 # "cap": 2}}. A missing key keeps the brand.json value; auto-publish and YouTube auto-upload default to on.
-CHANNEL_KEYS = {"auto_publish", "youtube_auto", "slots", "cap"}
+CHANNEL_KEYS = {"auto_publish", "youtube_auto", "slots", "cap", "publish_backend"}
+PUBLISH_BACKENDS = ("composio", "metricool")      # ops/publish_backends.py
 SLOT_RE = re.compile(r"^([01]\d|2[0-3]):[0-5]\d$")
 
 
@@ -57,6 +58,10 @@ def save_channel(key, values):
             if not slots or not all(SLOT_RE.match(x) for x in slots):
                 raise ValueError("slots: one or more times like 12:30")
             clean[k] = slots
+        elif k == "publish_backend":
+            if v not in PUBLISH_BACKENDS:
+                raise ValueError(f"publish_backend: {' or '.join(PUBLISH_BACKENDS)}")
+            clean[k] = v
         elif k == "cap":
             if v in (None, "", 0):
                 clean[k] = None
@@ -83,6 +88,7 @@ def _overlay(b):
         b["slots_ist"] = c["slots"]
     if "cap" in c:
         b["max_reels_per_day"] = c["cap"]
+    b["publish_backend"] = c.get("publish_backend", b.get("publish_backend", "composio"))
     return b
 
 

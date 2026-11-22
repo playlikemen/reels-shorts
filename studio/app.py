@@ -263,6 +263,7 @@ def brand_info():
                     "youtube_url": f"https://www.youtube.com/{yt if yt.startswith('@') else '@' + yt}" if yt else "",
                     "cap": b.get("max_reels_per_day"), "slots": b.get("slots_ist", []), "sfx_packs": packs,
                     "auto_publish": b.get("auto_publish", True), "youtube_auto": b.get("youtube_auto", True),
+                    "publish_backend": b.get("publish_backend", "composio"),
                     "hashtags": b.get("hashtags", []), "cta": b.get("cta", ""),
                     "insights_tab": b.get("insights_tab", ""), "posted_today": scheduler.posted_today(b["id_prefix"])})
     return out
@@ -421,7 +422,7 @@ async def api_channels_save(req):
     k = _brand_key(data.get("brand", ""))
     values = {x: data[x] for x in K.CHANNEL_KEYS if x in data}
     if not values:
-        raise ApiError("send auto_publish, youtube_auto, slots or cap")
+        raise ApiError("send auto_publish, youtube_auto, slots, cap or publish_backend")
     try:
         before, after = K.save_channel(k, values)
     except ValueError as e:
@@ -523,8 +524,6 @@ async def bulk_publish(req, ids, data):
     bad = {c["reel"]["Video ID"]: c["problems"][0] for c in checks if c["problems"]}
     if bad:
         raise ApiError("; ".join(f"{k}: {v}" for k, v in bad.items())[:600], 409, problems=bad)
-    if lock_busy():
-        raise ApiError("the scheduler is running right now; try again in a minute", 409, lock_busy=True)
     jid = STATE_REF.queue.submit("publish", {"ids": ids, "platform": platform, "dry_run": dry}, who(req))
     S.audit("bulk publish requested" if not dry else "bulk publish dry-run", ",".join(ids)[:200], None,
             {"platform": platform, "job": jid}, who(req), client_ip(req))
@@ -609,6 +608,8 @@ def publish_checks(vid, platform):
     problems = []
     if not PJ.pushable(r[col]):
         problems.append(f"{col} is '{r[col] or 'empty'}'; Published, Publishing, Archived and channel-less rows are never posted")
+    if b.get("publish_backend", "composio") != "composio":
+        problems.append(f"{b['name']} posts via {b['publish_backend']}, which is not enabled yet (Settings, Channels)")
     if not mp4 or not mp4.exists():
         problems.append("the local MP4 is missing")
     elif mp4.stat().st_size < K.MIN_MP4_BYTES:
@@ -644,15 +645,26 @@ async def api_publish(req):
     p = await run_in_threadpool(publish_checks, vid, platform)
     if p["problems"]:
         raise ApiError(p["problems"][0], 409, problems=p["problems"])
-    if p["over_cap"] and not dry and data.get("override_cap") is not True:
-        raise ApiError(f"{p['brand']} already posted {p['posted_today']} of {p['cap']} today; tick the override to post anyway",
-                       409, need_override=True)
-    if p["lock_busy"]:
-        raise ApiError("the scheduler is running right now; try again in a minute", 409, lock_busy=True)
+    # a manual Publish is a direct post: the daily cap and the auto-publish switch do not apply, and the job waits up to
+    # 60 s for the scheduler lock instead of refusing
     jid = STATE_REF.queue.submit("publish", {"id": vid, "platform": platform, "dry_run": dry}, who(req))
     S.audit("publish requested" if not dry else "publish dry-run", vid, None,
             {"platform": platform, "job": jid, "override_cap": bool(data.get("override_cap"))}, who(req), client_ip(req))
     return JSONResponse({"job": jid}, status_code=202)
+
+
+@route
+async def api_check_instagram(req):
+    """A reel stuck at Publishing: look for it on Instagram now (by caption) and settle the row."""
+    vid = req.path_params["vid"]
+    r = S.get_reel(vid)
+    if not r:
+        raise ApiError(f"no reel {vid}", 404)
+    if r["Instagram Status"] != "Publishing":
+        raise ApiError(f"{vid} is not stuck at Publishing (it is '{r['Instagram Status']}')", 409)
+    res = await run_in_threadpool(PJ.reconcile, vid, True)
+    S.audit("check instagram", vid, None, res, who(req), client_ip(req))
+    return JSONResponse({"result": res.get(vid) or res.get("_") or "nothing to do", "reel": S.get_reel(vid)})
 
 
 # ---------- jobs ----------
@@ -719,6 +731,15 @@ def on_job_done(j):
 # ---------- Sheet mirror in the background (single flight; a failure only leaves cells pending) ----------
 
 _mirror = {"lock": threading.Lock(), "again": False}
+
+
+def _reconcile_quietly():
+    try:
+        res = PJ.reconcile()
+        if res:
+            print("publishing reconcile:", res)
+    except Exception as e:
+        print("publishing reconcile failed:", str(e)[:200])
 
 
 def kick_mirror(vid=None):
@@ -1139,6 +1160,7 @@ async def lifespan(app):
     if Y.MIRROR_HOOK is None:          # tests install their own, synchronous hook
         Y.MIRROR_HOOK = kick_mirror
         kick_mirror()
+        threading.Thread(target=_reconcile_quietly, daemon=True, name="reconcile").start()
     yield
     await STATE_REF.queue.stop()
 
@@ -1161,6 +1183,7 @@ def create_app():
         Route("/api/snapshots", api_snapshots), Route("/api/unsynced", api_unsynced),
         Route("/api/sync", api_sync, methods=["POST"]),
         Route("/api/import/preview", api_import_preview), Route("/api/import/apply", api_import_apply, methods=["POST"]),
+        Route("/api/reels/{vid}/check-instagram", api_check_instagram, methods=["POST"]),
         Route("/api/publish/preview", api_publish_preview), Route("/api/publish", api_publish, methods=["POST"]),
         Route("/api/jobs", api_jobs), Route("/api/jobs", api_job_new, methods=["POST"]),
         Route("/api/jobs/{jid:int}", api_job), Route("/api/jobs/{jid:int}/cancel", api_job_cancel, methods=["POST"]),

@@ -11,7 +11,7 @@ Steps
 3. ffprobe: must be a video of at most 90 s. If it is not 1080x1920 h264/aac at 30 fps and about -14 LUFS, it is
    re-encoded (scaled and padded to 1080x1920, loudness-normalised) with ffmpeg
 4. thumb.jpg  5. Drive (ops/drive.archive)  6. studio row (Ready for schedule/next/now, Hold for draft), then the Sheet mirror
-7. after=now: posted at once through studio.publish_job (the scheduler lock and code path)
+7. after=now: posted at once through studio.publish_job (a direct post under the scheduler lock)
 """
 import json, re, shutil, subprocess, sys
 

@@ -152,7 +152,7 @@ def test_channel_settings_validate_and_overlay_brand():
 
 def test_auto_publish_off_skips_brand_except_forced(fake, monkeypatch, capsys):
     posted = []
-    monkeypatch.setattr(publish_instagram, "publish", lambda key, mp4, cap: posted.append(key) or {"permalink": "https://ig/x", "media_id": "1"})
+    monkeypatch.setattr(publish_instagram, "publish", lambda key, mp4, cap, **k: posted.append(key) or {"permalink": "https://ig/x", "media_id": "1"})
     fake.tabs["@campusloop"] = [row("CL-901", **{"Scheduled Time (IST)": "2020-01-01 19:30"})]
     seed()
     K.save_channel("campusloop", {"auto_publish": False})
@@ -170,7 +170,7 @@ def test_auto_publish_off_skips_brand_except_forced(fake, monkeypatch, capsys):
 def test_instagram_post_moves_drive_folder_best_effort(fake, monkeypatch, isolated, moves):
     mp4 = isolated / "v.mp4"
     mp4.write_bytes(b"\0" * 10)
-    monkeypatch.setattr(publish_instagram, "publish", lambda key, mp4, cap: {"permalink": "https://ig/x", "media_id": "1"})
+    monkeypatch.setattr(publish_instagram, "publish", lambda key, mp4, cap, **k: {"permalink": "https://ig/x", "media_id": "1"})
     fake.tabs["@campusloop"] = [row("CL-901", **{"Scheduled Time (IST)": "2020-01-01 19:30", "Local Path": str(mp4),
                                                  "Google Drive Folder": FOLDER})]
     seed()
@@ -179,19 +179,7 @@ def test_instagram_post_moves_drive_folder_best_effort(fake, monkeypatch, isolat
     assert moves == [(FOLDER, "Published")]
 
 
-def test_forced_publish_posts_a_hold_row_but_never_a_published_one(fake, monkeypatch, isolated):
-    import reelrows
-    monkeypatch.setattr(K, "brands", K.brands)
-    monkeypatch.setattr(reelrows, "rows", reelrows.rows)
-    fake.tabs["@craftlayer"] = [row("CR-901-EN", **{"Instagram Status": "Hold"}),
-                                row("CR-902-EN", **{"Instagram Status": "Published"})]
-    seed()
-    seen = []
-    monkeypatch.setattr(scheduler, "run", lambda publish, force=(): seen.append([r["Instagram Status"] for r in reelrows.rows("@craftlayer")]))
-    assert P.main(["CR-901-EN", "CR-902-EN", "--platform", "instagram"], lock_path=isolated / "lock") == 2
-    assert seen == [["Ready"], ["Published"]]                    # in memory only; the scheduler would skip the second
-    assert S.get_reel("CR-901-EN")["Instagram Status"] == "Hold"
-    assert K.brands().__len__() == 4                              # narrowing is undone after each reel
+def test_pushable_statuses():
     assert P.pushable("Hold") and P.pushable("Failed: x") and P.pushable("Ready")
     assert not any(P.pushable(s) for s in ("Published", "Publishing", "Archived", "No channel", ""))
 
@@ -225,9 +213,7 @@ def fill_cap():
 def test_one_click_publish_route_accepts_override_and_hold(client):
     fill_cap()
     r = client.post("/api/publish", json={"id": "CR-901-EN", "platform": "instagram", "confirm": True})
-    assert r.status_code == 409 and r.json()["need_override"]
-    r = client.post("/api/publish", json={"id": "CR-901-EN", "platform": "instagram", "confirm": True, "override_cap": True})
-    assert r.status_code == 202
+    assert r.status_code == 202                                  # a manual publish ignores the cap
     r = client.post("/api/publish", json={"id": "CR-902-EN", "platform": "instagram", "confirm": True, "override_cap": True})
     assert r.status_code == 202                                  # Hold: allowed, the publish job flips it
     assert [p["id"] for k, p in client.submitted] == ["CR-901-EN", "CR-902-EN"]
