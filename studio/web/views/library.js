@@ -1,5 +1,5 @@
 // Library: folders (Queue, Due/Failed, Drafts, Published, Archive, All) on a left rail, a sticky toolbar, cards with a
-// hover preview and one-click publish, a Queue timeline with drag-to-swap, bulk actions and the Upload modal.
+// hover preview (with sound, toggle in the toolbar) and one-click publish, a Queue timeline with drag-to-swap, bulk actions and the Upload modal.
 // Folders come from the server (sync.folder_of), so the Sheet stays the source of truth.
 import { h, api, post, state, loadReels, pill, brandDot, brandOf, fmtWhen, short, button, busy, toast, icon, jobToast, modal, istNow } from "../app.js";
 import { openReel } from "./reel.js";
@@ -112,7 +112,7 @@ function draw() {
   const seg = h("div.seg", { role: "group", "aria-label": "View" }, views.map(([v, l]) => h("button", {
     type: "button", class: ui.view === v ? "on" : "", "aria-pressed": String(ui.view === v), onclick: () => { ui.view = v; remember(); draw(); },
   }, l)));
-  const toolbar = h("div.toolbar", {}, h("div.search", {}, icon("search"), q), sort, seg);
+  const toolbar = h("div.toolbar", {}, h("div.search", {}, icon("search"), q), sort, seg, soundToggle());
   const content = h("div.lib-content");
   body$.replaceChildren(toolbar, content, bulkBar());
   drawContent(content, list);
@@ -175,23 +175,68 @@ function mediaUrl(r) {
   return p ? `/media/${p.replace(/^out\//, "")}` : "";
 }
 
+// Hover previews play with sound (toggle in the toolbar, remembered). Browsers allow unmuted play only after a user
+// gesture on the page: before that a preview starts muted and unmutes on the first click, tap or key press.
+const pv = { sound: true, gestured: false, current: null };
+try { pv.sound = localStorage.getItem("rs-preview-sound") !== "off"; } catch { /* storage blocked: default on */ }
+const onGesture = () => {
+  pv.gestured = true;
+  if (pv.current && pv.sound) pv.current.muted = false;
+};
+for (const ev of ["pointerdown", "pointerup", "keydown", "touchend"]) addEventListener(ev, onGesture, { capture: true, passive: true });
+
+function setSound(on) {
+  pv.sound = on;
+  try { localStorage.setItem("rs-preview-sound", on ? "on" : "off"); } catch { /* not remembered */ }
+  if (pv.current) pv.current.muted = !on;
+}
+
+function soundToggle() {
+  const b = h("button.btn.ghost.sm.pv-sound", { type: "button" });
+  const paint = () => {
+    b.replaceChildren(icon(pv.sound ? "vol" : "mute"));
+    b.setAttribute("aria-pressed", String(pv.sound));
+    b.setAttribute("aria-label", pv.sound ? "Preview sound on" : "Preview sound off");
+    b.title = pv.sound ? "Hover previews play with sound (click to mute)" : "Hover previews are muted (click for sound)";
+  };
+  b.onclick = () => { setSound(!pv.sound); paint(); };
+  paint();
+  return b;
+}
+
 function preview(thumb, r) {
   const src = mediaUrl(r);
   if (!src) return;
   let v = null, t = null;
+  const stop = () => {
+    clearTimeout(t);
+    if (!v) return;
+    v.pause(); v.currentTime = 0; v.remove();
+    if (pv.current === v) pv.current = null;
+    v = null;
+  };
   const start = () => {
     if (v || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    v = h("video.pv", { src, muted: true, playsInline: true, loop: true, preload: "auto", "aria-hidden": "true" });
-    v.muted = true;
+    if (pv.current) pv.current.dispatchEvent(new Event("pv-stop"));       // one preview at a time
+    v = h("video.pv", { src, playsInline: true, loop: true, preload: "auto", "aria-hidden": "true" });
+    v.addEventListener("pv-stop", stop);
+    v.muted = !pv.sound;
     thumb.append(v);
-    v.play().catch(() => {});
+    pv.current = v;
+    const me = v;
+    v.play().catch(() => {
+      if (pv.current !== me || me.muted) return;
+      me.muted = true;                       // no gesture yet: play muted, onGesture unmutes it
+      me.play().catch(() => {});
+    });
   };
-  const stop = () => { clearTimeout(t); if (v) { v.pause(); v.remove(); v = null; } };
   thumb.addEventListener("mouseenter", () => { t = setTimeout(start, 250); });
   thumb.addEventListener("mouseleave", stop);
+  // long-press on touch screens; lifting the finger is the gesture that lets the sound in
   thumb.addEventListener("touchstart", () => { t = setTimeout(start, 450); }, { passive: true });
-  thumb.addEventListener("touchend", () => clearTimeout(t));
+  thumb.addEventListener("touchend", () => { clearTimeout(t); if (v && pv.sound) v.muted = false; });
   thumb.addEventListener("touchmove", stop, { passive: true });
+  thumb.addEventListener("contextmenu", (e) => { if (v) e.preventDefault(); });
 }
 
 function quick(r) {
