@@ -61,7 +61,8 @@
       "music": "bright",
       "music_db": -19,
       "sfx_db": -10,
-      "brand": "craftlayer.studio"
+      "brand": "craftlayer.studio",
+      "sfx_pack": "earshot"
     },
     "brutal": {
       "theme": {

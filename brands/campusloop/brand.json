@@ -23,7 +23,8 @@
       },
       "music": "pulse",
       "music_db": -22,
-      "sfx_db": -10
+      "sfx_db": -10,
+      "sfx_pack": "earshot"
     },
     "clean": {
       "theme": {
@@ -34,7 +35,8 @@
       "music": "bright",
       "music_db": -18,
       "sfx_db": -9,
-      "brand": "campusloop"
+      "brand": "campusloop",
+      "sfx_pack": "earshot"
     }
   },
   "cta": "Find your college at campusloop.space",

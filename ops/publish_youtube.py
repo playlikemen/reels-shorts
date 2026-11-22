@@ -35,8 +35,24 @@ def upload(brand_key, mp4, title, description, tags):
 def still_up(brand_key, video_id):
     """True if the channel still lists the video."""
     yt = K.brand(brand_key)["youtube"]
-    data = C.execute("YOUTUBE_LIST_CHANNEL_VIDEOS", {"channelId": yt["channel_id"], "part": "id", "maxResults": 50}, yt["account"])
-    return video_id in str(data)
+    try:
+        data = C.execute("YOUTUBE_LIST_CHANNEL_VIDEOS", {"channelId": yt["channel_id"], "part": "id", "maxResults": 50}, yt["account"])
+        if video_id in str(data):
+            return True
+    except Exception as e:
+        print(f"warning: YOUTUBE_LIST_CHANNEL_VIDEOS check failed ({e}); falling back to HTTP check")
+    
+    # Fallback to direct HTTP check on YouTube
+    try:
+        import urllib.request
+        req = urllib.request.Request(
+            f"https://www.youtube.com/shorts/{video_id}",
+            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+        )
+        html = urllib.request.urlopen(req, timeout=10).read().decode("utf-8", errors="ignore")
+        return "This video is unavailable" not in html and '"status":"ERROR"' not in html
+    except Exception:
+        return False
 
 
 if __name__ == "__main__":
