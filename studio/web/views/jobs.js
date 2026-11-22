@@ -39,7 +39,7 @@ async function show(jid, pane, refresh) {
 export function newJob(preset = {}) {
   const kinds = {
     render: "Render (no sync)", rerender: "Re-render with the brand's SFX pack", sync: "Sync: Drive + Sheet row", generate: "Generate specs from scripts",
-    insights: "Fetch insights", pull: "Sync from Sheet", snapshot: "Snapshot every tab", dryrun: "Scheduler dry run",
+    insights: "Fetch insights", push: "Mirror to the Sheet", snapshot: "Snapshot every tab", dryrun: "Scheduler dry run",
   };
   const kind = h("select", {}, Object.entries(kinds).map(([k, l]) => h("option", { value: k, selected: preset.kind === k }, l)));
   const fields = h("div", { style: { display: "grid", gap: "10px" } });

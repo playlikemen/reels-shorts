@@ -79,9 +79,9 @@ def build(kind, p):
             raise JobError("start (first slot) must be YYYY-MM-DD HH:MM")
         argv += ["--start", p["start"]]
         return argv, f"Generate specs from {len(rels)} script file(s)", p.get("id") or ",".join(rels)
-    if kind == "pull":
+    if kind in ("push", "pull"):
         tabs = [t for t in (p.get("tabs") or []) if t in K.TAB_SHEET_IDS]
-        return [PY, "-m", "studio.sync", "pull"] + [x for t in tabs for x in ("--tab", t)], "Sync from Sheet" + (f" ({', '.join(tabs)})" if tabs else ""), ",".join(tabs)
+        return [PY, "-m", "studio.sync", "push"] + [x for t in tabs for x in ("--tab", t)], "Mirror to the Sheet" + (f" ({', '.join(tabs)})" if tabs else ""), ",".join(tabs)
     if kind == "backfill":
         return [PY, "-m", "studio.sync", "backfill-published"], "Move published reels' Drive folders into Published/", ""
     if kind == "snapshot":
@@ -98,7 +98,7 @@ def build(kind, p):
         plat = p.get("platform", "")
         if not ids or not all(isinstance(v, str) and ID_RE.match(v) for v in ids) or plat not in ("instagram", "youtube"):
             raise JobError("publish needs Video IDs and platform instagram or youtube")
-        argv = [PY, "-m", "studio.publish_job", *ids, "--platform", plat, "--pull"] + (["--dry-run"] if p.get("dry_run") else [])
+        argv = [PY, "-m", "studio.publish_job", *ids, "--platform", plat, "--mirror"] + (["--dry-run"] if p.get("dry_run") else [])
         what = ids[0] if len(ids) == 1 else f"{len(ids)} reels"
         return argv, f"{'Dry-run ' if p.get('dry_run') else ''}Publish {what} to {plat}", ",".join(ids)[:200]
     if kind == "upload":

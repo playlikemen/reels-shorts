@@ -1,4 +1,5 @@
-"""Google Sheet tracker: one row per video, keyed by Video ID.
+"""Google Sheet mirror: one row per video, keyed by Video ID. The studio store is the source of truth; studio.sync
+pushes rows here (write_row). Other agents read the Sheet; nothing reads it back automatically.
 
   python3.11 ops/sheet.py --beautify            # header, widths, wrapping on both tabs
   python3.11 ops/sheet.py --show                # print id, statuses and schedule of every row
@@ -57,6 +58,18 @@ def upsert(tab, record):
     merged.update({k: v for k, v in record.items() if k in K.HEADERS})
     _write(tab, f"A{n}:{LAST}{n}", [[str(merged[h]) for h in K.HEADERS]])
     return n
+
+
+def write_row(tab, row_number, record):
+    """Write one whole row (the studio's mirror push)."""
+    _write(tab, f"A{row_number}:{LAST}{row_number}", [[str(record.get(h, "")) for h in K.HEADERS]])
+
+
+def video_id_at(tab, row_number):
+    data = C.execute("GOOGLESHEETS_VALUES_GET", {"spreadsheet_id": K.SPREADSHEET_ID, "range": f"'{tab}'!A{row_number}:A{row_number}",
+                                                  "major_dimension": "ROWS"}, K.SHEETS_ACCOUNT)
+    v = data.get("values") or (data.get("valueRanges") or [{}])[0].get("values") or []
+    return str(v[0][0]).strip() if v and v[0] else ""
 
 
 def set_cells(tab, row_number, updates):

@@ -106,7 +106,7 @@ def main():
     if not (a.caption and re.fullmatch(r"\d{4}-\d\d-\d\d \d\d:\d\d", a.schedule)):
         raise SystemExit('to sync, pass --caption "..." and --schedule "YYYY-MM-DD HH:MM" (IST)')
 
-    import drive, sheet
+    import drive, reelrows as sheet   # studio store first, then the Sheet mirror
     d = drive.archive(f"{a.schedule[:10]}-{a.id}-{re.sub(r'[^a-z0-9]+', '-', a.topic.lower()).strip('-')[:40]}", mp4)
     row = sheet.upsert(b["sheet_tab"], {
         "Video ID": a.id, "Date": a.schedule[:10], "Category / Topic": a.topic, "Format": "Phone clip",
@@ -118,7 +118,7 @@ def main():
         "YouTube Status": "Ready" if b.get("youtube") else "No channel", "YouTube Shorts URL": "",
         "Scheduled Time (IST)": a.schedule,
     })
-    print(f"OK {a.id}: sheet row {row} in {b['sheet_tab']}, scheduled {a.schedule} IST")
+    print(f"OK {a.id}: studio row {row} ({b['sheet_tab']}, mirrored to the Sheet), scheduled {a.schedule} IST")
 
 
 if __name__ == "__main__":

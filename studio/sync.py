@@ -1,17 +1,19 @@
-"""Sheet <-> local store sync, snapshots and row restore.
+"""The studio store is the source of truth for every reel row; the Google Sheet is a one-way, read-only mirror.
 
-  python3.11 -m studio.sync pull [--tab @craftlayer]   # Sheet -> local (cron: every 5 minutes)
-  python3.11 -m studio.sync snapshot                   # dated JSON + CSV of every tab (cron: nightly), keeps 30 days
-  python3.11 -m studio.sync import-log                 # copy new publish-log.jsonl lines into the store
+  python3.11 -m studio.sync push [--tab @craftlayer]     # store -> Sheet mirror (cron: every 5 minutes)
+  python3.11 -m studio.sync import [--tab T] [--apply-all] # Sheet -> store diff (recovery only; --apply-all overwrites)
+  python3.11 -m studio.sync snapshot                     # dated JSON + CSV of the store per tab (cron: nightly), 30 days
+  python3.11 -m studio.sync import-log                   # copy new publish-log.jsonl lines into the store
 
 Rules
-- Pull upserts by Video ID. A row that disappeared from the Sheet is kept and flagged `missing`; it is never deleted.
-- An edit writes the Sheet first (ops/sheet.set_cells), then the store. If the Sheet write fails, the edit is kept as
-  `pending` and retried by the next pull.
-- Before writing, the row is read again. If an edited cell changed in the Sheet since the editor loaded it, nothing is
-  written and the caller gets both values (conflict) to choose from.
+- Every change (UI, API, MCP, uploads, the scheduler's status marks, make.py --sync-only) is written to the store first.
+  The changed cells are remembered in the row's `pending` map ("not mirrored yet") and the whole row is then written
+  to the Sheet, best effort. A Sheet failure never blocks or rolls back a change; the next push retries.
+- The Sheet is never read back automatically. "Import from Sheet" (Settings) shows a diff and applies only the cells
+  the owner ticks.
+- An edit can carry `base` (the values the editor loaded); a cell that changed in the store since then is a conflict.
 """
-import argparse, csv, datetime, hashlib, json, re, shutil, sys
+import argparse, csv, datetime, hashlib, json, re, shutil, sys, threading
 
 from . import ROOT, BACKUP_DIR
 from . import store as S
@@ -61,96 +63,84 @@ def thumb_for(brand, vid, local_path=""):
     return str(t.relative_to(ROOT)) if t.exists() else ""
 
 
-def _retry_pending(tab, row_number, values, pending):
-    """Try queued edits again. Returns the pending edits still open; `values` is updated with what was written."""
-    left = {}
-    for h, p in pending.items():
-        cur = values.get(h, "")
-        if cur == p["value"]:
-            continue
-        if cur != p.get("base", cur):
-            left[h] = {**p, "conflict": cur}       # someone changed it in the Sheet meanwhile: the owner decides
-            continue
-        try:
-            sheet.set_cells(tab, row_number, {h: p["value"]})
-            values[h] = p["value"]
-            S.audit("edit synced", "", None, {h: p["value"]}, who="sync")
-        except Exception as e:
-            left[h] = {**p, "error": str(e)[:200]}
-    return left
-
-
-def pull(tabs=None, db=None):
-    """Sheet -> store for every brand tab (or only `tabs`, by tab name or brand key). Returns a per-tab summary."""
-    db = db or S.connect()
-    import_publish_log(db)
-    summary = {}
-    for b in K.brands():
-        tab = b["sheet_tab"]
-        if tabs and tab not in tabs and b["key"] not in tabs:
-            continue
-        try:
-            rows = sheet.rows(tab)
-        except Exception as e:
-            summary[tab] = {"error": str(e)[:300]}
-            continue
-        seen, changed = set(), 0
-        for r in rows:
-            vid = str(r["Video ID"]).strip()
-            seen.add(vid)
-            values = {h: str(r.get(h, "")) for h in K.HEADERS}
-            values["Video ID"] = vid
-            local = S.get_reel(vid, db)
-            pending = (local or {}).get("pending") or {}
-            if pending:
-                pending = _retry_pending(tab, r["_row"], values, pending)
-            h = row_hash(values)
-            display = dict(values)
-            for k, p in pending.items():
-                display[k] = p["value"]
-            same = local and local["sheet_hash"] == h and not local["missing"]
-            changed += not same
-            spec, _ = spec_for(b["key"], vid)
-            S.save_reel(display, db, tab=tab, brand=b["key"], sheet_row=r["_row"], sheet_hash=h, missing=0,
-                        pending=pending, loaded_at=S.now(), spec_path=spec,
-                        thumb=thumb_for(b["key"], vid, values["Local Path"]),
-                        updated_at=(local["updated_at"] if same else S.now()))
-        gone = [x["video_id"] for x in db.execute("SELECT video_id FROM reels WHERE tab=? AND missing=0", (tab,)) if x["video_id"] not in seen]
-        for vid in gone:
-            db.execute("UPDATE reels SET missing=1 WHERE video_id=?", (vid,))
-            S.audit("missing in sheet", vid, who="sync", db=db)
-        summary[tab] = {"rows": len(rows), "changed": changed, "missing": len(gone)}
-    S.set_setting("last_pull", {"at": S.now(), "summary": summary}, db)
-    return summary
+def _brand_for_tab(tab):
+    b = brands_by_tab().get(tab)
+    if not b:
+        raise SyncError(f"unknown tab {tab}")
+    return b
 
 
 def row_hash(values):
     return S.row_hash(values)
 
 
-def _fresh_row(tab, vid):
-    for r in sheet.rows(tab):
-        if str(r["Video ID"]).strip() == vid:
-            return r
-    return None
+def _values(r):
+    return {h: str(r.get(h, "") or "") for h in K.HEADERS}
 
 
-def _queue(db, local, changes, base, err, who, ip):
-    pending = dict(local["pending"] or {})
-    for h, v in changes.items():
-        pending[h] = {"value": v, "base": base.get(h, local[h]), "queued_at": S.now(), "error": err[:200]}
-    display = {h: local[h] for h in K.HEADERS}
-    display.update(changes)
-    S.save_reel(display, db, pending=pending)
-    S.audit("edit queued", local["Video ID"], {h: base.get(h, local[h]) for h in changes}, changes, who, ip, db)
-    return {"status": "pending", "error": err[:300], "reel": S.get_reel(local["Video ID"], db)}
+def _mark(db, vid, headers, err=""):
+    """Remember that these cells have not reached the Sheet mirror yet."""
+    r = S.get_reel(vid, db)
+    pending = dict(r["pending"] or {})
+    for h in headers:
+        pending[h] = {"value": r[h], "queued_at": S.now(), **({"error": err[:200]} if err else {})}
+    S.save_reel({"Video ID": vid}, db, pending=pending)
+
+
+# Called after every store change; the web app sets it to start a background mirror push. CLI tools push at the end.
+MIRROR_HOOK = None
+
+
+def _changed(vid):
+    if MIRROR_HOOK:
+        try:
+            MIRROR_HOOK(vid)
+        except Exception:
+            pass
+
+
+def write_local(vid, fields, who="owner", ip="", db=None, action="edit"):
+    """Write cells to the store (no guards), audit, queue them for the mirror. Returns the changed headers."""
+    db = db or S.connect()
+    r = S.get_reel(vid, db)
+    if not r:
+        raise SyncError(f"no reel {vid}", 404)
+    changes = {h: "" if v is None else str(v) for h, v in fields.items() if h in K.HEADERS and h != "Video ID" and r[h] != str(v or "")}
+    if not changes:
+        return []
+    new = _values(r)
+    new.update(changes)
+    S.save_reel(new, db, sheet_hash=row_hash(new), updated_at=S.now())
+    _mark(db, vid, changes)
+    S.audit(action, vid, {h: r[h] for h in changes}, changes, who, ip, db)
+    _changed(vid)
+    return list(changes)
+
+
+def upsert_local(tab, record, who="owner", ip="", db=None):
+    """Create or replace a row in the store (make.py --sync-only, clip.py, uploads, restores), then queue the mirror."""
+    db = db or S.connect()
+    b = _brand_for_tab(tab)
+    vid = str(record["Video ID"]).strip()
+    cur = S.get_reel(vid, db)
+    values = _values(cur) if cur else {h: "" for h in K.HEADERS}
+    values.update({k: str(v) for k, v in record.items() if k in K.HEADERS})
+    values["Video ID"] = vid
+    spec, _ = spec_for(b["key"], vid)
+    S.save_reel(values, db, tab=tab, brand=b["key"], sheet_hash=row_hash(values), missing=0, loaded_at=S.now(),
+                spec_path=spec, thumb=thumb_for(b["key"], vid, values["Local Path"]), updated_at=S.now(),
+                **({} if cur else {"pending": {}, "prev_status": {}}))
+    _mark(db, vid, [h for h in K.HEADERS if h != "Video ID" and (not cur or cur[h] != values[h])] or ["Video ID"])
+    S.audit("row created" if not cur else "row replaced", vid, None, {"tab": tab}, who, ip, db)
+    _changed(vid)
+    return vid
 
 
 def edit(vid, fields, base=None, force=False, who="owner", ip="", allow_repost=False, db=None):
-    """Write cells for one row: Sheet first, then the store.
+    """Write cells for one row: the store first, then the Sheet mirror (queued, best effort).
 
-    base: {header: value the editor loaded}; defaults to the stored values. A cell whose Sheet value differs from its
-    base is a conflict (unless force). Returns {status: ok|pending|conflict|unchanged, ...}.
+    base: {header: value the editor loaded}. A cell whose stored value differs from its base (someone else changed it
+    meanwhile) is a conflict, unless force. Returns {status: ok|conflict|unchanged, ...}.
     """
     db = db or S.connect()
     local = S.get_reel(vid, db)
@@ -169,48 +159,178 @@ def edit(vid, fields, base=None, force=False, who="owner", ip="", allow_repost=F
         if fields.get(c) == "Ready" and local[c].startswith("Published") and not allow_repost:
             raise SyncError(f"{vid} is already {c.split()[0]} Published; setting it to Ready would post it again "
                             "(send allow_repost to do it anyway)", 409)
-    base = {h: (base or {}).get(h, local[h]) for h in fields}
-    tab = local["tab"]
-    try:
-        cur = _fresh_row(tab, vid)
-    except Exception as e:
-        return _queue(db, local, fields, base, f"sheet read failed: {e}", who, ip)
-    if cur is None:
-        raise SyncError(f"{vid} is not in the Sheet tab {tab} any more; restore it from a snapshot first", 409)
-    cur_values = {h: str(cur.get(h, "")) for h in K.HEADERS}
-    conflicts = {h: {"loaded": base[h], "sheet": cur_values[h], "yours": v} for h, v in fields.items()
-                 if cur_values[h] != base[h] and cur_values[h] != v}
+    base = base or {}
+    conflicts = {h: {"loaded": base[h], "sheet": local[h], "current": local[h], "yours": v} for h, v in fields.items()
+                 if h in base and local[h] != base[h] and local[h] != v}
     if conflicts and not force:
-        return {"status": "conflict", "conflicts": conflicts, "sheet_hash": row_hash(cur_values)}
-    changes = {h: v for h, v in fields.items() if cur_values[h] != v}
-    pending = {k: p for k, p in (local["pending"] or {}).items() if k not in fields}
-    if not changes:
-        S.save_reel(cur_values, db, sheet_hash=row_hash(cur_values), sheet_row=cur["_row"], pending=pending, missing=0)
+        return {"status": "conflict", "conflicts": conflicts}
+    changed = write_local(vid, fields, who, ip, db)
+    if not changed:
         return {"status": "unchanged", "reel": S.get_reel(vid, db)}
+    return {"status": "ok", "changed": changed, "mirror": "queued", "reel": S.get_reel(vid, db)}
+
+
+def set_cells(tab, vid, updates, who="scheduler"):
+    """Status marks from the scheduler: store first (no edit guards: the scheduler owns Publishing), then try the
+    mirror for this row at once. A mirror error is printed, never raised."""
+    db = S.connect()
+    write_local(vid, updates, who, "", db, action="status")
     try:
-        sheet.set_cells(tab, cur["_row"], changes)
+        push_one(vid, db)
     except Exception as e:
-        return _queue(db, local, changes, {h: cur_values[h] for h in changes}, f"sheet write failed: {e}", who, ip)
-    new = dict(cur_values)
-    new.update(changes)
-    display = dict(new)
-    for k, p in pending.items():
-        display[k] = p["value"]
-    S.save_reel(display, db, sheet_hash=row_hash(new), sheet_row=cur["_row"], pending=pending, missing=0, loaded_at=S.now())
-    S.audit("edit", vid, {h: cur_values[h] for h in changes}, changes, who, ip, db)
-    return {"status": "ok", "changed": list(changes), "reel": S.get_reel(vid, db)}
+        print(f"Sheet mirror not updated for {vid} ({str(e)[:120]}); the next push retries")
+
+
+def store_rows(tab, db=None):
+    """Rows of one tab from the store, shaped like ops/sheet.rows(): header names, `_row` is the Video ID."""
+    db = db or S.connect()
+    return [dict(_values(r), _row=r["Video ID"]) for r in S.list_reels(db) if r["tab"] == tab and not r["missing"]]
+
+
+# ---------- the Sheet mirror ----------
+
+_push_lock = threading.Lock()
+
+
+def push(tabs=None, db=None, only=None):
+    """Write every row with unmirrored cells to the Sheet (whole row, by Video ID; new rows are appended)."""
+    db = db or S.connect()
+    summary = {}
+    with _push_lock:
+        for b in K.brands():
+            tab = b["sheet_tab"]
+            if tabs and tab not in tabs and b["key"] not in tabs:
+                continue
+            dirty = [r for r in S.list_reels(db) if r["tab"] == tab and r["pending"] and (not only or r["Video ID"] in only)]
+            if not dirty:
+                continue
+            try:
+                current = sheet.rows(tab)
+            except Exception as e:
+                summary[tab] = {"error": str(e)[:300], "waiting": len(dirty)}
+                for r in dirty:
+                    _mark(db, r["Video ID"], list(r["pending"]), f"sheet read failed: {e}")
+                continue
+            where = {str(x["Video ID"]).strip(): x["_row"] for x in current}
+            nxt = max(list(where.values()) + [1]) + 1
+            done, failed = 0, 0
+            for r in dirty:
+                vid = r["Video ID"]
+                n = where.get(vid)
+                if not n:
+                    n, nxt = nxt, nxt + 1
+                if _write_row(db, r, tab, n):
+                    done += 1
+                else:
+                    failed += 1
+            summary[tab] = {"mirrored": done, "failed": failed}
+    S.set_setting("last_mirror", {"at": S.now(), "summary": summary}, db)
+    return summary
+
+
+def _write_row(db, r, tab, n):
+    vid = r["Video ID"]
+    try:
+        sheet.write_row(tab, n, _values(r))
+    except Exception as e:
+        _mark(db, vid, list(r["pending"]), f"sheet write failed: {e}")
+        return False
+    fresh = S.get_reel(vid, db)
+    # cells changed again while we were writing stay pending
+    left = {h: p for h, p in (fresh["pending"] or {}).items() if h in K.HEADERS and fresh[h] != r[h]}
+    S.save_reel({"Video ID": vid}, db, pending=left, sheet_row=n)
+    return True
+
+
+def push_one(vid, db=None):
+    """Mirror one row now. Uses the remembered Sheet row when its Video ID still matches, else a full push of the tab."""
+    db = db or S.connect()
+    r = S.get_reel(vid, db)
+    if not r or not r["pending"]:
+        return "clean"
+    n = r.get("sheet_row")
+    if n and sheet.video_id_at(r["tab"], n) == vid:
+        with _push_lock:
+            return "mirrored" if _write_row(db, r, r["tab"], n) else "failed"
+    return push([r["tab"]], db, only={vid})
+
+
+def unmirrored(db=None):
+    return [r["Video ID"] for r in S.list_reels(db) if r["pending"]]
+
+
+# ---------- import from the Sheet (recovery only) ----------
+
+def import_diff(tabs=None, db=None):
+    """What the Sheet has that the store does not: per tab, changed cells, rows only in the Sheet, rows only here."""
+    db = db or S.connect()
+    out = {}
+    local = {r["Video ID"]: r for r in S.list_reels(db)}
+    for b in K.brands():
+        tab = b["sheet_tab"]
+        if tabs and tab not in tabs and b["key"] not in tabs:
+            continue
+        try:
+            rows = sheet.rows(tab)
+        except Exception as e:
+            out[tab] = {"error": str(e)[:300]}
+            continue
+        seen, changed, new = set(), {}, []
+        for x in rows:
+            vid = str(x["Video ID"]).strip()
+            seen.add(vid)
+            r = local.get(vid)
+            vals = _values(x)
+            vals["Video ID"] = vid
+            vals["_row"] = x["_row"]
+            if not r:
+                new.append(vals)
+                continue
+            d = {h: {"studio": r[h], "sheet": vals[h]} for h in EDITABLE if r[h] != vals[h]}
+            if d:
+                changed[vid] = d
+            if not r["sheet_row"] or int(r["sheet_row"]) != x["_row"]:
+                S.save_reel({"Video ID": vid}, db, sheet_row=x["_row"])
+        only_here = [v for v, r in local.items() if r["tab"] == tab and v not in seen]
+        out[tab] = {"sheet_rows": len(rows), "studio_rows": sum(1 for r in local.values() if r["tab"] == tab),
+                    "changed": changed, "new": new, "only_in_studio": only_here}
+    return out
+
+
+def import_apply(changes=None, new=None, tabs=None, who="owner", ip="", db=None, everything=False):
+    """Apply ticked cells {vid: [headers]} and ticked new rows [vid] from the Sheet into the store.
+    everything=True applies the whole diff (one-time migration)."""
+    db = db or S.connect()
+    diff = import_diff(tabs, db)
+    applied = {"cells": 0, "rows": 0}
+    for tab, d in diff.items():
+        if "error" in d:
+            raise SyncError(f"could not read {tab}: {d['error']}", 502)
+        for vid, cells in d["changed"].items():
+            want = list(cells) if everything else [h for h in (changes or {}).get(vid, []) if h in cells]
+            if want:
+                fields = {h: cells[h]["sheet"] for h in want}
+                write_local(vid, fields, who, ip, db, action="import from sheet")
+                S.save_reel({"Video ID": vid}, db, pending={k: v for k, v in (S.get_reel(vid, db)["pending"] or {}).items() if k not in want})
+                applied["cells"] += len(want)
+        for vals in d["new"]:
+            if everything or vals["Video ID"] in (new or []):
+                upsert_local(tab, vals, who, ip, db)
+                S.save_reel({"Video ID": vals["Video ID"]}, db, pending={}, sheet_row=vals["_row"])
+                applied["rows"] += 1
+    return applied
 
 
 def drop_pending(vid, header, who="owner", ip="", db=None):
-    """Forget one queued edit (the owner chose the Sheet's value)."""
+    """Stop mirroring one queued cell (it stays in the store)."""
     db = db or S.connect()
     local = S.get_reel(vid, db)
     if not local or header not in (local["pending"] or {}):
         raise SyncError("nothing pending for that cell", 404)
     pending = dict(local["pending"])
-    p = pending.pop(header)
-    S.save_reel({"Video ID": vid, header: p.get("conflict", p.get("base", ""))}, db, pending=pending)
-    S.audit("pending dropped", vid, {header: p["value"]}, None, who, ip, db)
+    pending.pop(header)
+    S.save_reel({"Video ID": vid}, db, pending=pending)
+    S.audit("mirror dropped", vid, {header: local[header]}, None, who, ip, db)
     return S.get_reel(vid, db)
 
 
@@ -326,9 +446,8 @@ def restore_row(vid, date, dry_run=True, who="owner", ip="", db=None, base=None)
         return {**res, "diff": diff}
     if dry_run:
         return {"status": "dry-run", "tab": tab, "diff": snap, "current": {}, "append": True}
-    sheet.upsert(tab, snap)
+    upsert_local(tab, snap, who, ip, db)
     S.audit("restore row", vid, None, {"from": date, **snap}, who, ip, db)
-    pull([tab], db)
     return {"status": "ok", "tab": tab, "appended": True, "reel": S.get_reel(vid, db)}
 
 
@@ -606,19 +725,33 @@ def backfill_published(dry_run=False, db=None):
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="studio.sync")
     sub = ap.add_subparsers(dest="cmd", required=True)
-    p = sub.add_parser("pull"); p.add_argument("--tab", action="append")
+    p = sub.add_parser("push"); p.add_argument("--tab", action="append")
+    p = sub.add_parser("pull", help="old name of push (the Sheet is never read back automatically)"); p.add_argument("--tab", action="append")
+    p = sub.add_parser("import"); p.add_argument("--tab", action="append"); p.add_argument("--apply-all", action="store_true")
     sub.add_parser("snapshot"); sub.add_parser("import-log")
     p = sub.add_parser("backfill-published"); p.add_argument("--dry-run", action="store_true")
     p = sub.add_parser("bulk"); p.add_argument("params"); p.add_argument("--who", default="owner")
     a = ap.parse_args(argv)
-    if a.cmd == "pull":
-        print(json.dumps(pull(a.tab), indent=1))
+    if a.cmd in ("push", "pull"):
+        import_publish_log()
+        res = push(a.tab)
+        print(json.dumps(res, indent=1))
+        return 1 if any("error" in v or v.get("failed") for v in res.values()) else 0
+    elif a.cmd == "import":
+        d = import_diff(a.tab)
+        print(json.dumps({t: {k: (len(v) if isinstance(v, (list, dict)) else v) for k, v in x.items()} for t, x in d.items()}, indent=1))
+        if a.apply_all:
+            print("applied", json.dumps(import_apply(tabs=a.tab, everything=True, who="import")))
     elif a.cmd == "backfill-published":
         return 1 if backfill_published(a.dry_run)["failed"] else 0
     elif a.cmd == "snapshot":
         print(json.dumps(snapshot(), indent=1))
     elif a.cmd == "bulk":
         res = bulk(json.loads(a.params), a.who)
+        try:
+            print("Sheet mirror:", json.dumps(push()))
+        except Exception as e:
+            print(f"Sheet mirror failed ({str(e)[:160]}); the next push retries")
         return 1 if any(v.startswith(("error", "conflict")) for v in res.values()) else 0
     else:
         print("imported", import_publish_log(), "lines")

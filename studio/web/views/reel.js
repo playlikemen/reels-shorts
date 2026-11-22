@@ -28,7 +28,7 @@ function render(d, data, onChange) {
       input = h("select", {}, [...new Set([val, ...STATUSES])].filter((x) => x !== undefined).map((s) => h("option", { value: s, selected: s === val }, s || "(empty)")));
     } else if (kind === "textarea") input = h("textarea", { rows: rows || 3 }, val);
     else input = h("input", { value: val, placeholder: name === "Scheduled Time (IST)" ? "YYYY-MM-DD HH:MM" : "" });
-    const wrap = h("label.field", {}, name, input, r.pending?.[name] ? h("span.pend", {}, `Pending sync: ${r.pending[name].conflict !== undefined ? "conflict with Sheet" : "waiting"}`) : null);
+    const wrap = h("label.field", {}, name, input, r.pending?.[name]?.error ? h("span.pend", {}, "Not mirrored to the Sheet yet") : null);
     input.addEventListener("input", () => { changed[name] = input.value; wrap.classList.toggle("changed", input.value !== val); save.disabled = !Object.keys(changed).length; });
     input.addEventListener("change", () => input.dispatchEvent(new Event("input")));
     return wrap;
@@ -57,11 +57,8 @@ function render(d, data, onChange) {
   ].filter(Boolean);
 
   const warn = [];
-  if (r.missing) warn.push(h("div.banner.bad", {}, "This row is missing from the Sheet. The local copy is kept; restore it from a snapshot below."));
-  for (const [k, p] of Object.entries(r.pending || {})) {
-    warn.push(h("div.banner.warn", {}, h("div", {}, h("b", {}, `${k}: `), `“${p.value}” waits to reach the Sheet`, p.conflict !== undefined ? ` (Sheet now has “${p.conflict}”)` : "", p.error ? ` · ${p.error}` : ""),
-      h("span.spacer"), button("Keep Sheet value", async () => { await post(`/api/reels/${r["Video ID"]}/pending/drop`, { field: k }); refresh(r["Video ID"], d, onChange); }, "sm")));
-  }
+  const waiting = Object.entries(r.pending || {}).filter(([, p]) => p.error);
+  if (waiting.length) warn.push(h("div.banner.warn", {}, h("div", {}, h("b", {}, "Not in the Sheet mirror yet: "), waiting.map(([k]) => k).join(", "), ` · ${waiting[0][1].error}. The studio has the change; the next push retries.`)));
 
   body.replaceChildren(
     ...warn,
@@ -77,12 +74,12 @@ function render(d, data, onChange) {
         h("dl.kv", {},
           h("dt", {}, "Scheduled"), h("dd", {}, `${r["Scheduled Time (IST)"] || "—"} IST`),
           h("dt", {}, "Duration / format"), h("dd", {}, `${r.Duration || "—"} · ${r.Format || "—"}`),
-          h("dt", {}, "Sheet"), h("dd", {}, `${r.tab} row ${r.sheet_row || "?"} · synced ${fmtWhen((r.loaded_at || "").slice(0, 16).replace("T", " "))}`),
+          h("dt", {}, "Sheet mirror"), h("dd", {}, `${r.tab} row ${r.sheet_row || "?"} · ${Object.keys(r.pending || {}).length ? "waiting" : "up to date"}`),
           h("dt", {}, "Spec"), h("dd", { class: "mono" }, r.spec_path || "—"),
           data.keyword ? [h("dt", {}, "CTA keyword"), h("dd", {}, data.keyword)] : null,
           data.spec?.sources?.length ? [h("dt", {}, "Sources"), h("dd", {}, data.spec.sources.map((s) => h("div", {}, h("a", { href: s, target: "_blank", rel: "noopener" }, s))))] : null),
         h("h3", { style: { margin: "18px 0 8px" } }, "Edit"),
-        fieldsEl, h("div.row", { style: { marginTop: "10px" } }, save, h("span.muted.small", {}, "Writes the Sheet first, then the local copy.")),
+        fieldsEl, h("div.row", { style: { marginTop: "10px" } }, save, h("span.muted.small", {}, "Saved in the studio, then mirrored to the Sheet.")),
         data.publish_log.length ? [h("h3", { style: { margin: "18px 0 8px" } }, "Publish log"),
           h("div.list", {}, data.publish_log.map((e) => h("div", {}, pill(e.status === "published" ? "Published" : e.status.startsWith("canary") ? "Ready" : "Failed", e.platform), h("span.small", {}, e.at?.slice(0, 16).replace("T", " ")), h("span.small.muted", {}, e.error ? e.error.slice(0, 140) : e.permalink || e.url || ""))))] : null,
         data.insights.length ? [h("h3", { style: { margin: "18px 0 8px" } }, "Insights"), insightLine(data.insights.at(-1))] : null,
@@ -127,17 +124,16 @@ async function saveEdits(r, changed, d, onChange, force = false) {
   const res = await api(`/api/reels/${r["Video ID"]}`, { method: "PATCH", body: { fields: changed, base, force }, allow: [202, 409] });
   if (res._status === 409 && res.status === "conflict") return conflictDialog(r, res.conflicts, d, onChange, changed);
   if (res._status === 409) throw new ApiError(res.error, 409, res);
-  if (res.status === "pending") toast("The Sheet did not answer; the edit is queued and retried on the next sync", "error", 7000);
-  else toast(res.status === "unchanged" ? "Nothing changed" : "Saved to the Sheet", "ok");
+  toast(res.status === "unchanged" ? "Nothing changed" : "Saved", "ok");
   await refresh(r["Video ID"], d, onChange);
 }
 
 function conflictDialog(r, conflicts, d, onChange, changed) {
   const rows = Object.entries(conflicts).map(([k, c]) => h("div", {}, h("b", {}, k),
-    h("div.conflict", {}, h("div", {}, h("div.small.muted", {}, "Sheet now"), h("div.preview", {}, c.sheet || "—")),
+    h("div.conflict", {}, h("div", {}, h("div.small.muted", {}, "Now"), h("div.preview", {}, c.current ?? c.sheet ?? "—")),
       h("div", {}, h("div.small.muted", {}, "Yours"), h("div.preview", {}, c.yours || "—")))));
-  const dlg = modal("Changed in the Sheet meanwhile", [h("p", {}, "Someone edited these cells after you opened the reel. Which value should stay?"), rows], [
-    button("Keep the Sheet's", () => { dlg.close(); refresh(r["Video ID"], d, onChange); }),
+  const dlg = modal("Changed meanwhile", [h("p", {}, "These cells changed in the studio after you opened the reel. Which value should stay?"), rows], [
+    button("Keep the current", () => { dlg.close(); refresh(r["Video ID"], d, onChange); }),
     changed ? button("Keep mine", (e) => busy(e.target, async () => { dlg.close(); await saveEdits(r, changed, d, onChange, true); }), "primary") : null,
   ]);
 }

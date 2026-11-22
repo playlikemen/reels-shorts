@@ -103,7 +103,7 @@ def main():
     if a.no_sync:
         print("OK (not synced)", mp4); return
 
-    import drive, sheet
+    import drive, reelrows as sheet   # studio store first, then the Sheet mirror
     d = drive.archive(f"{meta['schedule'][:10]}-{meta['id']}-{re.sub(r'[^a-z0-9]+', '-', meta['topic'].lower()).strip('-')[:40]}", mp4)
     description = meta["yt_description"].rstrip() + "\n\nSources:\n" + "\n".join(meta["sources"]) + "\n\nVoiceover is AI-generated."
     row = sheet.upsert(b["sheet_tab"], {
@@ -116,7 +116,7 @@ def main():
         "YouTube Status": "Ready" if b.get("youtube") else "No channel", "YouTube Shorts URL": "",
         "Scheduled Time (IST)": meta["schedule"],
     })
-    print(f"OK {meta['id']}: sheet row {row} in {b['sheet_tab']}, Drive {d['folder_link']}, scheduled {meta['schedule']} IST")
+    print(f"OK {meta['id']}: studio row {row} ({b['sheet_tab']}, mirrored to the Sheet), Drive {d['folder_link']}, scheduled {meta['schedule']} IST")
 
 
 if __name__ == "__main__":

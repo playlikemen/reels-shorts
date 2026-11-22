@@ -6,7 +6,7 @@ from starlette.testclient import TestClient
 import config as K
 import scheduler
 import sheet
-from conftest import row
+from conftest import row, seed
 from studio import app as W, auth as A, publish_job as P, store as S, sync as Y
 
 
@@ -18,7 +18,7 @@ def client(isolated, fake, monkeypatch):
     mp4.parent.mkdir(parents=True)
     mp4.write_bytes(b"\0" * (K.MIN_MP4_BYTES + 10))
     fake.tabs["@craftlayer"] = [row("CR-901-EN"), row("CR-902-EN", **{"Instagram Status": "Hold"})]
-    Y.pull()
+    seed()
     with TestClient(W.create_app()) as c:
         pw = (isolated / "config" / "initial-password.txt").read_text().strip()
         c.headers["x-csrf-token"] = c.post("/api/login", json={"password": pw}).json()["csrf"]
@@ -66,15 +66,18 @@ def test_daily_cap_needs_override(client):
 
 def test_publish_job_calls_scheduler_run_with_force_on_one_row(fake, isolated, monkeypatch):
     monkeypatch.setattr(K, "brands", K.brands)          # registered so monkeypatch restores what narrow() replaces
-    monkeypatch.setattr(sheet, "rows", sheet.rows)
+    import reelrows
+    monkeypatch.setattr(reelrows, "rows", reelrows.rows)
     fake.tabs["@craftlayer"] = [row("CR-901-EN", **{"YouTube Status": "Ready"}), row("CR-902-EN")]
     fake.tabs["@StackShade"] = [row("SS-901")]
+    seed()
+    fake.writes.clear()
     seen = {}
 
     def run(publish, force=()):
         seen["args"] = (publish, set(force))
         seen["brands"] = [b["key"] for b in K.brands()]
-        seen["rows"] = sheet.rows("@craftlayer")
+        seen["rows"] = reelrows.rows("@craftlayer")
         scheduler.log(video="CR-901-EN", platform="instagram", status="published", permalink="https://ig/x")
     monkeypatch.setattr(scheduler, "run", run)
     code = P.main(["CR-901-EN", "--platform", "instagram"], lock_path=isolated / "lock")
@@ -83,7 +86,7 @@ def test_publish_job_calls_scheduler_run_with_force_on_one_row(fake, isolated, m
     assert seen["brands"] == ["craftlayer"]
     assert [r["Video ID"] for r in seen["rows"]] == ["CR-901-EN"]
     assert seen["rows"][0]["YouTube Status"] == P.HIDDEN and seen["rows"][0]["Instagram Status"] == "Ready"
-    assert fake.writes == []                              # narrowing never writes the Sheet
+    assert fake.writes == []                              # narrowing never writes the store or the Sheet
 
 
 def test_publish_job_reports_failure_and_lock(fake, isolated, monkeypatch):
@@ -102,7 +105,6 @@ def test_publish_job_reports_failure_and_lock(fake, isolated, monkeypatch):
 def test_edit_route_and_conflict_status(client, fake):
     r = client.patch("/api/reels/CR-901-EN", json={"fields": {"Scheduled Time (IST)": "2026-12-09 19:30"}})
     assert r.status_code == 200 and fake.tabs["@craftlayer"][0]["Date"] == "2026-12-09"
-    fake.tabs["@craftlayer"][0]["Instagram Hashtags"] = "#changed"
-    r = client.patch("/api/reels/CR-901-EN", json={"fields": {"Instagram Hashtags": "#mine"}, "base": {"Instagram Hashtags": ""}})
+    r = client.patch("/api/reels/CR-901-EN", json={"fields": {"Instagram Hashtags": "#mine"}, "base": {"Instagram Hashtags": "#stale"}})
     assert r.status_code == 409 and r.json()["status"] == "conflict"
     assert S.connect().execute("SELECT COUNT(*) c FROM audit WHERE action='edit'").fetchone()["c"] == 1

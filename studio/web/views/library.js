@@ -33,8 +33,8 @@ export async function render(root, ctx) {
   if (f && FOLDERS.some((x) => x[0] === f)) ui.folder = f;
   data$ = await loadReels(true);
   const head = h("header.page", {}, h("h1", {}, "Library"),
-    h("span.muted.small.lib-head-meta", {}, `${data$.count} reels · synced ${data$.last_pull ? new Date(data$.last_pull.at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : "never"}`),
-    button([icon("refresh"), "Sync"], (e) => busy(e.target, async () => { const r = await post("/api/sync", {}); jobToast(r.job, "Sync", () => refresh()); }), "ghost sm", { title: "Pull every tab from the Sheet" }),
+    h("span.muted.small.lib-head-meta", {}, `${data$.count} reels · Sheet mirror ${data$.unmirrored ? `${data$.unmirrored} waiting` : "up to date"}${data$.last_mirror ? ` · ${new Date(data$.last_mirror.at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}` : ""}`),
+    button([icon("refresh"), "Mirror"], (e) => busy(e.target, async () => { const r = await post("/api/sync", {}); jobToast(r.job, "Sheet mirror", () => refresh()); }), "ghost sm", { title: "Push waiting rows to the Google Sheet mirror now" }),
     button([icon("upload"), "Upload"], () => uploadModal(), "primary"));
   rail$ = h("nav.rail", { "aria-label": "Folders" });
   body$ = h("div.lib-main");
@@ -131,11 +131,10 @@ function drawContent(content, list) {
 
 function banners(data) {
   const out = h("div");
-  const missing = data.reels.filter((r) => r.missing), pending = data.reels.filter((r) => Object.keys(r.pending || {}).length);
-  const errs = Object.entries(data.last_pull?.summary || {}).filter(([, s]) => s.error);
-  if (missing.length) out.append(h("div.banner.bad", {}, h("div", {}, h("b", {}, `${missing.length} row(s) missing in the Sheet: `), missing.map((r) => r["Video ID"]).join(", "), ". Kept locally; open one to restore it.")));
-  if (pending.length) out.append(h("div.banner.warn", {}, h("div", {}, h("b", {}, `${pending.length} edit(s) pending sync: `), pending.map((r) => r["Video ID"]).join(", "), ". Retried on the next sync.")));
-  for (const [tab, s] of errs) out.append(h("div.banner.warn", {}, `Last sync could not read ${tab}: ${short(s.error, 160)}`));
+  const stuck = data.reels.filter((r) => Object.values(r.pending || {}).some((p) => p.error));
+  const errs = Object.entries(data.last_mirror?.summary || {}).filter(([, s]) => s.error);
+  if (stuck.length) out.append(h("div.banner.warn", {}, h("div", {}, h("b", {}, `${stuck.length} row(s) not mirrored to the Sheet yet: `), stuck.map((r) => r["Video ID"]).slice(0, 20).join(", "), ". The studio has them; the next mirror push retries.")));
+  for (const [tab, s] of errs) out.append(h("div.banner.warn", {}, `Last mirror push could not reach ${tab}: ${short(s.error, 160)}`));
   return out;
 }
 
@@ -232,7 +231,7 @@ function card(r) {
   const thumb = h("div.thumb", {}, h("img", { src: r.unsynced && !r.thumb ? "/static/no-thumb.svg" : `/thumb/${vid}.jpg`, loading: "lazy", alt: "" }), selBox(r),
     lang(vid) ? h("span.lang", {}, lang(vid)) : null,
     r.Duration ? h("span.dur", {}, r.Duration) : null,
-    r.missing ? h("span.flag.pill.failed", {}, "missing in sheet") : Object.keys(r.pending || {}).length ? h("span.flag.pill.warn", {}, "pending sync") : null,
+    Object.values(r.pending || {}).some((p) => p.error) ? h("span.flag.pill.warn", { title: "Not in the Sheet mirror yet; retried" }, "mirror waiting") : null,
     h("div.qas", {}, quick(r)));
   preview(thumb, r);
   const when = r["Scheduled Time (IST)"];

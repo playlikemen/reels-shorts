@@ -10,7 +10,7 @@ Steps
 2. move the file to out/<brand>/<ID>/<id>.mp4 (server-chosen name)
 3. ffprobe: must be a video of at most 90 s. If it is not 1080x1920 h264/aac at 30 fps and about -14 LUFS, it is
    re-encoded (scaled and padded to 1080x1920, loudness-normalised) with ffmpeg
-4. thumb.jpg  5. Drive (ops/drive.archive)  6. Sheet row (Ready for schedule/next/now, Hold for draft)
+4. thumb.jpg  5. Drive (ops/drive.archive)  6. studio row (Ready for schedule/next/now, Hold for draft), then the Sheet mirror
 7. after=now: posted at once through studio.publish_job (the scheduler lock and code path)
 """
 import json, re, shutil, subprocess, sys
@@ -124,10 +124,10 @@ def validate(params):
 
 def run(params, db=None, archive=None, upsert=None, publish=None):
     """The upload job. archive/upsert/publish are injectable for tests."""
-    import drive, sheet
+    import drive
     from . import publish_job
     archive = archive or drive.archive
-    upsert = upsert or sheet.upsert
+    upsert = upsert or (lambda tab, rec: Y.upsert_local(tab, rec, who=params.get("who", "owner"), db=db))
     db = db or S.connect()
     p = validate(params)
     src = STATE / "uploads" / p["file"]
@@ -178,11 +178,14 @@ def run(params, db=None, archive=None, upsert=None, publish=None):
     upsert(b["sheet_tab"], rec)
     print(f"Sheet row written in {b['sheet_tab']}: {rec['Instagram Status']} {when or '(no time)'}", flush=True)
     S.audit("upload", vid, None, {"after": p["after"], "when": when, "file": rec["Local Path"]}, params.get("who", "owner"), "", db)
-    Y.pull([b["sheet_tab"]], db)
+    try:
+        print("Sheet mirror:", json.dumps(Y.push([b["sheet_tab"]], db)), flush=True)
+    except Exception as e:
+        print(f"Sheet mirror not updated ({str(e)[:160]}); the next push retries", flush=True)
     code = 0
     if p["after"] == "now":
         print("publishing now (owner asked)", flush=True)
-        code = (publish or publish_job.main)([vid, "--platform", "instagram", "--pull"])
+        code = (publish or publish_job.main)([vid, "--platform", "instagram", "--mirror"])
     print(f"DONE {vid}", flush=True)
     return vid, code
 

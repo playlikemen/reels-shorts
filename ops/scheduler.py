@@ -5,6 +5,8 @@
   python3.11 ops/scheduler.py --publish     # post
 
 Rules
+- Rows are read from the Reels Studio store (the source of truth, ops/reelrows.py); every status mark is written there
+  first and then mirrored to the Google Sheet (best effort).
 - A row is due when its status is exactly "Ready" and "Scheduled Time (IST)" (YYYY-MM-DD HH:MM) is not in the future.
 - The status is set to "Publishing" before the API call and to "Published" or "Failed: ..." after it, so a crash
   can never post the same video twice. To retry a failed row, set its status back to "Ready" by hand.
@@ -79,7 +81,7 @@ def file_published(folder_link):
 def run(publish, force=()):
     """force: video ids to post now, ignoring their scheduled time, the daily cap and the auto-publish switch
     (an owner's explicit request)."""
-    import sheet, publish_instagram, publish_youtube
+    import reelrows as sheet, publish_instagram, publish_youtube   # rows come from the studio store; the Sheet is a mirror
     for b in K.brands():
         tab = b["sheet_tab"]
         auto = b.get("auto_publish", True)

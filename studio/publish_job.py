@@ -17,7 +17,7 @@ import argparse, fcntl, json, sys
 from . import store as S  # noqa: F401  (sets up sys.path for ops/)
 import config as K
 import scheduler
-import sheet
+import reelrows as sheet   # the studio store (narrowed below); the Sheet is only a mirror
 
 HIDDEN = "(not this run)"
 NEVER = ("Published", "Publishing", "Archived", "No channel")
@@ -92,7 +92,7 @@ def main(argv=None, lock_path=None):
     ap = argparse.ArgumentParser(prog="studio.publish_job")
     ap.add_argument("video_id", nargs="+"); ap.add_argument("--platform", choices=["instagram", "youtube"], required=True)
     ap.add_argument("--dry-run", action="store_true")
-    ap.add_argument("--pull", action="store_true", help="pull the brand tab into the studio store afterwards")
+    ap.add_argument("--mirror", "--pull", dest="mirror", action="store_true", help="push the Sheet mirror afterwards")
     a = ap.parse_args(argv)
     lock = open(lock_path or (K.STATE / "scheduler.lock"), "w")
     try:
@@ -106,13 +106,13 @@ def main(argv=None, lock_path=None):
         codes.append(one(vid, a.platform, a.dry_run, real_brands, real_rows))
         if len(a.video_id) > 1:
             print(f"{vid}: {['posted', 'FAILED', 'not posted'][codes[-1]]}", flush=True)
-    if a.pull and not a.dry_run:
+    if a.mirror and not a.dry_run:
         from . import sync as Y
         tabs = sorted({b["sheet_tab"] for b in K.brands() if any(v.startswith(b["id_prefix"] + "-") for v in a.video_id)})
         try:
-            Y.pull(tabs)
+            Y.push(tabs)
         except Exception as e:
-            print(f"pull after publish failed: {str(e)[:200]}")
+            print(f"Sheet mirror after publish failed ({str(e)[:200]}); the next push retries")
     if len(codes) == 1:
         return codes[0]
     return 1 if 1 in codes else (2 if all(c == 2 for c in codes) else 0)

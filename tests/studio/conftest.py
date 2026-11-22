@@ -40,6 +40,24 @@ class FakeSheet:
             self.tabs[tab][n - 2][k] = str(v)
             self.writes.append((tab, n, k, str(v)))
 
+    def write_row(self, tab, n, rec):
+        if self.fail_write:
+            raise RuntimeError("sheet write down")
+        rows = self.tabs[tab]
+        vals = {h: str(rec.get(h, "")) for h in K.HEADERS}
+        if n - 2 < len(rows):
+            rows[n - 2] = vals
+        else:
+            assert n - 2 == len(rows), "mirror skipped a row"
+            rows.append(vals)
+        self.writes.append((tab, n, "row", vals["Video ID"]))
+
+    def video_id_at(self, tab, n):
+        if self.fail_read:
+            raise RuntimeError("sheet read down")
+        rows = self.tabs[tab]
+        return rows[n - 2]["Video ID"] if 0 <= n - 2 < len(rows) else ""
+
     def upsert(self, tab, rec):
         if self.fail_write:
             raise RuntimeError("sheet write down")
@@ -74,4 +92,14 @@ def fake(monkeypatch):
     monkeypatch.setattr(sheet, "rows", f.rows)
     monkeypatch.setattr(sheet, "set_cells", f.set_cells)
     monkeypatch.setattr(sheet, "upsert", f.upsert)
+    monkeypatch.setattr(sheet, "write_row", f.write_row)
+    monkeypatch.setattr(sheet, "video_id_at", f.video_id_at)
+    # mirror at once (the web app does it in a background thread) so tests can look at the fake Sheet
+    monkeypatch.setattr(Y, "MIRROR_HOOK", lambda vid: Y.push_one(vid))
     return f
+
+
+def seed():
+    """Load the fake Sheet into the store once (what the one-time migration does)."""
+    S.reset_connections()
+    return Y.import_apply(everything=True, who="test")

@@ -14,7 +14,7 @@ export async function render(root) {
     h("div.stats", {},
       stat("Cron heartbeat", s.age_min == null ? "never" : `${s.age_min} min ago`, stale ? "bad" : "ok"),
       stat("YouTube canary", d.canary.state, d.canary.state === "blocked" ? "bad" : d.canary.state === "pending" ? "warn" : "ok"),
-      stat("Last sync", d.last_pull ? ago(d.last_pull.at) : "never"),
+      stat("Last Sheet mirror", d.last_pull ? ago(d.last_pull.at) : "never"),
       stat("Pending edits", d.pending, d.pending ? "warn" : "ok"),
       stat("Missing in sheet", d.missing, d.missing ? "bad" : "ok"),
       stat("out/ size", fmtBytes(d.out_bytes)),
@@ -31,7 +31,7 @@ export async function render(root) {
           h("dt", {}, "Canary"), h("dd", { class: "mono" }, JSON.stringify(d.canary)),
           h("dt", {}, "Editor"), h("dd", {}, d.filmcraft ? h("a", { href: "/editor/", target: "_blank" }, "FilmCraft web ↗") : "not installed"),
           h("dt", {}, "earshot"), h("dd", {}, d.earshot ? "installed" : "not installed"),
-          h("dt", {}, "Last sync result"), h("dd", { class: "mono small" }, JSON.stringify(d.last_pull?.summary || {}))))));
+          h("dt", {}, "Last mirror result"), h("dd", { class: "mono small" }, JSON.stringify(d.last_pull?.summary || {}))))));
   try {
     const c = await api("/api/health/connections");
     conn.replaceChildren(h("div.row", {}, h("h2", {}, "Connections"), h("span.spacer"),

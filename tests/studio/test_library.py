@@ -10,7 +10,7 @@ import drive
 import publish_instagram
 import scheduler
 import sheet
-from conftest import row
+from conftest import row, seed
 from studio import app as W, auth as A, publish_job as P, store as S, sync as Y, upload as U
 
 
@@ -39,7 +39,7 @@ def test_archive_and_unarchive_restore_status_and_move_drive(fake, moves):
     fake.tabs["@craftlayer"] = [row("CR-901-EN", **{"Scheduled Time (IST)": "2099-01-01 19:30", "Google Drive Folder": FOLDER}),
                                 row("CR-902-EN", **{"Instagram Status": "Published", "Instagram Post URL": "https://ig/p",
                                                     "Google Drive Folder": FOLDER})]
-    Y.pull()
+    seed()
     res = Y.archive("CR-901-EN")
     assert res["status"] == "ok"
     assert fake.tabs["@craftlayer"][0]["Instagram Status"] == "Archived" == fake.tabs["@craftlayer"][0]["YouTube Status"]
@@ -48,7 +48,7 @@ def test_archive_and_unarchive_restore_status_and_move_drive(fake, moves):
     assert moves == [(FOLDER, "Archive")]
     with pytest.raises(Y.SyncError):
         Y.archive("CR-901-EN")
-    Y.pull()                                                     # a pull keeps the remembered status
+    seed()                                                     # a pull keeps the remembered status
     assert S.get_reel("CR-901-EN")["prev_status"]["Instagram Status"] == "Ready"
     res = Y.unarchive("CR-901-EN")
     assert res["status"] == "ok" and fake.tabs["@craftlayer"][0]["Instagram Status"] == "Ready"
@@ -65,7 +65,7 @@ def test_archive_and_unarchive_restore_status_and_move_drive(fake, moves):
 
 def test_unarchive_of_overdue_ready_comes_back_as_hold(fake, moves):
     fake.tabs["@craftlayer"] = [row("CR-901-EN", **{"Scheduled Time (IST)": "2020-01-01 19:30"})]
-    Y.pull()
+    seed()
     Y.archive("CR-901-EN")
     res = Y.unarchive("CR-901-EN")
     assert fake.tabs["@craftlayer"][0]["Instagram Status"] == "Hold" and "Hold" in res["note"]
@@ -74,7 +74,7 @@ def test_unarchive_of_overdue_ready_comes_back_as_hold(fake, moves):
 def test_drive_failure_never_blocks_archive(fake, monkeypatch):
     monkeypatch.setattr(drive, "move", lambda *a: (_ for _ in ()).throw(RuntimeError("drive down")))
     fake.tabs["@craftlayer"] = [row("CR-901-EN", **{"Google Drive Folder": FOLDER})]
-    Y.pull()
+    seed()
     res = Y.archive("CR-901-EN")
     assert res["status"] == "ok" and "not moved" in res["drive"]
 
@@ -84,7 +84,7 @@ def test_next_free_slot_uses_slots_and_cap(fake, monkeypatch):
     fake.tabs["@craftlayer"] = [row("CR-901-EN", **{"Scheduled Time (IST)": "2099-01-01 12:30"}),
                                 row("CR-902-EN", **{"Scheduled Time (IST)": "2099-01-02 19:30"}),
                                 row("CR-903-EN", **{"Scheduled Time (IST)": "2099-01-02 12:30", "Instagram Status": "Hold"})]
-    Y.pull()
+    seed()
     assert Y.next_free_slot("craftlayer", "2099-01-01 00:00") == "2099-01-01 19:30"
     assert Y.next_free_slot("craftlayer", "2099-01-01 00:00", taken_extra=("2099-01-01 19:30",)) == "2099-01-02 12:30"
     assert Y.next_free_slot("craftlayer", "2099-01-01 00:00", exclude=("CR-901-EN",)) == "2099-01-01 12:30"
@@ -96,7 +96,7 @@ def test_schedule_ready_or_hold_and_never_a_published_reel(fake):
     fake.tabs["@craftlayer"] = [row("CR-901-EN", **{"Instagram Status": "Hold"}),
                                 row("CR-902-EN", **{"Instagram Status": "Published", "Instagram Post URL": "https://ig/p"}),
                                 row("CR-903-EN", **{"Instagram Status": "Failed: x"})]
-    Y.pull()
+    seed()
     assert Y.schedule("CR-901-EN", "2099-01-05 19:30", auto=True)["status"] == "ok"
     t = fake.tabs["@craftlayer"][0]
     assert (t["Instagram Status"], t["Scheduled Time (IST)"], t["Date"], t["YouTube Status"]) == ("Ready", "2099-01-05 19:30", "2099-01-05", "No channel")
@@ -110,7 +110,7 @@ def test_schedule_ready_or_hold_and_never_a_published_reel(fake):
 
 def test_archived_published_reel_can_not_be_rescheduled(fake, moves):
     fake.tabs["@craftlayer"] = [row("CR-902-EN", **{"Instagram Status": "Published", "Instagram Post URL": "https://ig/p"})]
-    Y.pull()
+    seed()
     Y.archive("CR-902-EN")
     with pytest.raises(Y.SyncError):
         Y.schedule("CR-902-EN", "2099-01-05 19:30")
@@ -119,7 +119,7 @@ def test_archived_published_reel_can_not_be_rescheduled(fake, moves):
 def test_swap_two_slots_two_audited_edits(fake):
     fake.tabs["@craftlayer"] = [row("CR-901-EN", **{"Scheduled Time (IST)": "2099-01-01 12:30"}),
                                 row("CR-902-EN", **{"Scheduled Time (IST)": "2099-01-02 19:30"})]
-    Y.pull()
+    seed()
     assert Y.swap("CR-901-EN", "CR-902-EN") == {"CR-901-EN": "ok", "CR-902-EN": "ok"}
     assert fake.tabs["@craftlayer"][0]["Scheduled Time (IST)"] == "2099-01-02 19:30"
     assert fake.tabs["@craftlayer"][1]["Scheduled Time (IST)"] == "2099-01-01 12:30"
@@ -130,7 +130,7 @@ def test_fill_gives_consecutive_free_slots(fake):
     K.save_channel("craftlayer", {"slots": ["12:30", "19:30"], "cap": 2})
     fake.tabs["@craftlayer"] = [row("CR-901-EN", **{"Instagram Status": "Hold", "Scheduled Time (IST)": ""}),
                                 row("CR-902-EN", **{"Instagram Status": "Hold", "Scheduled Time (IST)": ""})]
-    Y.pull()
+    seed()
     out = Y.fill(["CR-901-EN", "CR-902-EN"])
     t1, t2 = (fake.tabs["@craftlayer"][i]["Scheduled Time (IST)"] for i in (0, 1))
     assert t1 != t2 and t1[-5:] in ("12:30", "19:30") and all(v.startswith("ok") for v in out.values())
@@ -154,6 +154,7 @@ def test_auto_publish_off_skips_brand_except_forced(fake, monkeypatch, capsys):
     posted = []
     monkeypatch.setattr(publish_instagram, "publish", lambda key, mp4, cap: posted.append(key) or {"permalink": "https://ig/x", "media_id": "1"})
     fake.tabs["@campusloop"] = [row("CL-901", **{"Scheduled Time (IST)": "2020-01-01 19:30"})]
+    seed()
     K.save_channel("campusloop", {"auto_publish": False})
     scheduler.run(publish=False)
     out = capsys.readouterr().out
@@ -172,21 +173,24 @@ def test_instagram_post_moves_drive_folder_best_effort(fake, monkeypatch, isolat
     monkeypatch.setattr(publish_instagram, "publish", lambda key, mp4, cap: {"permalink": "https://ig/x", "media_id": "1"})
     fake.tabs["@campusloop"] = [row("CL-901", **{"Scheduled Time (IST)": "2020-01-01 19:30", "Local Path": str(mp4),
                                                  "Google Drive Folder": FOLDER})]
+    seed()
     scheduler.run(publish=True, force={"CL-901"})
     assert fake.tabs["@campusloop"][0]["Instagram Status"] == "Published"
     assert moves == [(FOLDER, "Published")]
 
 
 def test_forced_publish_posts_a_hold_row_but_never_a_published_one(fake, monkeypatch, isolated):
+    import reelrows
     monkeypatch.setattr(K, "brands", K.brands)
-    monkeypatch.setattr(sheet, "rows", sheet.rows)
+    monkeypatch.setattr(reelrows, "rows", reelrows.rows)
     fake.tabs["@craftlayer"] = [row("CR-901-EN", **{"Instagram Status": "Hold"}),
                                 row("CR-902-EN", **{"Instagram Status": "Published"})]
+    seed()
     seen = []
-    monkeypatch.setattr(scheduler, "run", lambda publish, force=(): seen.append([r["Instagram Status"] for r in sheet.rows("@craftlayer")]))
+    monkeypatch.setattr(scheduler, "run", lambda publish, force=(): seen.append([r["Instagram Status"] for r in reelrows.rows("@craftlayer")]))
     assert P.main(["CR-901-EN", "CR-902-EN", "--platform", "instagram"], lock_path=isolated / "lock") == 2
     assert seen == [["Ready"], ["Published"]]                    # in memory only; the scheduler would skip the second
-    assert fake.writes == []
+    assert S.get_reel("CR-901-EN")["Instagram Status"] == "Hold"
     assert K.brands().__len__() == 4                              # narrowing is undone after each reel
     assert P.pushable("Hold") and P.pushable("Failed: x") and P.pushable("Ready")
     assert not any(P.pushable(s) for s in ("Published", "Publishing", "Archived", "No channel", ""))
@@ -203,7 +207,7 @@ def client(isolated, fake, monkeypatch, moves):
     fake.tabs["@craftlayer"] = [row("CR-901-EN"), row("CR-902-EN", **{"Instagram Status": "Hold"}),
                                 row("CR-903-EN", **{"Instagram Status": "Published", "Instagram Post URL": "https://ig/p"}),
                                 row("CR-904-EN", **{"Instagram Status": "Archived"})]
-    Y.pull()
+    seed()
     with TestClient(W.create_app()) as c:
         pw = (isolated / "config" / "initial-password.txt").read_text().strip()
         c.headers["x-csrf-token"] = c.post("/api/login", json={"password": pw}).json()["csrf"]
@@ -292,17 +296,15 @@ def test_upload_job_normalises_and_writes_a_hold_row(fake, isolated, monkeypatch
     src.parent.mkdir(parents=True)
     subprocess.run(["ffmpeg", "-v", "error", "-f", "lavfi", "-i", "testsrc2=size=360x640:rate=25:duration=3", "-f", "lavfi",
                     "-i", "sine=frequency=440:duration=3", "-shortest", "-c:v", "mpeg4", "-q:v", "2", str(src)], check=True)
-    rows = []
     vid, code = U.run({"file": src.name, "brand": "craftlayer", "lang": "en", "topic": "Test", "caption": "", "after": "draft"},
-                      archive=lambda name, mp4: {"folder_link": FOLDER, "direct_link": "https://d/x"},
-                      upsert=lambda tab, rec: rows.append((tab, rec)) or fake.upsert(tab, rec))
+                      archive=lambda name, mp4: {"folder_link": FOLDER, "direct_link": "https://d/x"})
     assert vid == "CR-U001-EN" and code == 0
     mp4 = isolated / "out/craftlayer/CR-U001-EN/cr-u001-en.mp4"
     p = U.probe(mp4)
     assert (p["w"], p["h"], p["vcodec"], p["acodec"], p["fps"]) == (1080, 1920, "h264", "aac", "30/1")
     assert (mp4.parent / "thumb.jpg").exists() and not src.exists()
-    tab, rec = rows[0]
-    assert tab == "@craftlayer" and rec["Instagram Status"] == "Hold" and rec["Google Drive Folder"] == FOLDER
+    rec = fake.tabs["@craftlayer"][-1]                             # mirrored to the Sheet after the store
+    assert rec["Video ID"] == "CR-U001-EN" and rec["Instagram Status"] == "Hold" and rec["Google Drive Folder"] == FOLDER
     assert S.get_reel("CR-U001-EN")["Instagram Status"] == "Hold"
     assert U.next_id("craftlayer", "EN") == "CR-U002-EN"
     with pytest.raises(U.UploadError):
@@ -322,6 +324,6 @@ def test_ui_is_served_from_a_versioned_path(client):
 def test_backfill_moves_only_published_folders(fake, moves):
     fake.tabs["@craftlayer"] = [row("CR-901-EN", **{"Instagram Status": "Published", "Google Drive Folder": FOLDER}),
                                 row("CR-902-EN", **{"Google Drive Folder": FOLDER})]
-    Y.pull()
+    seed()
     res = Y.backfill_published()
     assert res["moved"] == ["CR-901-EN"] and moves == [(FOLDER, "Published")]

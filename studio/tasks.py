@@ -233,7 +233,7 @@ def health_local(db=None):
         cache = {"t": time.time(), "bytes": du(ROOT / "out")}
         S.set_setting("du_out", cache, db)
     disk = shutil.disk_usage(str(ROOT))
-    pending = sum(1 for r in S.list_reels(db) if r["pending"])
+    pending = sum(1 for r in S.list_reels(db) if r["pending"])      # rows not mirrored to the Sheet yet
     missing = sum(1 for r in S.list_reels(db) if r["missing"])
     return {
         # every scheduler run reopens (truncates) its lock file, so its mtime is the cron heartbeat; the log only
@@ -243,7 +243,7 @@ def health_local(db=None):
                       "age_min": round((time.time() - lock.stat().st_mtime) / 60) if lock.exists() else None, "tail": tail,
                       "cron_lines": [l for l in cron.splitlines() if "reels-shorts" in l or "studio" in l]},
         "canary": canary, "out_bytes": cache["bytes"], "disk_free": disk.free, "disk_total": disk.total,
-        "last_pull": S.get_setting("last_pull"), "last_snapshot": S.get_setting("last_snapshot"),
+        "last_pull": S.get_setting("last_mirror"), "last_mirror": S.get_setting("last_mirror"), "last_snapshot": S.get_setting("last_snapshot"),
         "pending": pending, "missing": missing, "tunnel": tunnel_status(),
     }
 
