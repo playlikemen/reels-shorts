@@ -3,7 +3,7 @@
 // Folders come from the server (sync.folder_of), so the Sheet stays the source of truth.
 import { h, api, post, state, loadReels, pill, brandDot, brandOf, fmtWhen, short, button, busy, toast, icon, jobToast, modal, istNow } from "../app.js";
 import { openReel } from "./reel.js";
-import { publishButton, canPublish, scheduleDialog, archiveReel, holdReel, undoToast } from "./publish.js";
+import { publishButton, checkButton, canPublish, scheduleDialog, archiveReel, holdReel, undoToast } from "./publish.js";
 
 const FOLDERS = [
   ["queue", "Queue", "clock", "Ready, scheduled in the future"],
@@ -298,7 +298,8 @@ function pubRow(r) {
   if (r.unsynced) return null;
   const ig = canPublish(r, "instagram") ? publishButton(r, "instagram", { compact: true, onDone: refresh }) : null;
   const yt = canPublish(r, "youtube") ? publishButton(r, "youtube", { compact: true, onDone: refresh }) : null;
-  return ig || yt ? h("div.pubrow", {}, ig, yt) : null;
+  const stuck = r["Instagram Status"] === "Publishing" ? checkButton(r, refresh) : null;
+  return ig || yt || stuck ? h("div.pubrow", {}, ig, yt, stuck) : null;
 }
 
 function grid(list) {

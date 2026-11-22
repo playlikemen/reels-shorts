@@ -3,15 +3,17 @@ import { h, api, post, button, busy, toast, modal, state, brandDot, reloadBrands
 
 function channelsPanel() {
   const panel = h("div#channels.panel", {}, h("h2", {}, "Channels"),
-    h("p.small.muted", {}, "Auto-publish is the master switch for cron posting. Off: cron posts nothing for that channel; Publish now still works. Slots and the daily cap drive “Next free slot” and the scheduler. Every change is in the audit log."));
+    h("p.small.muted", {}, "Auto-publish is the master switch for cron posting. Off: cron posts nothing for that channel; Publish now still works (it posts directly and ignores the daily cap). Slots and the daily cap drive “Next free slot” and the scheduler. Every change is in the audit log."));
   const list = h("div.chlist");
   const draw = () => list.replaceChildren(...state.brands.map((b) => {
     const auto = h("input", { type: "checkbox", role: "switch", checked: b.auto_publish !== false, "aria-label": `Auto-publish ${b.name}` });
     const yt = b.youtube ? h("input", { type: "checkbox", role: "switch", checked: b.youtube_auto !== false, "aria-label": `YouTube auto-upload ${b.name}` }) : null;
     const slots = h("input", { value: (b.slots || []).join(", "), placeholder: "12:30, 19:30", "aria-label": `Slots ${b.name}`, size: 14 });
     const cap = h("input", { type: "number", min: 1, max: 20, value: b.cap ?? "", placeholder: "none", "aria-label": `Daily cap ${b.name}`, style: { width: "72px" } });
+    const via = h("select", { "aria-label": `Posting method ${b.name}` },
+      [["composio", "Composio"], ["metricool", "Metricool (not enabled yet)"]].map(([v, l]) => h("option", { value: v, selected: (b.publish_backend || "composio") === v, disabled: v === "metricool" }, l)));
     const save = button("Save", (e) => busy(e.target, async () => {
-      const body = { brand: b.key, auto_publish: auto.checked, slots: slots.value.split(/[,\s]+/).filter(Boolean), cap: cap.value ? +cap.value : null };
+      const body = { brand: b.key, auto_publish: auto.checked, slots: slots.value.split(/[,\s]+/).filter(Boolean), cap: cap.value ? +cap.value : null, publish_backend: via.value };
       if (yt) body.youtube_auto = yt.checked;
       await post("/api/channels", body);
       await reloadBrands();
@@ -22,7 +24,7 @@ function channelsPanel() {
       h("div.chname", {}, brandDot(b.key), h("b", {}, b.name), h("span.small.muted", {}, b.instagram), b.youtube ? h("span.small.muted", {}, ` · ${b.youtube}`) : null),
       h("label.check", {}, auto, h("span", {}, "Auto-publish")),
       yt ? h("label.check", {}, yt, h("span", {}, "YouTube auto-upload")) : h("span.small.muted", {}, "no YouTube"),
-      h("label.field.inline", {}, "Slots (IST)", slots), h("label.field.inline", {}, "Per day", cap), save);
+      h("label.field.inline", {}, "Slots (IST)", slots), h("label.field.inline", {}, "Per day", cap), h("label.field.inline", {}, "Posts via", via), save);
   }));
   draw();
   panel.append(list, h("div.row", { style: { marginTop: "12px" } },

@@ -1,6 +1,6 @@
 // Reel detail drawer (all metadata, editable fields, player, contact sheet) and the publish confirm dialog.
 import { h, api, post, drawer, modal, toast, pill, button, busy, brandOf, fmtWhen, jobToast, loadReels, ApiError, icon } from "../app.js";
-import { publishButton, canPublish, scheduleDialog, archiveReel, holdReel } from "./publish.js";
+import { publishButton, checkButton, canPublish, scheduleDialog, archiveReel, holdReel } from "./publish.js";
 
 const EDIT = [
   ["Category / Topic", "input"], ["Scheduled Time (IST)", "input"], ["Instagram Status", "status"], ["YouTube Status", "status"],
@@ -38,6 +38,7 @@ function render(d, data, onChange) {
   const refreshMe = () => refresh(r["Video ID"], d, onChange);
   const igBtn = canPublish(r, "instagram") ? publishButton(r, "instagram", { onDone: refreshMe }) : null;
   const ytBtn = canPublish(r, "youtube") ? publishButton(r, "youtube", { onDone: refreshMe }) : null;
+  const checkBtn = r["Instagram Status"] === "Publishing" ? checkButton(r, refreshMe) : null;
   const archived = r.folder === "archive";
   const published = (r["Instagram Status"] || "").startsWith("Published");
   const hold = (r["Instagram Status"] || "").startsWith("Hold") || r["YouTube Status"] === "Hold";
@@ -65,7 +66,7 @@ function render(d, data, onChange) {
     h("div.detail", {},
       h("div", {},
         media ? h("video", { src: media, controls: true, preload: "metadata", playsInline: true, poster: `/thumb/${r["Video ID"]}.jpg` }) : h("img.poster", { src: `/thumb/${r["Video ID"]}.jpg`, alt: "" }),
-        h("div.actions", {}, igBtn, ytBtn, schedBtn, holdBtn, archBtn, button("Dry run (what would post)", () => dryRun(r, "instagram"), "ghost sm"),
+        h("div.actions", {}, igBtn, ytBtn, checkBtn, schedBtn, holdBtn, archBtn, button("Dry run (what would post)", () => dryRun(r, "instagram"), "ghost sm"),
           r.spec_path ? button("Render or stills…", () => import("./jobs.js").then((m) => m.newJob({ kind: "rerender", spec: r.spec_path, lang: (r["Video ID"].match(/-([A-Z]{2})$/) || [])[1]?.toLowerCase() || "" })), "ghost sm") : null),
         h("div.row", { style: { marginTop: "10px" } }, links.map((a) => [a, " "]))),
       h("div", {},

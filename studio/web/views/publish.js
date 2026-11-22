@@ -16,15 +16,45 @@ export function canPublish(r, platform) {
 }
 
 // Wait for a job to end over SSE; resolves {status, exit_code}.
-function waitJob(jid) {
+function waitJob(jid, onLog) {
   return new Promise((resolve) => {
     const es = new EventSource(`/api/jobs/${jid}/stream`);
+    if (onLog) es.addEventListener("log", (e) => onLog(JSON.parse(e.data)));
     es.addEventListener("end", (e) => { es.close(); resolve(JSON.parse(e.data)); });
   });
 }
 
+// The publish job prints one line per step; show the newest on the spinner.
+const STEP = /^(the scheduler .*waiting|uploading video|Instagram container|publishing…|published |cancel noted)/;
+function progressLine(text) {
+  const lines = text.split("\n").map((l) => l.trim()).filter((l) => STEP.test(l));
+  if (!lines.length) return "";
+  const l = lines[lines.length - 1];
+  if (l.startsWith("uploading")) return "Uploading video…";
+  if (l.startsWith("Instagram container")) return "Instagram is processing…";
+  if (l.startsWith("publishing")) return "Publishing…";
+  if (l.startsWith("published")) return "Published";
+  if (l.startsWith("cancel")) return "Finishing the post…";
+  return "Waiting for the scheduler…";
+}
+
 function lastLines(text, n = 2) {
   return (text || "").trim().split("\n").filter((l) => l && !l.startsWith("{")).slice(-n).join(" · ").slice(0, 220);
+}
+
+// A reel stuck at "Publishing" (its job died): ask Instagram whether it went live.
+export function checkButton(r, onDone) {
+  const wrap = h("span.pub", { onclick: (e) => e.stopPropagation() });
+  const b = h("button.btn.sm", { type: "button", title: "Look for this reel on Instagram and settle its status" }, icon("search"), "Check Instagram");
+  b.onclick = () => busy(b, async () => {
+    const res = await post(`/api/reels/${encodeURIComponent(r["Video ID"])}/check-instagram`, {}, { allow: [409] });
+    if (res._status === 409) throw new Error(res.error || "refused");
+    toast(`${r["Video ID"]}: ${res.result}`, res.result.startsWith("published") ? "ok" : "info", 7000);
+    await loadReels(true);
+    onDone && onDone(res.reel);
+  });
+  wrap.append(b);
+  return wrap;
 }
 
 // The button. opts: {compact, onDone(reel)}. Returns an element that manages its own states.
@@ -55,17 +85,19 @@ export function publishButton(r, platform, opts = {}) {
   };
   const go = async () => {
     clearTimeout(timer);
-    wrap.replaceChildren(h("span.pubbusy", { role: "status" }, h("span.spin"), "Posting…"));
+    const label = h("span", {}, "Starting…");
+    wrap.replaceChildren(h("span.pubbusy", { role: "status", "aria-live": "polite" }, h("span.spin"), label));
     let res;
     try {
       res = await post("/api/publish", { id: r["Video ID"], platform, confirm: true, override_cap: true }, { allow: [409] });
     } catch (e) { return fail(e.message); }
     if (res._status === 409) return fail(res.error || "refused");
-    const end = await waitJob(res.job);
+    let log = "";
+    const end = await waitJob(res.job, (chunk) => { log += chunk; const t = progressLine(log); if (t && label.textContent !== t) label.textContent = t; });
     let reel = null;
     try { reel = (await api(`/api/reels/${encodeURIComponent(r["Video ID"])}`)).reel; } catch { /* */ }
     const url = reel?.[URLCOL[platform]];
-    if (end.status === "done" && url) {
+    if (url && (reel?.[COL[platform]] || "").startsWith("Published")) {
       wrap.replaceChildren(h("a.btn.sm.ok", { href: url, target: "_blank", rel: "noopener" }, icon("ext"), platform === "instagram" ? "Open IG" : "Open YT"));
       toast(`${r["Video ID"]} is live on ${handle}`, "ok", 6000);
       await loadReels(true);

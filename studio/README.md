@@ -91,20 +91,38 @@ stops a post). `python3.11 -m studio.sync backfill-published` (or the button in 
 
 Every card, table row and the drawer has a two-click **Publish to Instagram now** (and **Upload to YouTube now** where the
 channel has YouTube): the first click turns it into "Confirm? @handle" for 4 seconds, the second sends
-`{confirm: true, override_cap: true}`. A spinner runs in place; then the card shows an "Open IG" link and moves to
+`{confirm: true}`. A spinner shows each step; then the card shows an "Open IG" link and moves to
 Published, or the error with Retry. Ready, Hold, Failed, Manual and draft rows can be pushed this way; Published,
 Publishing, Archived and channel-less rows never.
 
-`POST /api/publish {id, platform, confirm: true}` queues a job that runs `python3.11 -m studio.publish_job`, which:
+`POST /api/publish {id, platform, confirm: true}` queues a job that runs `python3.11 -m studio.publish_job`. A manual
+publish is a **direct call**, not a scheduler run:
 
-1. takes the scheduler's own lock (`scheduler.lock`), so cron and the button can never post at the same time;
-2. narrows `ops/scheduler.run` to this one row and platform (the other platform's status is hidden in memory only);
-3. calls `scheduler.run(publish=True, force={id})`: the row becomes `Publishing` before the API call, then
-   `Published` or `Failed: ...`, and the publish log is written, exactly as for a cron post. A Hold, Failed or draft row
-   is shown to the scheduler as Ready for this one forced run only (in memory), so its status flips through the same path.
+1. It takes the scheduler's lock (`scheduler.lock`), so cron and the button never post at the same time. If cron holds
+   it, the job waits up to 60 s, then stops with a clear message (nothing posted).
+2. It sets the row to `Publishing` (store first, then the Sheet mirror).
+3. It calls the channel's posting backend directly (`ops/publish_backends.py`; `composio` runs
+   `ops/publish_instagram.publish` or `ops/publish_youtube.upload`).
+4. It writes `Published` + the URL, or `Failed: reason`, adds a publish-log line (`via: publish-now`) and mirrors the row.
 
-Several ids run one after another under the same lock (bulk publish). If the brand's daily cap is reached, the request also needs
-`override_cap: true`. `dry_run: true` shows what would be posted, without posting. After the job, the Sheet mirror is pushed.
+The schedule time, slots, daily cap and auto-publish switch are not used and not changed. The job log and the card's
+spinner show each step: `uploading video to Composio…`, `Instagram container <id> created, processing…`,
+`publishing…`, `published <permalink>`. Several ids run one after another under the same lock (bulk publish).
+`dry_run: true` checks everything and posts nothing.
+
+Cancel safety: from the upload until the result is written, the job ignores Cancel (SIGTERM). A cancelled publish job
+is never force-killed, and reels not started yet are skipped. The container id goes into the publish log as soon as it
+exists.
+
+Stuck rows: `python3.11 -m studio.publish_job --reconcile` runs on the 5-minute cron tick and at studio start. It
+looks at Instagram rows at `Publishing` for over 10 minutes with no running publish job. It reads the channel's 10
+newest media (`INSTAGRAM_GET_IG_USER_MEDIA`) and compares the first 60 characters of the caption (whitespace and
+`%23` normalised). A match becomes `Published` with that permalink; no match becomes
+`Failed: interrupted, not found on Instagram`. A stuck card has a **Check Instagram** button
+(`POST /api/reels/{id}/check-instagram`, MCP `check_instagram`) that does this at once.
+
+Posting method: Settings → Channels → "Posts via" (`publish_backend`: `composio`, the default; `metricool` is a stub
+until that connector is enabled). Cron posts go through the same backend.
 
 ## JSON API (agents)
 
@@ -122,14 +140,15 @@ Create a token in Settings or with `python3.11 -m studio token <name>`, then sen
 | POST | `/api/reels/{id}/archive` | `{archive: true/false}` archive / unarchive |
 | POST | `/api/reels/{id}/schedule` | `{when: "YYYY-MM-DD HH:MM" or "next", auto: true/false}` Ready or Hold at that time |
 | GET | `/api/slots/next?brand=&after=&exclude=&n=` | next free slot(s) of a channel |
-| GET/POST | `/api/channels` | channel settings / `{brand, auto_publish?, youtube_auto?, slots?, cap?}` |
+| GET/POST | `/api/channels` | channel settings / `{brand, auto_publish?, youtube_auto?, slots?, cap?, publish_backend?}` |
+| POST | `/api/reels/{id}/check-instagram` | settle a row stuck at Publishing (looks for it on Instagram by caption) |
 | POST | `/api/upload` | multipart `file` + `brand, lang, topic, caption, hashtags, yt_title, yt_desc, after, when, confirm` (a job) |
 | POST | `/api/reels/bulk` | `{ids, action: hold/ready/schedule/fill/swap/archive/unarchive/publish, start, every_days, confirm}` (a job) |
 | GET/POST | `/api/reels/{id}/restore` | `?date=YYYY-MM-DD` dry run / `{date, dry_run: false}` |
 | POST | `/api/sync` | push the Sheet mirror now (a job) |
 | GET/POST | `/api/import/preview?tab=`, `/api/import/apply` | Sheet → studio diff / `{tab, changes: {id: [header]}, new: [id]}` |
 | GET | `/api/publish/preview?id=&platform=` | handle, caption, cap, today's count, problems, lock state |
-| POST | `/api/publish` | `{id, platform, confirm: true, override_cap?, dry_run?}` (a job) |
+| POST | `/api/publish` | `{id, platform, confirm: true, dry_run?}` (a job; a direct post, the daily cap does not apply) |
 | GET/POST | `/api/jobs` | list / `{kind, params}`: `render`, `rerender`, `sync`, `generate`, `insights`, `push`, `snapshot`, `dryrun`, `backfill` |
 | GET | `/api/jobs/{id}`, `/api/jobs/{id}/stream` | status + log tail / live log (SSE) |
 | POST | `/api/jobs/{id}/cancel` | cancel |
