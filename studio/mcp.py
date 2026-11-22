@@ -406,13 +406,13 @@ def _content(a):
 async def t_upload_file(ctx, a):
     from . import files as F
     name, chunks, limit = await run_in_threadpool(_content, a)
-    return await _files(ctx, lambda: F.add(name, chunks, a.get("folder_id"), a.get("expiry") or "7d", ctx["user"], ctx["ip"], limit, _fbase(ctx)))
+    return await _files(ctx, lambda: F.add(name, chunks, a.get("folder_id") or None, a.get("expiry") or "7d", ctx["user"], ctx["ip"], limit, _fbase(ctx)))
 
 
 async def t_list_files(ctx, a):
     from . import files as F
     every = bool(a.get("all") or a.get("search"))
-    files = await _files(ctx, lambda: F.list_files(a.get("folder_id"), a.get("search", ""), every, _fbase(ctx)))
+    files = await _files(ctx, lambda: F.list_files(a.get("folder_id") or None, a.get("search", ""), every, _fbase(ctx)))
     return {"files": files, "folders": await _files(ctx, F.folders), "usage": await _files(ctx, F.usage)}
 
 
@@ -429,7 +429,7 @@ async def t_update_file(ctx, a):
         _, chunks, limit = await run_in_threadpool(_content, a)
         out = await _files(ctx, lambda: F.replace(fid, chunks, ctx["user"], ctx["ip"], limit, None, _fbase(ctx)))
     if any(k in a for k in ("name", "folder_id", "expiry", "new_link")):
-        out = await _files(ctx, lambda: F.update(fid, a.get("name"), a["folder_id"] if "folder_id" in a else False, a.get("expiry"),
+        out = await _files(ctx, lambda: F.update(fid, a.get("name"), (a["folder_id"] or None) if "folder_id" in a else False, a.get("expiry"),
                                                  bool(a.get("new_link")), ctx["user"], ctx["ip"], _fbase(ctx)))
     if out is None:
         raise ToolError("send name, folder_id, expiry, new_link, content_base64 or url")
@@ -443,7 +443,7 @@ async def t_delete_file(ctx, a):
 
 async def t_create_folder(ctx, a):
     from . import files as F
-    return await _files(ctx, lambda: F.create_folder(a.get("name", ""), a.get("parent_id"), ctx["user"], ctx["ip"]))
+    return await _files(ctx, lambda: F.create_folder(a.get("name", ""), a.get("parent_id") or None, ctx["user"], ctx["ip"]))
 
 
 async def t_rename_folder(ctx, a):
@@ -453,7 +453,7 @@ async def t_rename_folder(ctx, a):
 
 async def t_move_folder(ctx, a):
     from . import files as F
-    return await _files(ctx, lambda: F.update_folder(a.get("id"), None, a.get("parent_id"), ctx["user"], ctx["ip"]))
+    return await _files(ctx, lambda: F.update_folder(a.get("id"), None, a.get("parent_id") or None, ctx["user"], ctx["ip"]))
 
 
 async def t_delete_folder(ctx, a):
@@ -552,16 +552,16 @@ TOOLS = [
      "the folder tree and storage use.",
      obj({"folder_id": {"type": "integer"}, "search": {"type": "string"}, "all": {"type": "boolean"}})),
     ("get_file", t_get_file, True, True, "One hosted file: name, size, type, folder, expiry and public url.", obj({"id": {"type": "string"}}, ["id"])),
-    ("update_file", t_update_file, True, False, "Rename, move (folder_id; null for the top level), change expiry, get a new link "
+    ("update_file", t_update_file, True, False, "Rename, move (folder_id; 0 for the top level), change expiry, get a new link "
      "(new_link: true; the old link stops working) or replace the content (content_base64 or url).",
-     obj({"id": {"type": "string"}, "name": {"type": "string"}, "folder_id": {"type": ["integer", "null"]}, "expiry": {"type": "string"},
+     obj({"id": {"type": "string"}, "name": {"type": "string"}, "folder_id": {"type": "integer", "description": "0 for the top level"}, "expiry": {"type": "string"},
           "new_link": {"type": "boolean"}, "content_base64": {"type": "string"}, "url": {"type": "string"}}, ["id"])),
     ("delete_file", t_delete_file, True, False, "Delete a hosted file and its link.", obj({"id": {"type": "string"}}, ["id"])),
     ("create_folder", t_create_folder, True, False, "Create a file folder (parent_id for a subfolder).",
      obj({"name": {"type": "string"}, "parent_id": {"type": "integer"}}, ["name"])),
     ("rename_folder", t_rename_folder, True, False, "Rename a file folder.", obj({"id": {"type": "integer"}, "name": {"type": "string"}}, ["id", "name"])),
-    ("move_folder", t_move_folder, True, False, "Move a file folder under another (parent_id null for the top level).",
-     obj({"id": {"type": "integer"}, "parent_id": {"type": ["integer", "null"]}}, ["id", "parent_id"])),
+    ("move_folder", t_move_folder, True, False, "Move a file folder under another (parent_id 0 for the top level).",
+     obj({"id": {"type": "integer"}, "parent_id": {"type": "integer", "description": "0 for the top level"}}, ["id", "parent_id"])),
     ("delete_folder", t_delete_folder, True, False, "Delete a file folder. A folder holding files or subfolders needs confirm: true "
      "(everything in it is deleted).", obj({"id": {"type": "integer"}, "confirm": {"type": "boolean"}}, ["id"])),
     ("mirror_push", t_mirror_push, True, False, "Push rows waiting for the Google Sheet mirror now.", obj()),

@@ -178,7 +178,7 @@ class RateLimit:
 
 # ---------- the MCP / API key (one owner key; only its scrypt hash is stored) ----------
 
-KEY_MIN = 24
+KEY_MIN = 8           # the owner chose a short key; 10 wrong keys from one IP lock it out
 _verified = {}          # sha256(key) -> the stored hash it matched, so scrypt runs once per key, not per request
 
 
