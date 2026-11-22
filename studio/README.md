@@ -36,14 +36,20 @@ nightly snapshot at 03:15, next to the publisher line.
 ## Data
 
 - Store: SQLite `~/.local/state/reels-shorts/studio.db` (tables `reels` (with the local-only `prev_status`), `publish_log`, `insights`, `jobs`, `audit`,
-  `settings`, `comments_cache`). It is the local backup of the Sheet.
-- Pull (`python3.11 -m studio.sync pull`): `ops/sheet.rows()` per tab, upsert by Video ID. A row that vanished from
-  the Sheet is kept and flagged "missing in sheet", never deleted.
-- Edit: the row is re-read, the Sheet is written first (`ops/sheet.set_cells`), then the store. If a cell changed in
-  the Sheet since the editor loaded it, the API answers 409 with both values. If the Sheet write fails, the edit is
-  kept as "pending sync" and retried by the next pull.
+  `settings`, `comments_cache`). **It is the source of truth.** The Google Sheet is a read-only mirror for other agents.
+- Every change (UI, `/api`, `/mcp`, the scheduler's status marks, `ops/make.py --sync-only`, `ops/clip.py`, uploads,
+  restores) is written to the store first. The changed cells are queued (`pending`) and the whole row is written to
+  the Sheet by Video ID (`ops/sheet.write_row`), in the background. A Sheet failure never blocks or rolls back a change;
+  the queued cells show "mirror waiting" and are retried by the next push.
+- Mirror push: `python3.11 -m studio.sync push` (cron every 5 minutes, and after each change). `pull` is an old alias of
+  `push`: nothing reads the Sheet back automatically.
+- Import from Sheet (Settings, or `python3.11 -m studio.sync import [--tab T]`): a diff of cells that differ and rows
+  that exist only in the Sheet. Only the ticked items are applied. `--apply-all` was used once, for the migration.
+- The scheduler (`ops/scheduler.py`) reads due rows from the store through `ops/reelrows.py` and writes
+  Publishing / Published / Failed there first, then mirrors that row.
+- An edit can carry `base` (the values the editor loaded); a cell changed in the studio since then answers 409.
 - Setting a Published row back to Ready needs `allow_repost: true`; rows that are `Publishing` can not be edited.
-- Snapshots: `python3.11 -m studio.sync snapshot` writes JSON + CSV of every tab and a copy of `publish-log.jsonl` to
+- Snapshots (the store's backup): `python3.11 -m studio.sync snapshot` writes JSON + CSV of every tab and a copy of `publish-log.jsonl` to
   `~/.local/state/reels-shorts/backup/YYYY-MM-DD/`, keeping 30 days. "Restore row" rewrites one row from a snapshot;
   status and post-URL cells that already hold a value are never rolled back.
 - Job logs: `~/.local/state/reels-shorts/studio-jobs/<id>.log`.
@@ -98,19 +104,20 @@ Publishing, Archived and channel-less rows never.
    is shown to the scheduler as Ready for this one forced run only (in memory), so its status flips through the same path.
 
 Several ids run one after another under the same lock (bulk publish). If the brand's daily cap is reached, the request also needs
-`override_cap: true`. `dry_run: true` shows what would be posted, without posting. After the job, the tab is pulled
-again.
+`override_cap: true`. `dry_run: true` shows what would be posted, without posting. After the job, the Sheet mirror is pushed.
 
 ## JSON API (agents)
 
 Create a token in Settings or with `python3.11 -m studio token <name>`, then send `Authorization: Bearer <token>`
-(no CSRF header needed). Every call is audited as `token:<name>`.
+(no CSRF header needed). Every call is audited as `token:<name>`. The MCP key (below) works here too, as
+`Authorization: Bearer <key>` or `X-API-Key: <key>`, audited as `mcp-key`. Neither works on `/api/settings/*`
+(password, tokens, the key): those need the owner's browser session.
 
 | Method | Path | What |
 |---|---|---|
 | GET | `/api/reels?brand=&status=&folder=&q=` | every row (Sheet header names + `tab`, `brand`, `folder`, `pending`, `missing`, `thumb`, `spec_path`, `prev_status`), folder counts per brand, unsynced renders |
 | GET | `/api/reels/{id}` | one row + publish log, insights, files, stills, spec summary, snapshots |
-| PATCH | `/api/reels/{id}` | `{fields: {header: value}, base?, force?, allow_repost?}` → 200 ok, 202 pending, 409 conflict |
+| PATCH | `/api/reels/{id}` | `{fields: {header: value}, base?, force?, allow_repost?}` → 200 ok, 409 conflict |
 | POST | `/api/reels/{id}/hold` | `{hold: true/false}` Ready ↔ Hold |
 | POST | `/api/reels/{id}/archive` | `{archive: true/false}` archive / unarchive |
 | POST | `/api/reels/{id}/schedule` | `{when: "YYYY-MM-DD HH:MM" or "next", auto: true/false}` Ready or Hold at that time |
@@ -119,10 +126,11 @@ Create a token in Settings or with `python3.11 -m studio token <name>`, then sen
 | POST | `/api/upload` | multipart `file` + `brand, lang, topic, caption, hashtags, yt_title, yt_desc, after, when, confirm` (a job) |
 | POST | `/api/reels/bulk` | `{ids, action: hold/ready/schedule/fill/swap/archive/unarchive/publish, start, every_days, confirm}` (a job) |
 | GET/POST | `/api/reels/{id}/restore` | `?date=YYYY-MM-DD` dry run / `{date, dry_run: false}` |
-| POST | `/api/sync` | pull from the Sheet now (a job) |
+| POST | `/api/sync` | push the Sheet mirror now (a job) |
+| GET/POST | `/api/import/preview?tab=`, `/api/import/apply` | Sheet → studio diff / `{tab, changes: {id: [header]}, new: [id]}` |
 | GET | `/api/publish/preview?id=&platform=` | handle, caption, cap, today's count, problems, lock state |
 | POST | `/api/publish` | `{id, platform, confirm: true, override_cap?, dry_run?}` (a job) |
-| GET/POST | `/api/jobs` | list / `{kind, params}`: `render`, `rerender`, `sync`, `generate`, `insights`, `pull`, `snapshot`, `dryrun` |
+| GET/POST | `/api/jobs` | list / `{kind, params}`: `render`, `rerender`, `sync`, `generate`, `insights`, `push`, `snapshot`, `dryrun`, `backfill` |
 | GET | `/api/jobs/{id}`, `/api/jobs/{id}/stream` | status + log tail / live log (SSE) |
 | POST | `/api/jobs/{id}/cancel` | cancel |
 | GET/POST | `/api/scripts`, `/api/scripts/check`, `/api/scripts/save` | CraftLayer script studio |
@@ -134,10 +142,56 @@ Create a token in Settings or with `python3.11 -m studio token <name>`, then sen
 | GET | `/media/<brand>/<ID>/<file>`, `/thumb/<ID>.jpg` | MP4 (range requests), images, captions |
 | GET | `/editor/` | FilmCraft web build, with COOP/COEP headers |
 
+## MCP
+
+`https://studio.campusloop.space/mcp` is an MCP server (Streamable HTTP, JSON-RPC 2.0 over `POST`, protocol
+`2025-06-18`, also `2025-03-26` and `2024-11-05`). It answers `initialize` (with an `Mcp-Session-Id` header, never
+required afterwards), `ping`, `tools/list` and `tools/call`; notifications get 202. Replies are JSON, or one SSE
+`message` event when the client accepts only `text/event-stream`. `GET /mcp` is 405. `/.well-known/*` is a JSON 404:
+there is no OAuth.
+
+- **No key**: every tool is listed, but only the read tools run (`list_reels`, `get_reel`, `list_channels`,
+  `calendar`, `insights_summary`, `list_jobs`, `get_job`, `health`). Private fields are removed: Drive folder and direct
+  MP4 links, `/media` and `/thumb` URLs, local paths, audit IPs, Composio account ids, job logs. Other tools answer
+  `isError: true` with "requires API key" (not HTTP 401, so connectors still see the tools).
+- **With the key**: every UI action. Edit fields, schedule (time or `next`), next free slot, hold, archive, swap, bulk
+  actions, `publish_instagram` / `publish_youtube` / `bulk_publish`, render, stills, sync and mirror jobs, job logs,
+  channel settings, `upload_video` (a file on the server or a URL), comments and replies, and the unredacted reads.
+  Each call is audited as `mcp-key`.
+- **Publishing posts for real.** The publish tools need `confirm: true`; `dry_run: true` checks and posts nothing. They run
+  as the same publish job as the UI, under the scheduler's shared lock and daily cap (`override_cap: true` to pass it).
+- Send the key as `Authorization: Bearer <key>`, `X-API-Key: <key>`, or `?api_key=<key>` (only for connectors that take
+  nothing but a URL; a key in a URL can end up in logs). Ten bad keys from one IP lock that IP out for 15 minutes.
+
+Key: only its scrypt hash is stored, in `~/.config/reels-studio/auth.json`. Set it from the environment, rotate it
+(Settings → MCP server, the new key is shown once) or revoke it:
+
+```bash
+STUDIO_MCP_KEY='<your key, 24+ characters>' python3.11 -m studio mcp-key
+python3.11 -m studio mcp-key --revoke
+```
+
+Client config (Claude Code, Cursor and others that take `mcpServers`):
+
+```json
+{
+  "mcpServers": {
+    "reels-studio": {
+      "type": "http",
+      "url": "https://studio.campusloop.space/mcp",
+      "headers": { "Authorization": "Bearer YOUR_STUDIO_MCP_KEY" }
+    }
+  }
+}
+```
+
+Check it: `npx -y @modelcontextprotocol/inspector --cli https://studio.campusloop.space/mcp --transport http --method tools/list`.
+
 ## Files
 
 `app.py` routes, auth guard, media, SSE · `auth.py` scrypt, cookies, CSRF, tokens, rate limit · `store.py` SQLite ·
-`sync.py` pull, edit, conflicts, pending, snapshots, restore, bulk, folders, archive, slots, swap · `jobs.py`
+`sync.py` store-first edits, Sheet mirror push, import diff, snapshots, restore, bulk, folders, archive, slots, swap ·
+`mcp.py` the MCP server (tools, redaction, JSON-RPC) · `jobs.py`
 subprocess queue · `publish_job.py` one or more reels through `scheduler.run` · `upload.py` the upload job · `tasks.py` insights, comments, health · `web/` static UI (vanilla JS modules, no build).
 
 Tests: `python3.11 -m pytest tests/studio` (no network; Composio and the Sheet are mocked).

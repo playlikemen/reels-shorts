@@ -10,6 +10,7 @@ This repo makes narrated motion-graphics videos (Instagram Reels, YouTube Shorts
 | IndexFast (indexing, technical SEO) | `@indexfast` · Composio `instagram_dam-hinder` | none connected | `@indexfast` | `brands/indexfast/brand.json` |
 
 - Sheet: https://docs.google.com/spreadsheets/d/1wnwYwhGw4kdhC5lHf6MCU208yRslGoppBzHkezUfYEk (Composio `googlesheets_louse-token`)
+- Source of truth: the Reels Studio store (`~/.local/state/reels-shorts/studio.db`). The Sheet is a read-only mirror, pushed every 5 minutes. Do not edit reel rows in the Sheet: change them in the studio, through `/api/*` or the MCP server at `https://studio.campusloop.space/mcp` (see `studio/README.md`). `make.py --sync-only` and the scheduler already write the store first.
 - Drive archive folder: `1upAISpZAnmyDDYki_FH9tK-FVh_djqLS` (Composio `googledrive_footle-khir`)
 - Engine artifact for other agents (private until shared): https://claude.ai/artifact/MGoZv9wiFjTq8X19uHpfAc. Its files are listed in `MANIFEST.txt`; republish `docs/studio.html` with those files after changing the engine or ops.
 - CampusLoop (`brands/campusloop/`, tab `@campusloop`, Instagram `instagram_skyish-rhe`): one reel a day at most (`max_reels_per_day`). Read `brands/campusloop/playbook.md` before making anything for it. Phone recordings go through `ops/clip.py`; weekly numbers come from `ops/ig_report.py campusloop --sheet`.
@@ -39,7 +40,7 @@ python3.11 ops/make.py specs/<brand>/<ID>.json                        # render, 
 python3.11 ops/make.py specs/<brand>/<ID>.json --only 0,3             # re-render scenes 0 and 3 (narration unchanged)
 python3.11 ops/make.py specs/<brand>/<ID>.json --sync-only            # Drive + sheet for an existing render
 python3.11 engine/check.py out/<brand>/<ID>/<id>.mp4 --transcribe     # contact sheet + Whisper transcript
-python3.11 ops/sheet.py --show                                        # status and schedule of every row
+python3.11 ops/sheet.py --show                                        # status and schedule of every row (the Sheet mirror)
 python3.11 ops/scheduler.py --dry-run                                 # what would be posted now
 python3.11 ops/scheduler.py --publish --now CR-106-HI                 # post these rows now (owner asked; skips schedule and daily cap)
 python3.11 ops/make.py specs/<brand>/<ID>.json --lang hi              # one language of a bilingual spec ("langs"); id becomes <ID>-HI
