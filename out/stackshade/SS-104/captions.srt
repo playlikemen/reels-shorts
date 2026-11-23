@@ -1,0 +1,32 @@
+1
+00:00:00,243 --> 00:00:02,734
+Most backend servers waste half their CPU
+
+2
+00:00:02,799 --> 00:00:05,956
+moving data between memory buffers Kafka avoids
+
+3
+00:00:05,919 --> 00:00:08,653
+this entirely using a Linux superpower called
+
+4
+00:00:08,615 --> 00:00:11,824
+Zero Copy With sendfile the OS streams
+
+5
+00:00:11,785 --> 00:00:13,953
+bytes directly from the page cache into
+
+6
+00:00:13,915 --> 00:00:16,232
+the network card That is how Kafka
+
+7
+00:00:16,193 --> 00:00:18,975
+pumps millions of messages every second without
+
+8
+00:00:18,936 --> 00:00:19,912
+burning the CPU
+

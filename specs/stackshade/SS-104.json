@@ -1,0 +1,203 @@
+{
+ "title": "Zero-Copy: how Kafka streams millions of messages per second",
+ "style": "brutal",
+ "format": "short",
+ "series": "SYSTEM DESIGN INTERNALS",
+ "meta": {
+  "id": "SS-104",
+  "brand": "stackshade",
+  "topic": "System Design / Zero-Copy & sendfile",
+  "schedule": "2026-11-23 19:00",
+  "yt_title": "Zero-Copy: How Kafka Streams Millions of Messages per Second #shorts",
+  "yt_tags": [
+   "zero-copy",
+   "kafka",
+   "sendfile",
+   "linux internals",
+   "system design",
+   "backend",
+   "operating systems",
+   "page cache",
+   "high performance",
+   "software engineering",
+   "stackshade"
+  ],
+  "yt_description": "How does Apache Kafka stream millions of messages per second on plain hard drives? Zero-copy.\n\n• Standard I/O uses 4 context switches and 4 data copies: disk -> page cache -> user buffer -> socket buffer -> NIC\n• Linux sendfile syscall transfers data directly from page cache to the network card\n• Zero user space copies, zero CPU cycles wasted copying bytes\n• Kafka acts as a zero-copy pipeline between sequential disk and network\n\nVoiceover is AI-generated. Source: Linux Programmer's Manual (man 2 sendfile), Apache Kafka Design.",
+  "ig_caption": "How does Kafka stream millions of messages per second without melting your CPU? 🚀\n\nNormal I/O makes 4 data copies between disk, kernel, user RAM, and network card.\n\n⚡ Zero-copy uses the Linux `sendfile` syscall\n📦 Data streams straight from OS Page Cache to the NIC buffer\n🚫 0 copies in user space\n⚡ 0 CPU cycles wasted on memory copies\n\nFollow @stackshade for more.\n\nVoiceover is AI-generated. Source: man 2 sendfile, Apache Kafka documentation.",
+  "ig_hashtags": [
+   "#systemdesign",
+   "#kafka",
+   "#linux",
+   "#backend",
+   "#softwareengineering",
+   "#devops",
+   "#programming",
+   "#developers",
+   "#coding",
+   "#tech"
+  ],
+  "sources": [
+   "https://man7.org/linux/man-pages/man2/sendfile.2.html",
+   "https://kafka.apache.org/documentation/#design_filesystem"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 THE TRAP",
+   "bg": "purple",
+   "say": "Most backend servers waste half their CPU moving data between memory buffers.",
+   "els": [
+    {
+     "type": "row",
+     "gap": 14,
+     "align": "center",
+     "at": -0.3,
+     "children": [
+      {
+       "type": "kicker",
+       "text": "SYSTEM DESIGN"
+      },
+      {
+       "type": "tag",
+       "text": "THE BOTTLENECK",
+       "color": "pink"
+      }
+     ]
+    },
+    {
+     "type": "headline",
+     "text": "WASTING\nHALF THE\n[[CPU]]",
+     "at": -0.3
+    },
+    {
+     "type": "serif",
+     "text": "disk → kernel → user space → socket → NIC",
+     "at": "moving data"
+    },
+    {
+     "type": "row",
+     "gap": 22,
+     "mt": 36,
+     "align": "center",
+     "at": "buffers",
+     "children": [
+      {
+       "type": "stat",
+       "num": "4",
+       "unit": "COPIES",
+       "color": "pink"
+      },
+      {
+       "type": "note",
+       "text": "4 CONTEXT SWITCHES\nFOR ONE FILE READ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 ZERO COPY",
+   "bg": "black",
+   "say": "Kafka avoids this entirely using a Linux superpower called Zero Copy.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "LINUX INTERNALS",
+     "at": "Kafka"
+    },
+    {
+     "type": "headline",
+     "text": "THE [[ZERO-COPY]]\nPIPELINE",
+     "size": 135,
+     "at": "Kafka"
+    },
+    {
+     "type": "serif",
+     "text": "sendfile(out_fd, in_fd, &offset, count)",
+     "at": "superpower",
+     "ml": 10
+    },
+    {
+     "type": "row",
+     "gap": 18,
+     "mt": 44,
+     "align": "center",
+     "at": "Zero Copy",
+     "children": [
+      {
+       "type": "icon",
+       "name": "layers",
+       "size": 120,
+       "bg": "paper",
+       "color": "purple"
+      },
+      {
+       "type": "note",
+       "text": "KERNEL-LEVEL DMA TRANSFER\n**ZERO USER BUFFER COPIES**"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 THE MECHANISM",
+   "bg": "mint",
+   "say": "With sendfile, the OS streams bytes directly from the page cache into the network card.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "DIRECT KERNEL PATH",
+     "at": "With sendfile"
+    },
+    {
+     "type": "stat",
+     "num": "0",
+     "unit": "USER COPIES",
+     "color": "black",
+     "at": "page cache"
+    },
+    {
+     "type": "headline",
+     "text": "CACHE → [[NIC]]",
+     "at": "network card",
+     "size": 130
+    },
+    {
+     "type": "note",
+     "text": "Data never leaves the Linux kernel space.",
+     "at": "directly"
+    }
+   ]
+  },
+  {
+   "chapter": "03 THE SPEED",
+   "bg": "pink",
+   "say": "That is how Kafka pumps millions of messages every second without burning the CPU.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "THROUGHPUT",
+     "at": "That is how"
+    },
+    {
+     "type": "stat",
+     "num": "10x",
+     "unit": "FASTER",
+     "color": "black",
+     "at": "millions"
+    },
+    {
+     "type": "headline",
+     "text": "HARDWARE-RATE\n[[STREAMING]]",
+     "size": 115,
+     "at": "every second"
+    },
+    {
+     "type": "serif",
+     "text": "Follow StackShade for more.",
+     "at": "burning"
+    }
+   ]
+  }
+ ]
+}
