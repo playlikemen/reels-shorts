@@ -1,0 +1,203 @@
+{
+ "title": "B-Tree vs LSM-Tree: why Cassandra writes 10x faster than Postgres",
+ "style": "brutal",
+ "format": "short",
+ "series": "DATABASE INTERNALS",
+ "meta": {
+  "id": "SS-105",
+  "brand": "stackshade",
+  "topic": "Databases / B-Tree vs LSM-Tree",
+  "schedule": "2026-11-24 19:00",
+  "yt_title": "Why Cassandra Writes 10x Faster Than MySQL (B-Tree vs LSM-Tree) #shorts",
+  "yt_tags": [
+   "b-tree vs lsm-tree",
+   "database internals",
+   "cassandra",
+   "postgresql",
+   "mysql",
+   "rocksdb",
+   "system design",
+   "backend engineering",
+   "storage engines",
+   "software engineering",
+   "stackshade"
+  ],
+  "yt_description": "Why do write-heavy systems replace B-Trees with LSM-Trees? Sequential I/O.\n\n• B-Trees (PostgreSQL, MySQL InnoDB) update 8KB or 16KB pages in-place, causing heavy random disk I/O\n• LSM-Trees (Cassandra, RocksDB) append writes sequentially into an in-memory MemTable and Write-Ahead Log\n• When full, MemTables flush as immutable SSTables to disk\n• Sequential disk writes run at hardware speed, eliminating random seek bottlenecks\n\nVoiceover is AI-generated. Source: Martin Kleppmann (DDIA), Apache Cassandra Architecture.",
+  "ig_caption": "Why can Cassandra write 10x faster than MySQL or Postgres? ⚡\n\nIt comes down to storage engines:\n\n🌳 B-Trees (MySQL/Postgres) update pages in-place. Every write causes random disk I/O and page fragmentation.\n\n⚡ LSM-Trees (Cassandra/RocksDB) never overwrite disk pages. Writes append sequentially into an in-memory MemTable.\n\nSequential disk I/O is up to 100x faster than random writes.\n\nFollow @stackshade for more.\n\nVoiceover is AI-generated. Source: Designing Data-Intensive Applications, Cassandra docs.",
+  "ig_hashtags": [
+   "#databases",
+   "#systemdesign",
+   "#postgresql",
+   "#cassandra",
+   "#backend",
+   "#softwareengineering",
+   "#sql",
+   "#programming",
+   "#developers",
+   "#tech"
+  ],
+  "sources": [
+   "https://cassandra.apache.org/doc/latest/cassandra/architecture/storage_engine.html",
+   "https://github.com/facebook/rocksdb/wiki/RocksDB-Basics"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 THE PUZZLE",
+   "bg": "purple",
+   "say": "Why can Cassandra write millions of records a second while MySQL and Postgres struggle?",
+   "els": [
+    {
+     "type": "row",
+     "gap": 14,
+     "align": "center",
+     "at": -0.3,
+     "children": [
+      {
+       "type": "kicker",
+       "text": "DATABASE ARCHITECTURE"
+      },
+      {
+       "type": "tag",
+       "text": "WRITE SPEED",
+       "color": "mint"
+      }
+     ]
+    },
+    {
+     "type": "headline",
+     "text": "B-TREE VS\n[[LSM-TREE]]",
+     "at": -0.3
+    },
+    {
+     "type": "serif",
+     "text": "Why storage engines make or break throughput",
+     "at": "struggle"
+    },
+    {
+     "type": "row",
+     "gap": 22,
+     "mt": 36,
+     "align": "center",
+     "at": "millions",
+     "children": [
+      {
+       "type": "stat",
+       "num": "10x",
+       "unit": "FASTER WRITES",
+       "color": "pink"
+      },
+      {
+       "type": "note",
+       "text": "SEQUENTIAL DISK I/O\nVS RANDOM DISK SEEKS"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 THE B-TREE",
+   "bg": "black",
+   "say": "Traditional databases use B-Trees. Every insert modifies an eight or sixteen kilobyte page in place, causing random disk I/O.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "MYSQL & POSTGRESQL",
+     "at": "Traditional"
+    },
+    {
+     "type": "headline",
+     "text": "IN-PLACE [[PAGE]]\nMODIFICATIONS",
+     "size": 130,
+     "at": "Traditional"
+    },
+    {
+     "type": "serif",
+     "text": "8KB / 16KB disk pages updated randomly",
+     "at": "eight or sixteen",
+     "ml": 10
+    },
+    {
+     "type": "row",
+     "gap": 18,
+     "mt": 40,
+     "align": "center",
+     "at": "random disk",
+     "children": [
+      {
+       "type": "icon",
+       "name": "database",
+       "size": 120,
+       "bg": "paper",
+       "color": "purple"
+      },
+      {
+       "type": "note",
+       "text": "RANDOM SEEKS LIMIT\n**MAXIMUM WRITE RATE**"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 THE LSM SECRET",
+   "bg": "mint",
+   "say": "Cassandra and RocksDB use LSM-Trees. Writes never modify disk pages in place. They append sequentially to memory.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "APPEND-ONLY LOGS",
+     "at": "Cassandra"
+    },
+    {
+     "type": "stat",
+     "num": "0",
+     "unit": "RANDOM SEEKS",
+     "color": "black",
+     "at": "never modify"
+    },
+    {
+     "type": "headline",
+     "text": "IN-MEMORY\n[[MEMTABLE]]",
+     "at": "sequentially",
+     "size": 130
+    },
+    {
+     "type": "note",
+     "text": "Sequential append to RAM, flushed as SSTables.",
+     "at": "to memory"
+    }
+   ]
+  },
+  {
+   "chapter": "03 THE LESSON",
+   "bg": "pink",
+   "say": "LSM-Trees trade slower reads for blazing writes. That is why high-throughput systems choose them. Follow StackShade for more.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "THE TRADEOFF",
+     "at": "LSM-Trees"
+    },
+    {
+     "type": "stat",
+     "num": "100%",
+     "unit": "SEQUENTIAL",
+     "color": "black",
+     "at": "blazing writes"
+    },
+    {
+     "type": "headline",
+     "text": "SEQUENTIAL\nBEATS [[RANDOM]]",
+     "size": 115,
+     "at": "high-throughput"
+    },
+    {
+     "type": "serif",
+     "text": "Follow StackShade for more.",
+     "at": "Follow"
+    }
+   ]
+  }
+ ]
+}

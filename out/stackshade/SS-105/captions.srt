@@ -1,0 +1,40 @@
+1
+00:00:00,254 --> 00:00:02,282
+Why can Cassandra write millions of records
+
+2
+00:00:02,245 --> 00:00:05,003
+a second while MySQL and Postgres struggle
+
+3
+00:00:05,563 --> 00:00:09,386
+Traditional databases use B-Trees Every insert modifies
+
+4
+00:00:09,347 --> 00:00:11,319
+an eight or sixteen kilobyte page in
+
+5
+00:00:11,280 --> 00:00:14,675
+place causing random disk I/O Cassandra and
+
+6
+00:00:14,637 --> 00:00:18,541
+RocksDB use LSM-Trees Writes never modify disk
+
+7
+00:00:18,502 --> 00:00:20,902
+pages in place They append sequentially to
+
+8
+00:00:20,862 --> 00:00:24,579
+memory LSM-Trees trade slower reads for blazing
+
+9
+00:00:24,541 --> 00:00:27,091
+writes That is why high-throughput systems choose
+
+10
+00:00:27,053 --> 00:00:28,827
+them Follow StackShade for more
+

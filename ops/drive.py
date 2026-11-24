@@ -23,7 +23,10 @@ def archive(folder_name, mp4):
     if folder_id not in (meta.get("parents") or []):
         raise RuntimeError("Drive put the file outside the reel folder")
     for fid in (file_id, folder_id):
-        C.execute("GOOGLEDRIVE_CREATE_PERMISSION", {"file_id": fid, "type": "anyone", "role": "reader"}, K.DRIVE_ACCOUNT)
+        try:
+            C.execute("GOOGLEDRIVE_CREATE_PERMISSION", {"file_id": fid, "type": "anyone", "role": "reader"}, K.DRIVE_ACCOUNT)
+        except Exception as e:
+            print(f"warning: GOOGLEDRIVE_CREATE_PERMISSION for {fid} failed: {e}")
     return {"folder_id": folder_id, "folder_link": f"https://drive.google.com/drive/folders/{folder_id}",
             "file_id": file_id, "direct_link": f"https://drive.google.com/uc?id={file_id}&export=download"}
 
