@@ -1,0 +1,44 @@
+1
+00:00:00,250 --> 00:00:02,348
+Most engineers route cache keys using hash
+
+2
+00:00:02,310 --> 00:00:04,219
+of key modulo N But adding one
+
+3
+00:00:04,182 --> 00:00:07,913
+server invalidates almost everything Consistent hashing fixes
+
+4
+00:00:07,874 --> 00:00:10,143
+this Both servers and keys are hashed
+
+5
+00:00:10,104 --> 00:00:11,867
+onto a circular ring from zero to
+
+6
+00:00:11,829 --> 00:00:13,884
+two to the thirty second When a
+
+7
+00:00:13,846 --> 00:00:15,551
+new server joins it only takes a
+
+8
+00:00:15,512 --> 00:00:17,723
+tiny slice from its neighbor Only one
+
+9
+00:00:17,684 --> 00:00:20,108
+divided by N keys move The best
+
+10
+00:00:20,068 --> 00:00:22,735
+distributed systems minimize data movement when machines
+
+11
+00:00:22,696 --> 00:00:24,745
+fail Follow StackShade for more
+

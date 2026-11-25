@@ -1,0 +1,202 @@
+{
+ "title": "Consistent Hashing: why modulo hashing fails at scale",
+ "style": "brutal",
+ "format": "short",
+ "series": "SYSTEM DESIGN INTERNALS",
+ "meta": {
+  "id": "SS-106",
+  "brand": "stackshade",
+  "topic": "System Design / Consistent Hashing",
+  "schedule": "2026-11-25 19:00",
+  "yt_title": "Why Modulo Hashing Fails at Scale (Consistent Hashing Explained) #shorts",
+  "yt_tags": [
+   "consistent hashing",
+   "system design",
+   "distributed systems",
+   "caching",
+   "dynamodb",
+   "cassandra",
+   "discord architecture",
+   "backend engineering",
+   "software engineering",
+   "stackshade"
+  ],
+  "yt_description": "Why simple hash(key) % N breaks distributed databases at scale, and how consistent hashing solves it.\n\n• Modulo hashing reshuffles almost every key when adding or removing a server\n• Consistent hashing maps servers and keys onto a 2^32 circular ring\n• Requests route clockwise to the nearest server node\n• Adding a new server only moves 1/N of keys, eliminating cache stampedes\n\nVoiceover is AI-generated. Source: Karger et al. (MIT Consistent Hashing), Amazon Dynamo Paper.",
+  "ig_caption": "Why does `hash(key) % N` fail at scale? 🤯\n\nIf you have 4 cache servers and add a 5th, normal modulo hashing invalidates 80% of your cached data overnight.\n\n⚡ Consistent Hashing maps both keys and servers to a 360° hash ring (0 to 2³² - 1)\n🔄 Keys walk clockwise to the nearest server\n🛡️ Adding a server only moves 1/N of the keys\n\nThis is how Discord, Cassandra, and Amazon Dynamo scale without downtime.\n\nFollow @stackshade for more.\n\nVoiceover is AI-generated. Source: MIT Consistent Hashing paper, Amazon Dynamo.",
+  "ig_hashtags": [
+   "#systemdesign",
+   "#distributedcache",
+   "#backend",
+   "#softwareengineering",
+   "#devops",
+   "#programming",
+   "#developers",
+   "#coding",
+   "#database",
+   "#tech"
+  ],
+  "sources": [
+   "https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf",
+   "https://en.wikipedia.org/wiki/Consistent_hashing"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 THE TRAP",
+   "bg": "purple",
+   "say": "Most engineers route cache keys using hash of key modulo N. But adding one server invalidates almost everything.",
+   "els": [
+    {
+     "type": "row",
+     "gap": 14,
+     "align": "center",
+     "at": -0.3,
+     "children": [
+      {
+       "type": "kicker",
+       "text": "DISTRIBUTED CACHING"
+      },
+      {
+       "type": "tag",
+       "text": "THE MODULO TRAP",
+       "color": "pink"
+      }
+     ]
+    },
+    {
+     "type": "headline",
+     "text": "HASH(KEY)\n[[MODULO N]]\nFAILS",
+     "at": -0.3
+    },
+    {
+     "type": "serif",
+     "text": "Change N from 4 to 5 → almost every key moves",
+     "at": "adding one server"
+    },
+    {
+     "type": "row",
+     "gap": 22,
+     "mt": 36,
+     "align": "center",
+     "at": "almost everything",
+     "children": [
+      {
+       "type": "stat",
+       "num": "80%",
+       "unit": "CACHE MISS RATE",
+       "color": "pink"
+      },
+      {
+       "type": "note",
+       "text": "THUNDERING HERD CRASHES\n**BACKEND PRIMARY DATABASE**"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 THE RING",
+   "bg": "black",
+   "say": "Consistent hashing fixes this. Both servers and keys are hashed onto a circular ring from zero to two to the thirty second.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "THE ELEGANT FIX",
+     "at": "Consistent hashing"
+    },
+    {
+     "type": "headline",
+     "text": "THE 360°\n[[HASH RING]]",
+     "size": 130,
+     "at": "Consistent hashing"
+    },
+    {
+     "type": "serif",
+     "text": "Servers and keys share the same 2^32 address space",
+     "at": "circular ring",
+     "ml": 10
+    },
+    {
+     "type": "row",
+     "gap": 18,
+     "mt": 40,
+     "align": "center",
+     "at": "thirty second",
+     "children": [
+      {
+       "type": "icon",
+       "name": "layers",
+       "size": 120,
+       "bg": "paper",
+       "color": "purple"
+      },
+      {
+       "type": "note",
+       "text": "KEYS ROUTE CLOCKWISE\n**TO FIRST NEAREST SERVER**"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 MINIMAL RESHARDING",
+   "bg": "mint",
+   "say": "When a new server joins, it only takes a tiny slice from its neighbor. Only one divided by N keys move.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "SCALE WITHOUT DOWNTIME",
+     "at": "When a new server"
+    },
+    {
+     "type": "stat",
+     "num": "1/N",
+     "unit": "KEYS MOVED",
+     "color": "black",
+     "at": "one divided by N"
+    },
+    {
+     "type": "headline",
+     "text": "ZERO CACHE\n[[STAMPEDE]]",
+     "at": "tiny slice",
+     "size": 125
+    },
+    {
+     "type": "note",
+     "text": "How Discord, Cassandra, and DynamoDB scale seamlessly.",
+     "at": "keys move"
+    }
+   ]
+  },
+  {
+   "chapter": "03 THE LESSON",
+   "bg": "pink",
+   "say": "The best distributed systems minimize data movement when machines fail. Follow StackShade for more.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "SYSTEM DESIGN PRINCIPLE",
+     "at": "The best distributed"
+    },
+    {
+     "type": "stat",
+     "num": "99.9%",
+     "unit": "CACHE PRESERVED",
+     "color": "black",
+     "at": "minimize data"
+    },
+    {
+     "type": "headline",
+     "text": "TOPOLOGY-AWARE\n[[ROUTING]]",
+     "size": 115,
+     "at": "machines fail"
+    },
+    {
+     "type": "serif",
+     "text": "Follow StackShade for more.",
+     "at": "Follow"
+    }
+   ]
+  }
+ ]
+}
