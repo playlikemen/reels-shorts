@@ -1,0 +1,202 @@
+{
+ "title": "Bloom Filters: how Cassandra answers exists queries without disk I/O",
+ "style": "brutal",
+ "format": "short",
+ "series": "DATABASE INTERNALS",
+ "meta": {
+  "id": "SS-107",
+  "brand": "stackshade",
+  "topic": "Databases / Bloom Filters",
+  "schedule": "2026-11-26 19:00",
+  "yt_title": "How Cassandra Answers Exists in 0.1ms Without Disk I/O (Bloom Filters Explained) #shorts",
+  "yt_tags": [
+   "bloom filter",
+   "cassandra",
+   "database internals",
+   "system design",
+   "algorithms",
+   "rocksdb",
+   "postgresql",
+   "distributed systems",
+   "software engineering",
+   "stackshade"
+  ],
+  "yt_description": "How do high-performance databases know a record doesn't exist without scanning gigabytes of disk? Bloom filters.\n\n• Bloom filters are probabilistic, memory-efficient bit arrays with k hash functions\n• If any hashed bit is 0, the key definitely does NOT exist (0% false negatives)\n• If all hashed bits are 1, the key might exist, triggering a disk lookup\n• 1 billion keys need only ~1.2 GB of RAM for a 1% false positive rate\n\nVoiceover is AI-generated. Source: Burton H. Bloom (1970) CACM, Apache Cassandra Architecture.",
+  "ig_caption": "How do Cassandra and RocksDB know a record doesn't exist in 0.1 milliseconds without touching disk? ⚡\n\nThey use Bloom Filters:\n\n🔍 When searching for a key across millions of SSTables on disk, reading each file would destroy latency.\n\n🧠 Instead, a compact bit array lives in RAM. The key is hashed with k independent hash functions.\n\n🛑 If any bit is 0, the key DEFINITELY does NOT exist. Disk lookup skipped entirely!\n✅ If all bits are 1, it might exist, so the database reads disk.\n\nWith just 10 bits per key, you get a 1% false positive rate and ZERO false negatives. 1 billion records fit in just 1.2 GB of RAM.\n\nFollow @stackshade for more.\n\nVoiceover is AI-generated. Source: CACM 1970 Bloom Paper, Cassandra Docs.",
+  "ig_hashtags": [
+   "#systemdesign",
+   "#database",
+   "#backend",
+   "#softwareengineering",
+   "#algorithms",
+   "#programming",
+   "#cassandra",
+   "#datastructures",
+   "#developers",
+   "#tech"
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Bloom_filter",
+   "https://cassandra.apache.org/doc/latest/cassandra/architecture/storage_engine.html"
+  ]
+ },
+ "scenes": [
+  {
+   "chapter": "00 THE PROBLEM",
+   "bg": "purple",
+   "say": "When you query a record that does not exist, scanning gigabytes of disk kills database performance.",
+   "els": [
+    {
+     "type": "row",
+     "gap": 14,
+     "align": "center",
+     "at": -0.3,
+     "children": [
+      {
+       "type": "kicker",
+       "text": "DATABASE INTERNALS"
+      },
+      {
+       "type": "tag",
+       "text": "NEGATIVE READS",
+       "color": "mint"
+      }
+     ]
+    },
+    {
+     "type": "headline",
+     "text": "SCANNING DISK\n[[FOR NOTHING]]\nKILLS SPEED",
+     "at": -0.3
+    },
+    {
+     "type": "serif",
+     "text": "Searching missing keys causes massive random I/O",
+     "at": "scanning gigabytes"
+    },
+    {
+     "type": "row",
+     "gap": 22,
+     "mt": 36,
+     "align": "center",
+     "at": "kills database",
+     "children": [
+      {
+       "type": "stat",
+       "num": "0.1ms",
+       "unit": "TARGET LATENCY",
+       "color": "pink"
+      },
+      {
+       "type": "note",
+       "text": "DISK READ PER MISS\n**DESTROYS READ THROUGHPUT**"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "01 THE BIT ARRAY",
+   "bg": "black",
+   "say": "Bloom filters solve this in memory. Every key is mapped across a compact bit array using multiple hash functions.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "PROBABILISTIC STRUCTURE",
+     "at": "Bloom filters"
+    },
+    {
+     "type": "headline",
+     "text": "THE IN-MEMORY\n[[BIT ARRAY]]",
+     "size": 125,
+     "at": "Bloom filters"
+    },
+    {
+     "type": "serif",
+     "text": "A compact vector of bits living entirely in RAM",
+     "at": "compact bit array",
+     "ml": 10
+    },
+    {
+     "type": "row",
+     "gap": 18,
+     "mt": 40,
+     "align": "center",
+     "at": "multiple hash functions",
+     "children": [
+      {
+       "type": "icon",
+       "name": "cpu",
+       "size": 120,
+       "bg": "paper",
+       "color": "purple"
+      },
+      {
+       "type": "note",
+       "text": "KEYS HASHED INTO\n**MULTIPLE BIT POSITIONS**"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "chapter": "02 THE GUARANTEE",
+   "bg": "mint",
+   "say": "If even one hashed bit is zero, the key definitely does not exist. Disk lookup skipped instantly.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "ZERO FALSE NEGATIVES",
+     "at": "If even one"
+    },
+    {
+     "type": "stat",
+     "num": "0%",
+     "unit": "FALSE NEGATIVES",
+     "color": "black",
+     "at": "definitely does not"
+    },
+    {
+     "type": "headline",
+     "text": "GUARANTEED\n[[NO DISK READ]]",
+     "at": "definitely does not",
+     "size": 125
+    },
+    {
+     "type": "note",
+     "text": "10 bits per item yields a 99% filter accuracy rate.",
+     "at": "skipped instantly"
+    }
+   ]
+  },
+  {
+   "chapter": "03 THE SCALE",
+   "bg": "pink",
+   "say": "One billion records take just one point two gigabytes of RAM. Follow StackShade for more.",
+   "els": [
+    {
+     "type": "kicker",
+     "text": "ENGINEERING EFFICIENCY",
+     "at": "One billion"
+    },
+    {
+     "type": "stat",
+     "num": "1.2 GB",
+     "unit": "RAM FOR 1B KEYS",
+     "color": "black",
+     "at": "one point two"
+    },
+    {
+     "type": "headline",
+     "text": "MICROSECOND\n[[EXISTENCE]]\nCHECKS",
+     "size": 115,
+     "at": "gigabytes of RAM"
+    },
+    {
+     "type": "serif",
+     "text": "Follow StackShade for more.",
+     "at": "Follow"
+    }
+   ]
+  }
+ ]
+}

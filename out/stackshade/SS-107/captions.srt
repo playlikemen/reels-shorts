@@ -1,0 +1,40 @@
+1
+00:00:00,250 --> 00:00:01,607
+When you query a record that does
+
+2
+00:00:01,569 --> 00:00:04,073
+not exist scanning gigabytes of disk kills
+
+3
+00:00:04,035 --> 00:00:07,037
+database performance Bloom filters solve this in
+
+4
+00:00:06,999 --> 00:00:09,256
+memory Every key is mapped across a
+
+5
+00:00:09,217 --> 00:00:11,709
+compact bit array using multiple hash functions
+
+6
+00:00:12,258 --> 00:00:13,824
+If even one hashed bit is zero
+
+7
+00:00:14,006 --> 00:00:16,344
+the key definitely does not exist Disk
+
+8
+00:00:16,304 --> 00:00:19,134
+lookup skipped instantly One billion records take
+
+9
+00:00:19,095 --> 00:00:20,974
+just one point two gigabytes of RAM
+
+10
+00:00:21,256 --> 00:00:22,625
+Follow StackShade for more
+
